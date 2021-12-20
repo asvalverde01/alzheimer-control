@@ -7,6 +7,6 @@ public class Main {
 
         System.out.println("Thyara estuvo aquí");
 		System.out.println("SEGUNDO INTENTO");
-        System.out.println("A nadie le importa <3");
+        System.out.println("Tengo sueño");
     }
 }
