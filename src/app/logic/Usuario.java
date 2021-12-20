@@ -2,7 +2,7 @@ package app.logic;
 
 public class Usuario {
     /*-------------------------------------------------------------
-    /Atributos de la clase Usuario
+    /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
     private String nombre;
     private String apellido;
@@ -18,6 +18,7 @@ public class Usuario {
 
     /**
      * Regresa el nombre del usuario
+     *
      * @return String nombre
      */
     public String getNombre() {
@@ -26,6 +27,7 @@ public class Usuario {
 
     /**
      * Asigna el nombre del usuario
+     *
      * @param nombre String
      */
     public void setNombre(String nombre) {
@@ -34,6 +36,7 @@ public class Usuario {
 
     /**
      * Regresa el apellido del usuario
+     *
      * @return String apellido
      */
     public String getApellido() {
@@ -42,6 +45,7 @@ public class Usuario {
 
     /**
      * Asigna el apellido del usuario
+     *
      * @param apellido String
      */
     public void setApellido(String apellido) {
@@ -50,6 +54,7 @@ public class Usuario {
 
     /**
      * Regresa el avatar del usuario
+     *
      * @return String avatar
      */
     public String getAvatar() {
@@ -58,6 +63,7 @@ public class Usuario {
 
     /**
      * Asigna el avatar del usuario
+     *
      * @param avatar String
      */
     public void setAvatar(String avatar) {
@@ -66,6 +72,7 @@ public class Usuario {
 
     /**
      * Regresa la fecha de nacimiento del usuario
+     *
      * @return Fecha fechaNacimiento
      */
     public Fecha getFechaNacimiento() {
@@ -74,6 +81,7 @@ public class Usuario {
 
     /**
      * Asigna la fecha de nacimiento del usuario
+     *
      * @param fechaNacimiento Fecha
      */
     public void setFechaNacimiento(Fecha fechaNacimiento) {
@@ -82,6 +90,7 @@ public class Usuario {
 
     /**
      * Regresa la etapa del usuario
+     *
      * @return int etapa
      */
     public int getEtapa() {
@@ -90,6 +99,7 @@ public class Usuario {
 
     /**
      * Asigna la etapa del usuario
+     *
      * @param etapa int
      */
     public void setEtapa(int etapa) {
@@ -98,6 +108,7 @@ public class Usuario {
 
     /**
      * Regresa las actividades del usuario
+     *
      * @return ResultadoActividad[] actividades
      */
     public ResultadoActividad[] getActividades() {
@@ -106,6 +117,7 @@ public class Usuario {
 
     /**
      * Asigna las actividades del usuario
+     *
      * @param actividades ResultadoActividad[]
      */
     public void setActividades(ResultadoActividad[] actividades) {
@@ -116,16 +128,32 @@ public class Usuario {
     /Métodos de la clase
     /-------------------------------------------------------------*/
 
-    private int calcularEdad(){
+    private int calcularEdad() {
         return 0;
     }
 
-    public void visualizarInfoUsuario(){
+    public void visualizarInfoUsuario() {
 
     }
 
-    public void visualizarRecomendaciones(){
+    public void visualizarRecomendaciones() {
 
     }
 
+
+    /*-------------------------------------------------------------
+    /Métodos contenedores de los juegos para el Usuario
+    /-------------------------------------------------------------*/
+
+    public void ejecutarSumasRestas() {
+
+    }
+
+    public void ejecutarComprensionLectora() {
+
+    }
+
+    public void ejecutarMemoria() {
+
+    }
 }
