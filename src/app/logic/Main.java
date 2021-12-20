@@ -7,6 +7,10 @@ public class Main {
 
         System.out.println("Thyara estuvo aquí");
 		System.out.println("SEGUNDO INTENTO");
+<<<<<<< HEAD
         System.out.println("Sebastian también estuvo aquí");
+=======
+        System.out.println("A nadie le importa <3");
+>>>>>>> 9a44802070b1ee690ffd543dd840233457f270c1
     }
 }
