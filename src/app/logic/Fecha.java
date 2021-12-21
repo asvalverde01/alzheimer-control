@@ -3,8 +3,7 @@ package app.logic;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class
-Fecha {
+public class Fecha {
     /*-------------------------------------------------------------
     /Atributos de la clase Fecha
     /-------------------------------------------------------------*/
