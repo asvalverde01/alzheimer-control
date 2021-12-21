@@ -85,16 +85,18 @@ public class Fecha {
     }
 
     /**
-     * Método que devuelve un objeto de la clase Fecha representando una diferencia
+     * Método recibe dos fechas y modifica la fecha actual para que sea la diferencia
      *
      * @param fecha1 recibe un objeto de la clase Fecha
      * @param fecha2 recibe un objeto de la clase Fecha
-     * @return devuelve un objeto de la clase Fecha
      */
-    public Fecha diferenciaFechas(Fecha fecha1, Fecha fecha2) {
-
-        return new Fecha();
-        // TODO: Implementar el método diferenciaFechas
+    public void diferenciaFechas(Fecha fecha1, Fecha fecha2) {
+        dia = fecha1.getDia() - fecha2.getDia();
+        mes = fecha1.getMes() - fecha2.getMes();
+        anio = fecha1.getAnio() - fecha2.getAnio();
+        dia = Math.abs(dia);
+        mes = Math.abs(mes);
+        anio = Math.abs(anio);
     }
 
 }
