@@ -1,5 +1,7 @@
 package app.logic;
 
+import java.util.StringTokenizer;
+
 public class Usuario {
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
@@ -128,10 +130,6 @@ public class Usuario {
     /Métodos de la clase
     /-------------------------------------------------------------*/
 
-    private int calcularEdad() {
-        return 0;
-    }
-
     public void visualizarInfoUsuario() {
 
     }
@@ -150,10 +148,59 @@ public class Usuario {
     }
 
     public void ejecutarComprensionLectora() {
+        
 
     }
 
     public void ejecutarMemoria() {
 
     }
+    
+    
+
+    String[] respuestas = {
+      "Perro","Gato","Azul","Rojo","Mamá"
+    };
+    
+    String[] radioR = {
+        "1,2,3,4",
+        "2,3,4,5",
+        "3,4,5,6",
+        "4,5,6,7",
+        "5,6,7,8",
+    };
+    
+    public String getRespuesta(int posicion){
+        return respuestas[posicion];
+    }
+    
+    public String[] separar(String cadena, String separador){
+        StringTokenizer token = new StringTokenizer(cadena,separador);
+        
+        String[] a = new String[4];
+        int i = 0;
+        
+        while(token.hasMoreTokens()){
+            a[i] = token.nextToken(); // obtenido el token
+            i++;
+        }
+        
+        return a;
+    }
+    
+    public String[] setRespuestas(int posicion){
+        String s1 = radioR[posicion];
+        String[] s2 = separar(s1,",");
+        return s2;
+    }
+    
+    String[] preguntas = {
+        "Pregunta 1", "Pregunta 2", "Pregunta 3",
+        "Pregunta 4", "Pregunta 5"
+    };
+    
+   public String getPregunta(int posicion){
+        return preguntas[posicion];
+    }
+    
 }
