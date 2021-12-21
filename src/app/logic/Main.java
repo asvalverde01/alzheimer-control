@@ -2,6 +2,6 @@ package app.logic;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hola Buenas buenas");
+        System.out.println("Hola Buenas buenas :3");
     }
 }
