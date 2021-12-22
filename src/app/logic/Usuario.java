@@ -141,8 +141,15 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos contenedores de los juegos para el Usuario
     /-------------------------------------------------------------*/
-    public void ejecutarSumasRestas() {
-
+   public String ejecutarSumasRestas() {
+        int valorPregunta=1;
+        int puntaje=0;
+        String respuesta1="6019";
+        if("6019".equals(respuesta1)){
+            return "Correcto :)";
+        }else{
+            return"Incorrecto :(";
+        }
     }
 
     public void ejecutarComprensionLectora() {
