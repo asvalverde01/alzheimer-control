@@ -78,7 +78,7 @@ public class Usuario {
      * @return Fecha fechaNacimiento
      */
     public String getFechaNacimiento() {
-        return fechaNacimiento.getAnio() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getDia() + "/";
+        return fechaNacimiento.getAnio() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getDia();
     }
 
     /**

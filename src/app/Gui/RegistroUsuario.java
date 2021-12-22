@@ -182,8 +182,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         String nacimientoString = jTextField1.getText();
         System.out.println("Nacimiento" + nacimientoString);
         Fecha nacimiento = new Fecha(nacimientoString);
-        usuario.setFechaNacimiento(nacimiento);
+        usuario.setFechaNacimiento(nacimiento); 
+        // TODO AVATAR        
         
+        SeleccionEtapa etapa = new SeleccionEtapa(usuario);
+        etapa.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -17,6 +17,7 @@ public class Main {
         /*-------------------------------------------------------------
         / Inicio del programa
         /-------------------------------------------------------------*/
+        
         if (!usuarioRegistrado) {
             RegistroUsuario registro = new RegistroUsuario(usuario);
             registro.setVisible(true);
@@ -24,6 +25,5 @@ public class Main {
             main.setVisible(true);
             
         }
-        
     }
 }
