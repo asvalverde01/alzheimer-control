@@ -10,7 +10,7 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String avatar;
-    private Fecha fechaNacimiento;
+    public Fecha fechaNacimiento;
     private int etapa;
     private ResultadoActividad[] actividades;
 
@@ -77,8 +77,8 @@ public class Usuario {
      *
      * @return Fecha fechaNacimiento
      */
-    public Fecha getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getFechaNacimiento() {
+        return fechaNacimiento.getAnio() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getDia();
     }
 
     /**
