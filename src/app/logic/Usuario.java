@@ -9,7 +9,7 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String avatar;
-    private Fecha fechaNacimiento;
+    public Fecha fechaNacimiento;
     private int etapa;
     private ResultadoActividad[] actividades;
 
