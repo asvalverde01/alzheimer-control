@@ -1,12 +1,34 @@
 package app.Gui;
 
+import app.logic.Usuario;
+
 public class MainScreen extends javax.swing.JFrame {
 
+    Usuario usuario;
+
+    private MainScreen() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+        System.out.println("NOmbre---" + usuario.getNombre());
+    }
+    
+    
     /**
      * Creates new form MainScreen
      */
-    public MainScreen() {
+    public MainScreen(Usuario usuario) {
         initComponents();
+        this.usuario = usuario;
+        setInformation();
+         System.out.println("NOmbre--- constructor" + usuario.getNombre());
+       
     }
 
     /**
@@ -19,14 +41,24 @@ public class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundSignUp.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 920, 680));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel1.setText("Hola ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, -1, 1020));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundSignUp.jpg"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 920, 670));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,7 +110,20 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void setInformation() {
+        try {
+             System.out.println("NOmbre---inic" + usuario.getNombre());
+            jLabel1.setText("Hola " + usuario.getNombre() + " :)");
+        } catch (NullPointerException npe) {
+            jLabel1.setText("Hola  usuario");
+        } catch (Exception e) {
+            jLabel1.setText("Problema al encontrar usuario");
+        }
+    }
 }

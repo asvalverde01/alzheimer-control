@@ -10,7 +10,7 @@ public class Main {
         /-------------------------------------------------------------*/
         Usuario usuario = new Usuario();
         
-        MainScreen main =  new MainScreen();
+        
         
         boolean usuarioRegistrado = false;
         
@@ -21,8 +21,11 @@ public class Main {
         if (!usuarioRegistrado) {
             RegistroUsuario registro = new RegistroUsuario(usuario);
             registro.setVisible(true);
+            registro.setLocationRelativeTo(null);
         } else {
+            MainScreen main =  new MainScreen(usuario);
             main.setVisible(true);
+            main.setLocationRelativeTo(null);
             
         }
     }
