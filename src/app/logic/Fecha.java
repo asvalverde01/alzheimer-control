@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Fecha {
+
     /*-------------------------------------------------------------
     /Atributos de la clase Fecha
     /-------------------------------------------------------------*/
@@ -15,11 +16,11 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Constructores
     /-------------------------------------------------------------*/
-
     /**
      * Constructor con parámetros
      *
-     * @param sFecha recibe una fecha en formato String con el formato dd/mm/yyyy
+     * @param sFecha recibe una fecha en formato String con el formato
+     * dd/mm/yyyy
      */
     public Fecha(String sFecha) {
         String sDia = sFecha.substring(0, 2);
@@ -42,7 +43,6 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Métodos get y set de la clase Fecha
     /-------------------------------------------------------------*/
-
     public int getDia() {
         return dia;
     }
@@ -71,7 +71,6 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Métodos complementarios de la clase Fecha
     /-------------------------------------------------------------*/
-
     /**
      * Método que inicializa la fecha actual utilizando el calendario Gregoriano
      */
@@ -85,7 +84,8 @@ public class Fecha {
     }
 
     /**
-     * Método recibe dos fechas y modifica la fecha actual para que sea la diferencia
+     * Método recibe dos fechas y modifica la fecha actual para que sea la
+     * diferencia
      *
      * @param fecha1 recibe un objeto de la clase Fecha
      * @param fecha2 recibe un objeto de la clase Fecha

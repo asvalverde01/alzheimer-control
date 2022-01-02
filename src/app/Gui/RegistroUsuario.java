@@ -12,6 +12,7 @@ import app.logic.Usuario;
  * @author asval
  */
 public class RegistroUsuario extends javax.swing.JFrame {
+
     Usuario usuario = new Usuario();
 
     /**
@@ -174,19 +175,19 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean correcto = false;
         // String fechaNacimiento = jTextField2.getText();
-        usuario.setNombre( jTextField2.getText());
-        usuario.setApellido( jTextField3.getText());
+        usuario.setNombre(jTextField2.getText());
+        usuario.setApellido(jTextField3.getText());
         String nacimientoString = jTextField1.getText();
-        
+
         try {
             Fecha nacimiento = new Fecha(nacimientoString);
-            usuario.setFechaNacimiento(nacimiento); 
+            usuario.setFechaNacimiento(nacimiento);
             correcto = true;
         } catch (Exception e) {
             jLabel7.setText("Error, verifique haber ingresado datos correctos");
             correcto = false;
         }
-        
+
         if (correcto) {
             SeleccionEtapa etapa = new SeleccionEtapa(usuario);
             etapa.setVisible(true);

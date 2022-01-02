@@ -12,8 +12,8 @@ import app.logic.Usuario;
  * @author asval
  */
 public class SeleccionEtapa extends javax.swing.JFrame {
+
     Usuario usuario = new Usuario();
-    
 
     /**
      * Creates new form RegistroUsuario
@@ -121,36 +121,40 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainScreen main =  new MainScreen(usuario);
+        MainScreen main = new MainScreen(usuario);
         usuario.setEtapa(2);
         this.setVisible(false);
         main.setVisible(true);
         main.setUsuario(usuario);
-       
+        main.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       MainScreen main =  new MainScreen(usuario);
+        MainScreen main = new MainScreen(usuario);
         usuario.setEtapa(1);
-       this.setVisible(false);
-       main.setVisible(true);
-       main.setUsuario(usuario);
-      
+        this.setVisible(false);
+        main.setVisible(true);
+        main.setUsuario(usuario);
+        main.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         RegistroUsuario registro = new RegistroUsuario(usuario);
         this.setVisible(false);
         registro.setVisible(true);
+        registro.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MainScreen main =  new MainScreen(usuario);
+        MainScreen main = new MainScreen(usuario);
         usuario.setEtapa(0);
         this.setVisible(false);
         main.setVisible(true);
-        main.setUsuario(usuario);        
+        main.setUsuario(usuario);
+        main.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -1,6 +1,7 @@
 package app.logic;
 
 public class ResultadoActividad {
+
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
@@ -16,7 +17,6 @@ public class ResultadoActividad {
     /*-------------------------------------------------------------
     /Métodos get y set de la clase ResultadoActividad
     /-------------------------------------------------------------*/
-
     public String getNombre() {
         return nombre;
     }
@@ -77,15 +77,15 @@ public class ResultadoActividad {
     /*-------------------------------------------------------------
     /Métodos complementarios de la clase ResultadoActividad
     /-------------------------------------------------------------*/
-    public void calcularPuntuacion(){
+    public void calcularPuntuacion() {
         // TODO
     }
 
-    public void setFechaActual(){
+    public void setFechaActual() {
         // TODO
     }
 
-    public void visualizarResultados(){
+    public void visualizarResultados() {
         // TODO
     }
 }

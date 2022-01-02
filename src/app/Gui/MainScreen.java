@@ -18,8 +18,7 @@ public class MainScreen extends javax.swing.JFrame {
         this.usuario = usuario;
         System.out.println("NOmbre---" + usuario.getNombre());
     }
-    
-    
+
     /**
      * Creates new form MainScreen
      */
@@ -27,8 +26,8 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
         this.usuario = usuario;
         setInformation();
-         System.out.println("NOmbre--- constructor" + usuario.getNombre());
-       
+        System.out.println("NOmbre--- constructor" + usuario.getNombre());
+
     }
 
     /**
@@ -41,13 +40,63 @@ public class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        actividadesButton = new javax.swing.JButton();
+        helpButton = new javax.swing.JButton();
+        homeButton1 = new javax.swing.JButton();
+        statsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        actividadesButton.setBackground(new java.awt.Color(204, 153, 255));
+        actividadesButton.setForeground(new java.awt.Color(51, 51, 51));
+        actividadesButton.setText("Actividades");
+        actividadesButton.setBorder(new javax.swing.border.MatteBorder(null));
+        actividadesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actividadesButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 160, 200, 40));
+
+        helpButton.setBackground(new java.awt.Color(255, 204, 255));
+        helpButton.setForeground(new java.awt.Color(51, 51, 51));
+        helpButton.setText("Ayuda");
+        helpButton.setBorder(new javax.swing.border.MatteBorder(null));
+        helpButton.setBorderPainted(false);
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 190, 40));
+
+        homeButton1.setBackground(new java.awt.Color(255, 102, 102));
+        homeButton1.setForeground(new java.awt.Color(51, 51, 51));
+        homeButton1.setText("Inicio");
+        homeButton1.setBorder(new javax.swing.border.MatteBorder(null));
+        homeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 200, 40));
+
+        statsButton.setBackground(new java.awt.Color(204, 153, 255));
+        statsButton.setForeground(new java.awt.Color(51, 51, 51));
+        statsButton.setText("Estadísticas");
+        statsButton.setBorder(new javax.swing.border.MatteBorder(null));
+        statsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statsButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, 200, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
@@ -59,6 +108,21 @@ public class MainScreen extends javax.swing.JFrame {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundSignUp.jpg"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 920, 670));
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,6 +137,22 @@ public class MainScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actividadesButtonActionPerformed
+
+    private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeButton1ActionPerformed
+
+    private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,15 +190,20 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actividadesButton;
     private javax.swing.JLabel fondo;
+    private javax.swing.JButton helpButton;
+    private javax.swing.JButton homeButton1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton statsButton;
     // End of variables declaration//GEN-END:variables
 
     public void setInformation() {
         try {
-             System.out.println("NOmbre---inic" + usuario.getNombre());
+            System.out.println("NOmbre---inic" + usuario.getNombre());
             jLabel1.setText("Hola " + usuario.getNombre() + " :)");
         } catch (NullPointerException npe) {
             jLabel1.setText("Hola  usuario");

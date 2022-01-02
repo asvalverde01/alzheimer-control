@@ -3,6 +3,7 @@ package app.logic;
 import java.util.StringTokenizer;
 
 public class Usuario {
+
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
@@ -17,7 +18,6 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos get y set de la clase Usuario
     /-------------------------------------------------------------*/
-
     /**
      * Regresa el nombre del usuario
      *
@@ -129,7 +129,6 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos de la clase
     /-------------------------------------------------------------*/
-
     public void visualizarInfoUsuario() {
 
     }
@@ -142,65 +141,60 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos contenedores de los juegos para el Usuario
     /-------------------------------------------------------------*/
-
     public void ejecutarSumasRestas() {
 
     }
 
     public void ejecutarComprensionLectora() {
-        
 
     }
 
     public void ejecutarMemoria() {
 
     }
-    
-    
 
     String[] respuestas = {
-      "Perro","Gato","Azul","Rojo","Mamá"
+        "Perro", "Gato", "Azul", "Rojo", "Mamá"
     };
-    
+
     String[] radioR = {
         "1,2,3,4",
         "2,3,4,5",
         "3,4,5,6",
         "4,5,6,7",
-        "5,6,7,8",
-    };
-    
-    public String getRespuesta(int posicion){
+        "5,6,7,8",};
+
+    public String getRespuesta(int posicion) {
         return respuestas[posicion];
     }
-    
-    public String[] separar(String cadena, String separador){
-        StringTokenizer token = new StringTokenizer(cadena,separador);
-        
+
+    public String[] separar(String cadena, String separador) {
+        StringTokenizer token = new StringTokenizer(cadena, separador);
+
         String[] a = new String[4];
         int i = 0;
-        
-        while(token.hasMoreTokens()){
+
+        while (token.hasMoreTokens()) {
             a[i] = token.nextToken(); // obtenido el token
             i++;
         }
-        
+
         return a;
     }
-    
-    public String[] setRespuestas(int posicion){
+
+    public String[] setRespuestas(int posicion) {
         String s1 = radioR[posicion];
-        String[] s2 = separar(s1,",");
+        String[] s2 = separar(s1, ",");
         return s2;
     }
-    
+
     String[] preguntas = {
         "Pregunta 1", "Pregunta 2", "Pregunta 3",
         "Pregunta 4", "Pregunta 5"
     };
-    
-   public String getPregunta(int posicion){
+
+    public String getPregunta(int posicion) {
         return preguntas[posicion];
     }
-    
+
 }
