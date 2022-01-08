@@ -16,7 +16,6 @@ public class MainScreen extends javax.swing.JFrame {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-        System.out.println("NOmbre---" + usuario.getNombre());
     }
 
     /**
@@ -26,7 +25,7 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
         this.usuario = usuario;
         setInformation();
-        System.out.println("NOmbre--- constructor" + usuario.getNombre());
+
 
     }
 
@@ -45,6 +44,8 @@ public class MainScreen extends javax.swing.JFrame {
         homeButton1 = new javax.swing.JButton();
         statsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        configButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
@@ -54,6 +55,7 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         actividadesButton.setBackground(new java.awt.Color(204, 153, 255));
+        actividadesButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         actividadesButton.setForeground(new java.awt.Color(51, 51, 51));
         actividadesButton.setText("Actividades");
         actividadesButton.setBorder(new javax.swing.border.MatteBorder(null));
@@ -62,7 +64,7 @@ public class MainScreen extends javax.swing.JFrame {
                 actividadesButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 160, 200, 40));
+        jPanel1.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 200, 40));
 
         helpButton.setBackground(new java.awt.Color(255, 204, 255));
         helpButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -74,9 +76,10 @@ public class MainScreen extends javax.swing.JFrame {
                 helpButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 190, 40));
+        jPanel1.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 190, 30));
 
         homeButton1.setBackground(new java.awt.Color(255, 102, 102));
+        homeButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         homeButton1.setForeground(new java.awt.Color(51, 51, 51));
         homeButton1.setText("Inicio");
         homeButton1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -85,9 +88,10 @@ public class MainScreen extends javax.swing.JFrame {
                 homeButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 200, 40));
+        jPanel1.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 120, 200, 40));
 
         statsButton.setBackground(new java.awt.Color(204, 153, 255));
+        statsButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         statsButton.setForeground(new java.awt.Color(51, 51, 51));
         statsButton.setText("Estadísticas");
         statsButton.setBorder(new javax.swing.border.MatteBorder(null));
@@ -96,12 +100,29 @@ public class MainScreen extends javax.swing.JFrame {
                 statsButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, 200, 40));
+        jPanel1.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 200, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel1.setText("Hola ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jLabel1.setText("... ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        configButton.setBackground(new java.awt.Color(204, 204, 204));
+        configButton.setForeground(new java.awt.Color(51, 51, 51));
+        configButton.setText("Configurar");
+        configButton.setBorder(new javax.swing.border.MatteBorder(null));
+        configButton.setBorderPainted(false);
+        configButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 190, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel3.setText("Hola ");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, -1, 1020));
@@ -154,6 +175,10 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_statsButtonActionPerformed
 
+    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_configButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -191,20 +216,21 @@ public class MainScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actividadesButton;
+    private javax.swing.JButton configButton;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton helpButton;
     private javax.swing.JButton homeButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton statsButton;
     // End of variables declaration//GEN-END:variables
 
     public void setInformation() {
         try {
-            System.out.println("NOmbre---inic" + usuario.getNombre());
-            jLabel1.setText("Hola " + usuario.getNombre() + " :)");
+            jLabel1.setText(usuario.getNombre() + " :)");
         } catch (NullPointerException npe) {
             jLabel1.setText("Hola  usuario");
         } catch (Exception e) {

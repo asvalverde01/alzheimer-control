@@ -3,9 +3,6 @@ package app.logic;
 import app.Gui.MainScreen;
 import app.Gui.RegistroUsuario;
 import java.io.*;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 
@@ -19,54 +16,81 @@ public class Main {
             /Se busca el archivo que busca al usuario
             /-------------------------------------------------------------*/
 
-        String archivo = "user.txt";
+        String archivo = "user.csv";
+        String line;
+        line = "";
         try {
             // Se busca el archivo o se crea de ser necesario
 
             BufferedReader br = new BufferedReader(new FileReader(archivo));
 
             // Se lee el archivo en busca del usuario
-            System.out.println("paso 1");
-            String s;
+            System.out.println("Si existe");
 
-            while ((s = br.readLine()) != null) {
-                // En caso de que si existe un usuario registrado
+            // En caso de que si existe un usuario registrado
+            if ((br.readLine()) != null) {
                 usuarioRegistrado = true;
-                String line = "";
-                String[] values = line.split(",");
-                System.out.println(values[1]);
+            }
+
+            while ((line = br.readLine()) != null) {
+                int cont = 0;
+                String[] row = line.split(",");
+                System.out.println("Imprimientdo");
+                System.out.println("Row " + line + "cont" + cont);
+                System.out.println("--------------------------");
+
+                // Inicializa los valores del objeto usuario
+                try {
+                    usuario.setNombre(row[0]);
+                    usuario.setApellido(row[1]);
+                    try {
+                        System.out.println("Fecha: " + row[2]);
+                        Fecha nacimiento = new Fecha(row[2]);
+                        usuario.setFechaNacimiento(nacimiento);
+                    } catch (Exception e) {
+                        System.out.println("Error, en fecha (Posible error en formato)");
+                    }
+                    System.out.println("nombre en usuario " + usuario.getNombre());
+                    System.out.println("a en usuario " + usuario.getApellido());
+                    System.out.println("f en usuario " + usuario.getFechaNacimiento());
+                } catch (Exception e) {
+                    System.out.println("Error al asignar");
+                }
+
+                /*
+                for (String index : row) {
+                    System.out.printf("%-10s", index);
+                }
+                System.out.println("");
+                 */
             }
             // Se cierran los buffers (Muy importante)
             br.close();
 
             // En caso de que no exista un archivo se crea uno
         } catch (FileNotFoundException ex) {
-            System.out.println("Creando archivo");
-            BufferedWriter bw = null;
-            try {
-                bw = new BufferedWriter(new FileWriter(archivo));
-                bw.write("Sebastian\n20");
-                bw.close();
-            } catch (IOException ex1) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-
+            // Registra al usuario creando un nuevo documento
+            RegistroUsuario registro = new RegistroUsuario(usuario);
+            registro.setVisible(true);
+            registro.setLocationRelativeTo(null);
+            return;
         } catch (IOException e) {
             System.out.println("Error al crear y abrir");
+        } catch (Exception ne) {
+            ne.printStackTrace();
+        } finally {
+            //
         }
 
         /*-------------------------------------------------------------
         / Inicio del programa
         /-------------------------------------------------------------*/
-        if (!usuarioRegistrado) {
-            RegistroUsuario registro = new RegistroUsuario(usuario);
-            registro.setVisible(true);
-            registro.setLocationRelativeTo(null);
-        } else {
+        if (usuarioRegistrado) {
             MainScreen main = new MainScreen(usuario);
             main.setVisible(true);
             main.setLocationRelativeTo(null);
-
+        } else {
+            System.out.println("Error en main");
         }
     }
 }

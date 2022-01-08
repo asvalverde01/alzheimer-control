@@ -6,6 +6,9 @@ package app.Gui;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -122,21 +125,31 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainScreen main = new MainScreen(usuario);
-        usuario.setEtapa(2);
-        this.setVisible(false);
-        main.setVisible(true);
-        main.setUsuario(usuario);
-        main.setLocationRelativeTo(null);
+         if (guardarUsuario(2)) {
+            usuario.setEtapa(2);
+            this.setVisible(false);
+            main.setVisible(true);
+            main.setUsuario(usuario);
+            main.setLocationRelativeTo(null);
+            System.out.println("Guardado correctamente");
+        } else {
+            System.out.println("Ha ocurrido algun error");
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         MainScreen main = new MainScreen(usuario);
-        usuario.setEtapa(1);
-        this.setVisible(false);
-        main.setVisible(true);
-        main.setUsuario(usuario);
-        main.setLocationRelativeTo(null);
+         if (guardarUsuario(1)) {
+            usuario.setEtapa(1);
+            this.setVisible(false);
+            main.setVisible(true);
+            main.setUsuario(usuario);
+            main.setLocationRelativeTo(null);
+            System.out.println("Guardado correctamente");
+        } else {
+            System.out.println("Ha ocurrido algun error");
+        }
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -150,12 +163,33 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MainScreen main = new MainScreen(usuario);
-        usuario.setEtapa(0);
-        this.setVisible(false);
-        main.setVisible(true);
-        main.setUsuario(usuario);
-        main.setLocationRelativeTo(null);
+        if (guardarUsuario(0)) {
+            usuario.setEtapa(0);
+            this.setVisible(false);
+            main.setVisible(true);
+            main.setUsuario(usuario);
+            main.setLocationRelativeTo(null);
+            System.out.println("Guardado correctamente");
+        } else {
+            System.out.println("Ha ocurrido algun error");
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private boolean guardarUsuario(int etapa) {
+        String archivo = "user.csv";
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter(archivo));
+            String txt = "Nombre,Apellido,Nacimiento,Etapa\n" + usuario.getNombre() + "," + usuario.getApellido() + "," + usuario.getFechaNacimiento() + "," + etapa;
+            bw.write(txt);
+            bw.close();
+            return true;
+        } catch (IOException ex1) {
+            System.out.println("Error dentro de guardarUsuario");
+            return false;
+        }
+    }
 
     /**
      * @param args the command line arguments

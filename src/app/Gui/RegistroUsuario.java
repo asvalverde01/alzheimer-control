@@ -5,7 +5,13 @@
 package app.Gui;
 
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.Usuario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
