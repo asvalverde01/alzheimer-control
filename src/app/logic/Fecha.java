@@ -55,6 +55,13 @@ public class Fecha {
         return mes;
     }
 
+    // retorna un string del mes
+    public String getMesString() {
+        // array de meses
+        String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+        return meses[mes];
+    }
+
     public void setMes(int mes) {
         this.mes = mes;
     }
@@ -98,5 +105,14 @@ public class Fecha {
         mes = Math.abs(mes);
         anio = Math.abs(anio);
     }
+
+    // retorna un string del tiempo actual hora y minuto
+    public String getHoraMinuto() {
+        GregorianCalendar gc = new GregorianCalendar();
+        int hora = gc.get(Calendar.HOUR_OF_DAY);
+        int minuto = gc.get(Calendar.MINUTE);
+        return hora + ":" + minuto;
+    }
+
 
 }

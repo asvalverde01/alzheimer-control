@@ -1,6 +1,8 @@
 package app.Gui;
 
 import app.logic.Usuario;
+import javax.swing.JPanel;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public class MainScreen extends javax.swing.JFrame {
 
@@ -23,10 +25,20 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen(Usuario usuario) {
         initComponents();
+        
+        // Muestra un panel en el panel contenido
+        InicioPanel pinicio = new InicioPanel();
+        pinicio.setSize(700, 660);
+        
+        contenido.removeAll();
+        contenido .add(pinicio, new AbsoluteConstraints(0,0,-1,-1));
+        contenido.revalidate();
+        contenido.repaint();
+        
         this.usuario = usuario;
         setInformation();
-
-
+        this.setVisible(true);
+        pinicio.actualizarTiempo();
     }
 
     /**
@@ -38,7 +50,7 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        content = new javax.swing.JPanel();
         actividadesButton = new javax.swing.JButton();
         helpButton = new javax.swing.JButton();
         homeButton1 = new javax.swing.JButton();
@@ -47,12 +59,11 @@ public class MainScreen extends javax.swing.JFrame {
         configButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        fondo = new javax.swing.JLabel();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        contenido = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         actividadesButton.setBackground(new java.awt.Color(204, 153, 255));
         actividadesButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -64,7 +75,7 @@ public class MainScreen extends javax.swing.JFrame {
                 actividadesButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 200, 40));
+        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 200, 40));
 
         helpButton.setBackground(new java.awt.Color(255, 204, 255));
         helpButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -76,7 +87,7 @@ public class MainScreen extends javax.swing.JFrame {
                 helpButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 190, 30));
+        content.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 190, 30));
 
         homeButton1.setBackground(new java.awt.Color(255, 102, 102));
         homeButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -88,7 +99,7 @@ public class MainScreen extends javax.swing.JFrame {
                 homeButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 120, 200, 40));
+        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 120, 200, 40));
 
         statsButton.setBackground(new java.awt.Color(204, 153, 255));
         statsButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -100,12 +111,12 @@ public class MainScreen extends javax.swing.JFrame {
                 statsButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 200, 40));
+        content.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 200, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
         jLabel1.setText("... ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        content.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         configButton.setBackground(new java.awt.Color(204, 204, 204));
         configButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -117,43 +128,38 @@ public class MainScreen extends javax.swing.JFrame {
                 configButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 190, 30));
+        content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 51));
         jLabel3.setText("Hola ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, -1, 1020));
+        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, 1170, 1020));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundSignUp.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 920, 670));
-
-        jInternalFrame1.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
+        contenido.setLayout(contenidoLayout);
+        contenidoLayout.setHorizontalGroup(
+            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        contenidoLayout.setVerticalGroup(
+            contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, -1));
+        content.add(contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 700, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -164,11 +170,14 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
-        // TODO add your handling code here:
+        actividadesPanel pActividades = new actividadesPanel();
+        showPanel(pActividades);
     }//GEN-LAST:event_actividadesButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
-        // TODO add your handling code here:
+        InicioPanel pInicio = new InicioPanel();
+        showPanel(pInicio);
+        //pinicio.actualizarTiempo();
     }//GEN-LAST:event_homeButton1ActionPerformed
 
     private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
@@ -217,14 +226,13 @@ public class MainScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actividadesButton;
     private javax.swing.JButton configButton;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JPanel contenido;
+    private javax.swing.JPanel content;
     private javax.swing.JButton helpButton;
     private javax.swing.JButton homeButton1;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton statsButton;
     // End of variables declaration//GEN-END:variables
 
@@ -236,5 +244,13 @@ public class MainScreen extends javax.swing.JFrame {
         } catch (Exception e) {
             jLabel1.setText("Problema al encontrar usuario");
         }
+    }
+    
+    private void showPanel (JPanel p){
+        p.setSize(700, 660);
+        contenido.removeAll();
+        contenido .add(p, new AbsoluteConstraints(0,0,-1,-1));
+        contenido.revalidate();
+        contenido.repaint();
     }
 }
