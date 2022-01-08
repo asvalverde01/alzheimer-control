@@ -141,16 +141,8 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos contenedores de los juegos para el Usuario
     /-------------------------------------------------------------*/
+    public void ejecutarSumasRestas() {
 
-   public String ejecutarSumasRestas() {
-        int valorPregunta=1;
-        int puntaje=0;
-        String respuesta1="6019";
-        if("6019".equals(respuesta1)){
-            return "Correcto :)";
-        }else{
-            return"Incorrecto :(";
-        }
     }
 
     public void ejecutarComprensionLectora() {
@@ -160,47 +152,22 @@ public class Usuario {
     public void ejecutarMemoria() {
 
     }
+    
+    //AQUÍ EMPIZA LA ACTIVIDAD DE LA COMPRENSIÓN LECTORA 
 
     //PREGUNTAS 1
     String[] respuestas = {
-        "Perro", "Gato", "Azul", "Rojo", "Mamá"
+        "Acomodados", "5", "Austria"
     };
 
     String[] radioR = {
-        "1,2,3,4",
-        "2,3,4,5",
-        "3,4,5,6",
-        "4,5,6,7",
-        "5,6,7,8",};
-
-        "Perro", "Luna", "Pera"
-    };
-
-    String[] radioR = {
-        "Perro,Gato,Perico",
-        "Sol,Luna,Arbol",
-        "Manzana,Luz,Pera",};
-
+        "Acomodados,Desacomodados,Separados",
+        "5,6,3",
+        "España,Inglaterra,Austria",};
 
     public String getRespuesta(int posicion) {
         return respuestas[posicion];
     }
-
-
-    public String[] separar(String cadena, String separador) {
-        StringTokenizer token = new StringTokenizer(cadena, separador);
-
-        String[] a = new String[4];
-        int i = 0;
-
-        while (token.hasMoreTokens()) {
-            a[i] = token.nextToken(); // obtenido el token
-            i++;
-        }
-
-        return a;
-    }
-
 
     public String[] setRespuestas(int posicion) {
         String s1 = radioR[posicion];
@@ -208,22 +175,15 @@ public class Usuario {
         return s2;
     }
 
-
-    String[] preguntas = {
-        "Pregunta 1", "Pregunta 2", "Pregunta 3",
-        "Pregunta 4", "Pregunta 5"
-    };
-
-
     //PREGUNTAS 2
     String[] respuestas2 = {
-        "Mercurio", "Marco", "Limon"
+        "Pintar los dibujos", "Nariz", "4"
     };
 
     String[] radioR2 = {
-        "Mercurio,Venus,Tierra",
-        "Luis,Pedro,Marco",
-        "Limon,Nuez,Mango",};
+        "Pintar los dibujos,Dibujar árboles,Jugar",
+        "Ojos,Nariz,Manos",
+        "10,4,5",};
 
     public String getRespuesta2(int posicion) {
         return respuestas2[posicion];
@@ -237,13 +197,13 @@ public class Usuario {
 
     //PREGUNTAS 3
     String[] respuestas3 = {
-        "Tres", "Noche", "Pacífico"
+        "Rojo", "Sabores", "Papá"
     };
 
     String[] radioR3 = {
-        "Uno,Dos ,Tres",
-        "Noche ,Dia, Tarde",
-        "Pacífico,Atlantico,Artico",};
+        "Verde,Azul,Rojo",
+        "Sabores,Sentimientos,Olores",
+        "Mamá,Papá,Hermano",};
 
     public String getRespuesta3(int posicion) {
         return respuestas3[posicion];
@@ -257,13 +217,13 @@ public class Usuario {
 
     //PREGUNTAS 4
     String[] respuestas4 = {
-        "Blusa", "a", "Lenovo"
+        "Amarillo", "Oído", "Europa"
     };
 
     String[] radioR4 = {
-        "Vestido,Falda ,Blusa",
-        "a,b,c",
-        "HP,Lenovo,Dell",};
+        "Dorado,Amarillo,Morado",
+        "Olfato,Gusto,Oído",
+        "América,Asia,Europa"};
 
     public String getRespuesta4(int posicion) {
         return respuestas4[posicion];
@@ -278,13 +238,13 @@ public class Usuario {
 
     //PREGUNTAS 5
     String[] respuestas5 = {
-        "Enero", "Lunes", "Boca"
+        "Figuras", "Boca", "Sinfonía N°40"
     };
 
     String[] radioR5 = {
-        "Febrero,Enero,Marzo",
-        "Jueves ,Miercoles,Lunes",
-        "Ojos,Boca,Nariz",};
+        "Paisajes,Figuras,Ropa",
+        "Ojos,Boca,Nariz",
+        "Sinfonía N°40,Sinfonía N°9,Sinfonía N°3",};
 
     public String getRespuesta5(int posicion) {
         return respuestas5[posicion];
@@ -295,23 +255,31 @@ public class Usuario {
         String[] s2 = separar(s1, ",");
         return s2;
     }
-
-    String[] preguntas2 = {
-        "Pregunta 2", "Pregunta 2", "Pregunta 2",};
-    String[] preguntas3 = {
-        "Pregunta 3", "Pregunta 3", "Pregunta 3",};
+    
     String[] preguntas = {
-        "Preguntas 1", "Pregunta 1", "Pregunta 1",};
+        "¿Cómo duermen los lápices de colores?", 
+        "¿Cuántos sentidos tienen los seres humanos?", 
+        "¿Dónde nació Mozart?",};
+    String[] preguntas2 = {
+        "¿Qué van hacer con el cuaderno de clases?", 
+        "¿En qué órgano está el sentido del olfato?", 
+        "¿Desde qué edad Mozart demostró su don especial?",};
+    String[] preguntas3 = {
+        "¿Cuál es color favorito de Juan?",
+        "¿Qué nos permite distinguir el sentido del gusto?",
+        "¿Qué familiar de Mozart también era música?",};
     String[] preguntas4 = {
-        "Pregunta 4", "Pregunta 4", "Pregunta 4",};
+        "¿Cuál es el color favorito de Rosita?", 
+        "¿Con qué sentido podemos escuchar música?", 
+        "¿En qué contiene Mozart viajó para tocar frente a reyes?",};
     String[] preguntas5 = {
-        "Pregunta 5", "Pregunta 5", "Pregunta 5",};
-
+        "¿Qué les gusta pintar a Juan y Rosita?", 
+        "¿En qué órgano está el sentido del gusto?",
+        "¿Cuál es la sinfonía más importante de Mozart?",};
 
     public String getPregunta(int posicion) {
         return preguntas[posicion];
     }
-
 
     public String getPregunta2(int posicion) {
         return preguntas2[posicion];
@@ -329,18 +297,19 @@ public class Usuario {
         return preguntas5[posicion];
     }
 
-    public String[] separar(String cadena, String separador) {
-        StringTokenizer token = new StringTokenizer(cadena, separador);
-
-        String[] a = new String[16];
+      public String[] separar(String cadena, String separador){
+        StringTokenizer token = new StringTokenizer(cadena,separador);
+        
+        String[] a = new String[3];
         int i = 0;
-
-        while (token.hasMoreTokens()) {
+        
+        while(token.hasMoreTokens()){
             a[i] = token.nextToken(); // obtenido el token
             i++;
         }
-
+        
         return a;
     }
+     
 
 }
