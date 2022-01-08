@@ -141,6 +141,7 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos contenedores de los juegos para el Usuario
     /-------------------------------------------------------------*/
+
    public String ejecutarSumasRestas() {
         int valorPregunta=1;
         int puntaje=0;
@@ -162,6 +163,16 @@ public class Usuario {
 
     //PREGUNTAS 1
     String[] respuestas = {
+        "Perro", "Gato", "Azul", "Rojo", "Mamá"
+    };
+
+    String[] radioR = {
+        "1,2,3,4",
+        "2,3,4,5",
+        "3,4,5,6",
+        "4,5,6,7",
+        "5,6,7,8",};
+
         "Perro", "Luna", "Pera"
     };
 
@@ -170,15 +181,39 @@ public class Usuario {
         "Sol,Luna,Arbol",
         "Manzana,Luz,Pera",};
 
+
     public String getRespuesta(int posicion) {
         return respuestas[posicion];
     }
+
+
+    public String[] separar(String cadena, String separador) {
+        StringTokenizer token = new StringTokenizer(cadena, separador);
+
+        String[] a = new String[4];
+        int i = 0;
+
+        while (token.hasMoreTokens()) {
+            a[i] = token.nextToken(); // obtenido el token
+            i++;
+        }
+
+        return a;
+    }
+
 
     public String[] setRespuestas(int posicion) {
         String s1 = radioR[posicion];
         String[] s2 = separar(s1, ",");
         return s2;
     }
+
+
+    String[] preguntas = {
+        "Pregunta 1", "Pregunta 2", "Pregunta 3",
+        "Pregunta 4", "Pregunta 5"
+    };
+
 
     //PREGUNTAS 2
     String[] respuestas2 = {
@@ -272,9 +307,11 @@ public class Usuario {
     String[] preguntas5 = {
         "Pregunta 5", "Pregunta 5", "Pregunta 5",};
 
+
     public String getPregunta(int posicion) {
         return preguntas[posicion];
     }
+
 
     public String getPregunta2(int posicion) {
         return preguntas2[posicion];

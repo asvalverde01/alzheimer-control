@@ -5,13 +5,20 @@
 package app.Gui;
 
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.Usuario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author asval
  */
 public class RegistroUsuario extends javax.swing.JFrame {
+
     Usuario usuario = new Usuario();
 
     /**
@@ -64,7 +71,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jTextField1.setText("dd/mm/yyyy");
         jTextField1.setBorder(null);
         jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.setOpaque(false);
         jTextField1.setSelectedTextColor(new java.awt.Color(153, 153, 153));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +83,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jTextField2.setText("Ingrese su nombre");
         jTextField2.setBorder(null);
         jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField2.setOpaque(false);
         jTextField2.setSelectedTextColor(new java.awt.Color(153, 153, 153));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +95,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jTextField3.setText("Ingrese su apellido");
         jTextField3.setBorder(null);
         jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField3.setOpaque(false);
         jTextField3.setSelectedTextColor(new java.awt.Color(153, 153, 153));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,12 +113,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, 250, 70));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 250, 70));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel7.setText("Avatar");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 650, 570, 50));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 51));
@@ -131,13 +134,13 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel3.setText("Nombre");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 40)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Registro de Usuario");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 400, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundAgregar.jpg"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 840));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 770));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 51));
@@ -176,17 +179,27 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String fechaNacimiento = jTextField2.getText();
-        usuario.setNombre( jTextField2.getText());
-        usuario.setApellido( jTextField3.getText());
+        boolean correcto = false;
+        // String fechaNacimiento = jTextField2.getText();
+        usuario.setNombre(jTextField2.getText());
+        usuario.setApellido(jTextField3.getText());
         String nacimientoString = jTextField1.getText();
-        System.out.println("Nacimiento" + nacimientoString);
-        Fecha nacimiento = new Fecha(nacimientoString);
-        usuario.setFechaNacimiento(nacimiento); 
-        // TODO AVATAR        
-        
-        SeleccionEtapa etapa = new SeleccionEtapa(usuario);
-        etapa.setVisible(true);
+
+        try {
+            Fecha nacimiento = new Fecha(nacimientoString);
+            usuario.setFechaNacimiento(nacimiento);
+            correcto = true;
+        } catch (Exception e) {
+            jLabel7.setText("Error, verifique haber ingresado datos correctos");
+            correcto = false;
+        }
+
+        if (correcto) {
+            SeleccionEtapa etapa = new SeleccionEtapa(usuario);
+            etapa.setVisible(true);
+            etapa.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

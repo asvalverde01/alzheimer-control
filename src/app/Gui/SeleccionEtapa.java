@@ -6,12 +6,16 @@ package app.Gui;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
  * @author asval
  */
 public class SeleccionEtapa extends javax.swing.JFrame {
+
     Usuario usuario = new Usuario();
 
     /**
@@ -38,11 +42,12 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +63,17 @@ public class SeleccionEtapa extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 710, 250, 70));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 190, 330, 610));
+
+        jButton3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton3.setText("MODERADA");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 320, 610));
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton2.setText("LEVE");
@@ -67,32 +82,32 @@ public class SeleccionEtapa extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 710, 250, 70));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 320, 610));
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jButton3.setText("MODERADA");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/goback.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 710, 250, 70));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, -1, 90));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 204, 255));
         jLabel3.setText("Seleccione la etapa que considere");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel9.setText("SDFFFFFFFFFFFFFFFFFFF");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundEtapa.jpg"))); // NOI18N
         jLabel1.setText("Registro de Usuario");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1330, 910));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel9.setText("SDFFFFFFFFFFFFFFFFFFF");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,19 +124,72 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        usuario.setEtapa(0);
-        
+        MainScreen main = new MainScreen(usuario);
+         if (guardarUsuario(2)) {
+            usuario.setEtapa(2);
+            this.setVisible(false);
+            main.setVisible(true);
+            main.setUsuario(usuario);
+            main.setLocationRelativeTo(null);
+            System.out.println("Guardado correctamente");
+        } else {
+            System.out.println("Ha ocurrido algun error");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        MainScreen main = new MainScreen(usuario);
+         if (guardarUsuario(1)) {
+            usuario.setEtapa(1);
+            this.setVisible(false);
+            main.setVisible(true);
+            main.setUsuario(usuario);
+            main.setLocationRelativeTo(null);
+            System.out.println("Guardado correctamente");
+        } else {
+            System.out.println("Ha ocurrido algun error");
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        RegistroUsuario registro = new RegistroUsuario(usuario);
+        this.setVisible(false);
+        registro.setVisible(true);
+        registro.setLocationRelativeTo(null);
+
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       usuario.setEtapa(1);
-        
+        MainScreen main = new MainScreen(usuario);
+        if (guardarUsuario(0)) {
+            usuario.setEtapa(0);
+            this.setVisible(false);
+            main.setVisible(true);
+            main.setUsuario(usuario);
+            main.setLocationRelativeTo(null);
+            System.out.println("Guardado correctamente");
+        } else {
+            System.out.println("Ha ocurrido algun error");
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       usuario.setEtapa(2);
-       
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private boolean guardarUsuario(int etapa) {
+        String archivo = "user.csv";
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter(archivo));
+            String txt = "Nombre,Apellido,Nacimiento,Etapa\n" + usuario.getNombre() + "," + usuario.getApellido() + "," + usuario.getFechaNacimiento() + "," + etapa;
+            bw.write(txt);
+            bw.close();
+            return true;
+        } catch (IOException ex1) {
+            System.out.println("Error dentro de guardarUsuario");
+            return false;
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -164,6 +232,7 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
