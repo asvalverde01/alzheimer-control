@@ -27,13 +27,8 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
         
         // Muestra un panel en el panel contenido
-        InicioPanel pinicio = new InicioPanel();
-        pinicio.setSize(700, 660);
-        
-        contenido.removeAll();
-        contenido .add(pinicio, new AbsoluteConstraints(0,0,-1,-1));
-        contenido.revalidate();
-        contenido.repaint();
+        InicioPanel pInicio = new InicioPanel();
+        showPanel(pInicio);
         
         this.usuario = usuario;
         setInformation();
@@ -169,7 +164,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
-        actividadesPanel pActividades = new actividadesPanel(usuario);
+        ActividadesPanel pActividades = new ActividadesPanel(usuario);
         showPanel(pActividades);
         pActividades.setUsuario(usuario);
 

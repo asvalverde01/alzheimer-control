@@ -214,7 +214,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
         int dia = (Integer) diaSpinner.getValue();
         String mes = mesCombo.getSelectedItem().toString();
         int anio = (Integer) anioSpinner.getValue();
-        System.out.println("mes  " + mes);
 
         try {
             Fecha nacimiento = new Fecha();

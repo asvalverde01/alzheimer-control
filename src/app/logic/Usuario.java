@@ -170,11 +170,11 @@ public class Usuario {
     }
 
     public void ejecutarComprensionLectora() {
-
+        System.out.println("ejecutando comprension Lectora");
     }
 
     public void ejecutarMemoria() {
-
+System.out.println("ejecutando memoria");
     }
 
     //AQUÍ EMPIZA LA ACTIVIDAD DE LA COMPRENSIÓN LECTORA
