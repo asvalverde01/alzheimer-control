@@ -17,6 +17,7 @@ import java.io.IOException;
 public class SeleccionEtapa extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
+    
 
     /**
      * Creates new form RegistroUsuario
@@ -124,9 +125,10 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainScreen main = new MainScreen(usuario);
+        MainScreen main;
          if (guardarUsuario(2)) {
             usuario.setEtapa(2);
+            main = new MainScreen(usuario);
             this.setVisible(false);
             main.setVisible(true);
             main.setUsuario(usuario);
@@ -139,9 +141,10 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        MainScreen main = new MainScreen(usuario);
+        MainScreen main;
          if (guardarUsuario(1)) {
             usuario.setEtapa(1);
+            main = new MainScreen(usuario);
             this.setVisible(false);
             main.setVisible(true);
             main.setUsuario(usuario);
@@ -162,9 +165,10 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MainScreen main = new MainScreen(usuario);
+        MainScreen main;
         if (guardarUsuario(0)) {
             usuario.setEtapa(0);
+            main = new MainScreen(usuario);
             this.setVisible(false);
             main.setVisible(true);
             main.setUsuario(usuario);
@@ -181,7 +185,8 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter(archivo));
-            String txt = "Nombre,Apellido,Nacimiento,Etapa\n" + usuario.getNombre() + "," + usuario.getApellido() + "," + usuario.getFechaNacimiento() + "," + etapa;
+            String desc =  "Nombre,Apellido,dia nacimiento,mes nacimiento,anio nacimiento,Etapa\n";
+            String txt =desc + usuario.getNombre() + "," + usuario.getApellido() + "," + usuario.getFechaNacimiento().getDia() + "," + usuario.getFechaNacimiento().getMes() + "," + usuario.getFechaNacimiento().getAnio() + "," + etapa;
             bw.write(txt);
             bw.close();
             return true;

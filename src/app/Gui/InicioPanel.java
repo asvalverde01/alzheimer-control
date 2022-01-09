@@ -5,6 +5,7 @@
 package app.Gui;
 
 import app.logic.Fecha;
+import app.logic.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +16,12 @@ import java.util.logging.Logger;
 public class InicioPanel extends javax.swing.JPanel {
 
     Fecha actual;
+    Usuario usuario = null;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     /**
      * Creates new form inicioPanel
      */
@@ -22,7 +29,7 @@ public class InicioPanel extends javax.swing.JPanel {
         initComponents();
         actual = new Fecha();
         actualizarFecha(actual);
-        
+
     }
 
     /**

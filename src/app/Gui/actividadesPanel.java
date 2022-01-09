@@ -4,9 +4,7 @@
  */
 package app.Gui;
 
-import app.logic.Fecha;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import app.logic.Usuario;
 
 /**
  *
@@ -14,15 +12,22 @@ import java.util.logging.Logger;
  */
 public class actividadesPanel extends javax.swing.JPanel {
 
-    Fecha actual;
+    Usuario usuario = null;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    String etapa;
+
     /**
      * Creates new form inicioPanel
      */
-    public actividadesPanel() {
+    public actividadesPanel(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
-        actual = new Fecha();
-        actualizarFecha(actual);
-        
+        etapa = usuario.getEtapaUsuario();
+        etapaLabel.setText(etapa);
     }
 
     /**
@@ -35,10 +40,9 @@ public class actividadesPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        fechaLabel = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
+        txt1 = new javax.swing.JLabel();
+        etapaLabel = new javax.swing.JLabel();
         fondoLabel = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,39 +50,35 @@ public class actividadesPanel extends javax.swing.JPanel {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("jLabel2");
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 180, 100));
-
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setForeground(new java.awt.Color(255, 153, 153));
 
-        fechaLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        fechaLabel.setForeground(new java.awt.Color(51, 51, 51));
-        fechaLabel.setText("El día de hoy es -- de -- del año --");
+        txt1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txt1.setForeground(new java.awt.Color(51, 51, 51));
+        txt1.setText("Actividades para la etapa");
 
-        timeLabel.setBackground(new java.awt.Color(102, 102, 102));
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        timeLabel.setForeground(new java.awt.Color(102, 102, 102));
-        timeLabel.setText("------");
+        etapaLabel.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        etapaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        etapaLabel.setText("--------");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(fechaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(timeLabel)
-                .addGap(56, 56, 56))
+                .addGap(142, 142, 142)
+                .addComponent(txt1)
+                .addGap(27, 27, 27)
+                .addComponent(etapaLabel)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaLabel)
-                    .addComponent(timeLabel))
+                    .addComponent(txt1)
+                    .addComponent(etapaLabel))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -95,26 +95,11 @@ public class actividadesPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel fechaLabel;
+    private javax.swing.JLabel etapaLabel;
     private javax.swing.JLabel fondoLabel;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel timeLabel;
+    private javax.swing.JLabel txt1;
     // End of variables declaration//GEN-END:variables
 
-    private void actualizarFecha(Fecha actual) {
-        fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");
-    }
-
-    public void actualizarTiempo() {
-        while (true) {
-            timeLabel.setText(actual.getHoraMinuto());
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(actividadesPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+ 
 }

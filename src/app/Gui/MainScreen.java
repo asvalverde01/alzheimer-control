@@ -38,7 +38,6 @@ public class MainScreen extends javax.swing.JFrame {
         this.usuario = usuario;
         setInformation();
         this.setVisible(true);
-        pinicio.actualizarTiempo();
     }
 
     /**
@@ -170,13 +169,16 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
-        actividadesPanel pActividades = new actividadesPanel();
+        actividadesPanel pActividades = new actividadesPanel(usuario);
         showPanel(pActividades);
+        pActividades.setUsuario(usuario);
+
     }//GEN-LAST:event_actividadesButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
         InicioPanel pInicio = new InicioPanel();
         showPanel(pInicio);
+        pInicio.setUsuario(usuario);
         //pinicio.actualizarTiempo();
     }//GEN-LAST:event_homeButton1ActionPerformed
 

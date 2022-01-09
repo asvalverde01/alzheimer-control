@@ -3,6 +3,7 @@ package app.logic;
 import app.Gui.MainScreen;
 import app.Gui.RegistroUsuario;
 import java.io.*;
+import static java.lang.Integer.parseInt;
 
 public class Main {
 
@@ -25,8 +26,6 @@ public class Main {
             BufferedReader br = new BufferedReader(new FileReader(archivo));
 
             // Se lee el archivo en busca del usuario
-            System.out.println("Si existe");
-
             // En caso de que si existe un usuario registrado
             if ((br.readLine()) != null) {
                 usuarioRegistrado = true;
@@ -35,34 +34,24 @@ public class Main {
             while ((line = br.readLine()) != null) {
                 int cont = 0;
                 String[] row = line.split(",");
-                System.out.println("Imprimientdo");
-                System.out.println("Row " + line + "cont" + cont);
-                System.out.println("--------------------------");
-
                 // Inicializa los valores del objeto usuario
                 try {
                     usuario.setNombre(row[0]);
                     usuario.setApellido(row[1]);
+                    usuario.setEtapa(parseInt(row[5]));
+
+                    Fecha nacimiento = new Fecha();
+                    nacimiento.setDia(parseInt(row[2]));
+                    nacimiento.setMes(parseInt(row[3]));
+                    nacimiento.setAnio(parseInt(row[4]));
                     try {
-                        System.out.println("Fecha: " + row[2]);
-                        Fecha nacimiento = new Fecha(row[2]);
                         usuario.setFechaNacimiento(nacimiento);
                     } catch (Exception e) {
                         System.out.println("Error, en fecha (Posible error en formato)");
                     }
-                    System.out.println("nombre en usuario " + usuario.getNombre());
-                    System.out.println("a en usuario " + usuario.getApellido());
-                    System.out.println("f en usuario " + usuario.getFechaNacimiento());
                 } catch (Exception e) {
                     System.out.println("Error al asignar");
                 }
-
-                /*
-                for (String index : row) {
-                    System.out.printf("%-10s", index);
-                }
-                System.out.println("");
-                 */
             }
             // Se cierran los buffers (Muy importante)
             br.close();

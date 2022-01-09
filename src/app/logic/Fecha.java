@@ -61,6 +61,16 @@ public class Fecha {
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         return meses[mes];
     }
+    
+     public int setMesString(String mes) {
+        // array de meses
+        String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+        for (int i = 0; i < meses.length;i++) {
+            if (mes.equals(meses[i]))
+                return i + 1;
+        }
+        return 0;
+    }
 
     public void setMes(int mes) {
         this.mes = mes;

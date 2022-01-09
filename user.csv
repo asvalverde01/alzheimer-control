@@ -1,2 +1,2 @@
-Nombre,Apellido,Nacimiento,Etapa
-Sebastian,Valverde,2001/14/7,0
+Nombre,Apellido,dia nacimiento,mes nacimiento,año nacimiento,Etapa
+Alberto,Valverde,14,7,2001,0

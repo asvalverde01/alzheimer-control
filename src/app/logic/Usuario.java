@@ -77,8 +77,12 @@ public class Usuario {
      *
      * @return Fecha fechaNacimiento
      */
-    public String getFechaNacimiento() {
-        return fechaNacimiento.getAnio() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getDia();
+    public String getFechaNacimientoString() {
+        return fechaNacimiento.getDia() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getAnio();
+    }
+
+    public Fecha getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     /**
@@ -97,6 +101,19 @@ public class Usuario {
      */
     public int getEtapa() {
         return etapa;
+    }
+    
+       public String getEtapaUsuario() {
+        switch (etapa) {
+            case 0:
+                return "Leve";
+            case 1:
+                return "Moderada";
+            case 2:
+                return "Avanzada";
+            default:
+                return "Leve";
+        }
     }
 
     /**
@@ -159,8 +176,8 @@ public class Usuario {
     public void ejecutarMemoria() {
 
     }
-    
-    //AQUÍ EMPIZA LA ACTIVIDAD DE LA COMPRENSIÓN LECTORA 
+
+    //AQUÍ EMPIZA LA ACTIVIDAD DE LA COMPRENSIÓN LECTORA
 
     //PREGUNTAS 1
     String[] respuestas = {
@@ -329,8 +346,8 @@ public class Usuario {
         String[] s2 = separar(s1, ",");
         return s2;
     }
-    
-    
+
+
     //ESTO ES DE LA ACTIVIDAD DE RECONOCER SONIDO
     String[] respuestaSonido = {
         "Gallina", "Tren",
