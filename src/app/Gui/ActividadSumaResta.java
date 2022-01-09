@@ -10,11 +10,24 @@ import app.logic.Usuario;
  *
  * @author Usuari
  */
-public class actividadSumaResta extends javax.swing.JFrame {
+public class ActividadSumaResta extends javax.swing.JFrame {
 
     String respuesta1;
-    public actividadSumaResta() {
+    int respuestaOp;
+    int puntaje;
+
+    public int getRespuestaOp() {
+        return respuestaOp;
+    }
+
+    public void setRespuestaOp(int respuestaOp) {
+        this.respuestaOp = respuestaOp;
+    }
+
+    public ActividadSumaResta() {
         initComponents();
+        int respuesta = generarNuevaOp();
+        setRespuestaOp(respuesta);
     }
 
     /**
@@ -104,16 +117,41 @@ public class actividadSumaResta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //comprobar1ActionPerformed(true);
+
     private void comprobar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobar1ActionPerformed
-        respuesta1=ingreseSuma1.getText();
-        Usuario u1=new Usuario();
-         if("6019".equals(respuesta1)){
-           mostrarMensaje.setText(String.format("Correcto :)"));
-        }else{
+        if (ingreseSuma1.getText().equals(String.valueOf(getRespuestaOp()))) {
+            mostrarMensaje.setText(String.format("Correcto :)"));
+            puntaje++;
+        } else {
             mostrarMensaje.setText(String.format("Incorrecto :("));
         }
-        
+        int respuesta = generarNuevaOp();
+        setRespuestaOp(respuesta);
+        System.out.println("puntaje"  + puntaje);
     }//GEN-LAST:event_comprobar1ActionPerformed
+
+    private int generarNuevaOp() {
+        int num1 = (int) (Math.random() * 10);
+        int num2 = (int) (Math.random() * 10);
+        if (num1 > 5) {
+            jLabel4.setText("-");
+            if (num1 > num2) {
+                jLabel2.setText("" + num1);
+                jLabel3.setText("" + num2);
+                return num1 - num2;
+            } else {
+                jLabel3.setText("" + num1);
+                jLabel2.setText("" + num2);
+                return num2 - num1;
+            }
+        } else {
+            jLabel2.setText("" + num1);
+            jLabel3.setText("" + num2);
+            jLabel4.setText("+");
+        }
+        return num1 + num2;
+    }
 
     /**
      * @param args the command line arguments
@@ -124,35 +162,29 @@ public class actividadSumaResta extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(actividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(actividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(actividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(actividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ActividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ActividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ActividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ActividadSumaResta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new actividadSumaResta().setVisible(true);
+                new ActividadSumaResta().setVisible(true);
             }
         });
     }

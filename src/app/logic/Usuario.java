@@ -1,5 +1,11 @@
 package app.logic;
 
+import app.Gui.ActividadColores;
+import app.Gui.ActividadComprension;
+import app.Gui.ActividadMemoria;
+import app.Gui.ActividadSumaResta;
+import app.Gui.IdentificarLetras;
+import app.Gui.ReconocerSonido;
 import java.util.StringTokenizer;
 
 public class Usuario {
@@ -102,8 +108,8 @@ public class Usuario {
     public int getEtapa() {
         return etapa;
     }
-    
-       public String getEtapaUsuario() {
+
+    public String getEtapaUsuario() {
         switch (etapa) {
             case 0:
                 return "Leve";
@@ -158,27 +164,53 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos contenedores de los juegos para el Usuario
     /-------------------------------------------------------------*/
-    public String ejecutarSumasRestas() {
-        int valorPregunta = 1;
-        int puntaje = 0;
-        String respuesta1 = "6019";
-        if ("6019".equals(respuesta1)) {
-            return "Correcto :)";
-        } else {
-            return "Incorrecto :(";
-        }
+    // Actividades etapa Leve/-------------------------------------------------------------*/
+    public void ejecutarSumasRestas() {
+        System.out.println("ejecutando sumas restas");
+        ActividadSumaResta actividadSumaResta = new ActividadSumaResta();
+        actividadSumaResta.setVisible(true);
+        actividadSumaResta.setLocationRelativeTo(null);
+
     }
 
     public void ejecutarComprensionLectora() {
         System.out.println("ejecutando comprension Lectora");
+        ActividadComprension actividadComprension = new ActividadComprension();
+        actividadComprension.setVisible(true);
+        actividadComprension.setLocationRelativeTo(null);
     }
 
     public void ejecutarMemoria() {
-System.out.println("ejecutando memoria");
+        System.out.println("ejecutando memoria");
+        ActividadMemoria actividadMemoria = new ActividadMemoria();
+        actividadMemoria.setVisible(true);
+        actividadMemoria.setLocationRelativeTo(null);
+    }
+
+    // Actividades etapa Moderada/-------------------------------------------------------------*/
+    public void ejecutarIdentificarLetra() {
+        System.out.println("ejecutando sumas restas");
+        IdentificarLetras identificarLetras = new IdentificarLetras();
+        identificarLetras.setVisible(true);
+        identificarLetras.setLocationRelativeTo(null);
+
+    }
+
+    public void ejecutarReconocerSonido() {
+        System.out.println("ejecutando comprension Lectora");
+        ReconocerSonido actividadReconocerSonido = new ReconocerSonido();
+        actividadReconocerSonido.setVisible(true);
+        actividadReconocerSonido.setLocationRelativeTo(null);
+    }
+
+    public void ejecutarIdentificarColor() {
+        System.out.println("ejecutando memoria");
+        ActividadColores actividadActividadColores = new ActividadColores();
+        actividadActividadColores.setVisible(true);
+        actividadActividadColores.setLocationRelativeTo(null);
     }
 
     //AQUÍ EMPIZA LA ACTIVIDAD DE LA COMPRENSIÓN LECTORA
-
     //PREGUNTAS 1
     String[] respuestas = {
         "Perro", "Luna", "Pera"
@@ -324,7 +356,7 @@ System.out.println("ejecutando memoria");
 
         return a;
     }
-   //ESTO ES DE LA ACTIVIDAD DE RECONOCER COLORES
+    //ESTO ES DE LA ACTIVIDAD DE RECONOCER COLORES
 
     String[] respuestaColor = {
         "Rojo", "Azul", "Amarillo", "Verde", "Magenta"
@@ -347,7 +379,6 @@ System.out.println("ejecutando memoria");
         return s2;
     }
 
-
     //ESTO ES DE LA ACTIVIDAD DE RECONOCER SONIDO
     String[] respuestaSonido = {
         "Gallina", "Tren",
@@ -356,7 +387,7 @@ System.out.println("ejecutando memoria");
 
     String[] radioRS = {
         "Vaca,Gallina,Elefante,Gato,Perro",
-      "Avion,Moto,Carro,Tren,Bicicleta",
+        "Avion,Moto,Carro,Tren,Bicicleta",
         "Viento,Rayo,Lluvia,Erupción,Incendio",
         "Tambor,Flauta,Guitarra,Violín,Maracas",
         "Grito,Beso,Estornudo,Lamentarse,Aplauso",};

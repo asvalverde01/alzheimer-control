@@ -56,6 +56,8 @@ public class MainScreen extends javax.swing.JFrame {
         contenido = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio");
+        setResizable(false);
 
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
