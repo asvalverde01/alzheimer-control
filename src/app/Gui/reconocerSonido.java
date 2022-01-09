@@ -87,9 +87,11 @@ public class ReconocerSonido extends javax.swing.JFrame {
         finalizar = new javax.swing.JButton();
         listo = new javax.swing.JButton();
         play = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -151,8 +153,21 @@ public class ReconocerSonido extends javax.swing.JFrame {
         });
         jPanel1.add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 60));
 
+        closeButton.setBackground(new java.awt.Color(255, 51, 51));
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(0, 51, 102));
+        closeButton.setText("X");
+        closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButton.setFocusPainted(false);
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 60, 50));
+
         label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/reconocerSonido.jpg"))); // NOI18N
-        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
+        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 700, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -434,6 +449,11 @@ public class ReconocerSonido extends javax.swing.JFrame {
 
     }//GEN-LAST:event_listoActionPerformed
 
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_closeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -471,6 +491,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closeButton;
     private javax.swing.JButton finalizar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label;

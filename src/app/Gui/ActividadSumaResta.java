@@ -48,9 +48,11 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         mostrarMensaje = new javax.swing.JTextArea();
         ingreseSuma1 = new javax.swing.JTextField();
         comprobar1 = new javax.swing.JButton();
+        closeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,14 +102,27 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         });
         jPanel1.add(comprobar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 110, 40));
 
+        closeButton.setBackground(new java.awt.Color(255, 51, 51));
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(0, 51, 102));
+        closeButton.setText("X");
+        closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButton.setFocusPainted(false);
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 60, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/actividadSumayResta.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 530));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,6 +145,11 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         setRespuestaOp(respuesta);
         System.out.println("puntaje"  + puntaje);
     }//GEN-LAST:event_comprobar1ActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     private int generarNuevaOp() {
         int num1 = (int) (Math.random() * 10);
@@ -190,6 +210,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closeButton;
     private javax.swing.JButton comprobar1;
     private javax.swing.JTextField ingreseSuma1;
     private javax.swing.JLabel jLabel1;

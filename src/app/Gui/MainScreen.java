@@ -4,7 +4,7 @@ import app.logic.Usuario;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
-public class MainScreen extends javax.swing.JFrame {
+public final class MainScreen extends javax.swing.JFrame {
 
     Usuario usuario;
 
@@ -22,14 +22,15 @@ public class MainScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form MainScreen
+     * @param usuario
      */
     public MainScreen(Usuario usuario) {
         initComponents();
-        
+
         // Muestra un panel en el panel contenido
         InicioPanel pInicio = new InicioPanel();
         showPanel(pInicio);
-        
+
         this.usuario = usuario;
         setInformation();
         this.setVisible(true);
@@ -48,7 +49,7 @@ public class MainScreen extends javax.swing.JFrame {
         actividadesButton = new javax.swing.JButton();
         helpButton = new javax.swing.JButton();
         homeButton1 = new javax.swing.JButton();
-        statsButton = new javax.swing.JButton();
+        recButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         configButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -71,7 +72,7 @@ public class MainScreen extends javax.swing.JFrame {
                 actividadesButtonActionPerformed(evt);
             }
         });
-        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 200, 40));
+        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 220, 40));
 
         helpButton.setBackground(new java.awt.Color(255, 204, 255));
         helpButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -95,19 +96,19 @@ public class MainScreen extends javax.swing.JFrame {
                 homeButton1ActionPerformed(evt);
             }
         });
-        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 120, 200, 40));
+        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 120, 220, 40));
 
-        statsButton.setBackground(new java.awt.Color(204, 153, 255));
-        statsButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        statsButton.setForeground(new java.awt.Color(51, 51, 51));
-        statsButton.setText("Estadísticas");
-        statsButton.setBorder(new javax.swing.border.MatteBorder(null));
-        statsButton.addActionListener(new java.awt.event.ActionListener() {
+        recButton.setBackground(new java.awt.Color(204, 153, 255));
+        recButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        recButton.setForeground(new java.awt.Color(51, 51, 51));
+        recButton.setText("Recomendaciones");
+        recButton.setBorder(new javax.swing.border.MatteBorder(null));
+        recButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statsButtonActionPerformed(evt);
+                recButtonActionPerformed(evt);
             }
         });
-        content.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 200, 40));
+        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 220, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
@@ -179,9 +180,10 @@ public class MainScreen extends javax.swing.JFrame {
         //pinicio.actualizarTiempo();
     }//GEN-LAST:event_homeButton1ActionPerformed
 
-    private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statsButtonActionPerformed
+    private void recButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recButtonActionPerformed
+        RecomendacionesPanel pRecomendaciones = new RecomendacionesPanel();
+        showPanel(pRecomendaciones);
+    }//GEN-LAST:event_recButtonActionPerformed
 
     private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
         // TODO add your handling code here:
@@ -232,7 +234,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton statsButton;
+    private javax.swing.JButton recButton;
     // End of variables declaration//GEN-END:variables
 
     public void setInformation() {
@@ -244,11 +246,11 @@ public class MainScreen extends javax.swing.JFrame {
             jLabel1.setText("Problema al encontrar usuario");
         }
     }
-    
-    private void showPanel (JPanel p){
+
+    private void showPanel(JPanel p) {
         p.setSize(700, 660);
         contenido.removeAll();
-        contenido .add(p, new AbsoluteConstraints(0,0,-1,-1));
+        contenido.add(p, new AbsoluteConstraints(0, 0, -1, -1));
         contenido.revalidate();
         contenido.repaint();
     }

@@ -136,8 +136,6 @@ public class ActividadGrave extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        Recomendaciones ventana= new Recomendaciones();
-        ventana.setVisible(true);
         this.setVisible(false);
     }                                        
 

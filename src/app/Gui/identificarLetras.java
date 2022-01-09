@@ -41,9 +41,11 @@ public class IdentificarLetras extends javax.swing.JFrame {
         listo = new javax.swing.JButton();
         ingreseLetra = new javax.swing.JTextField();
         imagen = new javax.swing.JLabel();
+        closeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,6 +68,19 @@ public class IdentificarLetras extends javax.swing.JFrame {
         ingreseLetra.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jPanel1.add(ingreseLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 70, 50));
         jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 190, 120));
+
+        closeButton.setBackground(new java.awt.Color(255, 51, 51));
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(0, 51, 102));
+        closeButton.setText("X");
+        closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButton.setFocusPainted(false);
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 60, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/letras.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 460));
@@ -170,6 +185,11 @@ int cont = 0;
 
     }//GEN-LAST:event_listoActionPerformed
 
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_closeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,6 +227,7 @@ int cont = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closeButton;
     private javax.swing.JLabel imagen;
     private javax.swing.JTextField ingreseLetra;
     private javax.swing.JLabel jLabel1;

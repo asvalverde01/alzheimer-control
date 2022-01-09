@@ -116,9 +116,11 @@ public class ActividadComprension extends javax.swing.JFrame {
         opc15 = new javax.swing.JRadioButton();
         opc13 = new javax.swing.JRadioButton();
         opc10 = new javax.swing.JRadioButton();
+        closeButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -290,6 +292,19 @@ public class ActividadComprension extends javax.swing.JFrame {
             }
         });
         jPanel1.add(opc10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, -1, -1));
+
+        closeButton.setBackground(new java.awt.Color(255, 51, 51));
+        closeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(0, 51, 102));
+        closeButton.setText("X");
+        closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButton.setFocusPainted(false);
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 60, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/actividadComprension.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(700, 316));
@@ -477,6 +492,11 @@ public class ActividadComprension extends javax.swing.JFrame {
     private void opc15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc15ActionPerformed
         select5[posicion] = opc15.getLabel();
     }//GEN-LAST:event_opc15ActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_closeButtonActionPerformed
    
     
   
@@ -526,6 +546,7 @@ public class ActividadComprension extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JButton closeButton;
     private javax.swing.JTextArea cuentoArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
