@@ -50,7 +50,6 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,10 +98,10 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
         jLabel2.setText("RECOMENDACIONES");
         bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 240, 60));
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Seleccione el tipo de recomendación que desea visualizar:");
-        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 390, -1));
+        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 510, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
@@ -140,12 +139,6 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
         });
         bg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 390, 60));
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 102));
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Terminar");
-        bg.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 130, 50));
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundMain.jpg"))); // NOI18N
@@ -173,7 +166,6 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JLabel fechaLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
