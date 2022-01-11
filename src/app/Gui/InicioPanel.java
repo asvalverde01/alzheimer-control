@@ -115,6 +115,7 @@ public class InicioPanel extends javax.swing.JPanel {
         fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");
     }
 
+    /*
     public void actualizarTiempo() {
         while (true) {
             timeLabel.setText(actual.getHoraMinuto());
@@ -126,4 +127,5 @@ public class InicioPanel extends javax.swing.JPanel {
             }
         }
     }
+     */
 }

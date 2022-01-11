@@ -6,7 +6,6 @@ package app.Gui;
 
 import Auxiliar.logicaJuego;
 import javax.swing.ImageIcon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 

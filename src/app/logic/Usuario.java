@@ -153,10 +153,11 @@ public class Usuario {
     /Métodos de la clase
     /-------------------------------------------------------------*/
     public void visualizarInfoUsuario() {
-
+        //Solo modo consola
     }
 
     public void visualizarRecomendaciones() {
+        //Solo modo consola
 
     }
 

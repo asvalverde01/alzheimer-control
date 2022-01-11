@@ -22,6 +22,7 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistroUsuario
+     * @param usuario
      */
     public SeleccionEtapa(Usuario usuario) {
         initComponents();
