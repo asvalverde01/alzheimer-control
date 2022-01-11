@@ -13,10 +13,10 @@ public class Main {
         /-------------------------------------------------------------*/
         Usuario usuario = new Usuario();
         boolean usuarioRegistrado = false;
+
         /*-------------------------------------------------------------
             /Se busca el archivo que busca al usuario
             /-------------------------------------------------------------*/
-
         String archivo = "user.csv";
         String line;
         line = "";

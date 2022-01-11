@@ -121,7 +121,7 @@ int cont = 0;
         }
 
         if (cont == 2) {
-            Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/letraGato.png"));
+            Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
             imagen.setIcon(icono3);
         }
 

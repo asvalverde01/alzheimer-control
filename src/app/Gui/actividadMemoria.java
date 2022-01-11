@@ -44,6 +44,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
     }
 
     private void activarBoton(JButton btn) {
+        
         if (!caraUp) {
             btn.setEnabled(false);
             im1 = (ImageIcon) btn.getDisabledIcon();
@@ -59,6 +60,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             puntaje += 2;
             mostrarPuntaje();
         }
+        System.out.println("Puntaje " + puntaje);
     }
 
     private void compararCarta() {

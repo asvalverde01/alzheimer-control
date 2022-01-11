@@ -24,11 +24,11 @@ public class ReconocerSonido extends javax.swing.JFrame {
      */
     public ReconocerSonido() {
         initComponents();
-        
-         Icon icono0 = new ImageIcon(getClass().getResource("/Imagen/play.jpg"));
+
+        Icon icono0 = new ImageIcon(getClass().getResource("/Imagen/play.jpg"));
 
         play.setIcon(icono0);
-        
+
         Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/Vaca.jpg"));
 
         opci1.setIcon(icono1);
@@ -48,12 +48,10 @@ public class ReconocerSonido extends javax.swing.JFrame {
         Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/Perro.jpg"));
 
         opci5.setIcon(icono5);
-        
+
         AudioClip sonido;
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource(""));
-            sonido.play();
-        
-         
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource(""));
+        sonido.play();
 
         String[] s = u.setRespuestaSonido(orden2);
 
@@ -207,13 +205,19 @@ public class ReconocerSonido extends javax.swing.JFrame {
         calificacion = calificacion * 2;
 
         JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+
+        // Se guardan los resultados
+        /*
+        ResultadoActividad resultado = new ResultadoActividad();
+        resltado.setPuntuacion(puntuacion);
+        resultado.setTiempo(tiempo);
+        */
+
     }//GEN-LAST:event_finalizarActionPerformed
     int cont = 0;
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
-        
+
         cont++;
-        
-        
 
         if (cont == 1) {
 
@@ -221,7 +225,6 @@ public class ReconocerSonido extends javax.swing.JFrame {
             sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/gallinaAudio.wav"));
             sonido.play();
             play.setEnabled(false);
-           
 
         }
 
@@ -245,7 +248,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
             AudioClip sonido;
             sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/tamboresAudio.wav"));
             sonido.play();
-          
+
             play.setEnabled(false);
 
         }
@@ -257,10 +260,6 @@ public class ReconocerSonido extends javax.swing.JFrame {
             play.setEnabled(false);
 
         }
-       
-            
-        
-        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_playActionPerformed
@@ -301,7 +300,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
     }//GEN-LAST:event_opci5ActionPerformed
     int cont1 = 0;
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
-       
+
         play.setEnabled(true);
         cont1++;
         if (orden2 == 3) {

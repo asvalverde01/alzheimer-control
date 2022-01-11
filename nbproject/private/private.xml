@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadGrave3.java</file>
-            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadGrave.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/logic/Main.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/InicioPanel.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadSumaResta.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/RecomendacionesPanel.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadesModeradasPanel.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/RegistroUsuario.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadMemoria.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ReconocerSonido.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/IdentificarLetras.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadesPanel.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadesLevesPanel.java</file>
             <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadComprension.java</file>
+            <file>file:/C:/Users/asval/OneDrive/Escritorio/alzheimer-control/src/app/Gui/ActividadColores.java</file>
         </group>
     </open-files>
 </project-private>

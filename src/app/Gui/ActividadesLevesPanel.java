@@ -71,10 +71,10 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
         jLabel1.setText("Sumas y restas");
 
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel2.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel2.setText("Actividad con 10 ejercicios aleatorios");
 
         jLabel3.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel3.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel3.setText("Resuelve fáciles operaciónes de suma y resta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -88,14 +88,14 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(28, 28, 28)
                     .addComponent(jLabel3)
-                    .addContainerGap(144, Short.MAX_VALUE)))
+                    .addContainerGap(292, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,10 +140,10 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
         jLabel4.setText("Comprensión lectora");
 
         jLabel5.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel5.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel5.setText("Lee una pequeña historia y luego responde preguntas");
 
         jLabel6.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel6.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel6.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -158,7 +158,7 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -200,10 +200,10 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
         jLabel7.setText("Memoria corto plazo");
 
         jLabel8.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel8.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel8.setText("Encuentra los pares de las imágenes");
 
         jLabel9.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel9.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel9.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -217,7 +217,7 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel8))
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

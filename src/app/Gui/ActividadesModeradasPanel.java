@@ -71,10 +71,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jLabel1.setText("Identificar las letras");
 
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel2.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel2.setText("objeto de una imagen mostrada.");
 
         jLabel3.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel3.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel3.setText("Identifica la vocal o consonande con la que empieza un ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -88,14 +88,14 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(28, 28, 28)
                     .addComponent(jLabel3)
-                    .addContainerGap(144, Short.MAX_VALUE)))
+                    .addContainerGap(216, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,11 +139,11 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 51, 51));
         jLabel4.setText("Reconocer los sonidos");
 
-        jLabel5.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel5.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel5.setForeground(new java.awt.Color(0, 51, 0));
+        jLabel5.setText("Identifica a que pertenece un audio.");
 
         jLabel6.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel6.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel6.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -158,7 +158,7 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -200,10 +200,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jLabel7.setText("Identificar los colores");
 
         jLabel8.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel8.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel8.setText("Selecciona el nombre del color que se muestra.");
 
         jLabel9.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel9.setText("Decripcion de la actividad---------------------------------------------");
+        jLabel9.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -215,9 +215,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel8))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

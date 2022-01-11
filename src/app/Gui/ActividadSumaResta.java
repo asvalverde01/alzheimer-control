@@ -5,6 +5,7 @@
 package app.Gui;
 
 import app.logic.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +16,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
     String respuesta1;
     int respuestaOp;
     int puntaje;
+    int contador;
 
     public int getRespuestaOp() {
         return respuestaOp;
@@ -143,7 +145,13 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         }
         int respuesta = generarNuevaOp();
         setRespuestaOp(respuesta);
-        System.out.println("puntaje"  + puntaje);
+        contador++;
+        ingreseSuma1.setText("");
+        if (contador == 10) {
+            JOptionPane.showMessageDialog(null, "Tu calificación es " + puntaje + "/10");
+            this.setVisible(false);
+
+        }
     }//GEN-LAST:event_comprobar1ActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed

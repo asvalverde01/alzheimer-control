@@ -9,6 +9,7 @@ import app.logic.Usuario;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,48 +43,100 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Etapa");
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 710, 40));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 710, 10));
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jScrollPane3.setBackground(new java.awt.Color(204, 153, 255));
+
+        jTextArea3.setBackground(new java.awt.Color(153, 153, 255));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(51, 51, 51));
+        jTextArea3.setRows(5);
+        jTextArea3.setText("La persona pierde la capacidad de \nresponder a su entorno y de controlar\nlos movimientos. Aunque pueden decir \npalabras o frases, es posible que\nocurran cambios significativos en la\n personalidad.\n");
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 180, 320, 250));
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setText("AVANZADA");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 190, 330, 610));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 480, 330, 70));
 
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(153, 255, 153));
+        jButton3.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(102, 102, 102));
         jButton3.setText("MODERADA");
+        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 320, 610));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 320, 70));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(255, 255, 153));
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(102, 102, 102));
         jButton2.setText("LEVE");
+        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 320, 610));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 320, 70));
+
+        jScrollPane1.setBackground(new java.awt.Color(204, 153, 255));
+
+        jTextArea1.setBackground(new java.awt.Color(153, 153, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(51, 51, 51));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Es posible que note que la persona \nconfunda palabras, se frustra o enoja, o\nactúa de forma inesperada, \npuede dificultar la expresión de \npensamientos.\n");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 320, 250));
+
+        jScrollPane2.setBackground(new java.awt.Color(204, 153, 255));
+
+        jTextArea2.setBackground(new java.awt.Color(153, 153, 255));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(51, 51, 51));
+        jTextArea2.setRows(5);
+        jTextArea2.setText("En la etapa temprana del Alzheimer, \nla persona puede desenvolverse de forma\n independiente. \nEs posible que pueda conducir, trabajar y \nparticipar de actividades sociales. \nA pesar de esto, la persona puede sentir \nque tiene episodios de pérdida de memoria\nque incluyen olvidarse palabras familiares \nola ubicación de objetos cotidianos.");
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 320, 250));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/goback.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -94,16 +147,16 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, -1, 90));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 204, 255));
-        jLabel3.setText("Seleccione la etapa que considere");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 42)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 51, 255));
+        jLabel3.setText("Seleccione la etapa de la enfermedad que considere");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundEtapa.jpg"))); // NOI18N
         jLabel1.setText("Registro de Usuario");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1330, 910));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1330, 620));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 51, 51));
@@ -189,9 +242,10 @@ public class SeleccionEtapa extends javax.swing.JFrame {
             String txt =desc + usuario.getNombre() + "," + usuario.getApellido() + "," + usuario.getFechaNacimiento().getDia() + "," + usuario.getFechaNacimiento().getMes() + "," + usuario.getFechaNacimiento().getAnio() + "," + etapa;
             bw.write(txt);
             bw.close();
+            JOptionPane.showMessageDialog(null, "Información guardada correctamente");
             return true;
         } catch (IOException ex1) {
-            System.out.println("Error dentro de guardarUsuario");
+            JOptionPane.showMessageDialog(null, "Ha ocurrido algún error");
             return false;
         }
     }
@@ -241,6 +295,12 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
 }

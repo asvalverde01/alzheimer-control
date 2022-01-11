@@ -45,6 +45,7 @@ public class InicioPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
         timeLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,6 +88,11 @@ public class InicioPanel extends javax.swing.JPanel {
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 153));
+        jLabel2.setText("Bienvenido :)");
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundMain.jpg"))); // NOI18N
@@ -100,6 +106,7 @@ public class InicioPanel extends javax.swing.JPanel {
     private javax.swing.JPanel bg;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables

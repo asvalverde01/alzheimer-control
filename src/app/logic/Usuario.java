@@ -211,15 +211,13 @@ public class Usuario {
     }
 
     //AQUÍ EMPIZA LA ACTIVIDAD DE LA COMPRENSIÓN LECTORA
-    //PREGUNTAS 1
     String[] respuestas = {
-        "Perro", "Luna", "Pera"
+        "Acomodados", "5", "Austria"
     };
-
     String[] radioR = {
-        "Perro,Gato,Perico",
-        "Sol,Luna,Arbol",
-        "Manzana,Luz,Pera",};
+        "Acomodados,Desacomodados,Separados",
+        "5,6,3",
+        "España,Inglaterra,Austria",};
 
     public String getRespuesta(int posicion) {
         return respuestas[posicion];
@@ -229,17 +227,14 @@ public class Usuario {
         String s1 = radioR[posicion];
         String[] s2 = separar(s1, ",");
         return s2;
-    }
-
-    //PREGUNTAS 2
+    } //PREGUNTAS 2
     String[] respuestas2 = {
-        "Mercurio", "Marco", "Limon"
+        "Pintar los dibujos", "Nariz", "4"
     };
-
     String[] radioR2 = {
-        "Mercurio,Venus,Tierra",
-        "Luis,Pedro,Marco",
-        "Limon,Nuez,Mango",};
+        "Pintar los dibujos,Dibujar árboles,Jugar",
+        "Ojos,Nariz,Manos",
+        "10,4,5",};
 
     public String getRespuesta2(int posicion) {
         return respuestas2[posicion];
@@ -249,17 +244,14 @@ public class Usuario {
         String s1 = radioR2[posicion];
         String[] s2 = separar(s1, ",");
         return s2;
-    }
-
-    //PREGUNTAS 3
+    } //PREGUNTAS 3
     String[] respuestas3 = {
-        "Tres", "Noche", "Pacífico"
+        "Rojo", "Sabores", "Papá"
     };
-
     String[] radioR3 = {
-        "Uno,Dos ,Tres",
-        "Noche ,Dia, Tarde",
-        "Pacífico,Atlantico,Artico",};
+        "Verde,Azul,Rojo",
+        "Sabores,Sentimientos,Olores",
+        "Mamá,Papá,Hermano",};
 
     public String getRespuesta3(int posicion) {
         return respuestas3[posicion];
@@ -269,38 +261,31 @@ public class Usuario {
         String s1 = radioR3[posicion];
         String[] s2 = separar(s1, ",");
         return s2;
-    }
-
-    //PREGUNTAS 4
+    } //PREGUNTAS 4
     String[] respuestas4 = {
-        "Blusa", "a", "Lenovo"
+        "Amarillo", "Oído", "Europa"
     };
-
     String[] radioR4 = {
-        "Vestido,Falda ,Blusa",
-        "a,b,c",
-        "HP,Lenovo,Dell",};
+        "Dorado,Amarillo,Morado",
+        "Olfato,Gusto,Oído",
+        "América,Asia,Europa"};
 
     public String getRespuesta4(int posicion) {
         return respuestas4[posicion];
-
     }
 
     public String[] setRespuestas4(int posicion) {
         String s1 = radioR4[posicion];
         String[] s2 = separar(s1, ",");
         return s2;
-    }
-
-    //PREGUNTAS 5
+    } //PREGUNTAS 5
     String[] respuestas5 = {
-        "Enero", "Lunes", "Boca"
+        "Figuras", "Boca", "Sinfonía N°40"
     };
-
     String[] radioR5 = {
-        "Febrero,Enero,Marzo",
-        "Jueves ,Miercoles,Lunes",
-        "Ojos,Boca,Nariz",};
+        "Paisajes,Figuras,Ropa",
+        "Ojos,Boca,Nariz",
+        "Sinfonía N°40,Sinfonía N°9,Sinfonía N°3",};
 
     public String getRespuesta5(int posicion) {
         return respuestas5[posicion];
@@ -311,17 +296,26 @@ public class Usuario {
         String[] s2 = separar(s1, ",");
         return s2;
     }
-
-    String[] preguntas2 = {
-        "Pregunta 2", "Pregunta 2", "Pregunta 2",};
-    String[] preguntas3 = {
-        "Pregunta 3", "Pregunta 3", "Pregunta 3",};
     String[] preguntas = {
-        "Preguntas 1", "Pregunta 1", "Pregunta 1",};
+        "¿Cómo duermen los lápices de colores?",
+        "¿Cuántos sentidos tienen los seres humanos?",
+        "¿Dónde nació Mozart?",};
+    String[] preguntas2 = {
+        "¿Qué van hacer con el cuaderno de clases?",
+        "¿En qué órgano está el sentido del olfato?",
+        "¿Desde qué edad Mozart demostró su don especial?",};
+    String[] preguntas3 = {
+        "¿Cuál es color favorito de Juan?",
+        "¿Qué nos permite distinguir el sentido del gusto?",
+        "¿Qué familiar de Mozart también era música?",};
     String[] preguntas4 = {
-        "Pregunta 4", "Pregunta 4", "Pregunta 4",};
+        "¿Cuál es el color favorito de Rosita?",
+        "¿Con qué sentido podemos escuchar música?",
+        "¿En qué contiene Mozart viajó para tocar frente a reyes?",};
     String[] preguntas5 = {
-        "Pregunta 5", "Pregunta 5", "Pregunta 5",};
+        "¿Qué les gusta pintar a Juan y Rosita?",
+        "¿En qué órgano está el sentido del gusto?",
+        "¿Cuál es la sinfonía más importante de Mozart?",};
 
     public String getPregunta(int posicion) {
         return preguntas[posicion];
@@ -344,6 +338,18 @@ public class Usuario {
     }
 
     public String[] separar(String cadena, String separador) {
+        StringTokenizer token = new StringTokenizer(cadena, separador);
+        String[] a = new String[3];
+        int i = 0;
+        while (token.hasMoreTokens()) {
+            a[i] = token.nextToken(); // obtenido el token
+            i++;
+        }
+        return a;
+    }
+
+    // Separar metodo 
+    public String[] separar2(String cadena, String separador) {
         StringTokenizer token = new StringTokenizer(cadena, separador);
 
         String[] a = new String[5];
@@ -375,7 +381,7 @@ public class Usuario {
 
     public String[] setRespuestaColor(int orden) {
         String s1 = radioRC[orden];
-        String[] s2 = separar(s1, ",");
+        String[] s2 = separar2(s1, ",");
         return s2;
     }
 
@@ -398,7 +404,7 @@ public class Usuario {
 
     public String[] setRespuestaSonido(int orden2) {
         String s1 = radioRS[orden2];
-        String[] s2 = separar(s1, ",");
+        String[] s2 = separar2(s1, ",");
         return s2;
     }
 
