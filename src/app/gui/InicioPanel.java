@@ -53,11 +53,11 @@ public class InicioPanel extends javax.swing.JPanel {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(81, 3, 113));
         jPanel1.setForeground(new java.awt.Color(255, 153, 153));
 
         fechaLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        fechaLabel.setForeground(new java.awt.Color(51, 51, 51));
+        fechaLabel.setForeground(new java.awt.Color(255, 255, 255));
         fechaLabel.setText("El día de hoy es -- de -- del año --");
 
         timeLabel.setBackground(new java.awt.Color(102, 102, 102));

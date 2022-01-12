@@ -34,7 +34,7 @@ public final class MainScreen extends javax.swing.JFrame {
         showPanel(pInicio);
 
         this.usuario = usuario;
-        setInformation();
+        //setInformation();
         this.setVisible(true);
     }
 
@@ -48,13 +48,12 @@ public final class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         content = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         actividadesButton = new javax.swing.JButton();
         helpButton = new javax.swing.JButton();
         homeButton1 = new javax.swing.JButton();
         recButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         configButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
 
@@ -64,23 +63,26 @@ public final class MainScreen extends javax.swing.JFrame {
 
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        actividadesButton.setBackground(new java.awt.Color(204, 153, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/home_house.png"))); // NOI18N
+        content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 100, 90));
+
+        actividadesButton.setBackground(new java.awt.Color(153, 153, 255));
         actividadesButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         actividadesButton.setForeground(new java.awt.Color(51, 51, 51));
         actividadesButton.setText("Actividades");
-        actividadesButton.setBorder(new javax.swing.border.MatteBorder(null));
+        actividadesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        actividadesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         actividadesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actividadesButtonActionPerformed(evt);
             }
         });
-        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 220, 40));
+        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 200, 250, 50));
 
         helpButton.setBackground(new java.awt.Color(255, 204, 255));
         helpButton.setForeground(new java.awt.Color(51, 51, 51));
         helpButton.setText("Ayuda");
-        helpButton.setBorder(new javax.swing.border.MatteBorder(null));
-        helpButton.setBorderPainted(false);
+        helpButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         helpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 helpButtonActionPerformed(evt);
@@ -88,51 +90,42 @@ public final class MainScreen extends javax.swing.JFrame {
         });
         content.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 190, 30));
 
-        homeButton1.setBackground(new java.awt.Color(255, 102, 102));
-        homeButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        homeButton1.setForeground(new java.awt.Color(51, 51, 51));
+        homeButton1.setBackground(new java.awt.Color(204, 0, 204));
+        homeButton1.setFont(new java.awt.Font("Montserrat", 1, 25)); // NOI18N
+        homeButton1.setForeground(new java.awt.Color(255, 255, 255));
         homeButton1.setText("Inicio");
-        homeButton1.setBorder(new javax.swing.border.MatteBorder(null));
+        homeButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        homeButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         homeButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButton1ActionPerformed(evt);
             }
         });
-        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 120, 220, 40));
+        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 250, 50));
 
-        recButton.setBackground(new java.awt.Color(204, 153, 255));
+        recButton.setBackground(new java.awt.Color(153, 153, 255));
         recButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         recButton.setForeground(new java.awt.Color(51, 51, 51));
         recButton.setText("Recomendaciones");
-        recButton.setBorder(new javax.swing.border.MatteBorder(null));
+        recButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        recButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recButtonActionPerformed(evt);
             }
         });
-        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 220, 40));
+        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 260, 250, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel1.setText("... ");
-        content.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        configButton.setBackground(new java.awt.Color(204, 204, 204));
+        configButton.setBackground(new java.awt.Color(204, 153, 255));
         configButton.setForeground(new java.awt.Color(51, 51, 51));
         configButton.setText("Configurar");
-        configButton.setBorder(new javax.swing.border.MatteBorder(null));
-        configButton.setBorderPainted(false);
+        configButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         configButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 configButtonActionPerformed(evt);
             }
         });
         content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 190, 30));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel3.setText("Hola ");
-        content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
         content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, 1170, 1020));
@@ -164,16 +157,14 @@ public final class MainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_helpButtonActionPerformed
+    }//GEN-LAST:event_configButtonActionPerformed
 
-    private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
-        ActividadesPanel pActividades = new ActividadesPanel(usuario);
-        showPanel(pActividades);
-        pActividades.setUsuario(usuario);
-
-    }//GEN-LAST:event_actividadesButtonActionPerformed
+    private void recButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recButtonActionPerformed
+        RecomendacionesPanel pRecomendaciones = new RecomendacionesPanel();
+        showPanel(pRecomendaciones);
+    }//GEN-LAST:event_recButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
         InicioPanel pInicio = new InicioPanel();
@@ -182,14 +173,15 @@ public final class MainScreen extends javax.swing.JFrame {
         //pinicio.actualizarTiempo();
     }//GEN-LAST:event_homeButton1ActionPerformed
 
-    private void recButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recButtonActionPerformed
-        RecomendacionesPanel pRecomendaciones = new RecomendacionesPanel();
-        showPanel(pRecomendaciones);
-    }//GEN-LAST:event_recButtonActionPerformed
-
-    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_configButtonActionPerformed
+    }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
+        ActividadesPanel pActividades = new ActividadesPanel(usuario);
+        showPanel(pActividades);
+        pActividades.setUsuario(usuario);
+    }//GEN-LAST:event_actividadesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,12 +225,13 @@ public final class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JButton helpButton;
     private javax.swing.JButton homeButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton recButton;
     // End of variables declaration//GEN-END:variables
 
+    
+    /*
     public void setInformation() {
         try {
             jLabel1.setText(usuario.getNombre() + " :)");
@@ -248,6 +241,7 @@ public final class MainScreen extends javax.swing.JFrame {
             jLabel1.setText("Problema al encontrar usuario");
         }
     }
+*/
 
     private void showPanel(JPanel p) {
         p.setSize(700, 660);
