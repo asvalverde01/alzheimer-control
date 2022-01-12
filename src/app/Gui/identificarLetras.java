@@ -1,9 +1,9 @@
 package app.Gui;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import app.logic.Usuario;
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
+import java.util.Objects;
 
 public class IdentificarLetras extends javax.swing.JFrame {
 
@@ -15,17 +15,63 @@ public class IdentificarLetras extends javax.swing.JFrame {
     String n3 = "g";
     String n4 = "f";
     String n5 = "a";
+    Icon icono = new ImageIcon();
+    Usuario u = new Usuario();
+    int lol = 0;
+    int cont = 0;
+    int calificacion = 0;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closeButton;
+    private javax.swing.JLabel imagen;
+    private javax.swing.JTextField ingreseLetra;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton listo;
 
     public IdentificarLetras() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/letraMariposa.png"));
+        Icon icono1 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/letraMariposa.png")));
         imagen.setIcon(icono1);
 
     }
-    Icon icono = new ImageIcon();
-    Usuario u = new Usuario();
-    int lol = 0;
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new IdentificarLetras().setVisible(true);
+            }
+        });
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,26 +128,17 @@ public class IdentificarLetras extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/letras.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/letras.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(0, 0, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-int cont = 0;
-    int calificacion = 0;
+
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
         cont++;
@@ -109,30 +146,30 @@ int cont = 0;
         letra1 = ingreseLetra.getText();
 
         if (cont == 0) {
-            Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/letraMariposa.png"));
+            Icon icono1 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/letraMariposa.png")));
             imagen.setIcon(icono1);
-            
+
 
         }
         if (cont == 1) {
-            Icon icono2 = new ImageIcon(getClass().getResource("/Imagen/letraCine.png"));
+            Icon icono2 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/letraCine.png")));
             imagen.setIcon(icono2);
 
         }
 
         if (cont == 2) {
-            Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
+            Icon icono3 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Gato.jpg")));
             imagen.setIcon(icono3);
         }
 
         if (cont == 3) {
-            Icon icono4 = new ImageIcon(getClass().getResource("/Imagen/letraFlor.png"));
+            Icon icono4 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/letraFlor.png")));
             imagen.setIcon(icono4);
 
         }
 
         if (cont == 4) {
-            Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/letraAvion.png"));
+            Icon icono5 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/letraAvion.png")));
             imagen.setIcon(icono5);
 
         }
@@ -179,60 +216,14 @@ int cont = 0;
 
         if (cont == 5) {
             listo.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion*2 + "/10");
+            JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion * 2 + "/10");
 
         }
 
     }//GEN-LAST:event_listoActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IdentificarLetras().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton closeButton;
-    private javax.swing.JLabel imagen;
-    private javax.swing.JTextField ingreseLetra;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton listo;
     // End of variables declaration//GEN-END:variables
 }

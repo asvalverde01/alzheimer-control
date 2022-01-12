@@ -1,22 +1,65 @@
-
 package app.Gui;
 
-import app.logic.Usuario;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
 import Auxiliar.Cuento;
+import app.logic.Usuario;
+
+import javax.swing.*;
+import java.awt.*;
+
 /**
- *
  * @author HP
  */
 public class ActividadComprension extends javax.swing.JFrame {
 
+    int posicion = 0;
+    int parte = 0;
+    Usuario u = new Usuario();
+    Cuento m = new Cuento();
+    Object[] select = {"", "", "", "", ""};
+    Object[] select2 = {"", "", "", "", ""};
+    Object[] select3 = {"", "", "", "", ""};
+    Object[] select4 = {"", "", "", "", ""};
+    Object[] select5 = {"", "", "", "", ""};
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Terminar;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JTextArea cuentoArea;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton opc1;
+    private javax.swing.JRadioButton opc10;
+    private javax.swing.JRadioButton opc11;
+    private javax.swing.JRadioButton opc12;
+    private javax.swing.JRadioButton opc13;
+    private javax.swing.JRadioButton opc14;
+    private javax.swing.JRadioButton opc15;
+    private javax.swing.JRadioButton opc2;
+    private javax.swing.JRadioButton opc3;
+    private javax.swing.JRadioButton opc4;
+    private javax.swing.JRadioButton opc5;
+    private javax.swing.JRadioButton opc6;
+    private javax.swing.JRadioButton opc7;
+    private javax.swing.JRadioButton opc8;
+    private javax.swing.JRadioButton opc9;
+    private javax.swing.JLabel question;
+    private javax.swing.JLabel question2;
+    private javax.swing.JLabel question3;
+    private javax.swing.JLabel question4;
+    private javax.swing.JLabel question5;
+    private javax.swing.JButton responderPreguntas;
     /**
      * Creates new form actividadComprension
      */
     public ActividadComprension() {
-        
-        
+
+
         initComponents();
         cuentoArea.setText(m.getCuento(parte));
         question.setText(u.getPregunta(posicion));
@@ -63,18 +106,44 @@ public class ActividadComprension extends javax.swing.JFrame {
         opc1.requestFocus();
         Terminar.setEnabled(false);
     }
-    int posicion = 0;
-    int parte =0;
-    Usuario u = new Usuario();
-    Cuento m = new Cuento();
 
-    
-    Object[] select = {"", "", "", "", ""};
-    Object[] select2 = {"", "", "", "", ""};
-    Object[] select3 = {"", "", "", "", ""};
-    Object[] select4 = {"", "", "", "", ""};
-    Object[] select5 = {"", "", "", "", ""};
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ActividadComprension().setVisible(true);
+            }
+        });
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -132,15 +201,15 @@ public class ActividadComprension extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addContainerGap(16, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, 50));
@@ -306,21 +375,21 @@ public class ActividadComprension extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/actividadComprension.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/actividadComprension.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(700, 316));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -380,11 +449,7 @@ public class ActividadComprension extends javax.swing.JFrame {
         } else {
             Toolkit.getDefaultToolkit().beep();
         }
-        
-        
-        
-       
-                
+
 
     }//GEN-LAST:event_responderPreguntasActionPerformed
 
@@ -401,45 +466,39 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc2ActionPerformed
 
     private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
-       
-     
+
+
         int calificacion = 0;
-        
-      
-        
+
+
         for (int i = 0; i < 3; i++) {
-            if (select[i].equals(u.getRespuesta(i))){ 
+            if (select[i].equals(u.getRespuesta(i))) {
                 calificacion = calificacion + 1;
-                
+
             }
-            if (select2[i].equals(u.getRespuesta2(i))) 
+            if (select2[i].equals(u.getRespuesta2(i)))
                 calificacion = calificacion + 1;
-                
+
             if (select3[i].equals(u.getRespuesta3(i))) {
                 calificacion = calificacion + 1;
-               
-            }if (select4[i].equals(u.getRespuesta4(i))) {
+
+            }
+            if (select4[i].equals(u.getRespuesta4(i))) {
                 calificacion = calificacion + 1;
 
-            }if (select5[i].equals(u.getRespuesta5(i))) {
-                calificacion = calificacion + 1;
-              
             }
-            System.out.println(""+calificacion);
+            if (select5[i].equals(u.getRespuesta5(i))) {
+                calificacion = calificacion + 1;
+
+            }
+            System.out.println("" + calificacion);
         }
-        
-        calificacion=calificacion*2/3;
-       
-        JOptionPane.showMessageDialog(null, "Tu calificación es " +calificacion +"/10");
+
+        calificacion = calificacion * 2 / 3;
+
+        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
     }//GEN-LAST:event_TerminarActionPerformed
 
-      
-        
-      
-        
-                                                 
-     
-        
     private void opc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc4ActionPerformed
         // TODO add your handling code here:
         select2[posicion] = opc4.getLabel();
@@ -447,12 +506,12 @@ public class ActividadComprension extends javax.swing.JFrame {
 
     private void opc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc5ActionPerformed
         // TODO add your handling code here:
-           select2[posicion] = opc5.getLabel();
+        select2[posicion] = opc5.getLabel();
     }//GEN-LAST:event_opc5ActionPerformed
 
     private void opc6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc6ActionPerformed
         // TODO add your handling code here:
-           select2[posicion] = opc6.getLabel();
+        select2[posicion] = opc6.getLabel();
     }//GEN-LAST:event_opc6ActionPerformed
 
     private void opc8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc8ActionPerformed
@@ -466,7 +525,7 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc7ActionPerformed
 
     private void opc9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc9ActionPerformed
-       select3[posicion] = opc9.getLabel();
+        select3[posicion] = opc9.getLabel();
     }//GEN-LAST:event_opc9ActionPerformed
 
     private void opc10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc10ActionPerformed
@@ -482,7 +541,7 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc12ActionPerformed
 
     private void opc13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc13ActionPerformed
-       select5[posicion] = opc13.getLabel();
+        select5[posicion] = opc13.getLabel();
     }//GEN-LAST:event_opc13ActionPerformed
 
     private void opc14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc14ActionPerformed
@@ -497,81 +556,5 @@ public class ActividadComprension extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
-   
-    
-  
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ActividadComprension.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ActividadComprension().setVisible(true);
-            }
-        });
-    }
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Terminar;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.JButton closeButton;
-    private javax.swing.JTextArea cuentoArea;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton opc1;
-    private javax.swing.JRadioButton opc10;
-    private javax.swing.JRadioButton opc11;
-    private javax.swing.JRadioButton opc12;
-    private javax.swing.JRadioButton opc13;
-    private javax.swing.JRadioButton opc14;
-    private javax.swing.JRadioButton opc15;
-    private javax.swing.JRadioButton opc2;
-    private javax.swing.JRadioButton opc3;
-    private javax.swing.JRadioButton opc4;
-    private javax.swing.JRadioButton opc5;
-    private javax.swing.JRadioButton opc6;
-    private javax.swing.JRadioButton opc7;
-    private javax.swing.JRadioButton opc8;
-    private javax.swing.JRadioButton opc9;
-    private javax.swing.JLabel question;
-    private javax.swing.JLabel question2;
-    private javax.swing.JLabel question3;
-    private javax.swing.JLabel question4;
-    private javax.swing.JLabel question5;
-    private javax.swing.JButton responderPreguntas;
     // End of variables declaration//GEN-END:variables
 }

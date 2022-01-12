@@ -6,22 +6,21 @@ package app.Gui;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- *
  * @author asval
  */
 public class InicioPanel extends javax.swing.JPanel {
 
     Fecha actual;
     Usuario usuario = null;
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bg;
+    private javax.swing.JLabel fechaLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel timeLabel;
     /**
      * Creates new form inicioPanel
      */
@@ -30,6 +29,10 @@ public class InicioPanel extends javax.swing.JPanel {
         actual = new Fecha();
         actualizarFecha(actual);
 
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     /**
@@ -68,22 +71,22 @@ public class InicioPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(fechaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(timeLabel)
-                .addGap(56, 56, 56))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(fechaLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                                .addComponent(timeLabel)
+                                .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaLabel)
-                    .addComponent(timeLabel))
-                .addContainerGap(14, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(fechaLabel)
+                                        .addComponent(timeLabel))
+                                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
@@ -95,37 +98,15 @@ public class InicioPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundMain.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundMain.jpg"))); // NOI18N
         bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
     }// </editor-fold>//GEN-END:initComponents
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bg;
-    private javax.swing.JLabel fechaLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarFecha(Fecha actual) {
         fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");
     }
 
-    /*
-    public void actualizarTiempo() {
-        while (true) {
-            timeLabel.setText(actual.getHoraMinuto());
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(InicioPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-     */
 }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Lectura {
 
-    public static int numeroReal(String mensaje) {
+    public static int numeroReal() {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         int number = 0;

@@ -1,18 +1,35 @@
 package app.Gui;
 
 import app.logic.Usuario;
-import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+import java.util.Objects;
 
 /**
- *
  * @author CLICK TIENDA ON LINE
  */
 public class ActividadColores extends javax.swing.JFrame {
+
+    int orden = 0;
+    Usuario u = new Usuario();
+    Icon icono = new ImageIcon();
+    Object[] selectColor = {"", "", "", "", "", ""};
+    int cont = 0;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupColor;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JPanel color;
+    private javax.swing.JButton finalizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton listo;
+    private javax.swing.JButton opcion1;
+    private javax.swing.JButton opcion2;
+    private javax.swing.JButton opcion3;
+    private javax.swing.JButton opcion4;
+    private javax.swing.JButton opcion5;
 
     /**
      * Creates new form actividadColores
@@ -36,10 +53,35 @@ public class ActividadColores extends javax.swing.JFrame {
 
     }
 
-    int orden = 0;
-    Usuario u = new Usuario();
-    Icon icono = new ImageIcon();
-    Object[] selectColor = {"", "", "", "", "", ""};
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ActividadColores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ActividadColores().setVisible(true);
+            }
+        });
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,12 +187,12 @@ public class ActividadColores extends javax.swing.JFrame {
         javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
         color.setLayout(colorLayout);
         colorLayout.setHorizontalGroup(
-            colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+                colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 200, Short.MAX_VALUE)
         );
         colorLayout.setVerticalGroup(
-            colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+                colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE)
         );
 
         jPanel1.add(color, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 200, -1));
@@ -177,23 +219,22 @@ public class ActividadColores extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/fondoColor.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/fondoColor.png")))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     private void opcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion1ActionPerformed
         selectColor[orden] = opcion1.getLabel();
@@ -247,7 +288,6 @@ public class ActividadColores extends javax.swing.JFrame {
         opcion5.setEnabled(false);
 
     }//GEN-LAST:event_opcion3ActionPerformed
-    int cont = 0;
 
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
@@ -332,56 +372,5 @@ public class ActividadColores extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ActividadColores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ActividadColores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ActividadColores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ActividadColores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ActividadColores().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroupColor;
-    private javax.swing.JButton closeButton;
-    private javax.swing.JPanel color;
-    private javax.swing.JButton finalizar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton listo;
-    private javax.swing.JButton opcion1;
-    private javax.swing.JButton opcion2;
-    private javax.swing.JButton opcion3;
-    private javax.swing.JButton opcion4;
-    private javax.swing.JButton opcion5;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,16 +7,40 @@ package app.Gui;
 import app.logic.Fecha;
 import app.logic.Usuario;
 
+import java.util.Objects;
+
 /**
- *
  * @author asval
  */
 public class RegistroUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner anioSpinner;
+    private javax.swing.JSpinner diaSpinner;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JComboBox<String> mesCombo;
     /**
      * Creates new form RegistroUsuario
+     *
      * @param usuario
      */
     public RegistroUsuario(Usuario usuario) {
@@ -28,9 +52,43 @@ public class RegistroUsuario extends javax.swing.JFrame {
         //mesCombo.addItem("emerp");
 
     }
-
     private RegistroUsuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RegistroUsuario().setVisible(true);
+            }
+        });
     }
 
     /**
@@ -120,7 +178,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel8.setText("Año");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
 
-        mesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" }));
+        mesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"}));
         mesCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mesComboActionPerformed(evt);
@@ -170,7 +228,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel1.setText("Registro de Usuario");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 400, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundAgregar.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundAgregar.jpg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 660));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -186,17 +244,16 @@ public class RegistroUsuario extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -217,7 +274,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         usuario.setNombre(jTextField2.getText());
         usuario.setApellido(jTextField3.getText());
         int dia = (Integer) diaSpinner.getValue();
-        String mes = mesCombo.getSelectedItem().toString();
+        String mes = Objects.requireNonNull(mesCombo.getSelectedItem()).toString();
         int anio = (Integer) anioSpinner.getValue();
 
         // Se verifica que se ingresen datos
@@ -237,24 +294,21 @@ public class RegistroUsuario extends javax.swing.JFrame {
             correctoCampos = true;
         }
 
-      
-        
-        if (anio >= 1900 || anio <= 2022) {
-            correctoCampos = true;
-        }
-        
-         if (dia < 1 || dia > 31) {
+
+        correctoCampos = true;
+
+        if (dia < 1 || dia > 31) {
             jLabel7.setText("Error en día");
             correctoCampos = false;
         }
-        
+
         if (dia >= 1 && dia <= 31) {
             correctoCampos = true;
         }
         if (anio < 1900 || anio > 2022 && correctoCampos) {
             jLabel7.setText("Error en año");
             correctoCampos = false;
-        } 
+        }
 
         try {
             Fecha nacimiento = new Fecha();
@@ -268,7 +322,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
             correcto = false;
         }
 
-        if (correcto && correctoCampos == true) {
+        if (correcto && correctoCampos) {
             SeleccionEtapa etapa = new SeleccionEtapa(usuario);
             etapa.setVisible(true);
             etapa.setLocationRelativeTo(null);
@@ -277,67 +331,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void mesComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesComboActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_mesComboActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistroUsuario().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner anioSpinner;
-    private javax.swing.JSpinner diaSpinner;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JComboBox<String> mesCombo;
     // End of variables declaration//GEN-END:variables
 
 }

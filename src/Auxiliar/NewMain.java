@@ -7,7 +7,6 @@ package Auxiliar;
 import java.util.Random;
 
 /**
- *
  * @author Usuari
  */
 public class NewMain {
@@ -16,25 +15,25 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int [] numbers= new int[10];
-        int count =0;
-        while(count<10){
-            Random r= new Random();
-            int na=r.nextInt(8)+1;
-            int nvr=0; 
-            for(int i=0;i<10;i++){
-                if(numbers[i]==na){
+        int[] numbers = new int[10];
+        int count = 0;
+        while (count < 10) {
+            Random r = new Random();
+            int na = r.nextInt(8) + 1;
+            int nvr = 0;
+            for (int i = 0; i < 10; i++) {
+                if (numbers[i] == na) {
                     nvr++;
                 }
             }
-            if(nvr<2){
-                numbers[count]=na;
+            if (nvr < 2) {
+                numbers[count] = na;
                 count++;
             }
-         }
-        for(int i=0;i<10;i++){
-            System.out.println(numbers[i]+"");
         }
-        
+        for (int i = 0; i < 10; i++) {
+            System.out.println(numbers[i] + "");
+        }
+
     }
 }
