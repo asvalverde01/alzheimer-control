@@ -2,37 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package app.gui;
+package app.Gui;
 
 import app.logic.Usuario;
-
-import javax.swing.*;
 import java.applet.AudioClip;
-import java.awt.*;
-import java.util.Objects;
+
+import java.awt.Toolkit;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
+ *
  * @author HP
  */
 public class ReconocerSonido extends javax.swing.JFrame {
-
-    Usuario u = new Usuario();
-    Object[] selectSonido = {"", "", "", "", ""};
-    int orden2 = 0;
-    int cont = 0;
-    int cont1 = 0;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton closeButton;
-    private javax.swing.JButton finalizar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel label;
-    private javax.swing.JButton listo;
-    private javax.swing.JButton opci1;
-    private javax.swing.JButton opci2;
-    private javax.swing.JButton opci3;
-    private javax.swing.JButton opci4;
-    private javax.swing.JButton opci5;
-    private javax.swing.JButton play;
 
     /**
      * Creates new form reconocerSonido
@@ -40,27 +25,27 @@ public class ReconocerSonido extends javax.swing.JFrame {
     public ReconocerSonido() {
         initComponents();
 
-        Icon icono0 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/play.jpg")));
+        Icon icono0 = new ImageIcon(getClass().getResource("/Imagen/play.jpg"));
 
         play.setIcon(icono0);
 
-        Icon icono1 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Vaca.jpg")));
+        Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/Vaca.jpg"));
 
         opci1.setIcon(icono1);
 
-        Icon icono2 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Gallina.jpg")));
+        Icon icono2 = new ImageIcon(getClass().getResource("/Imagen/Gallina.jpg"));
 
         opci2.setIcon(icono2);
 
-        Icon icono3 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Elefante.jpg")));
+        Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Elefante.jpg"));
 
         opci3.setIcon(icono3);
 
-        Icon icono4 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Gato.jpg")));
+        Icon icono4 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
 
         opci4.setIcon(icono4);
 
-        Icon icono5 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Perro.jpg")));
+        Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/Perro.jpg"));
 
         opci5.setIcon(icono5);
 
@@ -78,41 +63,9 @@ public class ReconocerSonido extends javax.swing.JFrame {
 
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ReconocerSonido().setVisible(true);
-            }
-        });
-    }
+    Usuario u = new Usuario();
+    Object[] selectSonido = {"", "", "", "", ""};
+    int orden2 = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -211,20 +164,20 @@ public class ReconocerSonido extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 60, 50));
 
-        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/reconocerSonido.jpg"))); // NOI18N
+        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/reconocerSonido.jpg"))); // NOI18N
         jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 700, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, Short.MAX_VALUE)
-                                .addGap(0, 0, 0))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -261,7 +214,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
         */
 
     }//GEN-LAST:event_finalizarActionPerformed
-
+    int cont = 0;
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
 
         cont++;
@@ -269,7 +222,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
         if (cont == 1) {
 
             AudioClip sonido;
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonido/gallinaAudio.wav"));
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/gallinaAudio.wav"));
             sonido.play();
             play.setEnabled(false);
 
@@ -278,7 +231,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
         if (cont == 2) {
 
             AudioClip sonido2;
-            sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/sonido/trenAudio.wav"));
+            sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/trenAudio.wav"));
             sonido2.play();
             play.setEnabled(false);
         }
@@ -286,14 +239,14 @@ public class ReconocerSonido extends javax.swing.JFrame {
         if (cont == 3) {
 
             AudioClip sonido;
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonido/vientoAudio.wav"));
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/vientoAudio.wav"));
             sonido.play();
             play.setEnabled(false);
         }
 
         if (cont == 4) {
             AudioClip sonido;
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonido/tamboresAudio.wav"));
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/tamboresAudio.wav"));
             sonido.play();
 
             play.setEnabled(false);
@@ -302,12 +255,13 @@ public class ReconocerSonido extends javax.swing.JFrame {
 
         if (cont == 5) {
             AudioClip sonido;
-            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/sonido/aplausoAudio.wav"));
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/aplausoAudio.wav"));
             sonido.play();
             play.setEnabled(false);
 
         }
 
+// TODO add your handling code here:
     }//GEN-LAST:event_playActionPerformed
 
     private void opci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci1ActionPerformed
@@ -344,7 +298,7 @@ public class ReconocerSonido extends javax.swing.JFrame {
         opci4.setEnabled(false);
         opci1.setEnabled(false);
     }//GEN-LAST:event_opci5ActionPerformed
-
+    int cont1 = 0;
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
         play.setEnabled(true);
@@ -357,115 +311,115 @@ public class ReconocerSonido extends javax.swing.JFrame {
 
         if (cont1 == 0) {
 
-            Icon icono1 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Vaca.jpg")));
+            Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/Vaca.jpg"));
 
             opci1.setIcon(icono1);
 
-            Icon icono2 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Gato.jpg")));
+            Icon icono2 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
 
             opci2.setIcon(icono2);
 
-            Icon icono3 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Elefante.jpg")));
+            Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Elefante.jpg"));
 
             opci3.setIcon(icono3);
 
-            Icon icono4 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Gallina.jpg")));
+            Icon icono4 = new ImageIcon(getClass().getResource("/Imagen/Gallina.jpg"));
 
             opci4.setIcon(icono4);
 
-            Icon icono5 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Perro.jpg")));
+            Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/Perro.jpg"));
 
             opci5.setIcon(icono5);
 
         }
 
         if (cont1 == 1) {
-            Icon icono6 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Avion.jpg")));
+            Icon icono6 = new ImageIcon(getClass().getResource("/Imagen/Avion.jpg"));
 
             opci1.setIcon(icono6);
 
-            Icon icono7 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Moto.jpg")));
+            Icon icono7 = new ImageIcon(getClass().getResource("/Imagen/Moto.jpg"));
 
             opci2.setIcon(icono7);
 
-            Icon icono8 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Carro.jpg")));
+            Icon icono8 = new ImageIcon(getClass().getResource("/Imagen/Carro.jpg"));
 
             opci3.setIcon(icono8);
 
-            Icon icono9 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Tren.jpg")));
+            Icon icono9 = new ImageIcon(getClass().getResource("/Imagen/Tren.jpg"));
 
             opci4.setIcon(icono9);
 
-            Icon icono10 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Bicicleta.jpg")));
+            Icon icono10 = new ImageIcon(getClass().getResource("/Imagen/Bicicleta.jpg"));
 
             opci5.setIcon(icono10);
 
         }
 
         if (cont1 == 2) {
-            Icon icono11 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Viento.jpg")));
+            Icon icono11 = new ImageIcon(getClass().getResource("/Imagen/Viento.jpg"));
 
             opci1.setIcon(icono11);
 
-            Icon icono12 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Rayo.jpg")));
+            Icon icono12 = new ImageIcon(getClass().getResource("/Imagen/Rayo.jpg"));
 
             opci2.setIcon(icono12);
 
-            Icon icono13 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Lluvia.jpg")));
+            Icon icono13 = new ImageIcon(getClass().getResource("/Imagen/Lluvia.jpg"));
 
             opci3.setIcon(icono13);
 
-            Icon icono14 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Erupcion.jpg")));
+            Icon icono14 = new ImageIcon(getClass().getResource("/Imagen/Erupcion.jpg"));
 
             opci4.setIcon(icono14);
 
-            Icon icono15 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Incendio.jpg")));
+            Icon icono15 = new ImageIcon(getClass().getResource("/Imagen/Incendio.jpg"));
 
             opci5.setIcon(icono15);
 
         }
 
         if (cont1 == 3) {
-            Icon icono11 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Tambor.jpg")));
+            Icon icono11 = new ImageIcon(getClass().getResource("/Imagen/Tambor.jpg"));
 
             opci1.setIcon(icono11);
 
-            Icon icono12 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Flauta.jpg")));
+            Icon icono12 = new ImageIcon(getClass().getResource("/Imagen/Flauta.jpg"));
 
             opci2.setIcon(icono12);
 
-            Icon icono13 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Guitarra.jpg")));
+            Icon icono13 = new ImageIcon(getClass().getResource("/Imagen/Guitarra.jpg"));
 
             opci3.setIcon(icono13);
 
-            Icon icono14 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Violin.jpg")));
+            Icon icono14 = new ImageIcon(getClass().getResource("/Imagen/Violin.jpg"));
 
             opci4.setIcon(icono14);
 
-            Icon icono15 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Maracas.jpg")));
+            Icon icono15 = new ImageIcon(getClass().getResource("/Imagen/Maracas.jpg"));
 
             opci5.setIcon(icono15);
 
         }
 
         if (cont1 == 4) {
-            Icon icono11 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Grito.jpg")));
+            Icon icono11 = new ImageIcon(getClass().getResource("/Imagen/Grito.jpg"));
 
             opci1.setIcon(icono11);
 
-            Icon icono12 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Beso.jpg")));
+            Icon icono12 = new ImageIcon(getClass().getResource("/Imagen/Beso.jpg"));
 
             opci2.setIcon(icono12);
 
-            Icon icono13 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Estornudo.jpg")));
+            Icon icono13 = new ImageIcon(getClass().getResource("/Imagen/Estornudo.jpg"));
 
             opci3.setIcon(icono13);
 
-            Icon icono14 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/Lamentarse.jpg")));
+            Icon icono14 = new ImageIcon(getClass().getResource("/Imagen/Lamentarse.jpg"));
 
             opci4.setIcon(icono14);
 
-            Icon icono15 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/imagen/aplauso.jpg")));
+            Icon icono15 = new ImageIcon(getClass().getResource("/Imagen/aplauso.jpg"));
 
             opci5.setIcon(icono15);
 
@@ -495,7 +449,57 @@ public class ReconocerSonido extends javax.swing.JFrame {
     }//GEN-LAST:event_listoActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ReconocerSonido().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton finalizar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label;
+    private javax.swing.JButton listo;
+    private javax.swing.JButton opci1;
+    private javax.swing.JButton opci2;
+    private javax.swing.JButton opci3;
+    private javax.swing.JButton opci4;
+    private javax.swing.JButton opci5;
+    private javax.swing.JButton play;
     // End of variables declaration//GEN-END:variables
 }

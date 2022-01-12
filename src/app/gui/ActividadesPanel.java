@@ -2,29 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package app.gui;
+package app.Gui;
 
 import app.logic.Usuario;
+import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
-import javax.swing.*;
-
 /**
+ *
  * @author asval
  */
 public class ActividadesPanel extends javax.swing.JPanel {
 
     Usuario usuario = null;
     int mostrando = 0;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     String etapa;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bg;
-    private javax.swing.JPanel contActv;
-    private javax.swing.JLabel etapaLabel;
-    private javax.swing.JLabel fondoLabel;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel txt1;
+
     /**
      * Creates new form inicioPanel
      *
@@ -48,10 +46,6 @@ public class ActividadesPanel extends javax.swing.JPanel {
             showPanel(acModeradas);
         }
 
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     /**
@@ -90,22 +84,22 @@ public class ActividadesPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(142, 142, 142)
-                                .addComponent(txt1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(etapaLabel)
-                                .addContainerGap(209, Short.MAX_VALUE))
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(txt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(etapaLabel)
+                .addContainerGap(209, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(txt1)
-                                        .addComponent(etapaLabel))
-                                .addContainerGap(14, Short.MAX_VALUE))
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt1)
+                    .addComponent(etapaLabel))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
@@ -126,19 +120,19 @@ public class ActividadesPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout contActvLayout = new javax.swing.GroupLayout(contActv);
         contActv.setLayout(contActvLayout);
         contActvLayout.setHorizontalGroup(
-                contActvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 620, Short.MAX_VALUE)
+            contActvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
         contActvLayout.setVerticalGroup(
-                contActvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 390, Short.MAX_VALUE)
+            contActvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
 
         bg.add(contActv, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 620, 390));
 
         fondoLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondoLabel.setForeground(new java.awt.Color(51, 51, 51));
-        fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundMain.jpg"))); // NOI18N
+        fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundMain.jpg"))); // NOI18N
         bg.add(fondoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
@@ -162,6 +156,16 @@ public class ActividadesPanel extends javax.swing.JPanel {
             mostrando = 1;
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bg;
+    private javax.swing.JPanel contActv;
+    private javax.swing.JLabel etapaLabel;
+    private javax.swing.JLabel fondoLabel;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel txt1;
     // End of variables declaration//GEN-END:variables
 
     private void showPanel(JPanel p) {

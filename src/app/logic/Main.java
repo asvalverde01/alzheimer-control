@@ -1,13 +1,8 @@
 package app.logic;
 
-import app.gui.MainScreen;
-import app.gui.RegistroUsuario;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
+import app.Gui.MainScreen;
+import app.Gui.RegistroUsuario;
+import java.io.*;
 import static java.lang.Integer.parseInt;
 
 public class Main {
@@ -22,9 +17,9 @@ public class Main {
         /*-------------------------------------------------------------
             /Se busca el archivo que busca al usuario
             /-------------------------------------------------------------*/
-
         String archivo = "user.csv";
         String line;
+        line = "";
         try {
             // Se busca el archivo o se crea de ser necesario
 
@@ -37,6 +32,7 @@ public class Main {
             }
 
             while ((line = br.readLine()) != null) {
+                int cont = 0;
                 String[] row = line.split(",");
                 // Inicializa los valores del objeto usuario
                 try {
@@ -71,6 +67,8 @@ public class Main {
             System.out.println("Error al crear y abrir");
         } catch (Exception ne) {
             ne.printStackTrace();
+        } finally {
+            //
         }
 
         /*-------------------------------------------------------------
