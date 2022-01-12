@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package app.Gui;
+package app.gui.actividades;
 
 import app.logic.Usuario;
 
@@ -10,13 +10,13 @@ import app.logic.Usuario;
  *
  * @author asval
  */
-public class ActividadesModeradasPanel extends javax.swing.JPanel {
+public class ActividadesLevesPanel extends javax.swing.JPanel {
 
     Usuario usuario;
     /**
      * Creates new form actividadesLevesPanel
      */
-    public ActividadesModeradasPanel(Usuario usuario) {
+    public ActividadesLevesPanel(Usuario usuario) {
         initComponents();
         this.usuario = usuario;
     }
@@ -51,7 +51,7 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jPanel1.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton1.setBackground(new java.awt.Color(102, 255, 102));
@@ -68,13 +68,13 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel1.setText("Identificar las letras");
+        jLabel1.setText("Sumas y restas");
 
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel2.setText("objeto de una imagen mostrada.");
+        jLabel2.setText("Actividad con 10 ejercicios aleatorios");
 
         jLabel3.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel3.setText("Identifica la vocal o consonande con la que empieza un ");
+        jLabel3.setText("Resuelve fáciles operaciónes de suma y resta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -88,14 +88,14 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(28, 28, 28)
                     .addComponent(jLabel3)
-                    .addContainerGap(216, Short.MAX_VALUE)))
+                    .addContainerGap(292, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +119,7 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 130));
 
-        jPanel4.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel4.setBackground(new java.awt.Color(153, 102, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setForeground(new java.awt.Color(204, 153, 255));
 
@@ -137,10 +137,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel4.setText("Reconocer los sonidos");
+        jLabel4.setText("Comprensión lectora");
 
-        jLabel5.setForeground(new java.awt.Color(0, 51, 0));
-        jLabel5.setText("Identifica a que pertenece un audio.");
+        jLabel5.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel5.setText("Lee una pequeña historia y luego responde preguntas");
 
         jLabel6.setForeground(new java.awt.Color(0, 102, 51));
         jLabel6.setText("---------------------------------------------");
@@ -158,7 +158,7 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -180,7 +180,7 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 620, 130));
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(255, 153, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton3.setBackground(new java.awt.Color(102, 255, 102));
@@ -197,10 +197,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel7.setText("Identificar los colores");
+        jLabel7.setText("Memoria corto plazo");
 
         jLabel8.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel8.setText("Selecciona el nombre del color que se muestra.");
+        jLabel8.setText("Encuentra los pares de las imágenes");
 
         jLabel9.setForeground(new java.awt.Color(0, 102, 51));
         jLabel9.setText("---------------------------------------------");
@@ -215,10 +215,9 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                        .addComponent(jLabel8))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -252,15 +251,15 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        usuario.ejecutarIdentificarLetra();
+        usuario.ejecutarSumasRestas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        usuario.ejecutarReconocerSonido();
+        usuario.ejecutarComprensionLectora();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        usuario.ejecutarIdentificarColor();
+        usuario.ejecutarMemoria(); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

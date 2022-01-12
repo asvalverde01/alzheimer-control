@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package app.Gui;
+package app.gui.actividades;
 
-import Auxiliar.logicaJuego;
+import app.logic.auxiliar.LogicaJuego;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class ActividadMemoria extends javax.swing.JFrame {
 
-    private final logicaJuego log = new logicaJuego();
+    private final LogicaJuego log = new LogicaJuego();
     private boolean caraUp = false;
     private ImageIcon im1;
     private ImageIcon im2;
@@ -503,9 +503,6 @@ public class ActividadMemoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton closeButton;
-    private javax.swing.JButton closeButton1;
-    private javax.swing.JButton closeButton2;
     private javax.swing.JButton closeButton3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;

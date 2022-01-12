@@ -1,4 +1,4 @@
-package Auxiliar;
+package app.logic.auxiliar;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

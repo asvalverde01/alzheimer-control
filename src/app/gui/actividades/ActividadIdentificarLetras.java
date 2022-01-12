@@ -1,11 +1,11 @@
-package app.Gui;
+package app.gui.actividades;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import app.logic.Usuario;
 import javax.swing.JOptionPane;
 
-public class IdentificarLetras extends javax.swing.JFrame {
+public class ActividadIdentificarLetras extends javax.swing.JFrame {
 
     String letra1;
     String letra2;
@@ -16,7 +16,7 @@ public class IdentificarLetras extends javax.swing.JFrame {
     String n4 = "f";
     String n5 = "a";
 
-    public IdentificarLetras() {
+    public ActividadIdentificarLetras() {
         initComponents();
         this.setLocationRelativeTo(null);
         Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/letraMariposa.png"));
@@ -207,21 +207,23 @@ int cont = 0;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadIdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadIdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadIdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadIdentificarLetras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IdentificarLetras().setVisible(true);
+                new ActividadIdentificarLetras().setVisible(true);
             }
         });
     }

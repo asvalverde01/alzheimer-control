@@ -1,9 +1,9 @@
 
-package Auxiliar;
+package app.logic.auxiliar;
 
 import java.util.Random;
 
-public class logicaJuego {
+public class LogicaJuego {
     public static int[] getCardNumbers(){
        int[] numbers = new int[10];
         int count = 0;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package app.Gui;
+package app.gui.actividades;
 
 import app.logic.Usuario;
 import java.applet.AudioClip;
@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author HP
  */
-public class ReconocerSonido extends javax.swing.JFrame {
+public class ActividadReconocerSonido extends javax.swing.JFrame {
 
     /**
      * Creates new form reconocerSonido
      */
-    public ReconocerSonido() {
+    public ActividadReconocerSonido() {
         initComponents();
 
         Icon icono0 = new ImageIcon(getClass().getResource("/Imagen/play.jpg"));
@@ -470,21 +470,23 @@ public class ReconocerSonido extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActividadReconocerSonido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReconocerSonido().setVisible(true);
+                new ActividadReconocerSonido().setVisible(true);
             }
         });
     }

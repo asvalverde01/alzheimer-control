@@ -1,4 +1,4 @@
-package app.Gui;
+package app.gui.actividades;
 
 import app.logic.Usuario;
 import java.awt.Color;

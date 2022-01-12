@@ -1,11 +1,11 @@
 package app.logic;
 
-import app.Gui.ActividadColores;
-import app.Gui.ActividadComprension;
-import app.Gui.ActividadMemoria;
-import app.Gui.ActividadSumaResta;
-import app.Gui.IdentificarLetras;
-import app.Gui.ReconocerSonido;
+import app.gui.actividades.ActividadColores;
+import app.gui.actividades.ActividadComprension;
+import app.gui.actividades.ActividadMemoria;
+import app.gui.actividades.ActividadSumaResta;
+import app.gui.actividades.ActividadIdentificarLetras;
+import app.gui.actividades.ActividadReconocerSonido;
 import java.util.StringTokenizer;
 
 public class Usuario {
@@ -191,7 +191,7 @@ public class Usuario {
     // Actividades etapa Moderada/-------------------------------------------------------------*/
     public void ejecutarIdentificarLetra() {
         System.out.println("ejecutando sumas restas");
-        IdentificarLetras identificarLetras = new IdentificarLetras();
+        ActividadIdentificarLetras identificarLetras = new ActividadIdentificarLetras();
         identificarLetras.setVisible(true);
         identificarLetras.setLocationRelativeTo(null);
 
@@ -199,7 +199,7 @@ public class Usuario {
 
     public void ejecutarReconocerSonido() {
         System.out.println("ejecutando comprension Lectora");
-        ReconocerSonido actividadReconocerSonido = new ReconocerSonido();
+        ActividadReconocerSonido actividadReconocerSonido = new ActividadReconocerSonido();
         actividadReconocerSonido.setVisible(true);
         actividadReconocerSonido.setLocationRelativeTo(null);
     }

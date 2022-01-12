@@ -1,10 +1,10 @@
 
-package app.Gui;
+package app.gui.actividades;
 
 import app.logic.Usuario;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
-import Auxiliar.Cuento;
+import app.logic.auxiliar.Cuento;
 /**
  *
  * @author HP

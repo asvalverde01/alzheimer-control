@@ -1,5 +1,7 @@
 package app.Gui;
 
+import app.gui.recomendaciones.RecomendacionesPanel;
+import app.gui.actividades.ActividadesPanel;
 import app.logic.Usuario;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
