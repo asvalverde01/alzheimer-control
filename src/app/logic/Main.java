@@ -1,7 +1,7 @@
 package app.logic;
 
-import app.Gui.MainScreen;
-import app.Gui.RegistroUsuario;
+import app.gui.MainScreen;
+import app.gui.RegistroUsuario;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

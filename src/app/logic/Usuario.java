@@ -1,6 +1,6 @@
 package app.logic;
 
-import app.Gui.*;
+import app.gui.*;
 
 import java.util.StringTokenizer;
 
