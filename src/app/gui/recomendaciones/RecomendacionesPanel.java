@@ -47,7 +47,6 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
         bg = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -60,17 +59,12 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(81, 3, 113));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         fechaLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        fechaLabel.setForeground(new java.awt.Color(51, 51, 51));
+        fechaLabel.setForeground(new java.awt.Color(255, 255, 255));
         fechaLabel.setText("El día de hoy es -- de -- del año --");
-
-        timeLabel.setBackground(new java.awt.Color(102, 102, 102));
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        timeLabel.setForeground(new java.awt.Color(102, 102, 102));
-        timeLabel.setText("------");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,68 +73,64 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(fechaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(timeLabel)
-                .addGap(56, 56, 56))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaLabel)
-                    .addComponent(timeLabel))
+                .addComponent(fechaLabel)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 40)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 153));
         jLabel2.setText("RECOMENDACIONES");
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 240, 60));
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 420, 60));
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Seleccione el tipo de recomendación que desea visualizar:");
         bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 510, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 153));
-        jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(255, 204, 153));
+        jButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Recomendaciones en\n actividades sociales y sanitarias");
-        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton2.setText("Sociales y sanitarias");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        bg.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 390, 60));
+        bg.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 390, 60));
 
         jButton3.setBackground(new java.awt.Color(255, 153, 153));
-        jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Recomendaciones para mejorar el cuidado");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton3.setText("Mejorar el cuidado");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        bg.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 390, 60));
+        bg.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 390, 60));
 
-        jButton5.setBackground(new java.awt.Color(255, 153, 153));
-        jButton5.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton5.setBackground(new java.awt.Color(153, 255, 153));
+        jButton5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Recomendaciones a nivel físico y cognitivo");
-        jButton5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton5.setText("Nivel físico y cognitivo");
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        bg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 390, 60));
+        bg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 390, 60));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -151,17 +141,17 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ActividadGrave2 ventana= new ActividadGrave2();
+        ActividadGrave2 ventana = new ActividadGrave2();
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ActividadGrave3 ventana= new ActividadGrave3();
+        ActividadGrave3 ventana = new ActividadGrave3();
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        ActividadGrave ventana= new ActividadGrave();
+        ActividadGrave ventana = new ActividadGrave();
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -176,22 +166,10 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarFecha(Fecha actual) {
         fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");
     }
 
-    public void actualizarTiempo() {
-        while (true) {
-            timeLabel.setText(actual.getHoraMinuto());
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(RecomendacionesPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
 }

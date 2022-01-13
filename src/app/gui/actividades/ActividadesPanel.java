@@ -70,15 +70,15 @@ public class ActividadesPanel extends javax.swing.JPanel {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(81, 3, 113));
         jPanel1.setForeground(new java.awt.Color(255, 153, 153));
 
         txt1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txt1.setForeground(new java.awt.Color(51, 51, 51));
+        txt1.setForeground(new java.awt.Color(255, 255, 255));
         txt1.setText("Actividades para la etapa");
 
-        etapaLabel.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        etapaLabel.setForeground(new java.awt.Color(0, 102, 102));
+        etapaLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        etapaLabel.setForeground(new java.awt.Color(0, 153, 153));
         etapaLabel.setText("--------");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -90,7 +90,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
                 .addComponent(txt1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(etapaLabel)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +115,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        bg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, -1));
+        bg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, 40));
 
         javax.swing.GroupLayout contActvLayout = new javax.swing.GroupLayout(contActv);
         contActv.setLayout(contActvLayout);

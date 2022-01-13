@@ -3,12 +3,18 @@ package app.Gui;
 import app.gui.recomendaciones.RecomendacionesPanel;
 import app.gui.actividades.ActividadesPanel;
 import app.logic.Usuario;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public final class MainScreen extends javax.swing.JFrame {
 
     Usuario usuario;
+    // Paneles
+    InicioPanel pInicio = null;
+    ActividadesPanel pActividades = null;
+    RecomendacionesPanel pRecomendaciones = null;
 
     private MainScreen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -24,18 +30,19 @@ public final class MainScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form MainScreen
+     *
      * @param usuario
      */
     public MainScreen(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
 
-        // Muestra un panel en el panel contenido
-        InicioPanel pInicio = new InicioPanel();
-        showPanel(pInicio);
+        // Inicializa los paneles
+        inicializarPaneles(usuario);
 
-        this.usuario = usuario;
         //setInformation();
         this.setVisible(true);
+        showPanel(pInicio);
     }
 
     /**
@@ -48,7 +55,7 @@ public final class MainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         content = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        iconImg = new javax.swing.JLabel();
         actividadesButton = new javax.swing.JButton();
         helpButton = new javax.swing.JButton();
         homeButton1 = new javax.swing.JButton();
@@ -58,13 +65,13 @@ public final class MainScreen extends javax.swing.JFrame {
         contenido = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Inicio");
+        setTitle("BrainUP");
         setResizable(false);
 
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/home_house.png"))); // NOI18N
-        content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 100, 90));
+        iconImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/home_house.png"))); // NOI18N
+        content.add(iconImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 100, 90));
 
         actividadesButton.setBackground(new java.awt.Color(153, 153, 255));
         actividadesButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -77,10 +84,11 @@ public final class MainScreen extends javax.swing.JFrame {
                 actividadesButtonActionPerformed(evt);
             }
         });
-        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 200, 250, 50));
+        content.add(actividadesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 200, 240, 50));
 
         helpButton.setBackground(new java.awt.Color(255, 204, 255));
         helpButton.setForeground(new java.awt.Color(51, 51, 51));
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/chat_sms.png"))); // NOI18N
         helpButton.setText("Ayuda");
         helpButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         helpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +96,7 @@ public final class MainScreen extends javax.swing.JFrame {
                 helpButtonActionPerformed(evt);
             }
         });
-        content.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 190, 30));
+        content.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 190, 40));
 
         homeButton1.setBackground(new java.awt.Color(204, 0, 204));
         homeButton1.setFont(new java.awt.Font("Montserrat", 1, 25)); // NOI18N
@@ -101,7 +109,7 @@ public final class MainScreen extends javax.swing.JFrame {
                 homeButton1ActionPerformed(evt);
             }
         });
-        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 250, 50));
+        content.add(homeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 240, 50));
 
         recButton.setBackground(new java.awt.Color(153, 153, 255));
         recButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -114,10 +122,11 @@ public final class MainScreen extends javax.swing.JFrame {
                 recButtonActionPerformed(evt);
             }
         });
-        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 260, 250, 50));
+        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 260, 240, 50));
 
         configButton.setBackground(new java.awt.Color(204, 153, 255));
         configButton.setForeground(new java.awt.Color(51, 51, 51));
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/settings_cog_gear_1.png"))); // NOI18N
         configButton.setText("Configurar");
         configButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         configButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,10 +134,10 @@ public final class MainScreen extends javax.swing.JFrame {
                 configButtonActionPerformed(evt);
             }
         });
-        content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 190, 30));
+        content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 544, 190, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
-        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, 1170, 1020));
+        content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, 470, 1020));
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
@@ -162,15 +171,19 @@ public final class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_configButtonActionPerformed
 
     private void recButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recButtonActionPerformed
-        RecomendacionesPanel pRecomendaciones = new RecomendacionesPanel();
+        Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/news_paper.png"));
+        iconImg.setIcon(icono);
+        colorButtons();
+        recButton.setBackground(new java.awt.Color(204, 0, 204));
         showPanel(pRecomendaciones);
     }//GEN-LAST:event_recButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
-        InicioPanel pInicio = new InicioPanel();
         showPanel(pInicio);
-        pInicio.setUsuario(usuario);
-        //pinicio.actualizarTiempo();
+        colorButtons();
+        homeButton1.setBackground(new java.awt.Color(204, 0, 204));
+        Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/home_house.png"));
+        iconImg.setIcon(icono);
     }//GEN-LAST:event_homeButton1ActionPerformed
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
@@ -178,9 +191,12 @@ public final class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
-        ActividadesPanel pActividades = new ActividadesPanel(usuario);
+        Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/puzzle_component.png"));
+        iconImg.setIcon(icono);
+        colorButtons();
+        actividadesButton.setBackground(new java.awt.Color(204, 0, 204));
         showPanel(pActividades);
-        pActividades.setUsuario(usuario);
+
     }//GEN-LAST:event_actividadesButtonActionPerformed
 
     /**
@@ -225,23 +241,10 @@ public final class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JButton helpButton;
     private javax.swing.JButton homeButton1;
+    private javax.swing.JLabel iconImg;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton recButton;
     // End of variables declaration//GEN-END:variables
-
-    
-    /*
-    public void setInformation() {
-        try {
-            jLabel1.setText(usuario.getNombre() + " :)");
-        } catch (NullPointerException npe) {
-            jLabel1.setText("Hola  usuario");
-        } catch (Exception e) {
-            jLabel1.setText("Problema al encontrar usuario");
-        }
-    }
-*/
 
     private void showPanel(JPanel p) {
         p.setSize(700, 660);
@@ -249,5 +252,20 @@ public final class MainScreen extends javax.swing.JFrame {
         contenido.add(p, new AbsoluteConstraints(0, 0, -1, -1));
         contenido.revalidate();
         contenido.repaint();
+    }
+
+    private void inicializarPaneles(Usuario usuario) {
+        pInicio = new InicioPanel(usuario);
+        pActividades = new ActividadesPanel(usuario);
+        pRecomendaciones = new RecomendacionesPanel();
+
+        pInicio.setUsuario(usuario);
+        pActividades.setUsuario(usuario);
+    }
+
+    private void colorButtons() {
+        homeButton1.setBackground(new java.awt.Color(153, 153, 255));
+        actividadesButton.setBackground(new java.awt.Color(153, 153, 255));
+        recButton.setBackground(new java.awt.Color(153, 153, 255));
     }
 }

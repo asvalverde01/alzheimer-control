@@ -6,8 +6,6 @@ package app.Gui;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -25,10 +23,12 @@ public class InicioPanel extends javax.swing.JPanel {
     /**
      * Creates new form inicioPanel
      */
-    public InicioPanel() {
+    public InicioPanel(Usuario usuario) {
         initComponents();
         actual = new Fecha();
         actualizarFecha(actual);
+        this.usuario = usuario;
+        setInformation();
 
     }
 
@@ -44,7 +44,6 @@ public class InicioPanel extends javax.swing.JPanel {
         bg = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -60,11 +59,6 @@ public class InicioPanel extends javax.swing.JPanel {
         fechaLabel.setForeground(new java.awt.Color(255, 255, 255));
         fechaLabel.setText("El día de hoy es -- de -- del año --");
 
-        timeLabel.setBackground(new java.awt.Color(102, 102, 102));
-        timeLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        timeLabel.setForeground(new java.awt.Color(102, 102, 102));
-        timeLabel.setText("------");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,26 +66,22 @@ public class InicioPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(fechaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(timeLabel)
-                .addGap(56, 56, 56))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaLabel)
-                    .addComponent(timeLabel))
+                .addComponent(fechaLabel)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 0, 153));
         jLabel2.setText("Bienvenido :)");
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -108,24 +98,20 @@ public class InicioPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarFecha(Fecha actual) {
         fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");
     }
 
-    /*
-    public void actualizarTiempo() {
-        while (true) {
-            timeLabel.setText(actual.getHoraMinuto());
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(InicioPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+   
+    public void setInformation() {
+        try {
+            jLabel2.setText("Bienvenido " + usuario.getNombre() + " :)");
+        } catch (NullPointerException npe) {
+            jLabel2.setText("Hola  usuario");
+        } catch (Exception e) {
+            jLabel2.setText("Problema al encontrar usuario");
         }
     }
-     */
 }
