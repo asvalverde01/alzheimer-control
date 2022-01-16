@@ -1,5 +1,6 @@
 package app.Gui;
 
+import app.gui.EstatsPanel;
 import app.gui.recomendaciones.RecomendacionesPanel;
 import app.gui.actividades.ActividadesPanel;
 import app.logic.Usuario;
@@ -12,9 +13,10 @@ public final class MainScreen extends javax.swing.JFrame {
 
     Usuario usuario;
     // Paneles
-    InicioPanel pInicio = null;
+    app.Gui.InicioPanel pInicio = null;
     ActividadesPanel pActividades = null;
     RecomendacionesPanel pRecomendaciones = null;
+    EstatsPanel pEstats = null;
 
     private MainScreen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -44,6 +46,8 @@ public final class MainScreen extends javax.swing.JFrame {
         this.setVisible(true);
         showPanel(pInicio);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +64,7 @@ public final class MainScreen extends javax.swing.JFrame {
         helpButton = new javax.swing.JButton();
         homeButton1 = new javax.swing.JButton();
         recButton = new javax.swing.JButton();
+        statsButton = new javax.swing.JButton();
         configButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
@@ -122,7 +127,20 @@ public final class MainScreen extends javax.swing.JFrame {
                 recButtonActionPerformed(evt);
             }
         });
-        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 260, 240, 50));
+        content.add(recButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 320, 240, 50));
+
+        statsButton.setBackground(new java.awt.Color(153, 153, 255));
+        statsButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        statsButton.setForeground(new java.awt.Color(51, 51, 51));
+        statsButton.setText("Estadísticas");
+        statsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        statsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        statsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statsButtonActionPerformed(evt);
+            }
+        });
+        content.add(statsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 260, 240, 50));
 
         configButton.setBackground(new java.awt.Color(204, 153, 255));
         configButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -134,7 +152,7 @@ public final class MainScreen extends javax.swing.JFrame {
                 configButtonActionPerformed(evt);
             }
         });
-        content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 544, 190, -1));
+        content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 190, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
         content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, 470, 1020));
@@ -167,7 +185,10 @@ public final class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
-        // TODO add your handling code here:
+        Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/settings_cog_gear.png"));
+        iconImg.setIcon(icono);
+        colorButtons();
+
     }//GEN-LAST:event_configButtonActionPerformed
 
     private void recButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recButtonActionPerformed
@@ -187,7 +208,9 @@ public final class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_homeButton1ActionPerformed
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
-        // TODO add your handling code here:
+        Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/puzzle_component.png"));
+        iconImg.setIcon(icono);
+        colorButtons();
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
@@ -198,6 +221,14 @@ public final class MainScreen extends javax.swing.JFrame {
         showPanel(pActividades);
 
     }//GEN-LAST:event_actividadesButtonActionPerformed
+
+    private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
+        Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/cup_reward.png"));
+        iconImg.setIcon(icono);
+        colorButtons();
+        statsButton.setBackground(new java.awt.Color(204, 0, 204));
+        showPanel(pEstats);
+    }//GEN-LAST:event_statsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,6 +275,7 @@ public final class MainScreen extends javax.swing.JFrame {
     private javax.swing.JLabel iconImg;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton recButton;
+    private javax.swing.JButton statsButton;
     // End of variables declaration//GEN-END:variables
 
     private void showPanel(JPanel p) {
@@ -257,15 +289,18 @@ public final class MainScreen extends javax.swing.JFrame {
     private void inicializarPaneles(Usuario usuario) {
         pInicio = new InicioPanel(usuario);
         pActividades = new ActividadesPanel(usuario);
+        pEstats = new EstatsPanel(usuario);
         pRecomendaciones = new RecomendacionesPanel();
 
         pInicio.setUsuario(usuario);
         pActividades.setUsuario(usuario);
+        pEstats.setUsuario(usuario);
     }
 
     private void colorButtons() {
         homeButton1.setBackground(new java.awt.Color(153, 153, 255));
         actividadesButton.setBackground(new java.awt.Color(153, 153, 255));
         recButton.setBackground(new java.awt.Color(153, 153, 255));
+        statsButton.setBackground(new java.awt.Color(153, 153, 255));
     }
 }
