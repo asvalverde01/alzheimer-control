@@ -1,5 +1,6 @@
 package app.Gui;
 
+import app.gui.EstatsPanel;
 import app.gui.recomendaciones.RecomendacionesPanel;
 import app.gui.actividades.ActividadesPanel;
 import app.logic.Usuario;
@@ -12,7 +13,7 @@ public final class MainScreen extends javax.swing.JFrame {
 
     Usuario usuario;
     // Paneles
-    InicioPanel pInicio = null;
+    app.Gui.InicioPanel pInicio = null;
     ActividadesPanel pActividades = null;
     RecomendacionesPanel pRecomendaciones = null;
     EstatsPanel pEstats = null;
@@ -45,6 +46,8 @@ public final class MainScreen extends javax.swing.JFrame {
         this.setVisible(true);
         showPanel(pInicio);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
