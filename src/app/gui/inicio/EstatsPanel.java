@@ -5,6 +5,7 @@
 package app.gui.inicio;
 
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.Usuario;
 import java.awt.HeadlessException;
 
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
@@ -47,9 +49,7 @@ public class EstatsPanel extends javax.swing.JPanel {
     }
 
     DefaultTableModel model;
-    // Direccion de la base de datos
-    String url = "jdbc:sqlite:src/app/logic/database.db";
-    Connection connect;
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,9 +66,7 @@ public class EstatsPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        cerrarButton = new javax.swing.JButton();
         seleccionarButton = new javax.swing.JButton();
-        conectarButton = new javax.swing.JButton();
         insertarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -120,31 +118,17 @@ public class EstatsPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 640, -1));
 
-        cerrarButton.setText("Cerrar");
-        cerrarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cerrarButtonActionPerformed(evt);
-            }
-        });
-        bg.add(cerrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, -1, -1));
-
-        seleccionarButton.setText("Seleccionar");
+        seleccionarButton.setBackground(new java.awt.Color(0, 102, 204));
+        seleccionarButton.setText("Actualizar");
+        seleccionarButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         seleccionarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seleccionarButtonActionPerformed(evt);
             }
         });
-        bg.add(seleccionarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, -1, -1));
-
-        conectarButton.setText("Conectar");
-        conectarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conectarButtonActionPerformed(evt);
-            }
-        });
-        bg.add(conectarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, -1, -1));
+        bg.add(seleccionarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 90, 50));
 
         insertarButton.setText("Insertar");
         insertarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +136,7 @@ public class EstatsPanel extends javax.swing.JPanel {
                 insertarButtonActionPerformed(evt);
             }
         });
-        bg.add(insertarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, -1, -1));
+        bg.add(insertarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -162,15 +146,6 @@ public class EstatsPanel extends javax.swing.JPanel {
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void conectarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectarButtonActionPerformed
-        // Se conecta la base de datos
-        try {
-            connect = DriverManager.getConnection(url);
-            JOptionPane.showMessageDialog(null, "Exito");
-        } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage().toString());
-        }
-    }//GEN-LAST:event_conectarButtonActionPerformed
 
     private void seleccionarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarButtonActionPerformed
         // SQL
@@ -178,11 +153,11 @@ public class EstatsPanel extends javax.swing.JPanel {
         ResultSet result = null;
 
         try {
-            PreparedStatement st = connect.prepareStatement(" select codigo, nombre from producto");
+            PreparedStatement st = Main.getConnect().prepareStatement(" select * from actividad");
             result = st.executeQuery();
 
             while (result.next()) {
-                model.addRow(new Object[]{result.getInt("codigo"), result.getString("nombre")});
+                model.addRow(new Object[]{result.getInt("id"), result.getString("nombre")});
             }
 
         } catch (HeadlessException | SQLException x) {
@@ -193,7 +168,7 @@ public class EstatsPanel extends javax.swing.JPanel {
     private void insertarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarButtonActionPerformed
         // SQL insertar en la base de datos
         try {
-            PreparedStatement st = connect.prepareStatement("insert into producto(nombre) values('nuevo producto')");
+            PreparedStatement st = Main.getConnect().prepareStatement("insert into actividad(id) values('nuevo actividad')");
             st.execute();
             JOptionPane.showMessageDialog(null, "Guardado");
         } catch (HeadlessException | SQLException x) {
@@ -201,20 +176,9 @@ public class EstatsPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_insertarButtonActionPerformed
 
-    private void cerrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarButtonActionPerformed
-       try {
-            connect.close();
-            JOptionPane.showMessageDialog(null, "Cerrado");
-        } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage());
-        }
-    }//GEN-LAST:event_cerrarButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JButton cerrarButton;
-    private javax.swing.JButton conectarButton;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JButton insertarButton;
     private javax.swing.JLabel jLabel1;

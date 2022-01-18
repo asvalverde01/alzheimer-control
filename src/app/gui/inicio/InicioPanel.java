@@ -5,6 +5,7 @@
 package app.gui.inicio;
 
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.Usuario;
 
 /**
@@ -45,6 +46,7 @@ public class InicioPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        estadoSQL = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,7 +83,13 @@ public class InicioPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 0, 153));
         jLabel2.setText("Bienvenido :)");
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        estadoSQL.setBackground(new java.awt.Color(0, 0, 0));
+        estadoSQL.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        estadoSQL.setForeground(new java.awt.Color(0, 0, 0));
+        estadoSQL.setText("Bienvenido :)");
+        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -94,6 +102,7 @@ public class InicioPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JLabel estadoSQL;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -108,6 +117,7 @@ public class InicioPanel extends javax.swing.JPanel {
     public void setInformation() {
         try {
             jLabel2.setText("Bienvenido " + usuario.getNombre() + " :)");
+            estadoSQL.setText("Conexión con base de datos {" + Main.isConectado() + "}");
         } catch (NullPointerException npe) {
             jLabel2.setText("Hola  usuario");
         } catch (Exception e) {

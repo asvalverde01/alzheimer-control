@@ -2,26 +2,43 @@ package app.logic;
 
 import app.gui.inicio.MainScreen;
 import app.gui.inicio.RegistroUsuario;
-import java.io.*;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import static java.lang.Integer.parseInt;
-import javax.swing.JOptionPane;
 
 public class Main {
+    // Direccion de la base de datos
+    static String url = "jdbc:sqlite:appdata.sqlite";
+    // Objeto de conección con la base SQLite
+    static Connection connect;
+    // Indica si existe coneccion con base de datos
+    static boolean conectado = false;
 
     public static void main(String[] args) {
-        JOptionPane.showMessageDialog(null, "Inicio");
         /*-------------------------------------------------------------
         /Atributos de la clase Main
         /-------------------------------------------------------------*/
         Usuario usuario = new Usuario();
         boolean usuarioRegistrado = false;
 
+        // Inicializa la base de datos
+        conectado = conectarBaseDatos();
+
         /*-------------------------------------------------------------
-            /Se busca el archivo que busca al usuario
-            /-------------------------------------------------------------*/
+        /Se busca el archivo que busca al usuario
+        /-------------------------------------------------------------*/
         String archivo = "user.csv";
-        String line;
-        line = "";
+        String line = "";
         try {
             // Se busca el archivo o se crea de ser necesario
 
@@ -34,7 +51,6 @@ public class Main {
             }
 
             while ((line = br.readLine()) != null) {
-                int cont = 0;
                 String[] row = line.split(",");
                 // Inicializa los valores del objeto usuario
                 try {
@@ -69,8 +85,6 @@ public class Main {
             System.out.println("Error al crear y abrir");
         } catch (Exception ne) {
             ne.printStackTrace();
-        } finally {
-            //
         }
 
         /*-------------------------------------------------------------
@@ -82,6 +96,50 @@ public class Main {
             main.setLocationRelativeTo(null);
         } else {
             System.out.println("Error en main");
+        }
+
+
+    }
+
+
+    public static String getUrl() {
+        return url;
+    }
+
+    public static Connection getConnect() {
+        return connect;
+    }
+
+    public static boolean isConectado() {
+        return conectado;
+    }
+    
+    
+
+
+    public static boolean conectarBaseDatos() {
+        try {
+            connect = DriverManager.getConnection(url);
+            String sql = "CREATE TABLE IF NOT EXISTS actividad (\n"
+                    + "	id integer,\n"
+                    + "	nombre text\n"
+                    + ");";
+            PreparedStatement st = connect.prepareStatement(sql);
+            st.execute();
+        } catch (HeadlessException | SQLException x) {
+            JOptionPane.showMessageDialog(null, x.getMessage().toString());
+            return false;
+
+        }
+        return true;
+    }
+
+    public static void cerrarConexion() {
+        try {
+            connect.close();
+            JOptionPane.showMessageDialog(null, "Cerrado");
+        } catch (HeadlessException | SQLException x) {
+            JOptionPane.showMessageDialog(null, x.getMessage());
         }
     }
 }
