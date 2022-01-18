@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package app.Gui;
+package app.gui.inicio;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,12 +21,14 @@ public class RegistroUsuario extends javax.swing.JFrame {
      * @param usuario
      */
     public RegistroUsuario(Usuario usuario) {
+        JOptionPane.showMessageDialog(null, "Registre");
         initComponents();
         this.usuario = usuario;
         anioSpinner.setValue(1900);
 
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         //mesCombo.addItem("emerp");
+        JOptionPane.showMessageDialog(null, "Fin");
 
     }
 
@@ -110,8 +113,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, 250, 40));
-
-        diaSpinner.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel2.add(diaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 110, 30));
 
         jLabel8.setBackground(new java.awt.Color(51, 51, 51));
@@ -133,8 +134,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Día");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
-
-        anioSpinner.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel2.add(anioSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 110, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -170,7 +169,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel1.setText("Registro de Usuario");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 400, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundAgregar.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundAgregar.jpg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 660));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N

@@ -132,7 +132,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
 
         fondoLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondoLabel.setForeground(new java.awt.Color(51, 51, 51));
-        fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundMain.jpg"))); // NOI18N
+        fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundMain.jpg"))); // NOI18N
         bg.add(fondoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));

@@ -1,13 +1,15 @@
 package app.logic;
 
-import app.Gui.MainScreen;
-import app.Gui.RegistroUsuario;
+import app.gui.inicio.MainScreen;
+import app.gui.inicio.RegistroUsuario;
 import java.io.*;
 import static java.lang.Integer.parseInt;
+import javax.swing.JOptionPane;
 
 public class Main {
 
     public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null, "Inicio");
         /*-------------------------------------------------------------
         /Atributos de la clase Main
         /-------------------------------------------------------------*/

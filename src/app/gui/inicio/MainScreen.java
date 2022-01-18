@@ -1,6 +1,5 @@
-package app.Gui;
+package app.gui.inicio;
 
-import app.gui.EstatsPanel;
 import app.gui.recomendaciones.RecomendacionesPanel;
 import app.gui.actividades.ActividadesPanel;
 import app.logic.Usuario;
@@ -13,7 +12,7 @@ public final class MainScreen extends javax.swing.JFrame {
 
     Usuario usuario;
     // Paneles
-    app.Gui.InicioPanel pInicio = null;
+    app.gui.inicio.InicioPanel pInicio = null;
     ActividadesPanel pActividades = null;
     RecomendacionesPanel pRecomendaciones = null;
     EstatsPanel pEstats = null;
@@ -154,7 +153,7 @@ public final class MainScreen extends javax.swing.JFrame {
         });
         content.add(configButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 190, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sidebar.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/sidebar.jpg"))); // NOI18N
         content.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-240, -360, 470, 1020));
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);

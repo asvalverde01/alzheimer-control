@@ -30,16 +30,16 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
     private void setCards() {
         int[] numbers = log.getCardNumbers();
-        jButton1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[0] + ".jpg")));
-        jButton10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[1] + ".jpg")));
-        jButton2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[2] + ".jpg")));
-        jButton3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[3] + ".jpg")));
-        jButton4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[4] + ".jpg")));
-        jButton5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[5] + ".jpg")));
-        jButton6.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[6] + ".jpg")));
-        jButton7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[7] + ".jpg")));
-        jButton8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[8] + ".jpg")));
-        jButton9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/c" + numbers[9] + ".jpg")));
+        jButton1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[0] + ".jpg")));
+        jButton10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[1] + ".jpg")));
+        jButton2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[2] + ".jpg")));
+        jButton3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[3] + ".jpg")));
+        jButton4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[4] + ".jpg")));
+        jButton5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[5] + ".jpg")));
+        jButton6.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[6] + ".jpg")));
+        jButton7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[7] + ".jpg")));
+        jButton8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[8] + ".jpg")));
+        jButton9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[9] + ".jpg")));
     }
 
     private void activarBoton(JButton btn) {
@@ -119,7 +119,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 255, 255));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton1MouseExited(evt);
@@ -131,7 +131,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton2MouseExited(evt);
@@ -146,7 +146,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton3MouseExited(evt);
@@ -158,7 +158,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton4MouseExited(evt);
@@ -170,7 +170,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton5MouseExited(evt);
@@ -182,7 +182,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton6MouseExited(evt);
@@ -194,7 +194,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton7MouseExited(evt);
@@ -206,7 +206,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton8MouseExited(evt);
@@ -218,7 +218,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton9MouseExited(evt);
@@ -230,7 +230,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/pregunta.jpg"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/pregunta.jpg"))); // NOI18N
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton10MouseExited(evt);
@@ -358,7 +358,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/actividad Memoria.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/actividad Memoria.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

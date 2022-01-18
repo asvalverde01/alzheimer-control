@@ -25,27 +25,27 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     public ActividadReconocerSonido() {
         initComponents();
 
-        Icon icono0 = new ImageIcon(getClass().getResource("/Imagen/play.jpg"));
+        Icon icono0 = new ImageIcon(getClass().getResource("/imagen/play.jpg"));
 
         play.setIcon(icono0);
 
-        Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/Vaca.jpg"));
+        Icon icono1 = new ImageIcon(getClass().getResource("/imagen/Vaca.jpg"));
 
         opci1.setIcon(icono1);
 
-        Icon icono2 = new ImageIcon(getClass().getResource("/Imagen/Gallina.jpg"));
+        Icon icono2 = new ImageIcon(getClass().getResource("/imagen/Gallina.jpg"));
 
         opci2.setIcon(icono2);
 
-        Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Elefante.jpg"));
+        Icon icono3 = new ImageIcon(getClass().getResource("/imagen/Elefante.jpg"));
 
         opci3.setIcon(icono3);
 
-        Icon icono4 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
+        Icon icono4 = new ImageIcon(getClass().getResource("/imagen/Gato.jpg"));
 
         opci4.setIcon(icono4);
 
-        Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/Perro.jpg"));
+        Icon icono5 = new ImageIcon(getClass().getResource("/imagen/Perro.jpg"));
 
         opci5.setIcon(icono5);
 
@@ -164,7 +164,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 60, 50));
 
-        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/reconocerSonido.jpg"))); // NOI18N
+        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/reconocerSonido.jpg"))); // NOI18N
         jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 700, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,115 +311,115 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
 
         if (cont1 == 0) {
 
-            Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/Vaca.jpg"));
+            Icon icono1 = new ImageIcon(getClass().getResource("/imagen/Vaca.jpg"));
 
             opci1.setIcon(icono1);
 
-            Icon icono2 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
+            Icon icono2 = new ImageIcon(getClass().getResource("/imagen/Gato.jpg"));
 
             opci2.setIcon(icono2);
 
-            Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Elefante.jpg"));
+            Icon icono3 = new ImageIcon(getClass().getResource("/imagen/Elefante.jpg"));
 
             opci3.setIcon(icono3);
 
-            Icon icono4 = new ImageIcon(getClass().getResource("/Imagen/Gallina.jpg"));
+            Icon icono4 = new ImageIcon(getClass().getResource("/imagen/Gallina.jpg"));
 
             opci4.setIcon(icono4);
 
-            Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/Perro.jpg"));
+            Icon icono5 = new ImageIcon(getClass().getResource("/imagen/Perro.jpg"));
 
             opci5.setIcon(icono5);
 
         }
 
         if (cont1 == 1) {
-            Icon icono6 = new ImageIcon(getClass().getResource("/Imagen/Avion.jpg"));
+            Icon icono6 = new ImageIcon(getClass().getResource("/imagen/Avion.jpg"));
 
             opci1.setIcon(icono6);
 
-            Icon icono7 = new ImageIcon(getClass().getResource("/Imagen/Moto.jpg"));
+            Icon icono7 = new ImageIcon(getClass().getResource("/imagen/Moto.jpg"));
 
             opci2.setIcon(icono7);
 
-            Icon icono8 = new ImageIcon(getClass().getResource("/Imagen/Carro.jpg"));
+            Icon icono8 = new ImageIcon(getClass().getResource("/imagen/Carro.jpg"));
 
             opci3.setIcon(icono8);
 
-            Icon icono9 = new ImageIcon(getClass().getResource("/Imagen/Tren.jpg"));
+            Icon icono9 = new ImageIcon(getClass().getResource("/imagen/Tren.jpg"));
 
             opci4.setIcon(icono9);
 
-            Icon icono10 = new ImageIcon(getClass().getResource("/Imagen/Bicicleta.jpg"));
+            Icon icono10 = new ImageIcon(getClass().getResource("/imagen/Bicicleta.jpg"));
 
             opci5.setIcon(icono10);
 
         }
 
         if (cont1 == 2) {
-            Icon icono11 = new ImageIcon(getClass().getResource("/Imagen/Viento.jpg"));
+            Icon icono11 = new ImageIcon(getClass().getResource("/imagen/Viento.jpg"));
 
             opci1.setIcon(icono11);
 
-            Icon icono12 = new ImageIcon(getClass().getResource("/Imagen/Rayo.jpg"));
+            Icon icono12 = new ImageIcon(getClass().getResource("/imagen/Rayo.jpg"));
 
             opci2.setIcon(icono12);
 
-            Icon icono13 = new ImageIcon(getClass().getResource("/Imagen/Lluvia.jpg"));
+            Icon icono13 = new ImageIcon(getClass().getResource("/imagen/Lluvia.jpg"));
 
             opci3.setIcon(icono13);
 
-            Icon icono14 = new ImageIcon(getClass().getResource("/Imagen/Erupcion.jpg"));
+            Icon icono14 = new ImageIcon(getClass().getResource("/imagen/Erupcion.jpg"));
 
             opci4.setIcon(icono14);
 
-            Icon icono15 = new ImageIcon(getClass().getResource("/Imagen/Incendio.jpg"));
+            Icon icono15 = new ImageIcon(getClass().getResource("/imagen/Incendio.jpg"));
 
             opci5.setIcon(icono15);
 
         }
 
         if (cont1 == 3) {
-            Icon icono11 = new ImageIcon(getClass().getResource("/Imagen/Tambor.jpg"));
+            Icon icono11 = new ImageIcon(getClass().getResource("/imagen/Tambor.jpg"));
 
             opci1.setIcon(icono11);
 
-            Icon icono12 = new ImageIcon(getClass().getResource("/Imagen/Flauta.jpg"));
+            Icon icono12 = new ImageIcon(getClass().getResource("/imagen/Flauta.jpg"));
 
             opci2.setIcon(icono12);
 
-            Icon icono13 = new ImageIcon(getClass().getResource("/Imagen/Guitarra.jpg"));
+            Icon icono13 = new ImageIcon(getClass().getResource("/imagen/Guitarra.jpg"));
 
             opci3.setIcon(icono13);
 
-            Icon icono14 = new ImageIcon(getClass().getResource("/Imagen/Violin.jpg"));
+            Icon icono14 = new ImageIcon(getClass().getResource("/imagen/Violin.jpg"));
 
             opci4.setIcon(icono14);
 
-            Icon icono15 = new ImageIcon(getClass().getResource("/Imagen/Maracas.jpg"));
+            Icon icono15 = new ImageIcon(getClass().getResource("/imagen/Maracas.jpg"));
 
             opci5.setIcon(icono15);
 
         }
 
         if (cont1 == 4) {
-            Icon icono11 = new ImageIcon(getClass().getResource("/Imagen/Grito.jpg"));
+            Icon icono11 = new ImageIcon(getClass().getResource("/imagen/Grito.jpg"));
 
             opci1.setIcon(icono11);
 
-            Icon icono12 = new ImageIcon(getClass().getResource("/Imagen/Beso.jpg"));
+            Icon icono12 = new ImageIcon(getClass().getResource("/imagen/Beso.jpg"));
 
             opci2.setIcon(icono12);
 
-            Icon icono13 = new ImageIcon(getClass().getResource("/Imagen/Estornudo.jpg"));
+            Icon icono13 = new ImageIcon(getClass().getResource("/imagen/Estornudo.jpg"));
 
             opci3.setIcon(icono13);
 
-            Icon icono14 = new ImageIcon(getClass().getResource("/Imagen/Lamentarse.jpg"));
+            Icon icono14 = new ImageIcon(getClass().getResource("/imagen/Lamentarse.jpg"));
 
             opci4.setIcon(icono14);
 
-            Icon icono15 = new ImageIcon(getClass().getResource("/Imagen/aplauso.jpg"));
+            Icon icono15 = new ImageIcon(getClass().getResource("/imagen/aplauso.jpg"));
 
             opci5.setIcon(icono15);
 

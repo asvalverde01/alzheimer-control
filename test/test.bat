@@ -1,0 +1,1 @@
+java -jar alzheimer-application.jar.

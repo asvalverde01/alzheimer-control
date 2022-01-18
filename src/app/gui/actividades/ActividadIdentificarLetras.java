@@ -19,7 +19,7 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     public ActividadIdentificarLetras() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/letraMariposa.png"));
+        Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
         imagen.setIcon(icono1);
 
     }
@@ -82,7 +82,7 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/letras.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/letras.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,30 +109,30 @@ int cont = 0;
         letra1 = ingreseLetra.getText();
 
         if (cont == 0) {
-            Icon icono1 = new ImageIcon(getClass().getResource("/Imagen/letraMariposa.png"));
+            Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
             imagen.setIcon(icono1);
             
 
         }
         if (cont == 1) {
-            Icon icono2 = new ImageIcon(getClass().getResource("/Imagen/letraCine.png"));
+            Icon icono2 = new ImageIcon(getClass().getResource("/imagen/letraCine.png"));
             imagen.setIcon(icono2);
 
         }
 
         if (cont == 2) {
-            Icon icono3 = new ImageIcon(getClass().getResource("/Imagen/Gato.jpg"));
+            Icon icono3 = new ImageIcon(getClass().getResource("/imagen/Gato.jpg"));
             imagen.setIcon(icono3);
         }
 
         if (cont == 3) {
-            Icon icono4 = new ImageIcon(getClass().getResource("/Imagen/letraFlor.png"));
+            Icon icono4 = new ImageIcon(getClass().getResource("/imagen/letraFlor.png"));
             imagen.setIcon(icono4);
 
         }
 
         if (cont == 4) {
-            Icon icono5 = new ImageIcon(getClass().getResource("/Imagen/letraAvion.png"));
+            Icon icono5 = new ImageIcon(getClass().getResource("/imagen/letraAvion.png"));
             imagen.setIcon(icono5);
 
         }

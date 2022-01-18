@@ -4,13 +4,8 @@
  */
 package app.gui.recomendaciones;
 
-import app.gui.recomendaciones.ActividadGrave2;
-import app.gui.recomendaciones.ActividadGrave3;
-import app.gui.recomendaciones.ActividadGrave;
 import app.logic.Fecha;
 import app.logic.Usuario;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -134,7 +129,7 @@ public class RecomendacionesPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/backgroundMain.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundMain.jpg"))); // NOI18N
         bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));

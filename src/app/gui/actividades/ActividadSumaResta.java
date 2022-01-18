@@ -4,7 +4,6 @@
  */
 package app.gui.actividades;
 
-import app.logic.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -117,7 +116,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         });
         jPanel1.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/actividadSumayResta.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/actividadSumayResta.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
