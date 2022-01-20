@@ -47,6 +47,7 @@ public class InicioPanel extends javax.swing.JPanel {
         fechaLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         estadoSQL = new javax.swing.JLabel();
+        estadoLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,9 +88,15 @@ public class InicioPanel extends javax.swing.JPanel {
 
         estadoSQL.setBackground(new java.awt.Color(0, 0, 0));
         estadoSQL.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        estadoSQL.setForeground(new java.awt.Color(0, 0, 0));
-        estadoSQL.setText("Bienvenido :)");
-        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, -1, -1));
+        estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
+        estadoSQL.setText("---");
+        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 600, -1, -1));
+
+        estadoLabel.setBackground(new java.awt.Color(0, 0, 0));
+        estadoLabel.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        estadoLabel.setForeground(new java.awt.Color(0, 0, 0));
+        estadoLabel.setText("Estado de la conexión:");
+        bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -102,6 +109,7 @@ public class InicioPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JLabel estadoLabel;
     private javax.swing.JLabel estadoSQL;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JLabel jLabel1;
@@ -117,7 +125,16 @@ public class InicioPanel extends javax.swing.JPanel {
     public void setInformation() {
         try {
             jLabel2.setText("Bienvenido " + usuario.getNombre() + " :)");
-            estadoSQL.setText("Conexión con base de datos {" + Main.isConectado() + "}");
+            
+            if (!(Main.isConectado())) {
+                estadoSQL.setText("desconectado");
+                estadoSQL.setForeground(new java.awt.Color(255, 51, 51));
+            } else {
+                estadoSQL.setText("conectado");
+                estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
+                
+            }
+            
         } catch (NullPointerException npe) {
             jLabel2.setText("Hola  usuario");
         } catch (Exception e) {

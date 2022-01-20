@@ -226,8 +226,7 @@ public class Usuario {
 
     public String[] setRespuestas(int posicion) {
         String s1 = radioR[posicion];
-        String[] s2 = separar(s1, ",");
-        return s2;
+        return separar(s1, ",");
     } //PREGUNTAS 2
     String[] respuestas2 = {
         "Pintar los dibujos", "Nariz", "4"
@@ -408,5 +407,4 @@ public class Usuario {
         String[] s2 = separar2(s1, ",");
         return s2;
     }
-
 }

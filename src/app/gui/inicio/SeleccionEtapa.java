@@ -4,24 +4,39 @@
  */
 package app.gui.inicio;
 
-import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.Usuario;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
- *
  * @author asval
  */
 public class SeleccionEtapa extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
-    
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
 
     /**
      * Creates new form RegistroUsuario
+     *
      * @param usuario
      */
     public SeleccionEtapa(Usuario usuario) {
@@ -31,6 +46,42 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     private SeleccionEtapa() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SeleccionEtapa().setVisible(true);
+            }
+        });
     }
 
     /**
@@ -167,12 +218,12 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -180,7 +231,7 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainScreen main;
-         if (guardarUsuario(2)) {
+        if (guardarUsuario(2)) {
             usuario.setEtapa(2);
             main = new MainScreen(usuario);
             this.setVisible(false);
@@ -196,7 +247,7 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         MainScreen main;
-         if (guardarUsuario(1)) {
+        if (guardarUsuario(1)) {
             usuario.setEtapa(1);
             main = new MainScreen(usuario);
             this.setVisible(false);
@@ -235,73 +286,36 @@ public class SeleccionEtapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private boolean guardarUsuario(int etapa) {
-        String archivo = "user.csv";
-        BufferedWriter bw = null;
-        try {
-            bw = new BufferedWriter(new FileWriter(archivo));
-            String desc =  "Nombre,Apellido,dia nacimiento,mes nacimiento,anio nacimiento,Etapa\n";
-            String txt =desc + usuario.getNombre() + "," + usuario.getApellido() + "," + usuario.getFechaNacimiento().getDia() + "," + usuario.getFechaNacimiento().getMes() + "," + usuario.getFechaNacimiento().getAnio() + "," + etapa;
-            bw.write(txt);
-            bw.close();
-            JOptionPane.showMessageDialog(null, "Información guardada correctamente");
-            return true;
-        } catch (IOException ex1) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido algún error");
-            return false;
-        }
-    }
+        boolean conectado = Main.crearBaseDatos();
+        if (conectado) {
+            // En el la tabla usuario de la base de datos registra los datos
+            try {
+                int id = 0;
+                String nombre = usuario.getNombre();
+                String apellido = usuario.getApellido();
+                int dia = usuario.getFechaNacimiento().getDia();
+                int mes = usuario.getFechaNacimiento().getMes();
+                int anio = usuario.getFechaNacimiento().getAnio();
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+                String SQL = "INSERT INTO usuario (nombre, apellido, dianac, mesnac, anionac, etapa) VALUES ('" + nombre + "', '" + apellido + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
+                PreparedStatement st = Main.getConnect().prepareStatement(SQL);
+                st.executeUpdate();
+                System.out.println("Guardado correctamente");
+                return true;
+
+            } catch (SQLException ex) {
+                // En caso de que no se pueda guardar el usuario elimina la base de datos creada
+                Main.eliminarDataBase();
+                JOptionPane.showMessageDialog(null, "Error, intente nuevamente");
+
+                // Termina el programa
+                System.exit(0);
+                return false;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SeleccionEtapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SeleccionEtapa().setVisible(true);
-            }
-        });
+        return false;
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

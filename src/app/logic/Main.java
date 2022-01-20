@@ -5,16 +5,8 @@ import app.gui.inicio.RegistroUsuario;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import static java.lang.Integer.parseInt;
+import java.io.File;
+import java.sql.*;
 
 public class Main {
     // Direccion de la base de datos
@@ -31,14 +23,38 @@ public class Main {
         Usuario usuario = new Usuario();
         boolean usuarioRegistrado = false;
 
-        // Inicializa la base de datos
-        conectado = conectarBaseDatos();
+
+        /*-------------------------------------------------------------
+        /Se busca si existe una archivo base de datos
+        /-------------------------------------------------------------*/
+        File file = new File("appdata.sqlite");
+
+        if (file.exists()) //Verifica si existe el archivo
+        {
+            // Inicializa la base de datos
+            conectado = conectarBaseDatos();
+            System.out.println("Base de datos encontrada y conectada");
+            System.out.println("paso 1");
+            usuario = obtenerUsuarioDataBase();
+            System.out.println("Datos del usuario obtenidos");
+            System.out.println("Usuario: " + usuario.getNombre());
+            System.out.println("Apellido: " + usuario.getApellido());
+            System.out.println("Fecha " + usuario.getFechaNacimientoString());
+            System.out.println("Etapa: " + usuario.getEtapa());
+            usuarioRegistrado = true;
+        } else {
+            RegistroUsuario registro = new RegistroUsuario(usuario);
+            registro.setVisible(true);
+            registro.setLocationRelativeTo(null);
+        }
+
+
 
         /*-------------------------------------------------------------
         /Se busca el archivo que busca al usuario
-        /-------------------------------------------------------------*/
+        /-------------------------------------------------------------
         String archivo = "user.csv";
-        String line = "";
+        String line;
         try {
             // Se busca el archivo o se crea de ser necesario
 
@@ -87,6 +103,8 @@ public class Main {
             ne.printStackTrace();
         }
 
+         */
+
         /*-------------------------------------------------------------
         / Inicio del programa
         /-------------------------------------------------------------*/
@@ -113,8 +131,38 @@ public class Main {
     public static boolean isConectado() {
         return conectado;
     }
-    
-    
+
+
+    public static boolean crearBaseDatos() {
+        try {
+            connect = DriverManager.getConnection(url);
+            // Se crea la tabla con informacion de usuario
+            String sql = "CREATE TABLE IF NOT EXISTS usuario (\n"
+                    + "	id integer,\n"
+                    + "	nombre text,\n"
+                    + "	apellido text,\n"
+                    + "	dianac integer,\n"
+                    + "	mesnac integer,\n"
+                    + "	anionac integer,\n"
+                    + "	etapa integer\n"
+                    + ");";
+            PreparedStatement st = connect.prepareStatement(sql);
+            st.execute();
+
+            // Se crea la tabla con informacion de actividades
+            sql = "CREATE TABLE IF NOT EXISTS actividad (\n"
+                    + "	id integer,\n"
+                    + "	nombre text\n"
+                    + ");";
+            st = connect.prepareStatement(sql);
+            st.execute();
+            System.out.println("Base de datos creada");
+        } catch (HeadlessException | SQLException x) {
+            JOptionPane.showMessageDialog(null, x.getMessage());
+            return false;
+        }
+        return true;
+    }
 
 
     public static boolean conectarBaseDatos() {
@@ -127,7 +175,7 @@ public class Main {
             PreparedStatement st = connect.prepareStatement(sql);
             st.execute();
         } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage().toString());
+            JOptionPane.showMessageDialog(null, x.getMessage());
             return false;
 
         }
@@ -142,4 +190,51 @@ public class Main {
             JOptionPane.showMessageDialog(null, x.getMessage());
         }
     }
+    
+    public static boolean eliminarDataBase() {
+         try {
+                    // closes the database file
+                    connect.close();
+                    File myObj = new File("appdata.sqlite");
+                    if (myObj.delete()) {
+                        System.out.println("Deleted the file: " + myObj.getName());
+                        return true;
+                    } else {
+                        System.out.println("Failed to delete the file.");
+                    }
+                } catch (SQLException ex1) {
+                    JOptionPane.showMessageDialog(null, ex1.getMessage());
+                }
+         return false;
+    }
+
+    private static Usuario obtenerUsuarioDataBase() {
+        Usuario usuario = new Usuario();
+        Fecha nacimiento = new Fecha();
+        // Se obtiene la informacion de la tabla usuario en base de datos
+        try {
+            String sql = "SELECT * FROM usuario";
+            PreparedStatement st = connect.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setEtapa(rs.getInt("etapa"));
+
+                nacimiento.setDia(rs.getInt("dianac"));
+                nacimiento.setMes(rs.getInt("mesnac"));
+                nacimiento.setAnio(rs.getInt("anionac"));
+                usuario.setFechaNacimiento(nacimiento);
+                System.out.println("Usuario obtenido de la base de datos");
+                System.out.println("Usuario: " + usuario.getNombre());
+                System.out.println("Apellido: " + usuario.getApellido());
+                System.out.println("Fecha " + usuario.getFechaNacimientoString());
+                System.out.println("Etapa: " + usuario.getEtapa());
+            }
+        } catch (HeadlessException | SQLException x) {
+            JOptionPane.showMessageDialog(null, x.getMessage());
+        }
+        return usuario;
+    }
+
 }

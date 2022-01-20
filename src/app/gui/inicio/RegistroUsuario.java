@@ -21,15 +21,13 @@ public class RegistroUsuario extends javax.swing.JFrame {
      * @param usuario
      */
     public RegistroUsuario(Usuario usuario) {
-        JOptionPane.showMessageDialog(null, "Registre");
+        JOptionPane.showMessageDialog(null, "Registro Inicial");
         initComponents();
         this.usuario = usuario;
         anioSpinner.setValue(1900);
 
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         //mesCombo.addItem("emerp");
-        JOptionPane.showMessageDialog(null, "Fin");
-
     }
 
     private RegistroUsuario() {
