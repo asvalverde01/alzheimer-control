@@ -13,10 +13,6 @@ import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author asval
- */
 public class EstatsPanel extends javax.swing.JPanel {
 
     Fecha actual;
@@ -28,6 +24,7 @@ public class EstatsPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form inicioPanel
+     *
      * @param usuario
      */
     public EstatsPanel(Usuario usuario) {
@@ -42,7 +39,6 @@ public class EstatsPanel extends javax.swing.JPanel {
     }
 
     DefaultTableModel model;
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -174,7 +170,6 @@ public class EstatsPanel extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton seleccionarButton;
     // End of variables declaration//GEN-END:variables
-
 
     public void setInformation() {
         try {

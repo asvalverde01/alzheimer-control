@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package app.gui.actividades;
 
 import app.logic.Usuario;
@@ -13,10 +9,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author HP
- */
 public class ActividadReconocerSonido extends javax.swing.JFrame {
 
     /**
@@ -205,13 +197,6 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         calificacion = calificacion * 2;
 
         JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
-
-        // Se guardan los resultados
-        /*
-        ResultadoActividad resultado = new ResultadoActividad();
-        resltado.setPuntuacion(puntuacion);
-        resultado.setTiempo(tiempo);
-        */
 
     }//GEN-LAST:event_finalizarActionPerformed
     int cont = 0;

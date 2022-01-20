@@ -1,22 +1,17 @@
-
 package app.gui.actividades;
 
 import app.logic.Usuario;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import app.logic.auxiliar.Cuento;
-/**
- *
- * @author HP
- */
+
 public class ActividadComprension extends javax.swing.JFrame {
 
     /**
      * Creates new form actividadComprension
      */
     public ActividadComprension() {
-        
-        
+
         initComponents();
         cuentoArea.setText(m.getCuento(parte));
         question.setText(u.getPregunta(posicion));
@@ -64,17 +59,15 @@ public class ActividadComprension extends javax.swing.JFrame {
         Terminar.setEnabled(false);
     }
     int posicion = 0;
-    int parte =0;
+    int parte = 0;
     Usuario u = new Usuario();
     Cuento m = new Cuento();
 
-    
     Object[] select = {"", "", "", "", ""};
     Object[] select2 = {"", "", "", "", ""};
     Object[] select3 = {"", "", "", "", ""};
     Object[] select4 = {"", "", "", "", ""};
     Object[] select5 = {"", "", "", "", ""};
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -380,11 +373,7 @@ public class ActividadComprension extends javax.swing.JFrame {
         } else {
             Toolkit.getDefaultToolkit().beep();
         }
-        
-        
-        
-       
-                
+
 
     }//GEN-LAST:event_responderPreguntasActionPerformed
 
@@ -401,45 +390,39 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc2ActionPerformed
 
     private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
-       
-     
+
         int calificacion = 0;
-        
-      
-        
+
         for (int i = 0; i < 3; i++) {
-            if (select[i].equals(u.getRespuesta(i))){ 
+            if (select[i].equals(u.getRespuesta(i))) {
                 calificacion = calificacion + 1;
-                
+
             }
-            if (select2[i].equals(u.getRespuesta2(i))) 
+            if (select2[i].equals(u.getRespuesta2(i))) {
                 calificacion = calificacion + 1;
-                
+            }
+
             if (select3[i].equals(u.getRespuesta3(i))) {
                 calificacion = calificacion + 1;
-               
-            }if (select4[i].equals(u.getRespuesta4(i))) {
+
+            }
+            if (select4[i].equals(u.getRespuesta4(i))) {
                 calificacion = calificacion + 1;
 
-            }if (select5[i].equals(u.getRespuesta5(i))) {
-                calificacion = calificacion + 1;
-              
             }
-            System.out.println(""+calificacion);
+            if (select5[i].equals(u.getRespuesta5(i))) {
+                calificacion = calificacion + 1;
+
+            }
+            System.out.println("" + calificacion);
         }
-        
-        calificacion=calificacion*2/3;
-       
-        JOptionPane.showMessageDialog(null, "Tu calificación es " +calificacion +"/10");
+
+        calificacion = calificacion * 2 / 3;
+
+        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
     }//GEN-LAST:event_TerminarActionPerformed
 
-      
-        
-      
-        
-                                                 
-     
-        
+
     private void opc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc4ActionPerformed
         // TODO add your handling code here:
         select2[posicion] = opc4.getLabel();
@@ -447,12 +430,12 @@ public class ActividadComprension extends javax.swing.JFrame {
 
     private void opc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc5ActionPerformed
         // TODO add your handling code here:
-           select2[posicion] = opc5.getLabel();
+        select2[posicion] = opc5.getLabel();
     }//GEN-LAST:event_opc5ActionPerformed
 
     private void opc6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc6ActionPerformed
         // TODO add your handling code here:
-           select2[posicion] = opc6.getLabel();
+        select2[posicion] = opc6.getLabel();
     }//GEN-LAST:event_opc6ActionPerformed
 
     private void opc8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc8ActionPerformed
@@ -466,7 +449,7 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc7ActionPerformed
 
     private void opc9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc9ActionPerformed
-       select3[posicion] = opc9.getLabel();
+        select3[posicion] = opc9.getLabel();
     }//GEN-LAST:event_opc9ActionPerformed
 
     private void opc10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc10ActionPerformed
@@ -482,7 +465,7 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc12ActionPerformed
 
     private void opc13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc13ActionPerformed
-       select5[posicion] = opc13.getLabel();
+        select5[posicion] = opc13.getLabel();
     }//GEN-LAST:event_opc13ActionPerformed
 
     private void opc14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc14ActionPerformed
@@ -497,9 +480,7 @@ public class ActividadComprension extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_closeButtonActionPerformed
-   
-    
-  
+
     /**
      * @param args the command line arguments
      */

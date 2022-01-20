@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package app.gui.recomendaciones;
 
-/**
- *
- * @author CLICK TIENDA ON LINE
- */
 public class ActividadGrave3 extends javax.swing.JFrame {
 
     /**

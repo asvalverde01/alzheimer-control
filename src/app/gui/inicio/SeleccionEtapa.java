@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package app.gui.inicio;
 
 import app.logic.Main;
@@ -11,9 +7,7 @@ import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/**
- * @author asval
- */
+
 public class SeleccionEtapa extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
@@ -77,10 +71,8 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SeleccionEtapa().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new SeleccionEtapa().setVisible(true);
         });
     }
 
@@ -290,7 +282,6 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         if (conectado) {
             // En el la tabla usuario de la base de datos registra los datos
             try {
-                int id = 0;
                 String nombre = usuario.getNombre();
                 String apellido = usuario.getApellido();
                 int dia = usuario.getFechaNacimiento().getDia();
@@ -300,7 +291,6 @@ public class SeleccionEtapa extends javax.swing.JFrame {
                 String SQL = "INSERT INTO usuario (nombre, apellido, dianac, mesnac, anionac, etapa) VALUES ('" + nombre + "', '" + apellido + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
                 PreparedStatement st = Main.getConnect().prepareStatement(SQL);
                 st.executeUpdate();
-                System.out.println("Guardado correctamente");
                 return true;
 
             } catch (SQLException ex) {

@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package app.gui.actividades;
 
 import app.logic.Usuario;
 
-/**
- *
- * @author asval
- */
 public class ActividadesLevesPanel extends javax.swing.JPanel {
 
     Usuario usuario;
+
     /**
      * Creates new form actividadesLevesPanel
+     * @param usuario
      */
     public ActividadesLevesPanel(Usuario usuario) {
         initComponents();
@@ -259,7 +253,7 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        usuario.ejecutarMemoria(); 
+        usuario.ejecutarMemoria();
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

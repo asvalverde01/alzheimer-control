@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package app.gui.actividades;
 
 import app.logic.auxiliar.LogicaJuego;
@@ -9,10 +5,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuari
- */
 public class ActividadMemoria extends javax.swing.JFrame {
 
     private final LogicaJuego log = new LogicaJuego();
@@ -43,7 +35,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
     }
 
     private void activarBoton(JButton btn) {
-        
+
         if (!caraUp) {
             btn.setEnabled(false);
             im1 = (ImageIcon) btn.getDisabledIcon();

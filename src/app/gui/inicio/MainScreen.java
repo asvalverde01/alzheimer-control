@@ -45,8 +45,6 @@ public final class MainScreen extends javax.swing.JFrame {
         this.setVisible(true);
         showPanel(pInicio);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -258,6 +256,7 @@ public final class MainScreen extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainScreen().setVisible(true);
             }

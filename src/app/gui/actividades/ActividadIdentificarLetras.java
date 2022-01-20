@@ -111,7 +111,6 @@ int cont = 0;
         if (cont == 0) {
             Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
             imagen.setIcon(icono1);
-            
 
         }
         if (cont == 1) {
@@ -139,7 +138,6 @@ int cont = 0;
 
         if (n1.equals(letra1) && (cont == 1)) {
 
-
             ingreseLetra.setText("");
             calificacion++;
 
@@ -150,7 +148,6 @@ int cont = 0;
 
         if (n2.equals(letra1) && (cont == 2)) {
 
-
             ingreseLetra.setText("");
             calificacion++;
 
@@ -158,13 +155,11 @@ int cont = 0;
 
         if (n3.equals(letra1) && (cont == 3)) {
 
-
             ingreseLetra.setText("");
             calificacion++;
         }
 
         if (n4.equals(letra1) && (cont == 4)) {
-
 
             ingreseLetra.setText("");
             calificacion++;
@@ -172,14 +167,13 @@ int cont = 0;
 
         if (n5.equals(letra1) && (cont == 5)) {
 
-
             ingreseLetra.setText("");
             calificacion++;
         }
 
         if (cont == 5) {
             listo.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion*2 + "/10");
+            JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion * 2 + "/10");
 
         }
 

@@ -3,6 +3,7 @@ package app.test;
 import app.logic.Fecha;
 
 public class FechaTest {
+
     public static void main(String[] args) {
         Fecha fecha = new Fecha();
         System.out.println(fecha.getDia());

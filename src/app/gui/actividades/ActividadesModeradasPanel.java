@@ -1,20 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package app.gui.actividades;
 
 import app.logic.Usuario;
 
-/**
- *
- * @author asval
- */
 public class ActividadesModeradasPanel extends javax.swing.JPanel {
 
     Usuario usuario;
+
     /**
      * Creates new form actividadesLevesPanel
+     *
+     * @param usuario
      */
     public ActividadesModeradasPanel(Usuario usuario) {
         initComponents();

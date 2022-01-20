@@ -8,10 +8,7 @@ import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author CLICK TIENDA ON LINE
- */
+
 public class ActividadColores extends javax.swing.JFrame {
 
     /**

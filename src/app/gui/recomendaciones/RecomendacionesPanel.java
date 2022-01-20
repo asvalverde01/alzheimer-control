@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package app.gui.recomendaciones;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
 
-/**
- *
- * @author asval
- */
 public class RecomendacionesPanel extends javax.swing.JPanel {
 
     Fecha actual;

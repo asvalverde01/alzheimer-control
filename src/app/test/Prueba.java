@@ -6,8 +6,9 @@ public class Prueba {
         System.out.println("Hola mundo");
         int[] numbers = getCardNumbers();
     }
-    public static int[] getCardNumbers(){
-        int [] numbers = new int[10];
+
+    public static int[] getCardNumbers() {
+        int[] numbers = new int[10];
 
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = (int) (Math.random() * 6);
@@ -17,5 +18,3 @@ public class Prueba {
         return numbers;
     }
 }
-
-

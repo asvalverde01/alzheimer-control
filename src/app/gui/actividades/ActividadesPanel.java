@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package app.gui.actividades;
 
 import app.logic.Usuario;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
-/**
- *
- * @author asval
- */
 public class ActividadesPanel extends javax.swing.JPanel {
 
     Usuario usuario = null;

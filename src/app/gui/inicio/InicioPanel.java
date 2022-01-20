@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package app.gui.inicio;
 
 import app.logic.Fecha;
 import app.logic.Main;
 import app.logic.Usuario;
 
-/**
- *
- * @author asval
- */
 public class InicioPanel extends javax.swing.JPanel {
 
     Fecha actual;
@@ -23,6 +15,7 @@ public class InicioPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form inicioPanel
+     * @param usuario
      */
     public InicioPanel(Usuario usuario) {
         initComponents();
@@ -121,20 +114,19 @@ public class InicioPanel extends javax.swing.JPanel {
         fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");
     }
 
-   
     public void setInformation() {
         try {
             jLabel2.setText("Bienvenido " + usuario.getNombre() + " :)");
-            
+
             if (!(Main.isConectado())) {
                 estadoSQL.setText("desconectado");
                 estadoSQL.setForeground(new java.awt.Color(255, 51, 51));
             } else {
                 estadoSQL.setText("conectado");
                 estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
-                
+
             }
-            
+
         } catch (NullPointerException npe) {
             jLabel2.setText("Hola  usuario");
         } catch (Exception e) {

@@ -1,23 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package app.gui.inicio;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author asval
- */
 public class RegistroUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
 
     /**
      * Creates new form RegistroUsuario
+     *
      * @param usuario
      */
     public RegistroUsuario(Usuario usuario) {
@@ -234,24 +227,22 @@ public class RegistroUsuario extends javax.swing.JFrame {
             correctoCampos = true;
         }
 
-      
-        
         if (anio >= 1900 || anio <= 2022) {
             correctoCampos = true;
         }
-        
-         if (dia < 1 || dia > 31) {
+
+        if (dia < 1 || dia > 31) {
             jLabel7.setText("Error en día");
             correctoCampos = false;
         }
-        
+
         if (dia >= 1 && dia <= 31) {
             correctoCampos = true;
         }
         if (anio < 1900 || anio > 2022 && correctoCampos) {
             jLabel7.setText("Error en año");
             correctoCampos = false;
-        } 
+        }
 
         try {
             Fecha nacimiento = new Fecha();
