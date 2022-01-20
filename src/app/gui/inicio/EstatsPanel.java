@@ -2,25 +2,30 @@ package app.gui.inicio;
 
 import app.logic.Fecha;
 import app.logic.Main;
+import app.logic.ResultadoActividad;
 import app.logic.Usuario;
-import java.awt.HeadlessException;
 
-import java.sql.SQLException;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import javax.swing.JOptionPane;
-
-import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
 
 public class EstatsPanel extends javax.swing.JPanel {
 
     Fecha actual;
     Usuario usuario = null;
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    DefaultTableModel model;
+    // Variables declaration - do not modify                     
+    private javax.swing.JPanel bg;
+    private javax.swing.JButton insertarButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton seleccionarButton;
 
     /**
      * Creates new form inicioPanel
@@ -38,7 +43,9 @@ public class EstatsPanel extends javax.swing.JPanel {
 
     }
 
-    DefaultTableModel model;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,32 +80,40 @@ public class EstatsPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel2)
-                .addContainerGap(469, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel2)
+                                .addContainerGap(469, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addContainerGap())
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(11, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addContainerGap())
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2"
+                new Object[][]{
+                        {null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null},
+                        {null, null, null, null, null, null, null, null}
+                },
+                new String[]{
+                        "Actividad", "Aciertos", "Puntaje", "Intento", "Etapa", "Tiempo", "Dia", "Mes"
+                }
+        ) {
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
             }
-        ));
+        });
         jScrollPane1.setViewportView(jTable1);
 
         bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 640, -1));
@@ -129,7 +144,6 @@ public class EstatsPanel extends javax.swing.JPanel {
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 660));
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void seleccionarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarButtonActionPerformed
         // SQL
         model.setRowCount(0);
@@ -138,11 +152,12 @@ public class EstatsPanel extends javax.swing.JPanel {
         try {
             PreparedStatement st = Main.getConnect().prepareStatement(" select * from actividad");
             result = st.executeQuery();
+            // Se registra el nombre, aciertos, puntuacion, intento, etapa, segundos, dia, mes, anio
 
             while (result.next()) {
-                model.addRow(new Object[]{result.getInt("id"), result.getString("nombre")});
+                //model.addRow(new Object[]{result.getString("nombre"), result.getString("aciertos")});
+                model.addRow(new Object[]{result.getString("nombre"), result.getString("aciertos"), result.getString("puntuacion"), result.getString("intento"), result.getString("etapa"), result.getString("segundos"), result.getInt("dia"), result.getString("mes"), result.getInt("anio")});
             }
-
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
         }
@@ -150,26 +165,21 @@ public class EstatsPanel extends javax.swing.JPanel {
 
     private void insertarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarButtonActionPerformed
         // SQL insertar en la base de datos
+        ResultadoActividad registro = new ResultadoActividad("Actividad",3, 4, new Fecha(), 5, "Enero",4);
+        registro.registrarDataBase();
+
+        /*
         try {
-            PreparedStatement st = Main.getConnect().prepareStatement("insert into actividad(id) values('0')");
+            String SQL = "INSERT INTO actividad (nombre, aciertos, puntuacion, intento, etapa, segundos, dia, mes, anio) VALUES ('test', '0', '0', '0', '0', '0', '0', 'Enero', '0')";
+            PreparedStatement st = Main.getConnect().prepareStatement(SQL);
             st.execute();
             JOptionPane.showMessageDialog(null, "Guardado");
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
         }
+         */
     }//GEN-LAST:event_insertarButtonActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bg;
-    private javax.swing.JButton insertarButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JButton seleccionarButton;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 
     public void setInformation() {
         try {

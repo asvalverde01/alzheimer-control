@@ -74,8 +74,15 @@ public class Main {
 
             // Se crea la tabla con informacion de actividades
             sql = "CREATE TABLE IF NOT EXISTS actividad (\n"
-                    + "	id integer,\n"
-                    + "	nombre text\n"
+                    + "	nombre text,\n"
+                    + "	aciertos integer,\n"
+                    + "	puntuacion real,\n"
+                    + "	intento integer,\n"
+                    + "	etapa integer,\n"
+                    + "	segundos integer,\n"
+                    + "	dia integer,\n"
+                    + "	mes text,\n"
+                    + "	anio integer\n"
                     + ");";
             st = connect.prepareStatement(sql);
             st.execute();

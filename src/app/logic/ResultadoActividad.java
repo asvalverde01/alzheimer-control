@@ -1,5 +1,9 @@
 package app.logic;
 
+import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class ResultadoActividad {
 
     /*-------------------------------------------------------------
@@ -14,6 +18,19 @@ public class ResultadoActividad {
     private int segundos;
 
 
+    /*-------------------------------------------------------------
+    /Constructor de la clase ResultadoActividad
+    /-------------------------------------------------------------*/
+    public ResultadoActividad(String nombre, int aciertos, float puntuacion, Fecha fecha, int intento, String etapa, int segundos) {
+        this.nombre = nombre;
+        this.aciertos = aciertos;
+        this.puntuacion = puntuacion;
+        this.fecha = fecha;
+        this.intento = intento;
+        this.etapa = etapa;
+        this.segundos = segundos;
+    }
+    
     /*-------------------------------------------------------------
     /Métodos get y set de la clase ResultadoActividad
     /-------------------------------------------------------------*/
@@ -73,19 +90,38 @@ public class ResultadoActividad {
         this.segundos = segundos;
     }
 
-
     /*-------------------------------------------------------------
-    /Métodos complementarios de la clase ResultadoActividad
+    /Métodos  de la clase ResultadoActividad
     /-------------------------------------------------------------*/
-    public void calcularPuntuacion() {
-        // TODO
+    public boolean registrarDataBase() {
+        // Guarda los atributos en la tabla actividad en la base de datos
+        boolean conectado = Main.crearBaseDatos();
+        if (conectado) {
+            // En el la tabla usuario de la base de datos registra los datos
+            try {
+                // Fecha en la cual se realiza la actividad
+                int dia = fecha.getDia();
+                String mes = fecha.getMesString();
+                int anio = fecha.getAnio();
+
+                String SQL = "INSERT INTO actividad (nombre, aciertos, puntuacion, intento, etapa, segundos, dia, mes, anio) VALUES ('" + nombre + "', '" + aciertos + "', '" + puntuacion + "', '" + intento + "', '" + etapa + "', '" + segundos + "' , '" + dia + "', '" + mes + "', '" + anio + "')";
+                PreparedStatement st = Main.getConnect().prepareStatement(SQL);
+                st.executeUpdate();
+                return true;
+
+            } catch (SQLException ex) {
+                // En caso de que no se pueda guardar el usuario elimina la base de datos creada
+                Main.eliminarDataBase();
+                JOptionPane.showMessageDialog(null, "Error, intente nuevamente");
+
+                // Termina el programa
+                System.exit(0);
+                return false;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");
+        }
+        return false;
     }
 
-    public void setFechaActual() {
-        // TODO
-    }
-
-    public void visualizarResultados() {
-        // TODO
-    }
 }
