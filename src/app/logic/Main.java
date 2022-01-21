@@ -64,6 +64,7 @@ public class Main {
                     + "	id integer,\n"
                     + "	nombre text,\n"
                     + "	apellido text,\n"
+                    + "	avatar integer,\n"
                     + "	dianac integer,\n"
                     + "	mesnac integer,\n"
                     + "	anionac integer,\n"
@@ -148,6 +149,7 @@ public class Main {
             while (rs.next()) {
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));
+                usuario.setAvatar(rs.getInt("avatar"));
                 usuario.setEtapa(rs.getInt("etapa"));
 
                 nacimiento.setDia(rs.getInt("dianac"));

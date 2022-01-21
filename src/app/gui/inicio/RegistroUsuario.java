@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 public class RegistroUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
+    boolean avatarSeleccionado = false;
+    int avatar;
 
     /**
      * Creates new form RegistroUsuario
@@ -14,7 +16,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
      * @param usuario
      */
     public RegistroUsuario(Usuario usuario) {
-        JOptionPane.showMessageDialog(null, "Registro Inicial");
         initComponents();
         this.usuario = usuario;
         anioSpinner.setValue(1900);
@@ -37,7 +38,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -48,27 +48,27 @@ public class RegistroUsuario extends javax.swing.JFrame {
         mesCombo = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         anioSpinner = new javax.swing.JSpinner();
-        jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 430, 20));
-
-        jTextField2.setBackground(new java.awt.Color(255, 204, 255));
+        jTextField2.setBackground(new java.awt.Color(51, 51, 51));
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(null);
         jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField2.setOpaque(true);
@@ -78,24 +78,33 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 340, 40));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 340, 30));
 
-        jTextField3.setBackground(new java.awt.Color(255, 204, 255));
+        jTextField3.setBackground(new java.awt.Color(51, 51, 51));
         jTextField3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setBorder(null);
         jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField3.setOpaque(true);
         jTextField3.setSelectedTextColor(new java.awt.Color(153, 153, 153));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 340, 40));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 340, 10));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 340, 10));
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 340, 30));
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 204));
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 340, 10));
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 340, 10));
+
+        jButton1.setBackground(new java.awt.Color(102, 0, 255));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("CONTINUAR");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,14 +112,16 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, 250, 40));
-        jPanel2.add(diaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 110, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 220, 40));
+
+        diaSpinner.setValue(1);
+        jPanel2.add(diaSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 90, 30));
 
         jLabel8.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Año");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
 
         mesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" }));
         mesCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -118,60 +129,96 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 mesComboActionPerformed(evt);
             }
         });
-        jPanel2.add(mesCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 110, 30));
+        jPanel2.add(mesCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 110, 30));
 
         jLabel10.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Día");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
-        jPanel2.add(anioSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 110, 30));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 440, 50));
+        jLabel10.setText("Seleccione un avatar");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+        jPanel2.add(anioSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 100, 30));
 
         jLabel11.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Mes");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 51));
         jLabel5.setText("Fecha de Nacimiento");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 430, 20));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 20));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel12.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel12.setText("Día");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 51));
         jLabel4.setText("Apellido");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 51));
         jLabel3.setText("Nombre");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 30));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Registro de Usuario");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 400, 40));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 280, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundAgregar.jpg"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 660));
+        jToggleButton4.setBackground(new java.awt.Color(204, 153, 255));
+        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/avatar/avatar4.png"))); // NOI18N
+        jToggleButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToggleButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel6.setText("Apellido");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
+        jToggleButton3.setBackground(new java.awt.Color(204, 153, 255));
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/avatar/avatar3.png"))); // NOI18N
+        jToggleButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToggleButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel9.setText("Avatar");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
+        jToggleButton2.setBackground(new java.awt.Color(153, 153, 255));
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/avatar/avatar2.png"))); // NOI18N
+        jToggleButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToggleButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
+
+        jToggleButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icon/avatar/avatar1.png"))); // NOI18N
+        jToggleButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/backgroundMain.jpg"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,37 +257,45 @@ public class RegistroUsuario extends javax.swing.JFrame {
         String mes = mesCombo.getSelectedItem().toString();
         int anio = (Integer) anioSpinner.getValue();
 
+        boolean valid = true;
         // Se verifica que se ingresen datos
         if (nombre.length() <= 0) {
-            jLabel7.setText("Nombre no puede estar vacío");
+            JOptionPane.showMessageDialog(null, "Nombre no puede estar vacío");
             correctoCampos = false;
-        }
-        if (apellido.length() <= 0) {
-            jLabel7.setText("Apellido no puede estar vacío");
+            valid = false;
+
+        } else if (apellido.length() <= 0 && valid) {
+            JOptionPane.showMessageDialog(null, "Apellido no puede estar vacío");
             correctoCampos = false;
-        }
-        if (nombre.length() <= 0 && apellido.length() <= 0) {
-            jLabel7.setText("Nombre y apellido no pueden estar vacíos");
+            valid = false;
+        } else if (nombre.length() <= 0 && apellido.length() <= 0 && valid) {
+            JOptionPane.showMessageDialog(null, "Nombre y apellido no pueden estar vacíos");
             correctoCampos = false;
+            valid = false;
+
+        } else {
+            valid = true;
         }
+
         if (nombre.length() > 1 && apellido.length() > 1) {
             correctoCampos = true;
+        }
+
+        if (dia < 1 || dia > 31 && correctoCampos) {
+            JOptionPane.showMessageDialog(null, "Día inválido");
+
+            correctoCampos = false;
         }
 
         if (anio >= 1900 || anio <= 2022) {
             correctoCampos = true;
         }
 
-        if (dia < 1 || dia > 31) {
-            jLabel7.setText("Error en día");
-            correctoCampos = false;
-        }
-
         if (dia >= 1 && dia <= 31) {
             correctoCampos = true;
         }
         if (anio < 1900 || anio > 2022 && correctoCampos) {
-            jLabel7.setText("Error en año");
+            JOptionPane.showMessageDialog(null, "Año inválido");
             correctoCampos = false;
         }
 
@@ -252,21 +307,100 @@ public class RegistroUsuario extends javax.swing.JFrame {
             usuario.setFechaNacimiento(nacimiento);
             correcto = true;
         } catch (Exception e) {
-            jLabel7.setText("Error, verifique haber ingresado datos correctos");
+            JOptionPane.showMessageDialog(null, "Verifique los datos en fecha");
             correcto = false;
         }
 
-        if (correcto && correctoCampos == true) {
-            SeleccionEtapa etapa = new SeleccionEtapa(usuario);
-            etapa.setVisible(true);
-            etapa.setLocationRelativeTo(null);
-            this.setVisible(false);
+        if (avatarSeleccionado) {
+            usuario.setAvatar(avatar);
+            if (correcto && correctoCampos == true) {
+                SeleccionEtapa etapa = new SeleccionEtapa(usuario);
+                etapa.setVisible(true);
+                etapa.setLocationRelativeTo(null);
+                this.setVisible(false);
+            }
+        } else {
+            if (valid) {
+                JOptionPane.showMessageDialog(null, "Seleccione un avatar");
+            }
+
         }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void mesComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mesComboActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        if (!(avatarSeleccionado)) {
+            deshabilitarBotones();
+            jToggleButton1.setEnabled(true);
+            avatar = 1;
+            avatarSeleccionado = true;
+        } else {
+            habilitarBotones();
+            avatar = 0;
+            avatarSeleccionado = false;
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        if (!(avatarSeleccionado)) {
+            deshabilitarBotones();
+            jToggleButton2.setEnabled(true);
+            avatar = 2;
+            avatarSeleccionado = true;
+        } else {
+            habilitarBotones();
+            avatar = 0;
+            avatarSeleccionado = false;
+
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        if (!(avatarSeleccionado)) {
+            deshabilitarBotones();
+            jToggleButton3.setEnabled(true);
+            avatar = 3;
+            avatarSeleccionado = true;
+        } else {
+            habilitarBotones();
+            avatar = 0;
+            avatarSeleccionado = false;
+
+        }
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
+
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        if (!(avatarSeleccionado)) {
+            deshabilitarBotones();
+            jToggleButton4.setEnabled(true);
+            avatar = 4;
+            avatarSeleccionado = true;
+        } else {
+            habilitarBotones();
+            avatar = 0;
+            avatarSeleccionado = false;
+
+        }
+    }//GEN-LAST:event_jToggleButton4ActionPerformed
+
+    private void deshabilitarBotones() {
+        jToggleButton1.setEnabled(false);
+        jToggleButton2.setEnabled(false);
+        jToggleButton3.setEnabled(false);
+        jToggleButton4.setEnabled(false);
+    }
+
+    private void habilitarBotones() {
+        jToggleButton1.setEnabled(true);
+        jToggleButton2.setEnabled(true);
+        jToggleButton3.setEnabled(true);
+        jToggleButton4.setEnabled(true);
+    }
 
     /**
      * @param args the command line arguments
@@ -310,21 +444,22 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JComboBox<String> mesCombo;
     // End of variables declaration//GEN-END:variables
 

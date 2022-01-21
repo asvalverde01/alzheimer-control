@@ -16,11 +16,12 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Constructores
     /-------------------------------------------------------------*/
+
     /**
      * Constructor con parámetros
      *
      * @param sFecha recibe una fecha en formato String con el formato
-     * dd/mm/yyyy
+     *               dd/mm/yyyy
      */
     public Fecha(String sFecha) {
         String sDia = sFecha.substring(0, 2);
@@ -39,6 +40,14 @@ public class Fecha {
         inicializarHoy();
     }
 
+    /**
+     * Constructor que recibe dia mes y anio
+     */
+    public Fecha(int dia, int mes, int anio) {
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
+    }
 
     /*-------------------------------------------------------------
     /Métodos get y set de la clase Fecha
@@ -55,25 +64,26 @@ public class Fecha {
         return mes;
     }
 
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
     // retorna un string del mes
     public String getMesString() {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         return meses[mes];
     }
-    
-     public int setMesString(String mes) {
+
+    public int setMesString(String mes) {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
-        for (int i = 0; i < meses.length;i++) {
-            if (mes.equals(meses[i]))
+        for (int i = 0; i < meses.length; i++) {
+            if (mes.equals(meses[i])) {
                 return i + 1;
+            }
         }
         return 0;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
     }
 
     public int getAnio() {
@@ -88,6 +98,7 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Métodos complementarios de la clase Fecha
     /-------------------------------------------------------------*/
+
     /**
      * Método que inicializa la fecha actual utilizando el calendario Gregoriano
      */
@@ -104,16 +115,31 @@ public class Fecha {
      * Método recibe dos fechas y modifica la fecha actual para que sea la
      * diferencia
      *
-     * @param fecha1 recibe un objeto de la clase Fecha
-     * @param fecha2 recibe un objeto de la clase Fecha
+     * @param fecha recibe un objeto de la clase Fecha
      */
-    public void diferenciaFechas(Fecha fecha1, Fecha fecha2) {
-        dia = fecha1.getDia() - fecha2.getDia();
-        mes = fecha1.getMes() - fecha2.getMes();
-        anio = fecha1.getAnio() - fecha2.getAnio();
-        dia = Math.abs(dia);
-        mes = Math.abs(mes);
-        anio = Math.abs(anio);
+    public Fecha diferenciaFechas(Fecha fecha) {
+        Fecha hoy = new Fecha();
+        // Se calcula la diferencia entre dos fechas
+        // Dias de diferencia
+        int difDias = hoy.getDia() - fecha.getDia();
+        // Meses de diferencia
+        int difMeses = hoy.getMes() - fecha.getMes();
+        // Anios de diferencia
+        int difAnios = hoy.getAnio() - fecha.getAnio();
+        return new Fecha(difDias, difMeses, difAnios);
+    }
+
+    public int calcularEdad(Fecha fecha) {
+        Fecha hoy = new Fecha();
+        // Calcular edad
+        int edad = hoy.getAnio() - fecha.getAnio();
+        if (hoy.getMes() + 1 < fecha.getMes()) {
+            edad--;
+        }
+        if (hoy.getMes() + 1 == fecha.getMes() && hoy.getDia() < fecha.getDia()) {
+            edad--;
+        }
+        return edad;
     }
 
     // retorna un string del tiempo actual hora y minuto
@@ -123,6 +149,5 @@ public class Fecha {
         int minuto = gc.get(Calendar.MINUTE);
         return hora + ":" + minuto;
     }
-
 
 }

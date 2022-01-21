@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class SeleccionEtapa extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -284,11 +284,13 @@ public class SeleccionEtapa extends javax.swing.JFrame {
             try {
                 String nombre = usuario.getNombre();
                 String apellido = usuario.getApellido();
+                int avatar = usuario.getAvatar();
                 int dia = usuario.getFechaNacimiento().getDia();
                 int mes = usuario.getFechaNacimiento().getMes();
                 int anio = usuario.getFechaNacimiento().getAnio();
 
-                String SQL = "INSERT INTO usuario (nombre, apellido, dianac, mesnac, anionac, etapa) VALUES ('" + nombre + "', '" + apellido + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
+
+                String SQL = "INSERT INTO usuario (nombre, apellido, avatar, dianac, mesnac, anionac, etapa) VALUES ('" + nombre + "', '" + apellido + "', '" + avatar + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
                 PreparedStatement st = Main.getConnect().prepareStatement(SQL);
                 st.executeUpdate();
                 return true;
@@ -307,5 +309,5 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         }
         return false;
     }
-    // End of variables declaration                   
+    // End of variables declaration
 }

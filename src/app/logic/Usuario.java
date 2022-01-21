@@ -15,7 +15,7 @@ public class Usuario {
     /-------------------------------------------------------------*/
     private String nombre;
     private String apellido;
-    private String avatar;
+    private int avatar;
     public Fecha fechaNacimiento;
     private int etapa;
     private ResultadoActividad[] actividades;
@@ -65,7 +65,7 @@ public class Usuario {
      *
      * @return String avatar
      */
-    public String getAvatar() {
+    public int getAvatar() {
         return avatar;
     }
 
@@ -74,7 +74,7 @@ public class Usuario {
      *
      * @param avatar String
      */
-    public void setAvatar(String avatar) {
+    public void setAvatar(int avatar) {
         this.avatar = avatar;
     }
 
@@ -98,6 +98,10 @@ public class Usuario {
      */
     public void setFechaNacimiento(Fecha fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+    
+    public int getEdad() {
+        return fechaNacimiento.calcularEdad(fechaNacimiento);
     }
 
     /**

@@ -16,6 +16,7 @@ public final class MainScreen extends javax.swing.JFrame {
     ActividadesPanel pActividades = null;
     RecomendacionesPanel pRecomendaciones = null;
     EstatsPanel pEstats = null;
+    ConfigPanel pConfig = null;
 
     private MainScreen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -185,7 +186,7 @@ public final class MainScreen extends javax.swing.JFrame {
         Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/settings_cog_gear.png"));
         iconImg.setIcon(icono);
         colorButtons();
-
+        showPanel(pConfig);
     }//GEN-LAST:event_configButtonActionPerformed
 
     private void recButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recButtonActionPerformed
@@ -289,10 +290,12 @@ public final class MainScreen extends javax.swing.JFrame {
         pActividades = new ActividadesPanel(usuario);
         pEstats = new EstatsPanel(usuario);
         pRecomendaciones = new RecomendacionesPanel();
+        pConfig = new ConfigPanel(usuario);
 
         pInicio.setUsuario(usuario);
         pActividades.setUsuario(usuario);
         pEstats.setUsuario(usuario);
+        pConfig.setUsuario(usuario);
     }
 
     private void colorButtons() {
