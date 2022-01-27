@@ -17,6 +17,7 @@ public final class MainScreen extends javax.swing.JFrame {
     RecomendacionesPanel pRecomendaciones = null;
     EstatsPanel pEstats = null;
     ConfigPanel pConfig = null;
+    AyudaPanel  pAyuda = null;
 
     private MainScreen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -209,6 +210,7 @@ public final class MainScreen extends javax.swing.JFrame {
         Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/puzzle_component.png"));
         iconImg.setIcon(icono);
         colorButtons();
+        showPanel(pAyuda);
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void actividadesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadesButtonActionPerformed
@@ -291,6 +293,7 @@ public final class MainScreen extends javax.swing.JFrame {
         pEstats = new EstatsPanel(usuario);
         pRecomendaciones = new RecomendacionesPanel();
         pConfig = new ConfigPanel(usuario);
+        pAyuda = new AyudaPanel();
 
         pInicio.setUsuario(usuario);
         pActividades.setUsuario(usuario);

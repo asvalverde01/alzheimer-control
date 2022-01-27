@@ -1,6 +1,7 @@
 package app.gui.actividades;
 
 import app.logic.Usuario;
+import app.logic.auxiliar.LogicaJuego;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.Icon;
@@ -9,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
-public class ActividadColores extends javax.swing.JFrame {
+public class ActividadColores extends javax.swing.JFrame{
 
     /**
      * Creates new form actividadColores
@@ -34,7 +35,7 @@ public class ActividadColores extends javax.swing.JFrame {
     }
 
     int orden = 0;
-    Usuario u = new Usuario();
+    LogicaJuego u = new LogicaJuego();
     Icon icono = new ImageIcon();
     Object[] selectColor = {"", "", "", "", "", ""};
 

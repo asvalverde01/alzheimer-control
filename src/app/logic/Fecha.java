@@ -16,12 +16,11 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Constructores
     /-------------------------------------------------------------*/
-
     /**
      * Constructor con parámetros
      *
      * @param sFecha recibe una fecha en formato String con el formato
-     *               dd/mm/yyyy
+     * dd/mm/yyyy
      */
     public Fecha(String sFecha) {
         String sDia = sFecha.substring(0, 2);
@@ -42,6 +41,9 @@ public class Fecha {
 
     /**
      * Constructor que recibe dia mes y anio
+     * @param dia
+     * @param mes
+     * @param anio
      */
     public Fecha(int dia, int mes, int anio) {
         this.dia = dia;
@@ -98,7 +100,6 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Métodos complementarios de la clase Fecha
     /-------------------------------------------------------------*/
-
     /**
      * Método que inicializa la fecha actual utilizando el calendario Gregoriano
      */
@@ -116,6 +117,7 @@ public class Fecha {
      * diferencia
      *
      * @param fecha recibe un objeto de la clase Fecha
+     * @return 
      */
     public Fecha diferenciaFechas(Fecha fecha) {
         Fecha hoy = new Fecha();
@@ -149,5 +151,4 @@ public class Fecha {
         int minuto = gc.get(Calendar.MINUTE);
         return hora + ":" + minuto;
     }
-
 }

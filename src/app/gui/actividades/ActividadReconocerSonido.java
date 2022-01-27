@@ -1,6 +1,7 @@
 package app.gui.actividades;
 
 import app.logic.Usuario;
+import app.logic.auxiliar.LogicaJuego;
 import java.applet.AudioClip;
 
 import java.awt.Toolkit;
@@ -55,7 +56,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
 
     }
 
-    Usuario u = new Usuario();
+    LogicaJuego u = new LogicaJuego();
     Object[] selectSonido = {"", "", "", "", ""};
     int orden2 = 0;
 

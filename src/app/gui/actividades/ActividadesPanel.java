@@ -67,7 +67,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
 
         txt1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txt1.setForeground(new java.awt.Color(255, 255, 255));
-        txt1.setText("Actividades para la etapa");
+        txt1.setText("Actividades sugeridas para la etapa");
 
         etapaLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         etapaLabel.setForeground(new java.awt.Color(0, 153, 153));
@@ -78,11 +78,11 @@ public class ActividadesPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(80, 80, 80)
                 .addComponent(txt1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(48, 48, 48)
                 .addComponent(etapaLabel)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,15 +109,17 @@ public class ActividadesPanel extends javax.swing.JPanel {
         });
         bg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, 40));
 
+        contActv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout contActvLayout = new javax.swing.GroupLayout(contActv);
         contActv.setLayout(contActvLayout);
         contActvLayout.setHorizontalGroup(
             contActvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGap(0, 616, Short.MAX_VALUE)
         );
         contActvLayout.setVerticalGroup(
             contActvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
         bg.add(contActv, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 620, 390));

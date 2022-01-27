@@ -1,9 +1,9 @@
 package app.gui.actividades;
 
-import app.logic.Usuario;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import app.logic.auxiliar.Cuento;
+import app.logic.auxiliar.LogicaJuego;
 
 public class ActividadComprension extends javax.swing.JFrame {
 
@@ -60,7 +60,7 @@ public class ActividadComprension extends javax.swing.JFrame {
     }
     int posicion = 0;
     int parte = 0;
-    Usuario u = new Usuario();
+    LogicaJuego u = new LogicaJuego();
     Cuento m = new Cuento();
 
     Object[] select = {"", "", "", "", ""};
@@ -420,6 +420,9 @@ public class ActividadComprension extends javax.swing.JFrame {
         calificacion = calificacion * 2 / 3;
 
         JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+        
+        //ResultadoActividad resultado = new ResultadoActividad(atributos);
+        
     }//GEN-LAST:event_TerminarActionPerformed
 
 

@@ -50,6 +50,8 @@ public class ConfigPanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         avatarLogo = new javax.swing.JLabel();
         borrarButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        edadLabel1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,14 +104,15 @@ public class ConfigPanel extends javax.swing.JPanel {
 
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel.setText("Edad");
-        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        edadLabel.setText("Borrar todos los datos guardados");
+        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
-        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 570, 20));
         bg.add(avatarLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 70, 70));
 
         borrarButton.setBackground(new java.awt.Color(102, 0, 51));
+        borrarButton.setForeground(new java.awt.Color(204, 204, 204));
         borrarButton.setText("Borrar Datos");
         borrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +120,14 @@ public class ConfigPanel extends javax.swing.JPanel {
             }
         });
         bg.add(borrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 210, 30));
+
+        jSeparator2.setBackground(new java.awt.Color(81, 3, 23));
+        bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
+
+        edadLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
+        edadLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        edadLabel1.setText("Edad");
+        bg.add(edadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondo.setForeground(new java.awt.Color(51, 51, 51));
@@ -143,13 +154,14 @@ public class ConfigPanel extends javax.swing.JPanel {
     private javax.swing.JLabel bienvenidaLabel;
     private javax.swing.JButton borrarButton;
     private javax.swing.JLabel edadLabel;
+    private javax.swing.JLabel edadLabel1;
     private javax.swing.JLabel estadoLabel;
     private javax.swing.JLabel estadoSQL;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarFecha(Fecha actual) {
