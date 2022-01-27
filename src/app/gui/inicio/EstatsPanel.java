@@ -156,7 +156,7 @@ public class EstatsPanel extends javax.swing.JPanel {
 
             while (result.next()) {
                 //model.addRow(new Object[]{result.getString("nombre"), result.getString("aciertos")});
-                model.addRow(new Object[]{result.getString("nombre"), result.getString("aciertos"), result.getString("puntuacion"), result.getString("intento"), result.getString("etapa"), result.getString("segundos"), result.getInt("dia"), result.getString("mes"), result.getInt("anio")});
+                model.addRow(new Object[]{result.getInt("id"),result.getString("nombre"), result.getString("aciertos"), result.getString("puntuacion"), result.getString("etapa"), result.getString("segundos"), result.getInt("dia"), result.getString("mes"), result.getInt("anio")});
             }
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
@@ -165,7 +165,7 @@ public class EstatsPanel extends javax.swing.JPanel {
 
     private void insertarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarButtonActionPerformed
         // SQL insertar en la base de datos
-        ResultadoActividad registro = new ResultadoActividad("Actividad",3, 4, new Fecha(), 5, "Enero",4);
+        ResultadoActividad registro = new ResultadoActividad("Actividad",3, 5,new Fecha(), "Leve",4);
         registro.registrarDataBase();
 
         /*

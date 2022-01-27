@@ -8,6 +8,7 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form actividadesLevesPanel
+     *
      * @param usuario
      */
     public ActividadesLevesPanel(Usuario usuario) {
@@ -245,15 +246,21 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        usuario.ejecutarSumasRestas();
+        ActividadSumaResta actividadSumaResta = new ActividadSumaResta();
+        actividadSumaResta.setVisible(true);
+        actividadSumaResta.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        usuario.ejecutarComprensionLectora();
+        ActividadComprension actividadComprension = new ActividadComprension();
+        actividadComprension.setVisible(true);
+        actividadComprension.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        usuario.ejecutarMemoria();
+        ActividadMemoria actividadMemoria = new ActividadMemoria();
+        actividadMemoria.setVisible(true);
+        actividadMemoria.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

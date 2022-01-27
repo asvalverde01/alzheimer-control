@@ -75,7 +75,7 @@ public class AyudaPanel extends javax.swing.JPanel {
 
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel.setText("Edad");
+        edadLabel.setText("Este programa...");
         bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));

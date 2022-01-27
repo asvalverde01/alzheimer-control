@@ -13,7 +13,6 @@ public class ResultadoActividad {
     private int aciertos;
     private float puntuacion;
     private Fecha fecha;
-    private int intento;
     private String etapa;
     private int segundos;
 
@@ -21,12 +20,11 @@ public class ResultadoActividad {
     /*-------------------------------------------------------------
     /Constructor de la clase ResultadoActividad
     /-------------------------------------------------------------*/
-    public ResultadoActividad(String nombre, int aciertos, float puntuacion, Fecha fecha, int intento, String etapa, int segundos) {
+    public ResultadoActividad(String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos) {
         this.nombre = nombre;
         this.aciertos = aciertos;
         this.puntuacion = puntuacion;
         this.fecha = fecha;
-        this.intento = intento;
         this.etapa = etapa;
         this.segundos = segundos;
     }
@@ -66,13 +64,6 @@ public class ResultadoActividad {
         this.fecha = fecha;
     }
 
-    public int getIntento() {
-        return intento;
-    }
-
-    public void setIntento(int intento) {
-        this.intento = intento;
-    }
 
     public String getEtapa() {
         return etapa;
@@ -95,7 +86,7 @@ public class ResultadoActividad {
     /-------------------------------------------------------------*/
     public boolean registrarDataBase() {
         // Guarda los atributos en la tabla actividad en la base de datos
-        boolean conectado = Main.crearBaseDatos();
+        boolean conectado = Main.isConectado();
         if (conectado) {
             // En el la tabla usuario de la base de datos registra los datos
             try {
@@ -103,8 +94,9 @@ public class ResultadoActividad {
                 int dia = fecha.getDia();
                 String mes = fecha.getMesString();
                 int anio = fecha.getAnio();
+                int id = 0; //TODO 
 
-                String SQL = "INSERT INTO actividad (nombre, aciertos, puntuacion, intento, etapa, segundos, dia, mes, anio) VALUES ('" + nombre + "', '" + aciertos + "', '" + puntuacion + "', '" + intento + "', '" + etapa + "', '" + segundos + "' , '" + dia + "', '" + mes + "', '" + anio + "')";
+                String SQL = "INSERT INTO actividad (id, nombre, aciertos, puntuacion, etapa, segundos, dia, mes, anio) VALUES ('" + id + "','" + nombre + "', '" + aciertos + "', '" + puntuacion + "',  '" + etapa + "', '" + segundos + "' , '" + dia + "', '" + mes + "', '" + anio + "')";
                 PreparedStatement st = Main.getConnect().prepareStatement(SQL);
                 st.executeUpdate();
                 return true;

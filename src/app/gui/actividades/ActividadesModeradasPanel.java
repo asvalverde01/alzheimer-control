@@ -247,15 +247,21 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        usuario.ejecutarIdentificarLetra();
+        ActividadIdentificarLetras identificarLetras = new ActividadIdentificarLetras();
+        identificarLetras.setVisible(true);
+        identificarLetras.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        usuario.ejecutarReconocerSonido();
+        ActividadReconocerSonido actividadReconocerSonido = new ActividadReconocerSonido();
+        actividadReconocerSonido.setVisible(true);
+        actividadReconocerSonido.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        usuario.ejecutarIdentificarColor();
+        ActividadColores actividadActividadColores = new ActividadColores();
+        actividadActividadColores.setVisible(true);
+        actividadActividadColores.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

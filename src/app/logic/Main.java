@@ -61,7 +61,7 @@ public class Main {
             connect = DriverManager.getConnection(url);
             // Se crea la tabla con informacion de usuario
             String sql = "CREATE TABLE IF NOT EXISTS usuario (\n"
-                    + "	id integer,\n"
+                    + "	id integer primary key autoincrement,\n"
                     + "	nombre text,\n"
                     + "	apellido text,\n"
                     + "	avatar integer,\n"
@@ -75,11 +75,11 @@ public class Main {
 
             // Se crea la tabla con informacion de actividades
             sql = "CREATE TABLE IF NOT EXISTS actividad (\n"
+                    + "	id integer,\n"
                     + "	nombre text,\n"
                     + "	aciertos integer,\n"
                     + "	puntuacion real,\n"
-                    + "	intento integer,\n"
-                    + "	etapa integer,\n"
+                    + "	etapa text,\n"
                     + "	segundos integer,\n"
                     + "	dia integer,\n"
                     + "	mes text,\n"
@@ -87,7 +87,6 @@ public class Main {
                     + ");";
             st = connect.prepareStatement(sql);
             st.execute();
-            System.out.println("Base de datos creada");
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
             return false;

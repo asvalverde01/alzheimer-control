@@ -1,12 +1,5 @@
 package app.logic;
 
-import app.gui.actividades.ActividadColores;
-import app.gui.actividades.ActividadComprension;
-import app.gui.actividades.ActividadMemoria;
-import app.gui.actividades.ActividadSumaResta;
-import app.gui.actividades.ActividadIdentificarLetras;
-import app.gui.actividades.ActividadReconocerSonido;
-
 public class Usuario {
 
     /*-------------------------------------------------------------
@@ -111,6 +104,11 @@ public class Usuario {
         return etapa;
     }
 
+    /**
+     * Regresa la etapa del usuario en modo de String
+     *
+     * @return String etapa
+     */
     public String getEtapaUsuario() {
         switch (etapa) {
             case 0:
@@ -131,63 +129,5 @@ public class Usuario {
      */
     public void setEtapa(int etapa) {
         this.etapa = etapa;
-    }
-
-   
-    /*-------------------------------------------------------------
-    /Métodos de la clase
-    /-------------------------------------------------------------*/
-    public void visualizarInfoUsuario() {
-        //Solo modo consola
-    }
-
-    public void visualizarRecomendaciones() {
-        //Solo modo consola
-
-    }
-
-
-    /*-------------------------------------------------------------
-    /Métodos contenedores de los juegos para el Usuario
-    /-------------------------------------------------------------*/
-    // Actividades etapa Leve/-------------------------------------------------------------*/
-    public void ejecutarSumasRestas() {
-        ActividadSumaResta actividadSumaResta = new ActividadSumaResta();
-        actividadSumaResta.setVisible(true);
-        actividadSumaResta.setLocationRelativeTo(null);
-
-    }
-
-    public void ejecutarComprensionLectora() {
-        ActividadComprension actividadComprension = new ActividadComprension();
-        actividadComprension.setVisible(true);
-        actividadComprension.setLocationRelativeTo(null);
-    }
-
-    public void ejecutarMemoria() {
-        ActividadMemoria actividadMemoria = new ActividadMemoria();
-        actividadMemoria.setVisible(true);
-        actividadMemoria.setLocationRelativeTo(null);
-    }
-
-    // Actividades etapa Moderada/-------------------------------------------------------------*/
-    public void ejecutarIdentificarLetra() {
-        ActividadIdentificarLetras identificarLetras = new ActividadIdentificarLetras();
-        identificarLetras.setVisible(true);
-        identificarLetras.setLocationRelativeTo(null);
-
-    }
-
-
-    public void ejecutarReconocerSonido() {
-        ActividadReconocerSonido actividadReconocerSonido = new ActividadReconocerSonido();
-        actividadReconocerSonido.setVisible(true);
-        actividadReconocerSonido.setLocationRelativeTo(null);
-    }
-
-    public void ejecutarIdentificarColor() {
-        ActividadColores actividadActividadColores = new ActividadColores();
-        actividadActividadColores.setVisible(true);
-        actividadActividadColores.setLocationRelativeTo(null);
     }
 }

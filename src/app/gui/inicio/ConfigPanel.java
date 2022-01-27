@@ -126,7 +126,7 @@ public class ConfigPanel extends javax.swing.JPanel {
 
         edadLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel1.setText("Edad");
+        edadLabel1.setText("Config");
         bg.add(edadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
