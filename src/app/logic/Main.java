@@ -1,5 +1,6 @@
 package app.logic;
 
+import app.gui.inicio.InicioForm;
 import app.gui.inicio.MainScreen;
 import app.gui.inicio.RegistroUsuario;
 
@@ -7,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -21,8 +24,13 @@ public class Main {
         /*-------------------------------------------------------------
         /Atributos de la clase Main
         /-------------------------------------------------------------*/
+        // Objeto de Usuario
         Usuario usuario = new Usuario();
+        // Lista de usuarios registrados
+        List usuarios = new ArrayList<>();
+        // Objeto del archivo de la base de datos
         File file = new File("appdata.sqlite");
+
 
         /*-------------------------------------------------------------
         /Se busca si existe una archivo base de datos
@@ -31,17 +39,20 @@ public class Main {
         {
             // Se conecta a la base de datos
             conectado = conectarBaseDatos();
-            usuario = obtenerUsuarioDataBase();
+            // Saca los usuarios registrados
+            usuarios = obtenerUsuarioDataBase(usuarios);
 
             // Inicia el programa mostrando el inicio
-            MainScreen main = new MainScreen(usuario);
-            main.setVisible(true);
-            main.setLocationRelativeTo(null);
+            InicioForm mainInicio = new InicioForm(usuarios);
+            mainInicio.setVisible(true);
+            mainInicio.setLocationRelativeTo(null);
+
         } else {
             RegistroUsuario registro = new RegistroUsuario(usuario);
             registro.setVisible(true);
             registro.setLocationRelativeTo(null);
         }
+        
     }
 
     public static String getUrl() {
@@ -139,15 +150,18 @@ public class Main {
         return false;
     }
 
-    private static Usuario obtenerUsuarioDataBase() {
-        Usuario usuario = new Usuario();
+    private static List obtenerUsuarioDataBase(List<Usuario> usuariosLista) {
+        
         Fecha nacimiento = new Fecha();
         // Se obtiene la informacion de la tabla usuario en base de datos
         try {
             String sql = "SELECT * FROM usuario";
             PreparedStatement st = connect.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
+
             while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setCedula(rs.getString("cedula"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));
                 usuario.setAvatar(rs.getInt("avatar"));
@@ -157,11 +171,37 @@ public class Main {
                 nacimiento.setMes(rs.getInt("mesnac"));
                 nacimiento.setAnio(rs.getInt("anionac"));
                 usuario.setFechaNacimiento(nacimiento);
+                // añade el usuario registrado a la lista
+                usuariosLista.add(usuario);
             }
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
         }
         // Regresa el usuario que se ha guardado
-        return usuario;
+        return usuariosLista;
     }
 } // FIN CLASE  
+
+
+/*
+---------------------------------------------
+Pseudocódigo para agregar usuarios al programa
+SQL
+
+- verificar que exista una base de datos
+si exsiste
+- sacar los usuarios registrados
+- el usuario tiene opcion de iniciar o registrar
+si usuario inicia 
+-solicitar cedula(id)
+-buscar match entre usuarios registrados
+si encuentra
+- mostrar Main
+caso contrario
+-mostrar error
+si usuario registra
+-mostrar ventana registro
+si no existe
+- registra al usuario 
+
+*/

@@ -542,7 +542,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 return false;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cédula inválida");
+            JOptionPane.showMessageDialog(null, "Cédula inválida. Ingrese solamente dígitos");
             return false;
         }
         return false;

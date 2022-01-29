@@ -288,9 +288,10 @@ public class SeleccionEtapa extends javax.swing.JFrame {
                 int dia = usuario.getFechaNacimiento().getDia();
                 int mes = usuario.getFechaNacimiento().getMes();
                 int anio = usuario.getFechaNacimiento().getAnio();
+                String cedula = usuario.getCedula();
 
 
-                String SQL = "INSERT INTO usuario (nombre, apellido, avatar, dianac, mesnac, anionac, etapa) VALUES ('" + nombre + "', '" + apellido + "', '" + avatar + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
+                String SQL = "INSERT INTO usuario (cedula, nombre, apellido, avatar, dianac, mesnac, anionac, etapa) VALUES ('" + cedula + "','" + nombre + "', '" + apellido + "', '" + avatar + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
                 PreparedStatement st = Main.getConnect().prepareStatement(SQL);
                 st.executeUpdate();
                 return true;
