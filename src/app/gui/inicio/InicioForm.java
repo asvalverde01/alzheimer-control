@@ -9,12 +9,10 @@ import app.logic.Usuario;
 import javax.swing.JOptionPane;
 import java.util.List;
 
-
 public class InicioForm extends javax.swing.JFrame {
 
     // Atributo de lista
     private static List<Usuario> usuarios;
-
 
     public List<Usuario> getUsuarios() {
         return usuarios;
@@ -26,6 +24,7 @@ public class InicioForm extends javax.swing.JFrame {
 
     /**
      * Creates new form InicioForm
+     *
      * @param usuarios
      */
     public InicioForm(List usuarios) {
@@ -47,6 +46,7 @@ public class InicioForm extends javax.swing.JFrame {
         registrarButton = new javax.swing.JButton();
         entrarButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         cedulaTxt = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -73,7 +73,7 @@ public class InicioForm extends javax.swing.JFrame {
                 registrarButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(registrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 340, 40));
+        jPanel1.add(registrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 340, 40));
 
         entrarButton.setBackground(new java.awt.Color(0, 204, 204));
         entrarButton.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -85,12 +85,16 @@ public class InicioForm extends javax.swing.JFrame {
                 entrarButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(entrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 340, 40));
+        jPanel1.add(entrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 340, 50));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel3.setText("Ingrese su número de cédula");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 30));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 255));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 340, 30));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel4.setText("Ingrese su número de cédula");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 30));
 
         cedulaTxt.setBackground(new java.awt.Color(51, 51, 51));
         cedulaTxt.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -135,15 +139,17 @@ public class InicioForm extends javax.swing.JFrame {
         String cedula = cedulaTxt.getText();
         if (validarCedula(cedula)) {
             // Busca en la lista de usuarios un match en cedula
-            for (Usuario usuario : usuarios) {
+            usuarios.forEach(usuario -> {
                 if (usuario.getCedula().equals(cedula)) {
                     MainScreen main = new MainScreen(usuario);
                     main.setVisible(true);
                     main.setLocationRelativeTo(null);
+                    this.setVisible(false);
+
                 } else {
-                    System.out.println("No match");
+                    jLabel3.setText("No encontrado, intente nuevamente");
                 }
-            }
+            });
         }
 
 
@@ -200,7 +206,6 @@ public class InicioForm extends javax.swing.JFrame {
     private boolean validarCedula(String cedula) {
         // Verifica que la cedula sea valida
         // Verifica que solamente hayan digitos en el string cedula
-        System.out.println("Cedula " + cedula);
         if (cedula.matches("[0-9]+")) {
             // Verifica que el string tenga 10 digitos
             if (cedula.length() == 10) {
@@ -217,7 +222,7 @@ public class InicioForm extends javax.swing.JFrame {
                     return false;
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Faltan dígitos en cédula");
+                JOptionPane.showMessageDialog(null, "Cédula debe constar de 10 dígitos");
                 return false;
             }
         } else {
@@ -232,6 +237,7 @@ public class InicioForm extends javax.swing.JFrame {
     private javax.swing.JTextField cedulaTxt;
     private javax.swing.JButton entrarButton;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;

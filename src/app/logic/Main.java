@@ -52,7 +52,6 @@ public class Main {
             registro.setVisible(true);
             registro.setLocationRelativeTo(null);
         }
-        
     }
 
     public static String getUrl() {
@@ -151,7 +150,7 @@ public class Main {
     }
 
     private static List obtenerUsuarioDataBase(List<Usuario> usuariosLista) {
-        
+
         Fecha nacimiento = new Fecha();
         // Se obtiene la informacion de la tabla usuario en base de datos
         try {

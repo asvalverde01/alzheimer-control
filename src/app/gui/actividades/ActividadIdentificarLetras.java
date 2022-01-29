@@ -1,9 +1,14 @@
 package app.gui.actividades;
 
+import app.gui.inicio.MainScreen;
+import app.logic.Fecha;
+import app.logic.ResultadoActividad;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import app.logic.Usuario;
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class ActividadIdentificarLetras extends javax.swing.JFrame {
 
@@ -16,7 +21,19 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     String n4 = "f";
     String n5 = "a";
 
+    // Atributos del timer
+    Timer timer;
+    final int[] sec = {0};
+
     public ActividadIdentificarLetras() {
+        // Timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            sec[0]++;
+            System.out.println(sec[0]);
+        });
+        // Inicia el timer
+        timer.start();
+
         initComponents();
         this.setLocationRelativeTo(null);
         Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
@@ -173,7 +190,16 @@ int cont = 0;
 
         if (cont == 5) {
             listo.setEnabled(false);
+            // Detiene el timer
+            timer.stop();
             JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion * 2 + "/10");
+            this.setVisible(false);
+            // SQL insertar en la base de datos
+            // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar Letras", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
+            // Invoca al metodo que registra los datos en la base de datos
+            registro.registrarDataBase();
+            //ResultadoActividad resultado = new ResultadoActividad(atributos);
 
         }
 

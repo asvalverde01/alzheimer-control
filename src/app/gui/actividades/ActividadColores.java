@@ -1,22 +1,33 @@
 package app.gui.actividades;
 
-import app.logic.Usuario;
+import app.gui.inicio.MainScreen;
+import app.logic.Fecha;
+import app.logic.ResultadoActividad;
 import app.logic.auxiliar.LogicaJuego;
 import java.awt.Color;
 import java.awt.Toolkit;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.awt.event.ActionEvent;
+import javax.swing.*;
 
-import javax.swing.JOptionPane;
-
-
-public class ActividadColores extends javax.swing.JFrame{
+public class ActividadColores extends javax.swing.JFrame {
 
     /**
      * Creates new form actividadColores
      */
+    // Atributos del timer
+    Timer timer;
+    final int[] sec = {0};
+
     public ActividadColores() {
         initComponents();
+
+        // Timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            sec[0]++;
+            System.out.println(sec[0]);
+        });
+        // Inicia el timer
+        timer.start();
 
         String[] k = u.setRespuestaColor(orden);
 
@@ -310,6 +321,8 @@ public class ActividadColores extends javax.swing.JFrame{
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         int calificacion = 0;
+        // Detiene el timer
+        timer.stop();
         for (int i = 0; i < 5; i++) {
             if (selectColor[i].equals(u.getColor(i))) {
 
@@ -322,8 +335,13 @@ public class ActividadColores extends javax.swing.JFrame{
         calificacion = calificacion * 2;
 
         JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+        this.setVisible(false);
 
-
+        // SQL insertar en la base de datos
+        // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar colores", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
+        // Invoca al metodo que registra los datos en la base de datos
+        registro.registrarDataBase();
     }//GEN-LAST:event_finalizarActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed

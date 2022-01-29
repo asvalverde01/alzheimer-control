@@ -48,7 +48,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         this.usuario = usuario;
         anioSpinner.setValue(1900);
 
-        String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+        //String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         //mesCombo.addItem("emerp");
     }
 
@@ -392,6 +392,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
             correctoCampos = true;
         }
 
+
         if (dia < 1 || dia > 31 && correctoCampos) {
             JOptionPane.showMessageDialog(null, "Día inválido");
 
@@ -521,7 +522,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private boolean validarCedula(String cedula) {
         // Verifica que la cedula sea valida
         // Verifica que solamente hayan digitos en el string cedula
-        System.out.println("Cedula " + cedula);
         if (cedula.matches("[0-9]+")) {
             // Verifica que el string tenga 10 digitos
             if (cedula.length() == 10) {
@@ -538,7 +538,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                     return false;
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Faltan dígitos en cédula");
+                JOptionPane.showMessageDialog(null, "Cédula debe constar de 10 dígitos");
                 return false;
             }
         } else {

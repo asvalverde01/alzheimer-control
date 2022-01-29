@@ -1,6 +1,11 @@
 package app.gui.actividades;
 
+import app.gui.inicio.MainScreen;
+import app.logic.Fecha;
+import app.logic.ResultadoActividad;
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class ActividadSumaResta extends javax.swing.JFrame {
 
@@ -8,6 +13,10 @@ public class ActividadSumaResta extends javax.swing.JFrame {
     int respuestaOp;
     int puntaje;
     int contador;
+
+    // Atributos del timer
+    Timer timer;
+    final int[] sec = {0};
 
     public int getRespuestaOp() {
         return respuestaOp;
@@ -21,6 +30,13 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         initComponents();
         int respuesta = generarNuevaOp();
         setRespuestaOp(respuesta);
+        // Timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            sec[0]++;
+            System.out.println(sec[0]);
+        });
+        // Inicia el timer
+        timer.start();
     }
 
     /**
@@ -139,9 +155,15 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         contador++;
         ingreseSuma1.setText("");
         if (contador == 10) {
+            // Detiene el timer
+            timer.stop();
             JOptionPane.showMessageDialog(null, "Tu calificación es " + puntaje + "/10");
             this.setVisible(false);
-
+            // SQL insertar en la base de datos
+            // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Suma Resta", puntaje, puntaje, new Fecha(), "Leve", sec[0]);
+            // Invoca al metodo que registra los datos en la base de datos
+            registro.registrarDataBase();
         }
     }//GEN-LAST:event_comprobar1ActionPerformed
 

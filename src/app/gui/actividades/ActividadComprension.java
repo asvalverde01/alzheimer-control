@@ -1,11 +1,21 @@
 package app.gui.actividades;
 
+import app.gui.inicio.MainScreen;
+import app.logic.Fecha;
+import app.logic.ResultadoActividad;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import app.logic.auxiliar.Cuento;
 import app.logic.auxiliar.LogicaJuego;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 public class ActividadComprension extends javax.swing.JFrame {
+
+    // Atributos del timer
+    Timer timer;
+    final int[] sec = {0};
 
     /**
      * Creates new form actividadComprension
@@ -13,6 +23,15 @@ public class ActividadComprension extends javax.swing.JFrame {
     public ActividadComprension() {
 
         initComponents();
+
+        // Timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            sec[0]++;
+            System.out.println(sec[0]);
+        });
+        // Inicia el timer
+        timer.start();
+
         cuentoArea.setText(m.getCuento(parte));
         question.setText(u.getPregunta(posicion));
 
@@ -390,7 +409,8 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc2ActionPerformed
 
     private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
-
+        // Detiene el timer
+        timer.stop();
         int calificacion = 0;
 
         for (int i = 0; i < 3; i++) {
@@ -420,9 +440,14 @@ public class ActividadComprension extends javax.swing.JFrame {
         calificacion = calificacion * 2 / 3;
 
         JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
-        
+        this.setVisible(false);
+        // SQL insertar en la base de datos
+        // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Comprensión", calificacion, calificacion, new Fecha(), "Leve", sec[0]);
+        // Invoca al metodo que registra los datos en la base de datos
+        registro.registrarDataBase();
         //ResultadoActividad resultado = new ResultadoActividad(atributos);
-        
+
     }//GEN-LAST:event_TerminarActionPerformed
 
 

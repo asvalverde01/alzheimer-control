@@ -1,9 +1,14 @@
 package app.gui.actividades;
 
+import app.gui.inicio.MainScreen;
+import app.logic.Fecha;
+import app.logic.ResultadoActividad;
 import app.logic.auxiliar.LogicaJuego;
+import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class ActividadMemoria extends javax.swing.JFrame {
 
@@ -15,9 +20,20 @@ public class ActividadMemoria extends javax.swing.JFrame {
     private boolean compara = false;
     private int puntaje = 0;
 
+    // Atributos del timer
+    Timer timer;
+    final int[] sec = {0};
+
     public ActividadMemoria() {
         initComponents();
         setCards();
+        // Timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            sec[0]++;
+            System.out.println(sec[0]);
+        });
+        // Inicia el timer
+        timer.start();
     }
 
     private void setCards() {
@@ -51,7 +67,6 @@ public class ActividadMemoria extends javax.swing.JFrame {
             puntaje += 2;
             mostrarPuntaje();
         }
-        System.out.println("Puntaje " + puntaje);
     }
 
     private void compararCarta() {
@@ -71,7 +86,15 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
     private void mostrarPuntaje() {
         if (!(jButton1.isEnabled()) && !(jButton2.isEnabled()) && !(jButton3.isEnabled()) && !(jButton4.isEnabled()) && !(jButton5.isEnabled()) && !(jButton6.isEnabled()) && !(jButton7.isEnabled()) && !(jButton8.isEnabled()) && !(jButton9.isEnabled()) && !(jButton10.isEnabled())) {
+            // Detiene el timer
+            timer.stop();
             JOptionPane.showMessageDialog(this, "Muy bien hecho. Su puntaje es: " + puntaje, "Fin", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+            // SQL insertar en la base de datos
+            // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Memoria", puntaje, puntaje, new Fecha(), "Leve", sec[0]);
+            // Invoca al metodo que registra los datos en la base de datos
+            registro.registrarDataBase();
         }
     }
 

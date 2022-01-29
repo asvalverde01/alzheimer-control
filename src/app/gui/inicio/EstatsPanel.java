@@ -165,7 +165,7 @@ public class EstatsPanel extends javax.swing.JPanel {
 
     private void insertarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarButtonActionPerformed
         // SQL insertar en la base de datos
-        ResultadoActividad registro = new ResultadoActividad("Actividad",3, 5,new Fecha(), "Leve",4);
+        ResultadoActividad registro = new ResultadoActividad(usuario.getCedula(),"Actividad",3, 5,new Fecha(), "Leve",4);
         registro.registrarDataBase();
 
         /*

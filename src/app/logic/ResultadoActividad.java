@@ -9,6 +9,7 @@ public class ResultadoActividad {
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
+    private String id;
     private String nombre;
     private int aciertos;
     private float puntuacion;
@@ -20,7 +21,8 @@ public class ResultadoActividad {
     /*-------------------------------------------------------------
     /Constructor de la clase ResultadoActividad
     /-------------------------------------------------------------*/
-    public ResultadoActividad(String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos) {
+    public ResultadoActividad(String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos) {
+        this.id = cedula;
         this.nombre = nombre;
         this.aciertos = aciertos;
         this.puntuacion = puntuacion;
@@ -28,7 +30,7 @@ public class ResultadoActividad {
         this.etapa = etapa;
         this.segundos = segundos;
     }
-    
+
     /*-------------------------------------------------------------
     /Métodos get y set de la clase ResultadoActividad
     /-------------------------------------------------------------*/
@@ -64,7 +66,6 @@ public class ResultadoActividad {
         this.fecha = fecha;
     }
 
-
     public String getEtapa() {
         return etapa;
     }
@@ -94,7 +95,6 @@ public class ResultadoActividad {
                 int dia = fecha.getDia();
                 String mes = fecha.getMesString();
                 int anio = fecha.getAnio();
-                int id = 0; //TODO 
 
                 String SQL = "INSERT INTO actividad (id, nombre, aciertos, puntuacion, etapa, segundos, dia, mes, anio) VALUES ('" + id + "','" + nombre + "', '" + aciertos + "', '" + puntuacion + "',  '" + etapa + "', '" + segundos + "' , '" + dia + "', '" + mes + "', '" + anio + "')";
                 PreparedStatement st = Main.getConnect().prepareStatement(SQL);

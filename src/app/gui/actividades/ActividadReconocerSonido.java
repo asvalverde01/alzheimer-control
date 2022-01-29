@@ -1,20 +1,23 @@
 package app.gui.actividades;
 
-import app.logic.Usuario;
+import app.gui.inicio.MainScreen;
+import app.logic.Fecha;
+import app.logic.ResultadoActividad;
 import app.logic.auxiliar.LogicaJuego;
 import java.applet.AudioClip;
-
 import java.awt.Toolkit;
-
+import java.awt.event.ActionEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class ActividadReconocerSonido extends javax.swing.JFrame {
 
-    /**
-     * Creates new form reconocerSonido
-     */
+    // Atributos del timer
+    Timer timer;
+    final int[] sec = {0};
+
     public ActividadReconocerSonido() {
         initComponents();
 
@@ -54,6 +57,13 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         opci4.setText(s[3]);
         opci5.setText(s[4]);
 
+        // Timer
+        timer = new Timer(1000, (ActionEvent e) -> {
+            sec[0]++;
+            System.out.println(sec[0]);
+        });
+        // Inicia el timer
+        timer.start();
     }
 
     LogicaJuego u = new LogicaJuego();
@@ -185,6 +195,9 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     }//GEN-LAST:event_opci3ActionPerformed
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
+        // Detiene el timer
+        timer.stop();
+
         int calificacion = 0;
         for (int i = 0; i < 5; i++) {
             if (selectSonido[i].equals(u.getSonido(i))) {
@@ -198,6 +211,12 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         calificacion = calificacion * 2;
 
         JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+        this.setVisible(false);
+        // SQL insertar en la base de datos
+        // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Reconocer sonido", calificacion, calificacion, new Fecha(), "Leve", sec[0]);
+        // Invoca al metodo que registra los datos en la base de datos
+        registro.registrarDataBase();
 
     }//GEN-LAST:event_finalizarActionPerformed
     int cont = 0;

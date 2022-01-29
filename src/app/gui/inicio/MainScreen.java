@@ -10,7 +10,8 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public final class MainScreen extends javax.swing.JFrame {
 
-    Usuario usuario;
+    private  Usuario usuario;
+    public static String userID;
     // Paneles
     app.gui.inicio.InicioPanel pInicio = null;
     ActividadesPanel pActividades = null;
@@ -46,6 +47,7 @@ public final class MainScreen extends javax.swing.JFrame {
         //setInformation();
         this.setVisible(true);
         showPanel(pInicio);
+        MainScreen.userID = usuario.getCedula();
     }
 
     /**
