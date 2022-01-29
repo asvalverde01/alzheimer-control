@@ -7,6 +7,7 @@ public class Usuario {
     /-------------------------------------------------------------*/
     private String nombre;
     private String apellido;
+    private String cedula;
     private int avatar;
     public Fecha fechaNacimiento;
     private int etapa;
@@ -50,6 +51,16 @@ public class Usuario {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+    
+    
 
     /**
      * Regresa el avatar del usuario
