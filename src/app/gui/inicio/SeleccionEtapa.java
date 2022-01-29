@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
 public class SeleccionEtapa extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
@@ -223,13 +222,16 @@ public class SeleccionEtapa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainScreen main;
+
         if (guardarUsuario(2)) {
             usuario.setEtapa(2);
+            Main.setConectado(Main.conectarBaseDatos());
             main = new MainScreen(usuario);
             this.setVisible(false);
             main.setVisible(true);
             main.setUsuario(usuario);
             main.setLocationRelativeTo(null);
+
             System.out.println("Guardado correctamente");
         } else {
             System.out.println("Ha ocurrido algun error");
@@ -241,11 +243,13 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         MainScreen main;
         if (guardarUsuario(1)) {
             usuario.setEtapa(1);
+            Main.setConectado(Main.conectarBaseDatos());
             main = new MainScreen(usuario);
             this.setVisible(false);
             main.setVisible(true);
             main.setUsuario(usuario);
             main.setLocationRelativeTo(null);
+            Main.setConectado(Main.conectarBaseDatos());
             System.out.println("Guardado correctamente");
         } else {
             System.out.println("Ha ocurrido algun error");
@@ -265,11 +269,13 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         MainScreen main;
         if (guardarUsuario(0)) {
             usuario.setEtapa(0);
+            Main.setConectado(Main.conectarBaseDatos());
             main = new MainScreen(usuario);
             this.setVisible(false);
             main.setVisible(true);
             main.setUsuario(usuario);
             main.setLocationRelativeTo(null);
+
             System.out.println("Guardado correctamente");
         } else {
             System.out.println("Ha ocurrido algun error");
@@ -289,7 +295,6 @@ public class SeleccionEtapa extends javax.swing.JFrame {
                 int mes = usuario.getFechaNacimiento().getMes();
                 int anio = usuario.getFechaNacimiento().getAnio();
                 String cedula = usuario.getCedula();
-
 
                 String SQL = "INSERT INTO usuario (cedula, nombre, apellido, avatar, dianac, mesnac, anionac, etapa) VALUES ('" + cedula + "','" + nombre + "', '" + apellido + "', '" + avatar + "', '" + dia + "', '" + mes + "', '" + anio + "', '" + etapa + "')";
                 PreparedStatement st = Main.getConnect().prepareStatement(SQL);

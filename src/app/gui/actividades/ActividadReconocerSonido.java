@@ -214,7 +214,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         this.setVisible(false);
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Reconocer sonido", calificacion, calificacion, new Fecha(), "Leve", sec[0]);
+        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Reconocer sonido", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
         // Invoca al metodo que registra los datos en la base de datos
         registro.registrarDataBase();
 

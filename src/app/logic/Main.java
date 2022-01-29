@@ -1,7 +1,6 @@
 package app.logic;
 
 import app.gui.inicio.InicioForm;
-import app.gui.inicio.MainScreen;
 import app.gui.inicio.RegistroUsuario;
 
 import javax.swing.*;
@@ -18,7 +17,7 @@ public class Main {
     // Objeto de conección con la base SQLite
     static Connection connect;
     // Indica si existe coneccion con base de datos
-    static boolean conectado = false;
+    public static boolean conectado = false;
 
     public static void main(String[] args) {
         /*-------------------------------------------------------------
@@ -52,6 +51,10 @@ public class Main {
             registro.setVisible(true);
             registro.setLocationRelativeTo(null);
         }
+    }
+
+    public static void setConectado(boolean conectado) {
+        Main.conectado = conectado;
     }
 
     public static String getUrl() {
@@ -109,12 +112,7 @@ public class Main {
     public static boolean conectarBaseDatos() {
         try {
             connect = DriverManager.getConnection(url);
-            String sql = "CREATE TABLE IF NOT EXISTS actividad (\n"
-                    + "	id integer,\n"
-                    + "	nombre text\n"
-                    + ");";
-            PreparedStatement st = connect.prepareStatement(sql);
-            st.execute();
+            System.out.println("conectando");
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
             return false;
@@ -181,26 +179,3 @@ public class Main {
     }
 } // FIN CLASE  
 
-
-/*
----------------------------------------------
-Pseudocódigo para agregar usuarios al programa
-SQL
-
-- verificar que exista una base de datos
-si exsiste
-- sacar los usuarios registrados
-- el usuario tiene opcion de iniciar o registrar
-si usuario inicia 
--solicitar cedula(id)
--buscar match entre usuarios registrados
-si encuentra
-- mostrar Main
-caso contrario
--mostrar error
-si usuario registra
--mostrar ventana registro
-si no existe
-- registra al usuario 
-
-*/
