@@ -172,25 +172,21 @@ public class Usuario {
             // Segun el tipo seleccionado se busca en la base de datos
             try {
                 switch (tipo) {
-                    case "none":
-                        System.out.println("none");
+                    case "Todos":
                         st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ?");
                         st.setString(1, cedula);
                         break;
-                    case "leve":
-                        System.out.println("leve");
+                    case "Leve":
                         st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND etapa = ?");
                         st.setString(1, cedula);
                         st.setString(2, "Leve");
                         break;
-                    case "moderada":
-                        System.out.println("moderada");
+                    case "Moderada":
                         st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND etapa = ?");
                         st.setString(1, cedula);
                         st.setString(2, "Moderada");
                         break;
-                    case "hoy":
-                        System.out.println("hoy");
+                    case "Hoy":
                         st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND dia = ?");
                         st.setString(1, cedula);
                         Fecha fechaHoy = new Fecha();

@@ -101,6 +101,9 @@ public class ResultadosPanel extends javax.swing.JPanel {
         filtrarBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Leve", "Moderada", "Hoy" }));
         bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 150, -1));
 
+        buscarButton.setBackground(new java.awt.Color(153, 0, 204));
+        buscarButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buscarButton.setForeground(new java.awt.Color(0, 0, 0));
         buscarButton.setText("Buscar");
         buscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +112,7 @@ public class ResultadosPanel extends javax.swing.JPanel {
         });
         bg.add(buscarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 130, -1));
 
-        jTable1.setBackground(new java.awt.Color(102, 51, 255));
+        jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -158,34 +161,18 @@ public class ResultadosPanel extends javax.swing.JPanel {
 
     private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
         String filtro = filtrarBOX.getSelectedItem().toString();
-        System.out.println("Filtro seleccionado " + filtro);
-        
-        List<ResultadoActividad> listaResultados =  usuario.buscarResultadoActividad("leve");
-        // se recorre la lista de resultados
-        System.out.println("----------------\nTamaño de la lista: " + listaResultados.size());
-        for (ResultadoActividad resultadoActividad : listaResultados) {
-            // se obtiene el resultado de la actividad
-            System.out.println(resultadoActividad);
-            
-        }
-        
-        // SQL
+
+        // Limpia los contenidos de la tabla
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        ResultSet result = null;
 
-        try {
-            PreparedStatement st = Main.getConnect().prepareStatement(" select * from actividad");
-            result = st.executeQuery();
-            // Se registra el nombre, aciertos, puntuacion, intento, etapa, segundos, dia, mes, anio
-
-            while (result.next()) {
-                //model.addRow(new Object[]{result.getString("nombre"), result.getString("aciertos")});
-                model.addRow(new Object[]{result.getInt("id"),result.getString("nombre"), result.getString("aciertos"), result.getString("puntuacion"), result.getString("etapa"), result.getString("segundos"), result.getInt("dia"), result.getString("mes"), result.getInt("anio")});
-            }
-        } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage());
+        List<ResultadoActividad> listaResultados =  usuario.buscarResultadoActividad(filtro);
+        
+        // se recorre la lista de resultados e inserta los valores en la tabla
+        for (ResultadoActividad resultadoActividad : listaResultados) {
+            model.addRow(new Object[]{resultadoActividad.getNombre(), resultadoActividad.getEtapa(), resultadoActividad.getAciertos(), resultadoActividad.getSegundos(), resultadoActividad.getFecha().getDia(), resultadoActividad.getFecha().getMesString()});
         }
-                
+
     }//GEN-LAST:event_buscarButtonActionPerformed
 
     public Usuario getUsuario() {
