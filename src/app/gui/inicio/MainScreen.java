@@ -16,7 +16,7 @@ public final class MainScreen extends javax.swing.JFrame {
     app.gui.inicio.InicioPanel pInicio = null;
     ActividadesPanel pActividades = null;
     RecomendacionesPanel pRecomendaciones = null;
-    EstatsPanel pEstats = null;
+    ResultadosPanel pResultados = null;
     ConfigPanel pConfig = null;
     AyudaPanel  pAyuda = null;
 
@@ -229,7 +229,7 @@ public final class MainScreen extends javax.swing.JFrame {
         iconImg.setIcon(icono);
         colorButtons();
         statsButton.setBackground(new java.awt.Color(204, 0, 204));
-        showPanel(pEstats);
+        showPanel(pResultados);
     }//GEN-LAST:event_statsButtonActionPerformed
 
     /**
@@ -292,14 +292,14 @@ public final class MainScreen extends javax.swing.JFrame {
     private void inicializarPaneles(Usuario usuario) {
         pInicio = new InicioPanel(usuario);
         pActividades = new ActividadesPanel(usuario);
-        pEstats = new EstatsPanel(usuario);
+        pResultados = new ResultadosPanel(usuario);
         pRecomendaciones = new RecomendacionesPanel();
         pConfig = new ConfigPanel(usuario);
         pAyuda = new AyudaPanel();
 
         pInicio.setUsuario(usuario);
         pActividades.setUsuario(usuario);
-        pEstats.setUsuario(usuario);
+        pResultados.setUsuario(usuario);
         pConfig.setUsuario(usuario);
     }
 
