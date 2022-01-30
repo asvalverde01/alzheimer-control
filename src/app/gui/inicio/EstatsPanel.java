@@ -11,6 +11,7 @@ import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class EstatsPanel extends javax.swing.JPanel {
 
@@ -161,12 +162,20 @@ public class EstatsPanel extends javax.swing.JPanel {
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
         }
+
+
+
     }//GEN-LAST:event_seleccionarButtonActionPerformed
 
     private void insertarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarButtonActionPerformed
-        // SQL insertar en la base de datos
-        ResultadoActividad registro = new ResultadoActividad(usuario.getCedula(),"Actividad",3, 5,new Fecha(), "Leve",4);
-        registro.registrarDataBase();
+        // invoca al metodo buscarResultadoActividad del usuario
+        List<ResultadoActividad> listaResultados =  usuario.buscarResultadoActividad("leve");
+        // se recorre la lista de resultados
+        System.out.println("----------------\nTamaño de la lista: " + listaResultados.size());
+        for (ResultadoActividad resultadoActividad : listaResultados) {
+            // se obtiene el resultado de la actividad
+            System.out.println(resultadoActividad);
+        }
 
         /*
         try {

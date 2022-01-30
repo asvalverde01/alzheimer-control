@@ -116,4 +116,10 @@ public class ResultadoActividad {
         return false;
     }
 
+    // metodo toString
+    @Override
+    public String toString() {
+        return "ResultadoActividad{" + "id=" + id + ", nombre=" + nombre + ", aciertos=" + aciertos + ", puntuacion=" + puntuacion + ", fecha=" + fecha + ", etapa=" + etapa + ", segundos=" + segundos + '}';
+    }
+
 }
