@@ -477,8 +477,14 @@ public class ActividadMemoria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MousePressed
 
     private void closeButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton3ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
+        // Muestra un panel para elegir si terminar la actividad o no hacerlo
+        int confirmado = JOptionPane.showConfirmDialog(null, "¿Terminar actividad? El progreso no se guardará", "Terminar", JOptionPane.YES_NO_OPTION);
+        // Si la opcion terminar es seleccionada
+        if (JOptionPane.OK_OPTION == confirmado) {
+            this.setVisible(false);
+            // Detiene el timer
+            timer.stop();
+        }
     }//GEN-LAST:event_closeButton3ActionPerformed
 
     /**

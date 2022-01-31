@@ -345,8 +345,14 @@ public class ActividadColores extends javax.swing.JFrame {
     }//GEN-LAST:event_finalizarActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
+        // Muestra un panel para elegir si terminar la actividad o no hacerlo
+        int confirmado = JOptionPane.showConfirmDialog(null, "¿Terminar actividad? El progreso no se guardará", "Terminar", JOptionPane.YES_NO_OPTION);
+        // Si la opcion terminar es seleccionada
+        if (JOptionPane.OK_OPTION == confirmado) {
+            this.setVisible(false);
+            // Detiene el timer
+            timer.stop();
+        }
     }//GEN-LAST:event_closeButtonActionPerformed
 
     /**

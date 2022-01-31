@@ -102,6 +102,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         estadoLabel.setText("Estado de la conexión:");
         bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, -1, -1));
 
+        edadLabel.setBackground(new java.awt.Color(51, 51, 51));
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
         edadLabel.setText("Borrar todos los datos guardados");

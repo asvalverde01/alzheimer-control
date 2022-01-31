@@ -93,7 +93,7 @@ public class ResultadosPanel extends javax.swing.JPanel {
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
         edadLabel.setText("Filtrar resultados");
-        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 40));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
