@@ -13,7 +13,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     int avatar;
     // Atributo de lista
     private static List<Usuario> usuarios;
-    
+
     // Variables declaration - do not modify                     
     private javax.swing.JSpinner anioSpinner;
     private javax.swing.JSpinner diaSpinner;
@@ -45,15 +45,13 @@ public class RegistroUsuario extends javax.swing.JFrame {
     /**
      * Creates new form RegistroUsuario
      *
-     * @param usuario
+     * @param usuarios recibe la lista de usuairo para verificar que no se
+     * registren duplicados
      */
     public RegistroUsuario(List<Usuario> usuarios) {
         initComponents();
         RegistroUsuario.usuarios = usuarios;
         anioSpinner.setValue(1950);
-
-        //String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
-        //mesCombo.addItem("emerp");
     }
 
     private RegistroUsuario() {
@@ -336,22 +334,24 @@ public class RegistroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+    /**
+     * Valida los valores ingresados en los campos para continuar con la
+     * seleccion de la etapa
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean correcto = false;
         boolean correctoCampos = false;
-        // String fechaNacimiento = jTextField2.getText();
+        boolean valid = true;
+
+        // Obtiene los valores ingresados
         String nombre = jTextField2.getText();
         String apellido = jTextField3.getText();
-
-        usuario.setNombre(jTextField2.getText());
-        usuario.setApellido(jTextField3.getText());
         int dia = (Integer) diaSpinner.getValue();
         String mes = mesCombo.getSelectedItem().toString();
         int anio = (Integer) anioSpinner.getValue();
         String cedula = jTextField4.getText();
-
-        boolean valid = true;
-
 
         // Se verifica que se ingresen datos
         // Verifica que nombre solamente contenga letras
@@ -394,28 +394,26 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         }
 
-
+        // Verifica que se hayan ingresado valores en nombre y apellido
         if (nombre.length() > 1 && apellido.length() > 1) {
             correctoCampos = true;
         }
 
-
+        // Verifica que la fecha ingresada se encuentre dentro de los rangos permitidos
         if (dia < 1 || dia > 31 && correctoCampos) {
             JOptionPane.showMessageDialog(null, "Día inválido");
 
             correctoCampos = false;
         }
 
-        
-
         if (dia >= 1 && dia <= 31) {
             correctoCampos = true;
         }
-        
+
         if (anio >= 1925 || anio <= 2022) {
             correctoCampos = true;
         }
-        
+
         if (anio < 1925 || anio > 2022 && correctoCampos) {
             JOptionPane.showMessageDialog(null, "Año inválido");
             correctoCampos = false;
@@ -436,13 +434,20 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         // Al final cuando el avatar ya ha sido seleccionado, se procede a continuar a la seleccion de la etapa
         if (avatarSeleccionado && valid && correctoCampos && correcto) {
+            // Asigna los valores ingresados
+            usuario.setNombre(jTextField2.getText());
+            usuario.setApellido(jTextField3.getText());
             usuario.setAvatar(avatar);
             usuario.setCedula(cedula);
+            // Crea un formulario para seleccionar la Etapa de la enfermedad
             SeleccionEtapa etapa = new SeleccionEtapa(usuario);
+            // Muestra el formulario
             etapa.setVisible(true);
             etapa.setLocationRelativeTo(null);
+            // Oculta el formulario de registro
             this.setVisible(false);
         } else {
+            // En caso de que el avatar no haya sido seleccionado
             if (valid && correcto && correctoCampos) {
                 JOptionPane.showMessageDialog(null, "Seleccione un avatar");
             }
@@ -450,7 +455,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * Verifica que la ceula sea unica buscando en la lista
+     * Verifica que la cedula sea unica buscandola en la lista
+     *
      * @param cedula cedula a buscar
      * @return true si no existe, false si ya existe
      */
@@ -462,6 +468,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 return false;
             }
         }
+        // En caso de no encontrarla
         return true;
     }
 
@@ -469,6 +476,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mesComboActionPerformed
 
+    /**
+     * Selección del avatar, deshabilita los otros botones de avatares
+     *
+     * @param evt
+     */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         if (!(avatarSeleccionado)) {
             deshabilitarBotones();
@@ -482,6 +494,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    /**
+     * Selección del avatar, deshabilita los otros botones de avatares
+     *
+     * @param evt
+     */
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         if (!(avatarSeleccionado)) {
             deshabilitarBotones();
@@ -496,6 +513,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    /**
+     * Selección del avatar, deshabilita los otros botones de avatares
+     *
+     * @param evt
+     */
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         if (!(avatarSeleccionado)) {
             deshabilitarBotones();
@@ -510,6 +532,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
+    /**
+     * Selección del avatar, deshabilita los otros botones de avatares
+     *
+     * @param evt
+     */
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
         if (!(avatarSeleccionado)) {
             deshabilitarBotones();
@@ -528,6 +555,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    /**
+     * Deshabilita los botones de los avatares
+     */
     private void deshabilitarBotones() {
         jToggleButton1.setEnabled(false);
         jToggleButton2.setEnabled(false);
@@ -535,14 +565,24 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jToggleButton4.setEnabled(false);
     }
 
+    /**
+     * Habilita los botones de los avatares
+     */
     private void habilitarBotones() {
         jToggleButton1.setEnabled(true);
         jToggleButton2.setEnabled(true);
         jToggleButton3.setEnabled(true);
         jToggleButton4.setEnabled(true);
     }
-    // End of variables declaration                   
 
+    /**
+     * Recibe como parametro la cedula y verifica si es una cédula Ecuatoriana
+     * válida
+     *
+     * @param cedula String cédula a evaluar
+     * @return boolean true si es una cédula válida, false en caso de ser
+     * inválida
+     */
     private boolean validarCedula(String cedula) {
         // Verifica que la cedula sea valida
         // Verifica que solamente hayan digitos en el string cedula
@@ -571,5 +611,4 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
         return false;
     }
-
 }

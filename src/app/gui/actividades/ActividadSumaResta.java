@@ -30,6 +30,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         initComponents();
         int respuesta = generarNuevaOp();
         setRespuestaOp(respuesta);
+        
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
@@ -67,12 +68,12 @@ public class ActividadSumaResta extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("1478");
+        jLabel2.setText("--");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 50, 30));
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("4541");
+        jLabel3.setText("--");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N

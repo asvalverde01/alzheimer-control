@@ -1,17 +1,10 @@
 package app.gui.inicio;
 
 import app.logic.Fecha;
-import app.logic.Main;
 import app.logic.ResultadoActividad;
 import app.logic.Usuario;
-import java.awt.HeadlessException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 public class ResultadosPanel extends javax.swing.JPanel {
 
@@ -93,13 +86,13 @@ public class ResultadosPanel extends javax.swing.JPanel {
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
         edadLabel.setText("Filtrar resultados");
-        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 40));
+        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, 40));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
 
         filtrarBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Leve", "Moderada", "Hoy" }));
-        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 150, -1));
+        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 150, -1));
 
         buscarButton.setBackground(new java.awt.Color(153, 0, 204));
         buscarButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -110,15 +103,12 @@ public class ResultadosPanel extends javax.swing.JPanel {
                 buscarButtonActionPerformed(evt);
             }
         });
-        bg.add(buscarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 130, -1));
+        bg.add(buscarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 130, -1));
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Nombre", "Etapa", "Aciertos", "Segundos", "Dia", "Mes"
@@ -149,7 +139,7 @@ public class ResultadosPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 570, 320));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 570, 270));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondo.setForeground(new java.awt.Color(51, 51, 51));
@@ -166,12 +156,12 @@ public class ResultadosPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
-        List<ResultadoActividad> listaResultados =  usuario.buscarResultadoActividad(filtro);
-        
+        List<ResultadoActividad> listaResultados = usuario.buscarResultadoActividad(filtro);
+
         // se recorre la lista de resultados e inserta los valores en la tabla
-        for (ResultadoActividad resultadoActividad : listaResultados) {
+        listaResultados.forEach(resultadoActividad -> {
             model.addRow(new Object[]{resultadoActividad.getNombre(), resultadoActividad.getEtapa(), resultadoActividad.getAciertos(), resultadoActividad.getSegundos(), resultadoActividad.getFecha().getDia(), resultadoActividad.getFecha().getMesString()});
-        }
+        });
     }//GEN-LAST:event_buscarButtonActionPerformed
 
     public Usuario getUsuario() {

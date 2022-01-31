@@ -26,7 +26,6 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Constructor de la clase Usuario
     /-------------------------------------------------------------*/
-
     /**
      * Constructor por defecto de la clase Usuario
      */
@@ -37,7 +36,6 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos get y set de la clase Usuario
     /-------------------------------------------------------------*/
-
     /**
      * Regresa el nombre del usuario
      *
@@ -85,6 +83,8 @@ public class Usuario {
 
     /**
      * Asigna la cedula en el usuario
+     *
+     * @param cedula String cedula nueva
      */
     public void setCedula(String cedula) {
         this.cedula = cedula;
@@ -142,7 +142,7 @@ public class Usuario {
      * @return int edad
      */
     public int getEdad() {
-        return fechaNacimiento.calcularEdad(fechaNacimiento);
+        return fechaNacimiento.diferenciaEntreFechas(fechaNacimiento);
     }
 
     /**
@@ -191,7 +191,6 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Métodos capa de negocio
     /-------------------------------------------------------------*/
-
     /**
      * Asigna una listaResultado
      *
@@ -271,6 +270,7 @@ public class Usuario {
      * Metodo que permite modificar un atributo del usuario
      *
      * @param tipo String tipo de atributo
+     * @param nuevo String nuevo valor a cambiar
      * @return Boolean true si se modifico correctamente
      */
     public boolean modificarInfoUsuario(String tipo, String nuevo) {
@@ -291,22 +291,28 @@ public class Usuario {
                     apellido = nuevo;
                     break;
                 case "Etapa":
-                    int nuevoValor;
-                    switch (nuevo) {
-                        case "Moderada":
-                            nuevoValor = 1;
-                            break;
-                        case "Avanzada":
-                            nuevoValor = 2;
-                            break;
-                        default:
-                            nuevoValor = 0;
-                            break;
+                    // Verifica que el nuevo valor sea valido "Leve" o "Moderada"
+                    if (nuevo.equals("Leve") || nuevo.equals("Moderada")) {
+                        int nuevoValor;
+                        switch (nuevo) {
+                            case "Moderada":
+                                nuevoValor = 1;
+                                break;
+                            case "Avanzada":
+                                nuevoValor = 2;
+                                break;
+                            default:
+                                nuevoValor = 0;
+                                break;
+                        }
+                        st = Main.getConnect().prepareStatement("UPDATE usuario SET etapa = ? WHERE cedula = ?");
+                        st.setInt(1, nuevoValor);
+                        st.setString(2, cedula);
+                        etapa = nuevoValor;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ingrese solamente \"Leve\" o \"Moderada\"");
+                        return false;
                     }
-                    st = Main.getConnect().prepareStatement("UPDATE usuario SET etapa = ? WHERE cedula = ?");
-                    st.setInt(1, nuevoValor);
-                    st.setString(2, cedula);
-                    etapa = nuevoValor;
                     break;
             }
             // Ejecuta la consulta

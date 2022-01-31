@@ -198,11 +198,14 @@ public class ConfigPanel extends javax.swing.JPanel {
                     resultadoLabel.setText("Guardado");
                     resultadoLabel.setForeground(new java.awt.Color(0, 102, 51));
                 } else {
-                    resultadoLabel.setText("Error al guardar");
-                    resultadoLabel.setForeground(new java.awt.Color(204, 0, 51));
+                    modificarField.setText("");
                 }
             } else {
+                resultadoLabel.setText("Error al guardar");
+                resultadoLabel.setForeground(new java.awt.Color(204, 0, 51));
                 JOptionPane.showMessageDialog(null, "Solo se permiten letras", "Error", JOptionPane.ERROR_MESSAGE);
+                modificarField.setText("");
+
             }
         }
         // Actualiza los valores

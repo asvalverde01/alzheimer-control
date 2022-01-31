@@ -3,7 +3,7 @@ package app.logic;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Fecha {
+public final class Fecha {
 
     /*-------------------------------------------------------------
     /Atributos de la clase Fecha
@@ -159,7 +159,7 @@ public class Fecha {
      * @param fecha fecha de nacimiento
      * @return int edad
      */
-    public int calcularEdad(Fecha fecha) {
+    public int diferenciaEntreFechas(Fecha fecha) {
         Fecha hoy = new Fecha();
         // Calcular edad
         int edad = hoy.getAnio() - fecha.getAnio();
