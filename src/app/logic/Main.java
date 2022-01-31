@@ -47,7 +47,7 @@ public class Main {
             mainInicio.setLocationRelativeTo(null);
 
         } else {
-            RegistroUsuario registro = new RegistroUsuario(usuario);
+            RegistroUsuario registro = new RegistroUsuario(usuarios);
             registro.setVisible(true);
             registro.setLocationRelativeTo(null);
         }

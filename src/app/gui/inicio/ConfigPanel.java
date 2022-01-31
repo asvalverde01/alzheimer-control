@@ -28,6 +28,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         actualizarFecha(actual);
         this.usuario = usuario;
         setInformation();
+        usuarioLabel.setText(usuario.toString());
 
     }
 
@@ -51,7 +52,13 @@ public class ConfigPanel extends javax.swing.JPanel {
         avatarLogo = new javax.swing.JLabel();
         borrarButton = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        edadLabel1 = new javax.swing.JLabel();
+        usuarioLabel = new javax.swing.JLabel();
+        usuarioLabel1 = new javax.swing.JLabel();
+        resultadoLabel = new javax.swing.JLabel();
+        modificarField = new javax.swing.JTextField();
+        filtrarBOX = new javax.swing.JComboBox<>();
+        modificarButton = new javax.swing.JButton();
+        edadLabel3 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,10 +132,39 @@ public class ConfigPanel extends javax.swing.JPanel {
         jSeparator2.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
 
-        edadLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
-        edadLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel1.setText("Config");
-        bg.add(edadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        usuarioLabel.setFont(new java.awt.Font("Roboto", 0, 22)); // NOI18N
+        usuarioLabel.setForeground(new java.awt.Color(51, 51, 51));
+        usuarioLabel.setText("----");
+        bg.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+
+        usuarioLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
+        usuarioLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        usuarioLabel1.setText("Cedula          |     Nombre     |     Apellido     |    Edad  |    Etapa");
+        bg.add(usuarioLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
+
+        resultadoLabel.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
+        resultadoLabel.setForeground(new java.awt.Color(204, 0, 51));
+        bg.add(resultadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, 30));
+
+        modificarField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        bg.add(modificarField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 150, 30));
+
+        filtrarBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido", "Etapa" }));
+        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 160, 30));
+
+        modificarButton.setText("Modificar");
+        modificarButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        modificarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarButtonActionPerformed(evt);
+            }
+        });
+        bg.add(modificarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 100, 30));
+
+        edadLabel3.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
+        edadLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        edadLabel3.setText("Modificar usuario");
+        bg.add(edadLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, 30));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondo.setForeground(new java.awt.Color(51, 51, 51));
@@ -148,6 +184,31 @@ public class ConfigPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_borrarButtonActionPerformed
 
+    private void modificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarButtonActionPerformed
+        String filtro = filtrarBOX.getSelectedItem().toString();
+        String nuevoValor = modificarField.getText();
+        // Validar que el campo no este vacio
+        if (nuevoValor.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // Verifica que se hayan ingresado únicamente letras
+            if (nuevoValor.matches("[a-zA-Z]+")) {
+                boolean resultado = usuario.modificarInfoUsuario(filtro, nuevoValor);
+                if (resultado) {
+                    resultadoLabel.setText("Guardado");
+                    resultadoLabel.setForeground(new java.awt.Color(0, 102, 51));
+                } else {
+                    resultadoLabel.setText("Error al guardar");
+                    resultadoLabel.setForeground(new java.awt.Color(204, 0, 51));
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Solo se permiten letras", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        // Actualiza los valores
+        usuarioLabel.setText(usuario.toString());
+    }//GEN-LAST:event_modificarButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avatarLogo;
@@ -155,14 +216,20 @@ public class ConfigPanel extends javax.swing.JPanel {
     private javax.swing.JLabel bienvenidaLabel;
     private javax.swing.JButton borrarButton;
     private javax.swing.JLabel edadLabel;
-    private javax.swing.JLabel edadLabel1;
+    private javax.swing.JLabel edadLabel3;
     private javax.swing.JLabel estadoLabel;
     private javax.swing.JLabel estadoSQL;
     private javax.swing.JLabel fechaLabel;
+    private javax.swing.JComboBox<String> filtrarBOX;
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton modificarButton;
+    private javax.swing.JTextField modificarField;
+    private javax.swing.JLabel resultadoLabel;
+    private javax.swing.JLabel usuarioLabel;
+    private javax.swing.JLabel usuarioLabel1;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarFecha(Fecha actual) {

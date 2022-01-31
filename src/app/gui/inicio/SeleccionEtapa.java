@@ -6,10 +6,14 @@ import app.logic.Usuario;
 import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 public class SeleccionEtapa extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
+    // Atributo de lista
+    private static List<Usuario> usuarios;
+
     // Variables declaration - do not modify
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -254,15 +258,13 @@ public class SeleccionEtapa extends javax.swing.JFrame {
         } else {
             System.out.println("Ha ocurrido algun error");
         }
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        RegistroUsuario registro = new RegistroUsuario(usuario);
+        RegistroUsuario registro = new RegistroUsuario(usuarios);
         this.setVisible(false);
         registro.setVisible(true);
         registro.setLocationRelativeTo(null);
-
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

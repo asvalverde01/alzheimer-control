@@ -39,17 +39,6 @@ public class Usuario {
     /-------------------------------------------------------------*/
 
     /**
-     * Metodo que permite modificar un atributo del usuario
-     *
-     * @param tipo String tipo de atributo
-     * @return Boolean true si se modifico correctamente
-     */
-    public static boolean modificarInfoUsuario(String tipo) {
-
-        return true;
-    }
-
-    /**
      * Regresa el nombre del usuario
      *
      * @return String nombre
@@ -199,6 +188,10 @@ public class Usuario {
         return listaResultado;
     }
 
+    /*-------------------------------------------------------------
+    /Métodos capa de negocio
+    /-------------------------------------------------------------*/
+
     /**
      * Asigna una listaResultado
      *
@@ -208,9 +201,6 @@ public class Usuario {
         this.listaResultado = listaResultado;
     }
 
-    /*-------------------------------------------------------------
-    /Métodos capa de negocio
-    /-------------------------------------------------------------*/
     /**
      * Recibe el tipo de argumento por el cual se quieren filtrar las busquedas
      * de resultados y regresa una lista con Resutados de Actividades
@@ -222,7 +212,7 @@ public class Usuario {
         listaResultado = new ArrayList<>();
 
         try {
-            PreparedStatement st = null; 
+            PreparedStatement st = null;
             // Segun el tipo seleccionado se busca en la base de datos
             try {
                 switch (tipo) {
@@ -252,7 +242,7 @@ public class Usuario {
             }
 
             ResultSet rs = st.executeQuery();
-            
+
             while (rs.next()) {
                 String cedulaRe = rs.getString("id");
                 String nombreRe = rs.getString("nombre");
@@ -275,6 +265,73 @@ public class Usuario {
         }
         // regresa la lista
         return listaResultado;
+    }
+
+    /**
+     * Metodo que permite modificar un atributo del usuario
+     *
+     * @param tipo String tipo de atributo
+     * @return Boolean true si se modifico correctamente
+     */
+    public boolean modificarInfoUsuario(String tipo, String nuevo) {
+        // Modifica el atributo seleccionado en la base de datos
+        try {
+            PreparedStatement st = null;
+            switch (tipo) {
+                case "Nombre":
+                    st = Main.getConnect().prepareStatement("UPDATE usuario SET nombre = ? WHERE cedula = ?");
+                    st.setString(1, nuevo);
+                    st.setString(2, cedula);
+                    nombre = nuevo;
+                    break;
+                case "Apellido":
+                    st = Main.getConnect().prepareStatement("UPDATE usuario SET apellido = ? WHERE cedula = ?");
+                    st.setString(1, nuevo);
+                    st.setString(2, cedula);
+                    apellido = nuevo;
+                    break;
+                case "Etapa":
+                    int nuevoValor;
+                    switch (nuevo) {
+                        case "Moderada":
+                            nuevoValor = 1;
+                            break;
+                        case "Avanzada":
+                            nuevoValor = 2;
+                            break;
+                        default:
+                            nuevoValor = 0;
+                            break;
+                    }
+                    st = Main.getConnect().prepareStatement("UPDATE usuario SET etapa = ? WHERE cedula = ?");
+                    st.setInt(1, nuevoValor);
+                    st.setString(2, cedula);
+                    etapa = nuevoValor;
+                    break;
+            }
+            // Ejecuta la consulta
+            try {
+                assert st != null;
+                st.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Regresa los valores de usuario
+     *
+     * @return String info usuario
+     */
+    @Override
+    public String toString() {
+        String usuarioString = cedula + "      " + nombre + "       " + apellido + "          " + getEdad() + "     " + getEtapaUsuario();
+        return usuarioString;
     }
 
 }

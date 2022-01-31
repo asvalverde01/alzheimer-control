@@ -133,7 +133,7 @@ public final class MainScreen extends javax.swing.JFrame {
         statsButton.setBackground(new java.awt.Color(153, 153, 255));
         statsButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         statsButton.setForeground(new java.awt.Color(51, 51, 51));
-        statsButton.setText("Estadísticas");
+        statsButton.setText("Resultados");
         statsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         statsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         statsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -201,8 +201,10 @@ public final class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_recButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
+        
         showPanel(pInicio);
         colorButtons();
+        pInicio.setInformation();
         homeButton1.setBackground(new java.awt.Color(204, 0, 204));
         Icon icono = new ImageIcon(getClass().getResource("/imagen/icon/home_house.png"));
         iconImg.setIcon(icono);

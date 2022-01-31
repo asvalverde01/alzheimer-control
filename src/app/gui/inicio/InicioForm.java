@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package app.gui.inicio;
 
 import app.logic.Usuario;
@@ -27,9 +23,9 @@ public class InicioForm extends javax.swing.JFrame {
      *
      * @param usuarios
      */
-    public InicioForm(List usuarios) {
+    public InicioForm(List<Usuario> usuarios) {
         initComponents();
-        this.usuarios = usuarios;
+        InicioForm.usuarios = usuarios;
     }
 
     /**
@@ -137,27 +133,31 @@ public class InicioForm extends javax.swing.JFrame {
     private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
 
         String cedula = cedulaTxt.getText();
-        if (validarCedula(cedula)) {
-            // Busca en la lista de usuarios un match en cedula
-            usuarios.forEach(usuario -> {
-                if (usuario.getCedula().equals(cedula)) {
-                    MainScreen main = new MainScreen(usuario);
-                    main.setVisible(true);
-                    main.setLocationRelativeTo(null);
-                    this.setVisible(false);
+        if (cedula.length() > 0) {
+            if (validarCedula(cedula)) {
+                // Busca en la lista de usuarios un match en cedula
+                usuarios.forEach(usuario -> {
+                    if (usuario.getCedula().equals(cedula)) {
+                        MainScreen main = new MainScreen(usuario);
+                        main.setVisible(true);
+                        main.setLocationRelativeTo(null);
+                        this.setVisible(false);
 
-                } else {
-                    jLabel3.setText("No encontrado, intente nuevamente");
-                }
-            });
+                    } else {
+                        jLabel3.setText("No encontrado, intente nuevamente");
+                    }
+                });
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese un número de cédula");
         }
 
 
     }//GEN-LAST:event_entrarButtonActionPerformed
 
     private void registrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarButtonActionPerformed
-        Usuario usuario = new Usuario();
-        RegistroUsuario registro = new RegistroUsuario(usuario);
+
+        RegistroUsuario registro = new RegistroUsuario(usuarios);
         this.setVisible(false);
         registro.setVisible(true);
         registro.setLocationRelativeTo(null);

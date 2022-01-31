@@ -1,7 +1,6 @@
 package app.gui.inicio;
 
 import app.logic.Fecha;
-import app.logic.Main;
 import app.logic.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -42,8 +41,6 @@ public class InicioPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
         bienvenidaLabel = new javax.swing.JLabel();
-        estadoSQL = new javax.swing.JLabel();
-        estadoLabel = new javax.swing.JLabel();
         text1Label = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         apellidoLabel = new javax.swing.JLabel();
@@ -88,18 +85,6 @@ public class InicioPanel extends javax.swing.JPanel {
         bienvenidaLabel.setForeground(new java.awt.Color(102, 0, 153));
         bienvenidaLabel.setText("Bienvenido :)");
         bg.add(bienvenidaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
-
-        estadoSQL.setBackground(new java.awt.Color(0, 0, 0));
-        estadoSQL.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
-        estadoSQL.setText("---");
-        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 600, -1, -1));
-
-        estadoLabel.setBackground(new java.awt.Color(0, 0, 0));
-        estadoLabel.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        estadoLabel.setForeground(new java.awt.Color(0, 0, 0));
-        estadoLabel.setText("Estado de la conexión:");
-        bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, -1, -1));
 
         text1Label.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
         text1Label.setForeground(new java.awt.Color(51, 51, 51));
@@ -146,8 +131,6 @@ public class InicioPanel extends javax.swing.JPanel {
     private javax.swing.JPanel bg;
     private javax.swing.JLabel bienvenidaLabel;
     private javax.swing.JLabel edadLabel;
-    private javax.swing.JLabel estadoLabel;
-    private javax.swing.JLabel estadoSQL;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JLabel fechaNacLabel;
     private javax.swing.JLabel fondo;
@@ -164,15 +147,6 @@ public class InicioPanel extends javax.swing.JPanel {
     public void setInformation() {
         try {
             bienvenidaLabel.setText("Hola " + usuario.getNombre() + " :)");
-
-            if (!(Main.isConectado())) {
-                estadoSQL.setText("desconectado");
-                estadoSQL.setForeground(new java.awt.Color(255, 51, 51));
-            } else {
-                estadoSQL.setText("conectado");
-                estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
-
-            }
         } catch (NullPointerException npe) {
             bienvenidaLabel.setText("Hola  usuario");
         } catch (Exception e) {

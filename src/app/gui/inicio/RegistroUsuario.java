@@ -2,6 +2,7 @@ package app.gui.inicio;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -10,6 +11,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
     Usuario usuario = new Usuario();
     boolean avatarSeleccionado = false;
     int avatar;
+    // Atributo de lista
+    private static List<Usuario> usuarios;
+    
     // Variables declaration - do not modify                     
     private javax.swing.JSpinner anioSpinner;
     private javax.swing.JSpinner diaSpinner;
@@ -43,10 +47,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
      *
      * @param usuario
      */
-    public RegistroUsuario(Usuario usuario) {
+    public RegistroUsuario(List<Usuario> usuarios) {
         initComponents();
-        this.usuario = usuario;
-        anioSpinner.setValue(1900);
+        RegistroUsuario.usuarios = usuarios;
+        anioSpinner.setValue(1950);
 
         //String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         //mesCombo.addItem("emerp");
@@ -385,6 +389,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
         // Verifica que la cedula sea valida solamente si los campos anteriormente se validaron
         if (valid) {
             valid = validarCedula(cedula);
+            if (valid) {
+                valid = validarCedulaUnica(cedula);
+            }
         }
 
 
@@ -399,14 +406,17 @@ public class RegistroUsuario extends javax.swing.JFrame {
             correctoCampos = false;
         }
 
-        if (anio >= 1900 || anio <= 2022) {
-            correctoCampos = true;
-        }
+        
 
         if (dia >= 1 && dia <= 31) {
             correctoCampos = true;
         }
-        if (anio < 1900 || anio > 2022 && correctoCampos) {
+        
+        if (anio >= 1925 || anio <= 2022) {
+            correctoCampos = true;
+        }
+        
+        if (anio < 1925 || anio > 2022 && correctoCampos) {
             JOptionPane.showMessageDialog(null, "Año inválido");
             correctoCampos = false;
         }
@@ -433,13 +443,27 @@ public class RegistroUsuario extends javax.swing.JFrame {
             etapa.setLocationRelativeTo(null);
             this.setVisible(false);
         } else {
-            if (valid) {
+            if (valid && correcto && correctoCampos) {
                 JOptionPane.showMessageDialog(null, "Seleccione un avatar");
             }
         }
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    /**
+     * Verifica que la ceula sea unica buscando en la lista
+     * @param cedula cedula a buscar
+     * @return true si no existe, false si ya existe
+     */
+    private boolean validarCedulaUnica(String cedula) {
+        // Busca en la lista usuarios si ya existe la cedula
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCedula().equals(cedula)) {
+                JOptionPane.showMessageDialog(null, "Ya existe un usuario con esa cedula");
+                return false;
+            }
+        }
+        return true;
+    }
 
     private void mesComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesComboActionPerformed
         // TODO add your handling code here:
