@@ -41,6 +41,7 @@ public class Fecha {
 
     /**
      * Constructor que recibe dia mes y anio
+     *
      * @param dia
      * @param mes
      * @param anio
@@ -54,29 +55,59 @@ public class Fecha {
     /*-------------------------------------------------------------
     /Métodos get y set de la clase Fecha
     /-------------------------------------------------------------*/
+    /**
+     * Regresa el dia
+     *
+     * @return int dia
+     */
     public int getDia() {
         return dia;
     }
 
+    /**
+     * Asigna el dia
+     *
+     * @param dia
+     */
     public void setDia(int dia) {
         this.dia = dia;
     }
 
+    /**
+     * Regresa el mes
+     *
+     * @return int mes
+     */
     public int getMes() {
         return mes;
     }
 
+    /**
+     * Asigna el mes
+     *
+     * @param mes
+     */
     public void setMes(int mes) {
         this.mes = mes;
     }
 
-    // retorna un string del mes
+    /**
+     * Método que regresa el mes en formato String
+     *
+     * @return String mes
+     */
     public String getMesString() {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
         return meses[mes];
     }
 
+    /**
+     * Asigna el mes recibiendolo en formato String y convirtiendolo a entero
+     *
+     * @param mes
+     * @return int mes
+     */
     public int setMesString(String mes) {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
@@ -88,10 +119,20 @@ public class Fecha {
         return 0;
     }
 
+    /**
+     * Regresa el anio
+     *
+     * @return int anio
+     */
     public int getAnio() {
         return anio;
     }
 
+    /**
+     * Asigna el anio
+     *
+     * @param anio
+     */
     public void setAnio(int anio) {
         this.anio = anio;
     }
@@ -113,24 +154,11 @@ public class Fecha {
     }
 
     /**
-     * Método recibe dos fechas y modifica la fecha actual para que sea la
-     * diferencia
+     * Método que regresa un entero con la diferencia de edad en años
      *
-     * @param fecha recibe un objeto de la clase Fecha
-     * @return 
+     * @param fecha fecha de nacimiento
+     * @return int edad
      */
-    public Fecha diferenciaFechas(Fecha fecha) {
-        Fecha hoy = new Fecha();
-        // Se calcula la diferencia entre dos fechas
-        // Dias de diferencia
-        int difDias = hoy.getDia() - fecha.getDia();
-        // Meses de diferencia
-        int difMeses = hoy.getMes() - fecha.getMes();
-        // Anios de diferencia
-        int difAnios = hoy.getAnio() - fecha.getAnio();
-        return new Fecha(difDias, difMeses, difAnios);
-    }
-
     public int calcularEdad(Fecha fecha) {
         Fecha hoy = new Fecha();
         // Calcular edad
@@ -142,13 +170,5 @@ public class Fecha {
             edad--;
         }
         return edad;
-    }
-
-    // retorna un string del tiempo actual hora y minuto
-    public String getHoraMinuto() {
-        GregorianCalendar gc = new GregorianCalendar();
-        int hora = gc.get(Calendar.HOUR_OF_DAY);
-        int minuto = gc.get(Calendar.MINUTE);
-        return hora + ":" + minuto;
     }
 }

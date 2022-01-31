@@ -26,7 +26,7 @@ public class Main {
         // Objeto de Usuario
         Usuario usuario = new Usuario();
         // Lista de usuarios registrados
-        List usuarios = new ArrayList<>();
+        List<Usuario> usuarios = new ArrayList<>();
         // Objeto del archivo de la base de datos
         File file = new File("appdata.sqlite");
 
@@ -55,10 +55,6 @@ public class Main {
 
     public static void setConectado(boolean conectado) {
         Main.conectado = conectado;
-    }
-
-    public static String getUrl() {
-        return url;
     }
 
     public static Connection getConnect() {
@@ -147,7 +143,7 @@ public class Main {
         return false;
     }
 
-    private static List obtenerUsuarioDataBase(List<Usuario> usuariosLista) {
+    private static List<Usuario> obtenerUsuarioDataBase(List<Usuario> usuariosLista) {
 
         Fecha nacimiento = new Fecha();
         // Se obtiene la informacion de la tabla usuario en base de datos

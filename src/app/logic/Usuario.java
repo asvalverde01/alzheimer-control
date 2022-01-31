@@ -22,18 +22,32 @@ public class Usuario {
     // Lista de ResultadoActividad
     private List<ResultadoActividad> listaResultado;
 
-    public List<ResultadoActividad> getListaResultado() {
-        return listaResultado;
-    }
 
-    public void setListaResultado(List<ResultadoActividad> listaResultado) {
-        this.listaResultado = listaResultado;
+    /*-------------------------------------------------------------
+    /Constructor de la clase Usuario
+    /-------------------------------------------------------------*/
+
+    /**
+     * Constructor por defecto de la clase Usuario
+     */
+    public Usuario() {
     }
 
 
     /*-------------------------------------------------------------
     /Métodos get y set de la clase Usuario
     /-------------------------------------------------------------*/
+
+    /**
+     * Metodo que permite modificar un atributo del usuario
+     *
+     * @param tipo String tipo de atributo
+     * @return Boolean true si se modifico correctamente
+     */
+    public static boolean modificarInfoUsuario(String tipo) {
+
+        return true;
+    }
 
     /**
      * Regresa el nombre del usuario
@@ -71,14 +85,21 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    /**
+     * Regresa la cedula del usuario
+     *
+     * @return String cedula
+     */
     public String getCedula() {
         return cedula;
     }
 
+    /**
+     * Asigna la cedula en el usuario
+     */
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
-
 
     /**
      * Regresa el avatar del usuario
@@ -99,14 +120,19 @@ public class Usuario {
     }
 
     /**
-     * Regresa la fecha de nacimiento del usuario
+     * Regresa la fecha de nacimiento del usuario como String
      *
-     * @return Fecha fechaNacimiento
+     * @return String fechaNacimiento
      */
     public String getFechaNacimientoString() {
         return fechaNacimiento.getDia() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getAnio();
     }
 
+    /**
+     * Regresa la fecha de nacimiento del usuario
+     *
+     * @return Fecha fechaNacimiento
+     */
     public Fecha getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -120,6 +146,12 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    /**
+     * Regresa la edad del usuario calculada con el metodo
+     * calcularEdad(fechaNacimiento)
+     *
+     * @return int edad
+     */
     public int getEdad() {
         return fechaNacimiento.calcularEdad(fechaNacimiento);
     }
@@ -149,8 +181,6 @@ public class Usuario {
      */
     public String getEtapaUsuario() {
         switch (etapa) {
-            case 0:
-                return "Leve";
             case 1:
                 return "Moderada";
             case 2:
@@ -160,15 +190,39 @@ public class Usuario {
         }
     }
 
+    /**
+     * Regresa la lista de resultados de las actividades
+     *
+     * @return List<ResultadoActividad> listaResultado
+     */
+    public List<ResultadoActividad> getListaResultado() {
+        return listaResultado;
+    }
+
+    /**
+     * Asigna una listaResultado
+     *
+     * @param listaResultado
+     */
+    public void setListaResultado(List<ResultadoActividad> listaResultado) {
+        this.listaResultado = listaResultado;
+    }
+
+    /*-------------------------------------------------------------
+    /Métodos capa de negocio
+    /-------------------------------------------------------------*/
+    /**
+     * Recibe el tipo de argumento por el cual se quieren filtrar las busquedas
+     * de resultados y regresa una lista con Resutados de Actividades
+     *
+     * @param tipo String tipo de actividad
+     * @return listaResultado
+     */
     public List<ResultadoActividad> buscarResultadoActividad(String tipo) {
         listaResultado = new ArrayList<>();
-        // Conecta la base de datos
 
-        if (tipo.equals("none")) {
-
-        }
         try {
-            PreparedStatement st = null;
+            PreparedStatement st = null; 
             // Segun el tipo seleccionado se busca en la base de datos
             try {
                 switch (tipo) {
@@ -197,8 +251,8 @@ public class Usuario {
                 e.printStackTrace();
             }
 
-
             ResultSet rs = st.executeQuery();
+            
             while (rs.next()) {
                 String cedulaRe = rs.getString("id");
                 String nombreRe = rs.getString("nombre");
@@ -216,11 +270,11 @@ public class Usuario {
                 //Agrega el objeto a la lista
                 listaResultado.add(resultadoActividad);
             }
-
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
         }
         // regresa la lista
         return listaResultado;
     }
+
 }
