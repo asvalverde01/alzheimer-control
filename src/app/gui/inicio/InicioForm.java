@@ -1,6 +1,12 @@
 package app.gui.inicio;
 
+import app.logic.Fecha;
+import static app.logic.Main.connect;
 import app.logic.Usuario;
+import java.awt.HeadlessException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import java.util.List;
@@ -23,9 +29,9 @@ public class InicioForm extends javax.swing.JFrame {
      *
      * @param usuarios
      */
-    public InicioForm(List<Usuario> usuarios) {
+    public InicioForm(List<Usuario> usuarios ) {
         initComponents();
-        InicioForm.usuarios = usuarios;
+        InicioForm.usuarios = obtenerUsuarioDataBase(usuarios);
     }
 
     /**
@@ -230,6 +236,38 @@ public class InicioForm extends javax.swing.JFrame {
             return false;
         }
         return false;
+    }
+    
+    
+    private static List<Usuario> obtenerUsuarioDataBase(List<Usuario> usuariosLista) {
+
+        Fecha nacimiento = new Fecha();
+        // Se obtiene la informacion de la tabla usuario en base de datos
+        try {
+            String sql = "SELECT * FROM usuario";
+            PreparedStatement st = connect.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setCedula(rs.getString("cedula"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setAvatar(rs.getInt("avatar"));
+                usuario.setEtapa(rs.getInt("etapa"));
+
+                nacimiento.setDia(rs.getInt("dianac"));
+                nacimiento.setMes(rs.getInt("mesnac"));
+                nacimiento.setAnio(rs.getInt("anionac"));
+                usuario.setFechaNacimiento(nacimiento);
+                // añade el usuario registrado a la lista
+                usuariosLista.add(usuario);
+            }
+        } catch (HeadlessException | SQLException x) {
+            JOptionPane.showMessageDialog(null, x.getMessage());
+        }
+        // Regresa el usuario que se ha guardado
+        return usuariosLista;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

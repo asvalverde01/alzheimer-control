@@ -86,13 +86,13 @@ public class ResultadosPanel extends javax.swing.JPanel {
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
         edadLabel.setText("Filtrar resultados");
-        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, 40));
+        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, 40));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
 
-        filtrarBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Leve", "Moderada", "Hoy" }));
-        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 150, -1));
+        filtrarBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Leve", "Moderada", "Hoy", "Suma Resta", "Comprensión", "Memoria", "Identificar Letras", "Reconocer sonido", "Identificar colores" }));
+        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 210, 40));
 
         buscarButton.setBackground(new java.awt.Color(153, 0, 204));
         buscarButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -103,7 +103,7 @@ public class ResultadosPanel extends javax.swing.JPanel {
                 buscarButtonActionPerformed(evt);
             }
         });
-        bg.add(buscarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 130, -1));
+        bg.add(buscarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 130, -1));
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

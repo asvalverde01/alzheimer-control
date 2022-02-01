@@ -52,6 +52,9 @@ public class AyudaPanel extends javax.swing.JPanel {
         edadLabel12 = new javax.swing.JLabel();
         contacto3 = new javax.swing.JLabel();
         edadLabel13 = new javax.swing.JLabel();
+        edadLabel14 = new javax.swing.JLabel();
+        edadLabel15 = new javax.swing.JLabel();
+        edadLabel16 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,10 +137,10 @@ public class AyudaPanel extends javax.swing.JPanel {
         jSeparator4.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 450, 20));
 
-        edadLabel7.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        edadLabel7.setForeground(new java.awt.Color(204, 204, 0));
-        edadLabel7.setText("Alberto Valverde");
-        bg.add(edadLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, -1, -1));
+        edadLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        edadLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        edadLabel7.setText("thyara.vintimilla@udla.edu.ec");
+        bg.add(edadLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, -1, -1));
 
         edadLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         edadLabel8.setForeground(new java.awt.Color(51, 51, 51));
@@ -161,7 +164,7 @@ public class AyudaPanel extends javax.swing.JPanel {
         bg.add(edadLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
         contacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/contactos/contacto1.png"))); // NOI18N
-        bg.add(contacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, -1, -1));
+        bg.add(contacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
 
         edadLabel11.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         edadLabel11.setForeground(new java.awt.Color(51, 51, 51));
@@ -177,12 +180,28 @@ public class AyudaPanel extends javax.swing.JPanel {
         bg.add(edadLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, -1, -1));
 
         contacto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/contactos/contacto2.png"))); // NOI18N
-        bg.add(contacto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, -1, -1));
+        bg.add(contacto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, -1, -1));
 
         edadLabel13.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         edadLabel13.setForeground(new java.awt.Color(204, 204, 0));
         edadLabel13.setText("Thyara Vintimitilla");
-        bg.add(edadLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 590, -1, -1));
+        bg.add(edadLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 590, -1, -1));
+
+        edadLabel14.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        edadLabel14.setForeground(new java.awt.Color(204, 204, 0));
+        edadLabel14.setText("Alberto Valverde");
+        bg.add(edadLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, -1, -1));
+
+        edadLabel15.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        edadLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        edadLabel15.setText("sebastian.valverde@udla.edu.ec");
+        bg.add(edadLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, -1, -1));
+
+        edadLabel16.setBackground(new java.awt.Color(0, 0, 0));
+        edadLabel16.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        edadLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        edadLabel16.setText("jadira.vinueza@udla.edu.ec");
+        bg.add(edadLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, -1, -1));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondo.setForeground(new java.awt.Color(51, 51, 51));
@@ -205,6 +224,9 @@ public class AyudaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel edadLabel11;
     private javax.swing.JLabel edadLabel12;
     private javax.swing.JLabel edadLabel13;
+    private javax.swing.JLabel edadLabel14;
+    private javax.swing.JLabel edadLabel15;
+    private javax.swing.JLabel edadLabel16;
     private javax.swing.JLabel edadLabel2;
     private javax.swing.JLabel edadLabel3;
     private javax.swing.JLabel edadLabel4;

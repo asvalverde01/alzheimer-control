@@ -105,13 +105,13 @@ public class ConfigPanel extends javax.swing.JPanel {
         estadoSQL.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
         estadoSQL.setText("---");
-        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, -1, -1));
+        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 620, -1, -1));
 
         estadoLabel.setBackground(new java.awt.Color(0, 0, 0));
         estadoLabel.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        estadoLabel.setForeground(new java.awt.Color(0, 0, 0));
-        estadoLabel.setText("Estado de la conexión:");
-        bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
+        estadoLabel.setForeground(new java.awt.Color(51, 0, 102));
+        estadoLabel.setText("Estado de la conexión con base de datos:");
+        bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 620, -1, -1));
 
         edadLabel.setBackground(new java.awt.Color(51, 51, 51));
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
@@ -152,7 +152,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         bg.add(usuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         usuarioLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
-        usuarioLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        usuarioLabel1.setForeground(new java.awt.Color(0, 0, 153));
         usuarioLabel1.setText("Cedula          |     Nombre     |     Apellido     |    Edad  |    Etapa");
         bg.add(usuarioLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
@@ -177,7 +177,7 @@ public class ConfigPanel extends javax.swing.JPanel {
 
         edadLabel1.setBackground(new java.awt.Color(51, 51, 51));
         edadLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
-        edadLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        edadLabel1.setForeground(new java.awt.Color(153, 102, 0));
         edadLabel1.setText("Administrador");
         bg.add(edadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, -1));
 

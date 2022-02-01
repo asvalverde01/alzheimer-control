@@ -25,6 +25,7 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Constructor de la clase Usuario
     /-------------------------------------------------------------*/
+
     /**
      * Constructor por defecto de la clase Usuario
      */
@@ -33,11 +34,12 @@ public class Usuario {
 
     /**
      * Constructor de la clase Usuario con parametros
-     * @param cedula String
-     * @param nombre String
-     * @param apellido String
-     * @param avatar int
-     * @param etapa int
+     *
+     * @param cedula          String
+     * @param nombre          String
+     * @param apellido        String
+     * @param avatar          int
+     * @param etapa           int
      * @param fechaNacimiento Fecha
      */
     public Usuario(String cedula, String nombre, String apellido, int avatar, int etapa, Fecha fechaNacimiento) {
@@ -51,6 +53,7 @@ public class Usuario {
 /*-------------------------------------------------------------
     /Métodos get y set de la clase Usuario
     /-------------------------------------------------------------*/
+
     /**
      * Regresa el nombre del usuario
      *
@@ -235,6 +238,36 @@ public class Usuario {
                         Fecha fechaHoy = new Fecha();
                         st.setInt(2, fechaHoy.getDia());
                         break;
+                    case "Identificar Letras":
+                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
+                        st.setString(1, cedula);
+                        st.setString(2, "Identificar Letras");
+                        break;
+                    case "Reconocer sonido":
+                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
+                        st.setString(1, cedula);
+                        st.setString(2, "Reconocer sonido");
+                        break;
+                    case "Identificar colores":
+                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
+                        st.setString(1, cedula);
+                        st.setString(2, "Identificar colores");
+                        break;
+                    case "Suma Resta":
+                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
+                        st.setString(1, cedula);
+                        st.setString(2, "Suma Resta");
+                        break;
+                    case "Comprensión":
+                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
+                        st.setString(1, cedula);
+                        st.setString(2, "Comprensión");
+                        break;
+                    case "Memoria":
+                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
+                        st.setString(1, cedula);
+                        st.setString(2, "Memoria");
+                        break;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -274,7 +307,7 @@ public class Usuario {
     /**
      * Metodo que permite modificar un atributo del usuario
      *
-     * @param tipo String tipo de atributo
+     * @param tipo  String tipo de atributo
      * @param nuevo String nuevo valor a cambiar
      * @return Boolean true si se modifico correctamente false si no
      */

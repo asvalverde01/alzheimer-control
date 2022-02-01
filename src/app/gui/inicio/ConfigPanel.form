@@ -114,7 +114,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="430" y="620" width="-1" height="-1"/>
+              <AbsoluteConstraints x="540" y="620" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -127,13 +127,13 @@
               <Font name="Roboto" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="66" green="0" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Estado de la conexi&#xf3;n:"/>
+            <Property name="text" type="java.lang.String" value="Estado de la conexi&#xf3;n con base de datos:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="160" y="620" width="-1" height="-1"/>
+              <AbsoluteConstraints x="80" y="620" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -247,7 +247,7 @@
               <Font name="Roboto" size="22" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="99" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cedula          |     Nombre     |     Apellido     |    Edad  |    Etapa"/>
           </Properties>
@@ -330,7 +330,7 @@
               <Font name="Roboto" size="22" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="0" green="66" red="99" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Administrador"/>
           </Properties>

@@ -23,8 +23,6 @@ public class Main {
         /*-------------------------------------------------------------
         /Atributos de la clase Main
         /-------------------------------------------------------------*/
-        // Objeto de Usuario
-        Usuario usuario = new Usuario();
         // Lista de usuarios registrados
         List<Usuario> usuarios = new ArrayList<>();
         // Objeto del archivo de la base de datos
@@ -38,8 +36,6 @@ public class Main {
         {
             // Se conecta a la base de datos
             conectado = conectarBaseDatos();
-            // Saca los usuarios registrados
-            usuarios = obtenerUsuarioDataBase(usuarios);
 
             // Inicia el programa mostrando el inicio
             InicioForm mainInicio = new InicioForm(usuarios);
@@ -142,35 +138,6 @@ public class Main {
         return false;
     }
 
-    private static List<Usuario> obtenerUsuarioDataBase(List<Usuario> usuariosLista) {
-
-        Fecha nacimiento = new Fecha();
-        // Se obtiene la informacion de la tabla usuario en base de datos
-        try {
-            String sql = "SELECT * FROM usuario";
-            PreparedStatement st = connect.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-
-            while (rs.next()) {
-                Usuario usuario = new Usuario();
-                usuario.setCedula(rs.getString("cedula"));
-                usuario.setNombre(rs.getString("nombre"));
-                usuario.setApellido(rs.getString("apellido"));
-                usuario.setAvatar(rs.getInt("avatar"));
-                usuario.setEtapa(rs.getInt("etapa"));
-
-                nacimiento.setDia(rs.getInt("dianac"));
-                nacimiento.setMes(rs.getInt("mesnac"));
-                nacimiento.setAnio(rs.getInt("anionac"));
-                usuario.setFechaNacimiento(nacimiento);
-                // añade el usuario registrado a la lista
-                usuariosLista.add(usuario);
-            }
-        } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage());
-        }
-        // Regresa el usuario que se ha guardado
-        return usuariosLista;
-    }
+    
 } // FIN CLASE  
 
