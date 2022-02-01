@@ -65,10 +65,10 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 51, 51));
         jLabel1.setText("Sumas y restas");
 
-        jLabel2.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Actividad con 10 ejercicios aleatorios");
 
-        jLabel3.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Resuelve fáciles operaciónes de suma y resta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -134,10 +134,10 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 51, 51));
         jLabel4.setText("Comprensión lectora");
 
-        jLabel5.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Lee una pequeña historia y luego responde preguntas");
 
-        jLabel6.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -194,10 +194,10 @@ public class ActividadesLevesPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(0, 51, 51));
         jLabel7.setText("Memoria corto plazo");
 
-        jLabel8.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Encuentra los pares de las imágenes");
 
-        jLabel9.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

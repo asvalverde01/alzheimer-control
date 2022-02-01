@@ -65,10 +65,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 51, 51));
         jLabel1.setText("Identificar las letras");
 
-        jLabel2.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("objeto de una imagen mostrada.");
 
-        jLabel3.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Identifica la vocal o consonande con la que empieza un ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -134,10 +134,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 51, 51));
         jLabel4.setText("Reconocer los sonidos");
 
-        jLabel5.setForeground(new java.awt.Color(0, 51, 0));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Identifica a que pertenece un audio.");
 
-        jLabel6.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -194,10 +194,10 @@ public class ActividadesModeradasPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(0, 51, 51));
         jLabel7.setText("Identificar los colores");
 
-        jLabel8.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Selecciona el nombre del color que se muestra.");
 
-        jLabel9.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("---------------------------------------------");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

@@ -26,16 +26,21 @@ public class ActividadesPanel extends javax.swing.JPanel {
         etapa = usuario.getEtapaUsuario();
         mostrando = usuario.getEtapa();
         etapaLabel.setText(etapa);
-        if (mostrando == 0) {
+        if (mostrando == 1) {
             // Muestra un panel en el panel contenido
             ActividadesLevesPanel acLeves = new ActividadesLevesPanel(usuario);
             showPanel(acLeves);
             jButton4.setText("Mostrar actividades de la etapa Moderada");
-        } else {
+        } else if (mostrando == 0) {
             // Muestra un panel en el panel contenido
             ActividadesModeradasPanel acModeradas = new ActividadesModeradasPanel(usuario);
             jButton4.setText("Mostrar actividades de la etapa Leve");
             showPanel(acModeradas);
+        } else {
+            // Muestra un panel en el panel contenido
+            ActividadesAvanzadasPanel acAvanzadas = new ActividadesAvanzadasPanel(usuario);
+            jButton4.setText("Mostrar actividades de la etapa Avanzada");
+            showPanel(acAvanzadas);
         }
 
     }
@@ -80,23 +85,25 @@ public class ActividadesPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(txt1)
-                .addGap(48, 48, 48)
+                .addGap(34, 34, 34)
                 .addComponent(etapaLabel)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt1)
-                    .addComponent(etapaLabel))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txt1)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(etapaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
 
-        jButton4.setBackground(new java.awt.Color(153, 255, 204));
+        jButton4.setBackground(new java.awt.Color(0, 255, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(51, 51, 51));
         jButton4.setText("Mostrar actividades de la etapa Moderada");

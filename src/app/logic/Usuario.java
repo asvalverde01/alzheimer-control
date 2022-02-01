@@ -292,7 +292,7 @@ public class Usuario {
                     break;
                 case "Etapa":
                     // Verifica que el nuevo valor sea valido "Leve" o "Moderada"
-                    if (nuevo.equals("Leve") || nuevo.equals("Moderada")) {
+                    if (nuevo.equals("Leve") || nuevo.equals("Moderada") || nuevo.equals("Avanzada")) {
                         int nuevoValor;
                         switch (nuevo) {
                             case "Moderada":
