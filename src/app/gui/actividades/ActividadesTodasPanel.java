@@ -4,7 +4,7 @@ import app.logic.Usuario;
 
 public class ActividadesTodasPanel extends javax.swing.JPanel {
 
-    Usuario usuario;
+    private Usuario usuario;
 
     /**
      * Creates new form actividadesLevesPanel

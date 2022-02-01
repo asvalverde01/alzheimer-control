@@ -89,7 +89,6 @@ public class Main {
                     + "	id integer,\n"
                     + "	nombre text,\n"
                     + "	aciertos integer,\n"
-                    + "	puntuacion real,\n"
                     + "	etapa text,\n"
                     + "	segundos integer,\n"
                     + "	dia integer,\n"

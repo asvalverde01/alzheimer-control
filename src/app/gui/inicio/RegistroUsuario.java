@@ -10,9 +10,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     // Atributo de lista
     private static List<Usuario> usuarios;
-    boolean avatarSeleccionado = false;
-    private Usuario usuario = new Usuario();
+    private boolean avatarSeleccionado = false;
     private int avatar;
+
     // Variables declaration - do not modify
     private javax.swing.JSpinner anioSpinner;
     private javax.swing.JSpinner diaSpinner;
@@ -60,7 +60,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -351,6 +351,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         String mes = mesCombo.getSelectedItem().toString();
         int anio = (Integer) anioSpinner.getValue();
         String cedula = jTextField4.getText();
+        Fecha nacimiento = new Fecha();
 
         // Se verifica que se ingresen datos
         // Verifica que nombre solamente contenga letras
@@ -389,6 +390,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         if (valid) {
             valid = validarCedula(cedula);
             if (valid) {
+                // Verifica que la cedula sea unica
                 valid = validarCedulaUnica(cedula);
             }
         }
@@ -429,11 +431,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         // Intenta inicializar la fecha con los datos ingresados
         try {
-            Fecha nacimiento = new Fecha();
             nacimiento.setDia(dia);
             nacimiento.setMes(nacimiento.setMesString(mes));
             nacimiento.setAnio(anio);
-            usuario.setFechaNacimiento(nacimiento);
+
             correcto = true;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Verifique los datos en fecha");
@@ -442,13 +443,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         // Al final cuando el avatar ya ha sido seleccionado, se procede a continuar a la seleccion de la etapa
         if (avatarSeleccionado && valid && correctoCampos && correcto) {
-            // Asigna los valores ingresados
-            usuario.setNombre(jTextField2.getText());
-            usuario.setApellido(jTextField3.getText());
-            usuario.setAvatar(avatar);
-            usuario.setCedula(cedula);
+            // Crea un usuario usando el constructor por parametros
+            Usuario usuarioNuevo = new Usuario(cedula, nombre, apellido, avatar, 0, nacimiento);
             // Crea un formulario para seleccionar la Etapa de la enfermedad
-            SeleccionEtapa etapa = new SeleccionEtapa(usuario);
+            SeleccionEtapa etapa = new SeleccionEtapa(usuarioNuevo);
             // Muestra el formulario
             etapa.setVisible(true);
             etapa.setLocationRelativeTo(null);
@@ -481,13 +479,13 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }
 
     private void mesComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesComboActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_mesComboActionPerformed
 
     /**
      * Selección del avatar, deshabilita los otros botones de avatares
      *
-     * @param evt
+     * @param evt evento de seleccion de avatar
      */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         if (!(avatarSeleccionado)) {
@@ -505,7 +503,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     /**
      * Selección del avatar, deshabilita los otros botones de avatares
      *
-     * @param evt
+     * @param evt evento
      */
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         if (!(avatarSeleccionado)) {
@@ -524,7 +522,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     /**
      * Selección del avatar, deshabilita los otros botones de avatares
      *
-     * @param evt
+     * @param evt evento
      */
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         if (!(avatarSeleccionado)) {
@@ -543,7 +541,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
     /**
      * Selección del avatar, deshabilita los otros botones de avatares
      *
-     * @param evt
+     * @param evt evento
      */
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
         if (!(avatarSeleccionado)) {
@@ -560,7 +558,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
@@ -587,7 +584,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
      * Recibe como parametro la cedula y verifica si es una cédula Ecuatoriana
      * válida
      *
-     * @param cedula String cédula a evaluar
+     * @param document String cédula a evaluar
      * @return boolean true si es una cédula válida, false en caso de ser
      * inválida
      */
@@ -619,7 +616,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                         verifier = (byte) (verifier - 9);
                     }
                 } else {
-                    verifier = (byte) (digits[i] * 1);
+                    verifier = digits[i];
                 }
                 sum = (byte) (sum + verifier);
             }
@@ -631,34 +628,5 @@ public class RegistroUsuario extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "Formato de cédula inválido");
         return false;
-        /*
-        // Verifica que la cedula sea valida
-        // Verifica que solamente hayan digitos en el string cedula
-        if (cedula.length() == 10) {
-            // Verifica que el string tenga 10 digitos
-            if (cedula.matches("[0-9]+")) {
-                // Verifica que la suma de los 2 primeros digitos esten entre 1 y 24
-                if (Integer.parseInt(cedula.substring(0, 2)) >= 1 && Integer.parseInt(cedula.substring(0, 2)) <= 24) {
-                    //Verifica que el tercer digito esten entre 0 y 6
-                    if (Integer.parseInt(cedula.substring(2, 3)) >= 0 && Integer.parseInt(cedula.substring(2, 3)) <= 6) {
-                        return true;
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Cédula inválida");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Cédula fuera de rango");
-                    return false;
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Cédula inválida. Ingrese solamente dígitos");
-                return false;
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Cédula debe constar de 10 dígitos");
-            return false;
-        }
-        return false;
-    }
-         */
     }
 }

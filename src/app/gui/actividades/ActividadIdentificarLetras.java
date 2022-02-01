@@ -15,19 +15,19 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     /*-------------------------------------------------------------
     /Atributos para actividad IDENTIFICAR LETRAS
     /-------------------------------------------------------------*/
-    String letra1;
-    String letra2;
-    String letra3;
-    String n1 = "m";
-    String n2 = "c";
-    String n3 = "g";
-    String n4 = "f";
-    String n5 = "a";
+    private String letra1;
+    private String letra2;
+    private String letra3;
+    private final String n1 = "m";
+    private final String n2 = "c";
+    private final String n3 = "g";
+    private final String n4 = "f";
+    private final String n5 = "a";
     /*-------------------------------------------------------------
     /Atributos del timer
     /-------------------------------------------------------------*/
-    Timer timer;
-    final int[] sec = {0};
+    private Timer timer;
+    private final int[] sec = {0};
 
     /**
      * Constructor que inicia el timer y muestra la primera imagen
@@ -36,7 +36,6 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
-            System.out.println(sec[0]);
         });
         // Inicia el timer
         timer.start();
@@ -138,7 +137,6 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
         letra1 = ingreseLetra.getText();
         // Verifica que solamente hay letras en letra1
         if (letra1.matches("[A-Z]+") || (letra1.matches("[a-z]+"))) {
-            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
             //If para modificar las imágenes una vez ingresada la respuesta.
             if (cont == 0) {
                 Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
@@ -211,7 +209,7 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
                 this.setVisible(false);
                 // SQL insertar en la base de datos
                 // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-                ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar Letras", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
+                ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar Letras", calificacion, new Fecha(), "Moderada", sec[0]);
                 // Invoca al metodo que registra los datos en la base de datos
                 registro.registrarDataBase();
                 //ResultadoActividad resultado = new ResultadoActividad(atributos);

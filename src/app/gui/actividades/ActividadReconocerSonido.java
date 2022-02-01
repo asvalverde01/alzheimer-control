@@ -16,10 +16,10 @@ import javax.swing.Timer;
 public class ActividadReconocerSonido extends javax.swing.JFrame {
 
     // Atributos 
-    Timer timer;
-    final int[] sec = {0};
-    int orden2 = 0;
-    int cont = 0;
+    private Timer timer;
+    private final int[] sec = {0};
+    private int orden2 = 0;
+    private int cont = 0;
 
     /**
      * *
@@ -44,6 +44,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
      *
      * @param orden2 Método get que obtiene una posición y retorna la respuesta
      * y posición
+     * @return 
      */
     public String getSonido(int orden2) {
         return respuestaSonido[orden2];
@@ -53,6 +54,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
      *
      * @param orden2 Método set que recibe una posición y separa la respuesta
      * del arreglo, retorna la respuesta
+     * @return 
      */
     public String[] setRespuestaSonido(int orden2) {
         String s1 = radioRS[orden2];
@@ -131,7 +133,6 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
-            System.out.println(sec[0]);
         });
         // Inicia el timer
         timer.start();
@@ -293,7 +294,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         this.setVisible(false);
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Reconocer sonido", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
+        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Reconocer sonido", calificacion, new Fecha(), "Moderada", sec[0]);
         // Invoca al metodo que registra los datos en la base de datos
         registro.registrarDataBase();
 

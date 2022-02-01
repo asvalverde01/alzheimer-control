@@ -15,16 +15,16 @@ public class ActividadColores extends javax.swing.JFrame {
      * Creates new form actividadColores
      */
     // Atributos del timer
-    Timer timer;
-    final int[] sec = {0};
-    int orden = 0;
+    private Timer timer;
+    private final int[] sec = {0};
+    private int orden = 0;
 
     /*
      Creo objetos de imagen y posición
      
      */
-    Icon icono = new ImageIcon();
-    Object[] selectColor = {"", "", "", "", "", ""};
+    private Icon icono = new ImageIcon();
+    private Object[] selectColor = {"", "", "", "", "", ""};
 
     /*
     * Arreglo de cadena con la respuesta de los colores
@@ -91,7 +91,6 @@ public class ActividadColores extends javax.swing.JFrame {
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
-            System.out.println(sec[0]);
         });
         // Inicia el timer
         timer.start();
@@ -283,7 +282,7 @@ public class ActividadColores extends javax.swing.JFrame {
 
         selectColor[orden] = opcion1.getLabel();
         opcion1.setBackground(Color.orange); //asigno un color para identificar el color seleccionado
-        
+
         opcion2.setEnabled(false);//si selecciona el botón el resto de botones se inhabilitan
         opcion3.setEnabled(false);
         opcion4.setEnabled(false);
@@ -296,8 +295,7 @@ public class ActividadColores extends javax.swing.JFrame {
         /*
        Cuando se selecciona el botón la posición obtiene la respuesta
          */
-        
-        
+
         selectColor[orden] = opcion5.getLabel();
 
         opcion5.setBackground(Color.orange);
@@ -309,10 +307,10 @@ public class ActividadColores extends javax.swing.JFrame {
     }//GEN-LAST:event_opcion5ActionPerformed
 
     private void opcion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion4ActionPerformed
-       /*
+        /*
        Cuando se selecciona el botón en la posición obtiene la respuesta
          */
-        
+
         selectColor[orden] = opcion4.getLabel();
         opcion4.setBackground(Color.orange);//asigno un color para identificar el color seleccionado
         opcion2.setEnabled(false); //si selecciona el botón el resto de botones se inhabilitan
@@ -325,13 +323,11 @@ public class ActividadColores extends javax.swing.JFrame {
 
     private void opcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion2ActionPerformed
         // TODO add your handling code here:
-       
-        
-        
-         /*
+
+        /*
        Cuando se selecciona el botón en la posición obtiene la respuesta
          */
-         selectColor[orden] = opcion2.getLabel();
+        selectColor[orden] = opcion2.getLabel();
         opcion2.setBackground(Color.orange);//asigno un color para identificar el color seleccionado
         opcion1.setEnabled(false); //si selecciona el botón el resto de botones se inhabilitan
         opcion3.setEnabled(false);
@@ -340,10 +336,10 @@ public class ActividadColores extends javax.swing.JFrame {
     }//GEN-LAST:event_opcion2ActionPerformed
 
     private void opcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion3ActionPerformed
-       /*
+        /*
        Cuando se selecciona el botón en la posición obtiene la respuesta
          */
-       selectColor[orden] = opcion3.getLabel();
+        selectColor[orden] = opcion3.getLabel();
         opcion3.setBackground(Color.orange);//asigno un color para identificar el color seleccionado
         opcion2.setEnabled(false);//si selecciona el botón el resto de botones se inhabilitan
         opcion1.setEnabled(false);
@@ -356,11 +352,10 @@ public class ActividadColores extends javax.swing.JFrame {
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
         cont++;
-        
+
         /**
          * asignamos un color general para todos los botones
          */
-
         opcion1.setBackground(Color.PINK);
         opcion2.setBackground(Color.PINK);
         opcion3.setBackground(Color.PINK);
@@ -371,25 +366,21 @@ public class ActividadColores extends javax.swing.JFrame {
         opcion3.setEnabled(true);
         opcion4.setEnabled(true);
         opcion5.setEnabled(true);
-        
+
         /**
-         * Validamos que no pueda seleccionar el botón finalizar hasta terminar la actividad
+         * Validamos que no pueda seleccionar el botón finalizar hasta terminar
+         * la actividad
          *
          */
-
         if (orden == 3) {
             listo.setEnabled(false);
             finalizar.setEnabled(true);
 
         }
-        
-        
+
         /*
         *Cada que se seleccione el botón listo cambia el color y no se repite
-        */
-        
-        
-
+         */
         if (cont == 0) {
             color.setBackground(Color.red);
 
@@ -411,12 +402,10 @@ public class ActividadColores extends javax.swing.JFrame {
             color.setBackground(Color.magenta);
 
         }
-        
-        
+
         /**
          * Asigna el texto en cada botón y obtiene su posición
          */
-
         if (orden < 5) {
 
             orden++;
@@ -428,29 +417,28 @@ public class ActividadColores extends javax.swing.JFrame {
             opcion4.setText(k[3]);
             opcion5.setText(k[4]);
 
-        } 
+        }
 
 
     }//GEN-LAST:event_listoActionPerformed
 
-    
     /**
-     * 
-     * Botón que calcula y entrega el resultado 
+     *
+     * Botón que calcula y entrega el resultado
      */
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         int calificacion = 0;
         // Detiene el timer
         timer.stop();
-        
+
         //for itera hasta la cantidad de opciones de respuesta
         for (int i = 0; i < 5; i++) {
             if (selectColor[i].equals(getColor(i))) {//Compara la respuesta obtenida con la respuesta correcta
 
-                calificacion ++;//incrementa la calificación
+                calificacion++;//incrementa la calificación
 
             }
-        
+
         }
 
         calificacion = calificacion * 2;//Calcula la calificación
@@ -459,8 +447,8 @@ public class ActividadColores extends javax.swing.JFrame {
         this.setVisible(false);
 
         // SQL insertar en la base de datos
-        // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar colores", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
+        // Crea un registro enviando (String cedula, String nombre, int aciertos, Fecha fecha, String etapa, int segundos)
+        ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar colores", calificacion, new Fecha(), "Moderada", sec[0]);
         // Invoca al metodo que registra los datos en la base de datos
         registro.registrarDataBase();
     }//GEN-LAST:event_finalizarActionPerformed

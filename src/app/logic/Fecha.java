@@ -16,22 +16,7 @@ public final class Fecha {
     /*-------------------------------------------------------------
     /Constructores
     /-------------------------------------------------------------*/
-    /**
-     * Constructor con parámetros
-     *
-     * @param sFecha recibe una fecha en formato String con el formato
-     * dd/mm/yyyy
-     */
-    public Fecha(String sFecha) {
-        String sDia = sFecha.substring(0, 2);
-        String sMes = sFecha.substring(3, 5);
-        String sAnio = sFecha.substring(6);
-
-        dia = Integer.parseInt(sDia);
-        mes = Integer.parseInt(sMes);
-        anio = Integer.parseInt(sAnio);
-    }
-
+    
     /**
      * Constructor por defecto inicializa la fecha actual
      */
@@ -96,6 +81,7 @@ public final class Fecha {
      *
      * @return String mes
      */
+
     public String getMesString() {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};

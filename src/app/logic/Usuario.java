@@ -12,9 +12,9 @@ public class Usuario {
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
+    private String cedula;
     private String nombre;
     private String apellido;
-    private String cedula;
     private int avatar;
     private int etapa;
     private Fecha fechaNacimiento;
@@ -31,8 +31,24 @@ public class Usuario {
     public Usuario() {
     }
 
-
-    /*-------------------------------------------------------------
+    /**
+     * Constructor de la clase Usuario con parametros
+     * @param cedula String
+     * @param nombre String
+     * @param apellido String
+     * @param avatar int
+     * @param etapa int
+     * @param fechaNacimiento Fecha
+     */
+    public Usuario(String cedula, String nombre, String apellido, int avatar, int etapa, Fecha fechaNacimiento) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.avatar = avatar;
+        this.etapa = etapa;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+/*-------------------------------------------------------------
     /Métodos get y set de la clase Usuario
     /-------------------------------------------------------------*/
     /**
@@ -234,7 +250,6 @@ public class Usuario {
                 String cedulaRe = rs.getString("id");
                 String nombreRe = rs.getString("nombre");
                 int aciertos = rs.getInt("aciertos");
-                float puntuacion = rs.getFloat("puntuacion");
                 String etapaRe = rs.getString("etapa");
                 int segundos = rs.getInt("segundos");
                 int dia = rs.getInt("dia");
@@ -243,7 +258,7 @@ public class Usuario {
                 //Crea un objeto de tipo Fecha
                 Fecha fecha = new Fecha(dia, mes, anio);
                 //Crea un objeto de tipo ResultadoActividad
-                ResultadoActividad resultadoActividad = new ResultadoActividad(cedulaRe, nombreRe, aciertos, puntuacion, fecha, etapaRe, segundos);
+                ResultadoActividad resultadoActividad = new ResultadoActividad(cedulaRe, nombreRe, aciertos, fecha, etapaRe, segundos);
                 //Agrega el objeto a la lista
                 listaResultado.add(resultadoActividad);
             }

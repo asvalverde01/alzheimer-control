@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 
 public class ConfigPanel extends javax.swing.JPanel {
 
-    Fecha actual;
-    Usuario usuario = null;
+    private Fecha actual;
+    private Usuario usuario = null;
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;

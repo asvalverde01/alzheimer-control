@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SeleccionEtapa extends javax.swing.JFrame {
 
-    Usuario usuario = new Usuario();
+    private Usuario usuario = new Usuario();
     // Atributo de lista
     private static List<Usuario> usuarios;
 

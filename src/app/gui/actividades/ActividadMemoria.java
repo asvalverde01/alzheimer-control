@@ -25,8 +25,8 @@ public class ActividadMemoria extends javax.swing.JFrame {
     /*-------------------------------------------------------------
     /Atributos del timer
     /-------------------------------------------------------------*/
-    Timer timer;
-    final int[] sec = {0};
+    private Timer timer;
+    private final int[] sec = {0};
     /**
      * Constructor que invoca al modificar cartas e inicia el timer
      */
@@ -37,7 +37,6 @@ public class ActividadMemoria extends javax.swing.JFrame {
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
-            System.out.println(sec[0]);
         });
         // Inicia el timer
         timer.start();
@@ -113,7 +112,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             this.setVisible(false);
             // SQL insertar en la base de datos
             // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Memoria", puntaje, puntaje, new Fecha(), "Leve", sec[0]);
+            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Memoria", puntaje, new Fecha(), "Leve", sec[0]);
             // Invoca al metodo que registra los datos en la base de datos
             registro.registrarDataBase();
         }

@@ -10,7 +10,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public final class MainScreen extends javax.swing.JFrame {
 
-    private  Usuario usuario;
+    private Usuario usuario;
     public static String userID;
     // Paneles
     app.gui.inicio.InicioPanel pInicio = null;
@@ -18,7 +18,7 @@ public final class MainScreen extends javax.swing.JFrame {
     RecomendacionesPanel pRecomendaciones = null;
     ResultadosPanel pResultados = null;
     ConfigPanel pConfig = null;
-    AyudaPanel  pAyuda = null;
+    AyudaPanel pAyuda = null;
 
     private MainScreen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -207,7 +207,7 @@ public final class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_recButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
-        
+
         showPanel(pInicio);
         colorButtons();
         pInicio.setInformation();
@@ -289,6 +289,10 @@ public final class MainScreen extends javax.swing.JFrame {
     private javax.swing.JButton statsButton;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *  Recibe el panel para cabiarlo en el panel contenido
+     * @param p panel
+     */
     private void showPanel(JPanel p) {
         p.setSize(700, 660);
         contenido.removeAll();
@@ -297,6 +301,10 @@ public final class MainScreen extends javax.swing.JFrame {
         contenido.repaint();
     }
 
+    /**
+     * Inicializa los paneles
+     * @param usuario 
+     */
     private void inicializarPaneles(Usuario usuario) {
         pInicio = new InicioPanel(usuario);
         pActividades = new ActividadesPanel(usuario);

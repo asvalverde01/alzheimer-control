@@ -8,38 +8,43 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class ActividadSumaResta extends javax.swing.JFrame {
+
     /*-------------------------------------------------------------
     /Atributos para actividad SUMA Y RESTA
     /-------------------------------------------------------------*/
-    String respuesta1;
-    int respuestaOp;
-    int puntaje;
-    int contador;
+    private String respuesta1;
+    private int respuestaOp;
+    private int puntaje;
+    private int contador;
     /*-------------------------------------------------------------
     /Atributos del timer
     /-------------------------------------------------------------*/
-    Timer timer;
-    final int[] sec = {0};
-    
+    private Timer timer;
+    private final int[] sec = {0};
+
     /*-------------------------------------------------------------
     /Métodos get y set 
     /-------------------------------------------------------------*/
     /**
-     * Regresa una respuesta 
+     * Regresa una respuesta
+     *
      * @return int respuestaOp
      */
     public int getRespuestaOp() {
         return respuestaOp;
     }
-     /**
-      * Asigna la respuestaOp
-      * @param respuestaOp 
-      */
+
+    /**
+     * Asigna la respuestaOp
+     *
+     * @param respuestaOp
+     */
     public void setRespuestaOp(int respuestaOp) {
         this.respuestaOp = respuestaOp;
     }
+
     /**
-     * Constructor  que modifica RespuestaOp invocando a generarNuevaOp.
+     * Constructor que modifica RespuestaOp invocando a generarNuevaOp.
      */
     public ActividadSumaResta() {//constructor
         initComponents();
@@ -50,7 +55,6 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
-            System.out.println(sec[0]);
         });
         // Inicia el timer
         timer.start();
@@ -165,12 +169,14 @@ public class ActividadSumaResta extends javax.swing.JFrame {
 
     //comprobar1ActionPerformed(true);
     /**
-     * Método que comprueba la respuesta ingresada, detiene el timer y guarda en la base dde datos.
-     * @param evt 
+     * Método que comprueba la respuesta ingresada, detiene el timer y guarda en
+     * la base dde datos.
+     *
+     * @param evt
      */
     private void comprobar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobar1ActionPerformed
         //Verifica si la respuesta ingresada es la misma que respuestaOp.
-        if (ingreseSuma1.getText().matches("[0-9]+")){
+        if (ingreseSuma1.getText().matches("[0-9]+")) {
             if (ingreseSuma1.getText().equals(String.valueOf(getRespuestaOp()))) {
                 mostrarMensaje.setText(String.format("Correcto :)"));
                 puntaje++;
@@ -188,7 +194,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
                 this.setVisible(false);
                 // SQL insertar en la base de datos
                 // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-                ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Suma Resta", puntaje, puntaje, new Fecha(), "Leve", sec[0]);
+                ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Suma Resta", puntaje, new Fecha(), "Leve", sec[0]);
                 // Invoca al metodo que registra los datos en la base de datos
                 registro.registrarDataBase();
             }
@@ -214,6 +220,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
     }//GEN-LAST:event_ingreseSuma1ActionPerformed
     /**
      * Método que regresa un entero con la suma o resta de números aleatorios.
+     *
      * @return num1 + num2
      */
     private int generarNuevaOp() {

@@ -6,7 +6,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public class ActividadesPanel extends javax.swing.JPanel {
 
-    private Usuario usuario = null;
+    private Usuario usuario;
     private int mostrando = 0;
 
     public void setUsuario(Usuario usuario) {
@@ -26,21 +26,25 @@ public class ActividadesPanel extends javax.swing.JPanel {
         etapa = usuario.getEtapaUsuario();
         mostrando = usuario.getEtapa();
         etapaLabel.setText(etapa);
-        if (mostrando == 1) {
-            // Muestra un panel en el panel contenido
-            ActividadesLevesPanel acLeves = new ActividadesLevesPanel(usuario);
-            showPanel(acLeves);
-            jButton4.setText("Mostrar actividades de la etapa Moderada");
-        } else if (mostrando == 0) {
-            // Muestra un panel en el panel contenido
-            ActividadesModeradasPanel acModeradas = new ActividadesModeradasPanel(usuario);
-            jButton4.setText("Mostrar actividades de la etapa Leve");
-            showPanel(acModeradas);
-        } else {
-            // Muestra un panel en el panel contenido
-            ActividadesTodasPanel acAvanzadas = new ActividadesTodasPanel(usuario);
-            jButton4.setText("Mostrar actividades de la etapa Avanzada");
-            showPanel(acAvanzadas);
+        switch (mostrando) {
+            case 1:
+                // Muestra un panel en el panel contenido
+                ActividadesLevesPanel acLeves = new ActividadesLevesPanel(usuario);
+                showPanel(acLeves);
+                jButton4.setText("Mostrar actividades de la etapa Moderada");
+                break;
+            case 0:
+                // Muestra un panel en el panel contenido
+                ActividadesModeradasPanel acModeradas = new ActividadesModeradasPanel(usuario);
+                jButton4.setText("Mostrar actividades de la etapa Leve");
+                showPanel(acModeradas);
+                break;
+            default:
+                // Muestra un panel en el panel contenido
+                ActividadesTodasPanel acAvanzadas = new ActividadesTodasPanel(usuario);
+                jButton4.setText("Mostrar actividades de la etapa Avanzada");
+                showPanel(acAvanzadas);
+                break;
         }
     }
 

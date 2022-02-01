@@ -169,7 +169,6 @@ public class ResultadosPanel extends javax.swing.JPanel {
         });
     }//GEN-LAST:event_buscarButtonActionPerformed
 
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }

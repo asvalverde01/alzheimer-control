@@ -4,12 +4,10 @@ import app.logic.Fecha;
 import app.logic.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 public class InicioPanel extends javax.swing.JPanel {
 
-    Fecha actual;
-    Usuario usuario = null;
+    private Usuario usuario;
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
@@ -22,17 +20,17 @@ public class InicioPanel extends javax.swing.JPanel {
      */
     public InicioPanel(Usuario usuario) {
         initComponents();
-        actual = new Fecha();
-        actualizarFecha(actual);
+        // Invoca al método actualizarFecha enviando un objeto de fecha actual para actualizar el label fecha con la fecha actual 
+        actualizarFecha(new Fecha());
         this.usuario = usuario;
+        // Método el cual muestra la información el usuairo en los labels del panel
         setInformation();
-        
-        // Si la etapa es 2 entonces se muestra un mensaje
+
+        // Si la etapa es 2(avanzada) entonces se muestra un mensaje
         if (usuario.getEtapa() == 2) {
             msg1.setText("Por ser etapa avanzada, las actividades y resultados han sido deshabilidatos");
             msg2.setText("Puede cambiar la etapa en la selección configurar");
         }
-
     }
 
     /**
@@ -164,6 +162,7 @@ public class InicioPanel extends javax.swing.JPanel {
     }
 
     public void setInformation() {
+        // Intenta obtener el nombre
         try {
             bienvenidaLabel.setText("Hola " + usuario.getNombre() + " :)");
         } catch (NullPointerException npe) {
@@ -171,17 +170,22 @@ public class InicioPanel extends javax.swing.JPanel {
         } catch (Exception e) {
             bienvenidaLabel.setText("Problema al encontrar usuario");
         }
+        // Llena los datos de usuario en los labels
         try {
             nombreLabel.setText("Tu nombre es " + usuario.getNombre());
             apellidoLabel.setText("Tu apellido es " + usuario.getApellido());
+            // Direccion del avatar
             String direccion = "/imagen/icon/avatar/avatar" + usuario.getAvatar() + ".png";
+            // Crea un objeto de icono 
             Icon icono = new ImageIcon(getClass().getResource(direccion));
+            // Actializa el icono
             avatarLogo.setIcon(icono);
             fechaNacLabel.setText("Naciste el " + usuario.getFechaNacimientoString());
             edadLabel.setText("Tu edad es " + usuario.getEdad() + " años");
         } catch (NullPointerException npe) {
             bienvenidaLabel.setText("Problema al encontrar usuario");
+        } catch (Exception ex) {
+            System.out.println("Error en InicioPanel al leer los datos del usuario");
         }
-
     }
 }
