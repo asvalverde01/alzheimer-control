@@ -95,13 +95,13 @@ public class AyudaPanel extends javax.swing.JPanel {
 
         edadLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel.setText("la etapa seleccionada. Puede ver actividades de otras etapas y realizarlas. ");
+        edadLabel.setText("Puede ver actividades de otra etapa y realizarlas. ");
         bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         edadLabel2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         edadLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel2.setText("En la sección de actividades encontrará actividades seleccionadas para");
-        bg.add(edadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+        edadLabel2.setText("Según la etapa que haya seleccionado se muestran actividades sugeridas.");
+        bg.add(edadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 20));
 
         edadLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel1.setForeground(new java.awt.Color(51, 51, 51));

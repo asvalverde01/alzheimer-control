@@ -132,7 +132,7 @@ public class Usuario {
      * @return String fechaNacimiento
      */
     public String getFechaNacimientoString() {
-        return fechaNacimiento.getDia() + "/" + fechaNacimiento.getMes() + "/" + fechaNacimiento.getAnio();
+        return fechaNacimiento.toString();
     }
 
     /**
@@ -352,6 +352,23 @@ public class Usuario {
                         return false;
                     }
                     break;
+                case "fecha":
+                    //Separa el string si encuentra "/"
+                    String[] fecha = nuevo.split("/");
+                    // Asigna los valores de dia, mes y anio
+                    int dia = Integer.parseInt(fecha[0]);
+                    int mes = Integer.parseInt(fecha[1]);
+                    int anio = Integer.parseInt(fecha[2]);
+                    System.out.println(dia + " " + mes + " " + anio);
+                    // Hace los cambios en el SQL
+                    st = Main.getConnect().prepareStatement("UPDATE usuario SET dianac = ?, mesnac = ?, anionac = ? WHERE cedula = ?");
+                    st.setInt(1, dia);
+                    st.setInt(2, mes);
+                    st.setInt(3, anio);
+                    st.setString(4, cedula);
+                    this.fechaNacimiento.setDia(dia);
+                    this.fechaNacimiento.setMes(mes);
+                    this.fechaNacimiento.setAnio(anio);
             }
             // Ejecuta la consulta
             try {

@@ -85,7 +85,7 @@ public final class Fecha {
     public String getMesString() {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
-        return meses[mes];
+        return meses[mes + 1];
     }
 
     /**
@@ -156,5 +156,11 @@ public final class Fecha {
             edad--;
         }
         return edad;
+    }
+
+    // Metodo toString()
+    @Override
+    public String toString() {
+        return dia + "/" + mes + "/" + anio;
     }
 }
