@@ -12,6 +12,9 @@ import javax.swing.Timer;
 
 public class ActividadIdentificarLetras extends javax.swing.JFrame {
 
+    /*-------------------------------------------------------------
+    /Atributos para actividad IDENTIFICAR LETRAS
+    /-------------------------------------------------------------*/
     String letra1;
     String letra2;
     String letra3;
@@ -20,11 +23,14 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     String n3 = "g";
     String n4 = "f";
     String n5 = "a";
-
-    // Atributos del timer
+    /*-------------------------------------------------------------
+    /Atributos del timer
+    /-------------------------------------------------------------*/
     Timer timer;
     final int[] sec = {0};
-
+    /**
+     * Constructor que inicia el timer y muestra la primera imagen
+     */
     public ActividadIdentificarLetras() {
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
@@ -38,7 +44,6 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
         imagen.setIcon(icono1);
-
     }
     Icon icono = new ImageIcon();
     Usuario u = new Usuario();
@@ -117,14 +122,18 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-int cont = 0;
+    int cont = 0;
     int calificacion = 0;
+    /**
+     * Método que modifica las imágenes y verifica la respuesta ingresada
+     * @param evt 
+     */
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
-        cont++;
+        cont++;//Incrementa para que no se repitan las imágenes.
 
         letra1 = ingreseLetra.getText();
-
+        //If para modificar las imágenes una vez ingresada la respuesta.
         if (cont == 0) {
             Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
             imagen.setIcon(icono1);
@@ -152,8 +161,8 @@ int cont = 0;
             imagen.setIcon(icono5);
 
         }
-
-        if (n1.equals(letra1) && (cont == 1)) {
+        //Verifica que el atributo de n1,n2,n3,n4 y n5 sea igual a la letra ingresada por usuario
+        if (n1.equals(letra1)||"M".equals(letra1) && (cont == 1)) {
 
             ingreseLetra.setText("");
             calificacion++;
@@ -163,33 +172,33 @@ int cont = 0;
 
         }
 
-        if (n2.equals(letra1) && (cont == 2)) {
+        if (n2.equals(letra1)||"C".equals(letra1)  && (cont == 2)) {
 
             ingreseLetra.setText("");
             calificacion++;
 
         }
 
-        if (n3.equals(letra1) && (cont == 3)) {
+        if (n3.equals(letra1)||"G".equals(letra1)  && (cont == 3)) {
 
             ingreseLetra.setText("");
             calificacion++;
         }
 
-        if (n4.equals(letra1) && (cont == 4)) {
+        if (n4.equals(letra1)||"F".equals(letra1)  && (cont == 4)) {
 
             ingreseLetra.setText("");
             calificacion++;
         }
 
-        if (n5.equals(letra1) && (cont == 5)) {
+        if (n5.equals(letra1)||"A".equals(letra1)  && (cont == 5)) {
 
             ingreseLetra.setText("");
             calificacion++;
         }
 
         if (cont == 5) {
-            listo.setEnabled(false);
+            listo.setEnabled(false);//Bloquea el boton de lista una vez acaba las imágenes
             // Detiene el timer
             timer.stop();
             JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion * 2 + "/10");

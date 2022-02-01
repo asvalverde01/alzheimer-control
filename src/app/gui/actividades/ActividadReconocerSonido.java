@@ -3,10 +3,11 @@ package app.gui.actividades;
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
 import app.logic.ResultadoActividad;
-import app.logic.auxiliar.LogicaJuego;
+
 import java.applet.AudioClip;
-import java.awt.Toolkit;
+
 import java.awt.event.ActionEvent;
+import java.util.StringTokenizer;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -14,15 +15,78 @@ import javax.swing.Timer;
 
 public class ActividadReconocerSonido extends javax.swing.JFrame {
 
-    // Atributos del timer
+    // Atributos 
     Timer timer;
     final int[] sec = {0};
+    int orden2 = 0;
+    int cont = 0;
+
+    /**
+     * *
+     * Arreglo de cadena con las respuestas
+     */
+    private final String[] respuestaSonido = {
+        "Gallina", "Tren",
+        "Viento", "Tambor", "Aplauso"
+    };
+
+    /*
+    Arreglo de cadenas con las opciones de respuesta
+     */
+    private final String[] radioRS = {
+        "Vaca,Gallina,Elefante,Gato,Perro",
+        "Avion,Moto,Carro,Tren,Bicicleta",
+        "Viento,Rayo,Lluvia,Erupción,Incendio",
+        "Tambor,Flauta,Guitarra,Violín,Maracas",
+        "Grito,Beso,Estornudo,Lamentarse,Aplauso",};
+
+    /**
+     *
+     * @param orden2 Método get que obtiene una posición y retorna la respuesta
+     * y posición
+     */
+    public String getSonido(int orden2) {
+        return respuestaSonido[orden2];
+    }
+
+    /**
+     *
+     * @param orden2 Método set que recibe una posición y separa la respuesta
+     * del arreglo, retorna la respuesta
+     */
+    public String[] setRespuestaSonido(int orden2) {
+        String s1 = radioRS[orden2];
+        String[] s2 = separar2(s1, ",");
+        return s2;
+    }
+
+    /*
+    Método que sirve para separar una cadena
+    
+     */
+    public String[] separar2(String cadena, String separador) {
+        StringTokenizer token = new StringTokenizer(cadena, separador);//auxiliar para obtener los valores de acuerdo al número de respuestas
+
+        String[] a = new String[5];//cantidad de respuestas
+        int i = 0;
+
+        while (token.hasMoreTokens()) {
+            a[i] = token.nextToken(); // obtenido el token
+            i++;
+        }
+
+        return a;
+    }
 
     public ActividadReconocerSonido() {
+
+        //Asigno componententes que tienen que estar establecidos al principio
         initComponents();
 
+        //Creo objeto con la nueva imagen 
         Icon icono0 = new ImageIcon(getClass().getResource("/imagen/play.jpg"));
 
+        //Asigno la imagen en el botón
         play.setIcon(icono0);
 
         Icon icono1 = new ImageIcon(getClass().getResource("/imagen/Vaca.jpg"));
@@ -45,17 +109,24 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
 
         opci5.setIcon(icono5);
 
+        //inserto el sonido
         AudioClip sonido;
         sonido = java.applet.Applet.newAudioClip(getClass().getResource(""));
+        // repodruzco el sonido
         sonido.play();
 
-        String[] s = u.setRespuestaSonido(orden2);
+        //Obtengo la respuesta
+        String[] s = setRespuestaSonido(orden2);
 
+        /**
+         * Asigno texto con respuesta a los botones
+         */
         opci1.setText(s[0]);
         opci2.setText(s[1]);
         opci3.setText(s[2]);
         opci4.setText(s[3]);
         opci5.setText(s[4]);
+        finalizar.setEnabled(false);
 
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
@@ -66,9 +137,8 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         timer.start();
     }
 
-    LogicaJuego u = new LogicaJuego();
+    //Se crean objetos y se incializan posibles respuestas
     Object[] selectSonido = {"", "", "", "", ""};
-    int orden2 = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -187,30 +257,39 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opci3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci3ActionPerformed
+        //Si el botón es seleccionado obtiene la respuesta
+
         selectSonido[orden2] = opci3.getLabel();
+
+        //se inhabilitan el resto de opciones de respuesta
         opci2.setEnabled(false);
         opci4.setEnabled(false);
         opci1.setEnabled(false);
         opci5.setEnabled(false);
     }//GEN-LAST:event_opci3ActionPerformed
 
+    /*
+    Botón que muestra los datos
+     */
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         // Detiene el timer
+
         timer.stop();
 
+        //for itera hasta la cantidad de opciones de respuesta
         int calificacion = 0;
         for (int i = 0; i < 5; i++) {
-            if (selectSonido[i].equals(u.getSonido(i))) {
+            if (selectSonido[i].equals(getSonido(i))) {//compara la respuesta seleccionada con la respuesta correcta
 
-                calificacion = calificacion + 1;
+                calificacion++;//incremente la calificación
 
             }
-            System.out.println("" + calificacion);
+
         }
 
-        calificacion = calificacion * 2;
+        calificacion = calificacion * 2;//calcula el resultado
 
-        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");//Muestra la respuesta
         this.setVisible(false);
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
@@ -219,38 +298,34 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         registro.registrarDataBase();
 
     }//GEN-LAST:event_finalizarActionPerformed
-    int cont = 0;
+    AudioClip sonido;
+    AudioClip sonido2;
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
-
+        /**
+         * Incremento el contador
+         */
         cont++;
 
+        //Hace que cada vez que se selecciona el botón play no aparezca la misma imagen y sonido
         if (cont == 1) {
-
-            AudioClip sonido;
             sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/gallinaAudio.wav"));
             sonido.play();
             play.setEnabled(false);
-
         }
 
         if (cont == 2) {
-
-            AudioClip sonido2;
             sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/trenAudio.wav"));
             sonido2.play();
             play.setEnabled(false);
         }
 
         if (cont == 3) {
-
-            AudioClip sonido;
             sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/vientoAudio.wav"));
             sonido.play();
             play.setEnabled(false);
         }
 
         if (cont == 4) {
-            AudioClip sonido;
             sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/tamboresAudio.wav"));
             sonido.play();
 
@@ -259,7 +334,6 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         }
 
         if (cont == 5) {
-            AudioClip sonido;
             sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Sonido/aplausoAudio.wav"));
             sonido.play();
             play.setEnabled(false);
@@ -270,35 +344,43 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     }//GEN-LAST:event_playActionPerformed
 
     private void opci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci1ActionPerformed
+        //Si el botón es seleccionado obtiene la respuesta
+
         selectSonido[orden2] = opci1.getLabel();
 
-        opci2.setEnabled(false);
+        opci2.setEnabled(false);//se inhabilitan el resto de opciones de respuesta
         opci3.setEnabled(false);
         opci4.setEnabled(false);
         opci5.setEnabled(false);
     }//GEN-LAST:event_opci1ActionPerformed
 
     private void opci2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci2ActionPerformed
+        //Si el botón es seleccionado obtiene la respuesta
         selectSonido[orden2] = opci2.getLabel();
 
-        opci5.setEnabled(false);
+        opci5.setEnabled(false);//se inhabilitan el resto de opciones de respuesta
         opci3.setEnabled(false);
         opci4.setEnabled(false);
         opci1.setEnabled(false);
     }//GEN-LAST:event_opci2ActionPerformed
 
     private void opci4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci4ActionPerformed
+        //Si el botón es seleccionado obtiene la respuesta
+
         selectSonido[orden2] = opci4.getLabel();
-        opci2.setEnabled(false);
+        opci2.setEnabled(false);//se inhabilitan el resto de opciones de respuesta
         opci3.setEnabled(false);
         opci1.setEnabled(false);
         opci5.setEnabled(false);
     }//GEN-LAST:event_opci4ActionPerformed
 
     private void opci5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci5ActionPerformed
+        //Si el botón es seleccionado obtiene la respuesta
+        sonido.stop();
+        sonido2.stop();
         selectSonido[orden2] = opci5.getLabel();
 
-        opci2.setEnabled(false);
+        opci2.setEnabled(false);//se inhabilitan el resto de opciones de respuesta
         opci3.setEnabled(false);
         opci4.setEnabled(false);
         opci1.setEnabled(false);
@@ -307,13 +389,22 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
         play.setEnabled(true);
-        cont1++;
+        cont1++;//incrementa el contador
+
+        /**
+         * Validamos que no pueda seleccionar el botón finalizar hasta la última
+         * ronda
+         *
+         */
         if (orden2 == 3) {
             listo.setEnabled(false);
             finalizar.setEnabled(true);
 
         }
 
+        /*
+        *Cada se se seleccione el botón listo cambia el sonido e imagen
+         */
         if (cont1 == 0) {
 
             Icon icono1 = new ImageIcon(getClass().getResource("/imagen/Vaca.jpg"));
@@ -429,16 +520,24 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
             opci5.setIcon(icono15);
 
         }
+
+        /**
+         * Asignamos el texto de las respuestas en los botones
+         */
         opci1.setEnabled(true);
         opci2.setEnabled(true);
         opci3.setEnabled(true);
         opci4.setEnabled(true);
         opci5.setEnabled(true);
 
+        /*
+        Valida que acceda a los métodos hasta que termina la actividad
+        
+         */
         if (orden2 < 5) {
 
             orden2++;
-            String[] s = u.setRespuestaSonido(orden2);
+            String[] s = setRespuestaSonido(orden2);
 
             opci1.setText(s[0]);
             opci2.setText(s[1]);
@@ -446,15 +545,13 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
             opci4.setText(s[3]);
             opci5.setText(s[4]);
 
-        } else {
-            Toolkit.getDefaultToolkit().beep();
         }
 
 
     }//GEN-LAST:event_listoActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-       // Muestra un panel para elegir si terminar la actividad o no hacerlo
+        // Muestra un panel para elegir si terminar la actividad o no hacerlo
         int confirmado = JOptionPane.showConfirmDialog(null, "¿Terminar actividad? El progreso no se guardará", "Terminar", JOptionPane.YES_NO_OPTION);
         // Si la opcion terminar es seleccionada
         if (JOptionPane.OK_OPTION == confirmado) {

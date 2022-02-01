@@ -8,29 +8,45 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class ActividadSumaResta extends javax.swing.JFrame {
-
+    /*-------------------------------------------------------------
+    /Atributos para actividad SUMA Y RESTA
+    /-------------------------------------------------------------*/
     String respuesta1;
     int respuestaOp;
     int puntaje;
     int contador;
-
-    // Atributos del timer
+    /*-------------------------------------------------------------
+    /Atributos del timer
+    /-------------------------------------------------------------*/
     Timer timer;
     final int[] sec = {0};
-
+    
+    /*-------------------------------------------------------------
+    /Métodos get y set 
+    /-------------------------------------------------------------*/
+    /**
+     * Regresa una respuesta 
+     * @return int respuestaOp
+     */
     public int getRespuestaOp() {
         return respuestaOp;
     }
-
+     /**
+      * Asigna la respuestaOp
+      * @param respuestaOp 
+      */
     public void setRespuestaOp(int respuestaOp) {
         this.respuestaOp = respuestaOp;
     }
-
-    public ActividadSumaResta() {
+    /**
+     * Método que modifica RespuestaOp invocando a generarNuevaOp.
+     */
+    public ActividadSumaResta() {//constructor
         initComponents();
+        //Genera la primera operacion para que no este vacio los datos
         int respuesta = generarNuevaOp();
+        //Modifica respuestaOp con el resultado del metodo generarNuevaOp
         setRespuestaOp(respuesta);
-        
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
@@ -68,12 +84,12 @@ public class ActividadSumaResta extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("--");
+        jLabel2.setText("1478");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 50, 30));
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("--");
+        jLabel3.setText("4541");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
@@ -99,6 +115,11 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         jPanel1.add(mostrarMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 100, 30));
 
         ingreseSuma1.setBackground(new java.awt.Color(255, 255, 255));
+        ingreseSuma1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingreseSuma1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(ingreseSuma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 110, 30));
 
         comprobar1.setBackground(new java.awt.Color(51, 204, 255));
@@ -143,8 +164,12 @@ public class ActividadSumaResta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //comprobar1ActionPerformed(true);
-
+    /**
+     * Método que comprueba la respuesta ingresada, detiene el timer y guarda en la base dde datos.
+     * @param evt 
+     */
     private void comprobar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobar1ActionPerformed
+        //Verifica si la respuesta ingresada es la misma que respuestaOp.
         if (ingreseSuma1.getText().equals(String.valueOf(getRespuestaOp()))) {
             mostrarMensaje.setText(String.format("Correcto :)"));
             puntaje++;
@@ -179,18 +204,28 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_closeButtonActionPerformed
 
+    private void ingreseSuma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingreseSuma1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ingreseSuma1ActionPerformed
+    /**
+     * Método que regresa un entero con la suma o resta de números aleatorios.
+     * @return num1 + num2
+     */
     private int generarNuevaOp() {
-        int num1 = (int) (Math.random() * 10);
+        //Genera números aleatorios
+        int num1 = (int) (Math.random() * 10);//math random devuelve decimales y se multiplica por 10 para que sea un decimal y se hace casting para convertirlo a entero. 
         int num2 = (int) (Math.random() * 10);
         if (num1 > 5) {
             jLabel4.setText("-");
             if (num1 > num2) {
                 jLabel2.setText("" + num1);
                 jLabel3.setText("" + num2);
+                //Regresa la resta de numero1- numero2
                 return num1 - num2;
             } else {
                 jLabel3.setText("" + num1);
                 jLabel2.setText("" + num2);
+                //Regresa la resta de numero2- numero1
                 return num2 - num1;
             }
         } else {
@@ -198,6 +233,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
             jLabel3.setText("" + num2);
             jLabel4.setText("+");
         }
+        //Regresa la suma de los números
         return num1 + num2;
     }
 

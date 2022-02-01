@@ -3,8 +3,8 @@ package app.gui.actividades;
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
 import app.logic.ResultadoActividad;
-import app.logic.auxiliar.LogicaJuego;
 import java.awt.event.ActionEvent;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -12,21 +12,28 @@ import javax.swing.Timer;
 
 public class ActividadMemoria extends javax.swing.JFrame {
 
-    private final LogicaJuego log = new LogicaJuego();
+    /*-------------------------------------------------------------
+    /Atributos para actividad MEMORIA
+    /-------------------------------------------------------------*/
     private boolean caraUp = false;
     private ImageIcon im1;
     private ImageIcon im2;
     private JButton[] boton = new JButton[2];
     private boolean compara = false;
     private int puntaje = 0;
-
-    // Atributos del timer
+    
+    /*-------------------------------------------------------------
+    /Atributos del timer
+    /-------------------------------------------------------------*/
     Timer timer;
     final int[] sec = {0};
-
+    /**
+     * Constructor que invoca al modificar cartas e inicia el timer
+     */
     public ActividadMemoria() {
         initComponents();
-        setCards();
+        setCards();//Se invoca para que se ejecuta a penas comienza el programa
+        
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
@@ -35,9 +42,13 @@ public class ActividadMemoria extends javax.swing.JFrame {
         // Inicia el timer
         timer.start();
     }
-
+    /**
+     * Método para ordenar aleatoriamente las cartas.
+     */
     private void setCards() {
-        int[] numbers = log.getCardNumbers();
+        //invoca al método getCardNumbers
+        int[] numbers = this.getCardNumbers();
+        //se le asigna a los 10 botones una imagen para el estado de deshabilitado
         jButton1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[0] + ".jpg")));
         jButton10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[1] + ".jpg")));
         jButton2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[2] + ".jpg")));
@@ -49,12 +60,17 @@ public class ActividadMemoria extends javax.swing.JFrame {
         jButton8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[8] + ".jpg")));
         jButton9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[9] + ".jpg")));
     }
-
+    
+    /**
+     * Método para habilitar y deshabilitar botones
+     * verificar si ya se voltió una carta.
+     * @param btn 
+     */
     private void activarBoton(JButton btn) {
 
         if (!caraUp) {
             btn.setEnabled(false);
-            im1 = (ImageIcon) btn.getDisabledIcon();
+            im1 = (ImageIcon) btn.getDisabledIcon();//Usamos la descripcion de las imagenes para comparar
             boton[0] = btn;
             caraUp = true;
             compara = false;
@@ -63,27 +79,32 @@ public class ActividadMemoria extends javax.swing.JFrame {
             im2 = (ImageIcon) btn.getDisabledIcon();
             boton[1] = btn;
             compara = true;
-            mostrarPuntos.setText(String.format("+2 puntos"));
             puntaje += 2;
             mostrarPuntaje();
         }
     }
-
+    /**
+     * Método para comparar las cartas volteadas
+     */
     private void compararCarta() {
         if (caraUp && compara) {
+            //verifica si dos cartas volteadas no son iguales
             if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
+                //Voltea a las imágenes
                 boton[0].setEnabled(true);
                 boton[1].setEnabled(true);
                 if (puntaje > 10) {
-                    mostrarPuntos.setText(String.format("-2 puntos"));
                     puntaje -= 2;
 
                 }
             }
+           //si son iguales las cartas, deja enfrente las imágenes.
             caraUp = false;
         }
     }
-
+    /**
+     * Método para mostrar el puntaje una vez encontrado todos los pares
+     */
     private void mostrarPuntaje() {
         if (!(jButton1.isEnabled()) && !(jButton2.isEnabled()) && !(jButton3.isEnabled()) && !(jButton4.isEnabled()) && !(jButton5.isEnabled()) && !(jButton6.isEnabled()) && !(jButton7.isEnabled()) && !(jButton8.isEnabled()) && !(jButton9.isEnabled()) && !(jButton10.isEnabled())) {
             // Detiene el timer
@@ -96,6 +117,34 @@ public class ActividadMemoria extends javax.swing.JFrame {
             // Invoca al metodo que registra los datos en la base de datos
             registro.registrarDataBase();
         }
+    }
+    /**
+     * Método que llena un arreglo aleatoriamente
+     * @return  
+     */
+     private int[] getCardNumbers() {
+        //Para que las cartas sean ordenadas aleatoriamente en el juego.
+        //Necesitamos 5 pares, es decir, 10 cartas.
+        int[] numbers = new int[10];
+        int count = 0;
+
+        while (count < numbers.length) {
+            Random r = new Random();
+            int na = r.nextInt(5) + 1;//Retorna numero entre 0 y 5 pero se suma 1 para no tomar en cuenta al 0.
+            int nvr = 0;
+
+            for (int i = 0; i < numbers.length; i++) {
+                if (numbers[i] == na) {
+                    nvr++;
+                }
+            }
+            if (nvr < 2) {
+                numbers[count] = na;
+                count++;
+            }//fin
+        }
+        //retorna numeros aleatorios de 1 a 5
+        return numbers;
     }
 
     /**
@@ -121,9 +170,8 @@ public class ActividadMemoria extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        mostrarPuntos = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
         closeButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -331,34 +379,27 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 270, 40));
 
+        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
+
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Encuentra el par de cada imagen:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
-
-        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 290, 40));
-
-        mostrarPuntos.setBackground(new java.awt.Color(204, 255, 255));
-        mostrarPuntos.setColumns(20);
-        mostrarPuntos.setFont(new java.awt.Font("Berlin Sans FB Demi", 2, 18)); // NOI18N
-        mostrarPuntos.setForeground(new java.awt.Color(0, 0, 0));
-        mostrarPuntos.setRows(5);
-        mostrarPuntos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        mostrarPuntos.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
-        jPanel1.add(mostrarPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 200, 60));
 
         closeButton3.setBackground(new java.awt.Color(255, 51, 51));
         closeButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -391,7 +432,10 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Eventos para verificar si ya se voltió la carta invocando a activar boton.
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         activarBoton(jButton1);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -432,6 +476,10 @@ public class ActividadMemoria extends javax.swing.JFrame {
         activarBoton(jButton10);
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    /**
+     * Eventos para ejecutar el metodo comparar
+     * @param evt 
+     */
     private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
         compararCarta();
     }//GEN-LAST:event_jButton6MouseExited
@@ -542,6 +590,5 @@ public class ActividadMemoria extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextArea mostrarPuntos;
     // End of variables declaration//GEN-END:variables
 }

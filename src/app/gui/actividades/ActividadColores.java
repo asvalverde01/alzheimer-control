@@ -3,10 +3,10 @@ package app.gui.actividades;
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
 import app.logic.ResultadoActividad;
-import app.logic.auxiliar.LogicaJuego;
+
 import java.awt.Color;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.util.StringTokenizer;
 import javax.swing.*;
 
 public class ActividadColores extends javax.swing.JFrame {
@@ -17,7 +17,74 @@ public class ActividadColores extends javax.swing.JFrame {
     // Atributos del timer
     Timer timer;
     final int[] sec = {0};
+    int orden = 0;
 
+    /*
+     Creo objetos de imagen y posición
+     
+     */
+    Icon icono = new ImageIcon();
+    Object[] selectColor = {"", "", "", "", "", ""};
+
+    /*
+    * Arreglo de cadena con la respuesta de los colores
+     */
+    private final String[] respuestaColor = {
+        "Rojo", "Azul", "Amarillo", "Verde", "Magenta"
+    };
+
+    /*
+   *Arreglo de cadena con todas las opciones de respuesta
+     */
+    private final String[] radioRC = {
+        "Azul,Rojo,Blanco,Amarillo,Morado",
+        "Negro,Naranja,Café,Rojo,Azul",
+        "Rosado,Amarillo,Magenta,Celeste,Gris",
+        "Salmón,Mostaza,Verde,Blanco,Morado",
+        "Negro,Rojo,Celeste,Turquesa,Magenta",};
+
+    /**
+     *
+     * @param orden Método get que recibe posición y retorna la posición de la
+     * respuesta
+     */
+    public String getColor(int orden) {
+        return respuestaColor[orden];
+    }
+
+    /**
+     *
+     * @param orden recibe una poisición y de acuerdo al radio de respuestas
+     * separa la respuesta del arreglo cadena
+     */
+    public String[] setRespuestaColor(int orden) {
+        String s1 = radioRC[orden];
+        String[] s2 = separar2(s1, ",");//separa con la coma y el método separar
+        return s2;//retorna la respuesta 
+    }
+
+    /**
+     *
+     * @param cadena
+     * @param separador Método que sirve para separar el arreglo de cadenas
+     */
+    public String[] separar2(String cadena, String separador) {
+        StringTokenizer token = new StringTokenizer(cadena, separador);//auxiliar para obtener los valores de acuerdo al número de respuestas
+
+        String[] a = new String[5];//cantidad de respuestas
+        int i = 0;
+
+        while (token.hasMoreTokens()) {
+            a[i] = token.nextToken(); // obtenido el token
+            i++;
+        }
+
+        return a;
+    }
+
+    /**
+     * Asigna componentes que ya tienen que estar establecidos en el inicio
+     */
     public ActividadColores() {
         initComponents();
 
@@ -29,10 +96,20 @@ public class ActividadColores extends javax.swing.JFrame {
         // Inicia el timer
         timer.start();
 
-        String[] k = u.setRespuestaColor(orden);
+        /*
+            *Invoca el método y recibe la posición previamente instanciada 
+           
+         */
+        String[] k = setRespuestaColor(orden);
 
+        /*
+            *Al momento de dar siguiente se eliminan las opciones seleccionadas
+         */
         buttonGroupColor.clearSelection();
 
+        /**
+         * Asignamos el texto de las respuestas en los botones
+         */
         opcion1.setText(k[0]);
         opcion2.setText(k[1]);
         opcion3.setText(k[2]);
@@ -40,15 +117,10 @@ public class ActividadColores extends javax.swing.JFrame {
         opcion5.setText(k[4]);
 
         opcion1.requestFocus();
-        color.setBackground(Color.red);
-        finalizar.setEnabled(false);
+        color.setBackground(Color.red);//el label de color empieza con un color específico
+        finalizar.setEnabled(false);//el botón finaliar no puede seleccionarse
 
     }
-
-    int orden = 0;
-    LogicaJuego u = new LogicaJuego();
-    Icon icono = new ImageIcon();
-    Object[] selectColor = {"", "", "", "", "", ""};
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -205,9 +277,14 @@ public class ActividadColores extends javax.swing.JFrame {
 
 
     private void opcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion1ActionPerformed
+        /*
+       Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
+
         selectColor[orden] = opcion1.getLabel();
-        opcion1.setBackground(Color.orange);
-        opcion2.setEnabled(false);
+        opcion1.setBackground(Color.orange); //asigno un color para identificar el color seleccionado
+        
+        opcion2.setEnabled(false);//si selecciona el botón el resto de botones se inhabilitan
         opcion3.setEnabled(false);
         opcion4.setEnabled(false);
         opcion5.setEnabled(false);
@@ -216,10 +293,15 @@ public class ActividadColores extends javax.swing.JFrame {
     }//GEN-LAST:event_opcion1ActionPerformed
 
     private void opcion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion5ActionPerformed
+        /*
+       Cuando se selecciona el botón la posición obtiene la respuesta
+         */
+        
+        
         selectColor[orden] = opcion5.getLabel();
 
         opcion5.setBackground(Color.orange);
-        opcion2.setEnabled(false);
+        opcion2.setEnabled(false);//si selecciona el botón el resto de botones se inhabilitan
         opcion3.setEnabled(false);
         opcion4.setEnabled(false);
         opcion1.setEnabled(false);
@@ -227,9 +309,13 @@ public class ActividadColores extends javax.swing.JFrame {
     }//GEN-LAST:event_opcion5ActionPerformed
 
     private void opcion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion4ActionPerformed
+       /*
+       Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
+        
         selectColor[orden] = opcion4.getLabel();
-        opcion4.setBackground(Color.orange);
-        opcion2.setEnabled(false);
+        opcion4.setBackground(Color.orange);//asigno un color para identificar el color seleccionado
+        opcion2.setEnabled(false); //si selecciona el botón el resto de botones se inhabilitan
         opcion3.setEnabled(false);
         opcion1.setEnabled(false);
         opcion5.setEnabled(false);
@@ -239,18 +325,27 @@ public class ActividadColores extends javax.swing.JFrame {
 
     private void opcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion2ActionPerformed
         // TODO add your handling code here:
-        selectColor[orden] = opcion2.getLabel();
-        opcion2.setBackground(Color.orange);
-        opcion1.setEnabled(false);
+       
+        
+        
+         /*
+       Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
+         selectColor[orden] = opcion2.getLabel();
+        opcion2.setBackground(Color.orange);//asigno un color para identificar el color seleccionado
+        opcion1.setEnabled(false); //si selecciona el botón el resto de botones se inhabilitan
         opcion3.setEnabled(false);
         opcion4.setEnabled(false);
         opcion5.setEnabled(false);
     }//GEN-LAST:event_opcion2ActionPerformed
 
     private void opcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion3ActionPerformed
-        selectColor[orden] = opcion3.getLabel();
-        opcion3.setBackground(Color.orange);
-        opcion2.setEnabled(false);
+       /*
+       Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
+       selectColor[orden] = opcion3.getLabel();
+        opcion3.setBackground(Color.orange);//asigno un color para identificar el color seleccionado
+        opcion2.setEnabled(false);//si selecciona el botón el resto de botones se inhabilitan
         opcion1.setEnabled(false);
         opcion4.setEnabled(false);
         opcion5.setEnabled(false);
@@ -261,6 +356,10 @@ public class ActividadColores extends javax.swing.JFrame {
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
         cont++;
+        
+        /**
+         * asignamos un color general para todos los botones
+         */
 
         opcion1.setBackground(Color.PINK);
         opcion2.setBackground(Color.PINK);
@@ -272,12 +371,24 @@ public class ActividadColores extends javax.swing.JFrame {
         opcion3.setEnabled(true);
         opcion4.setEnabled(true);
         opcion5.setEnabled(true);
+        
+        /**
+         * Validamos que no pueda seleccionar el botón finalizar hasta terminar la actividad
+         *
+         */
 
         if (orden == 3) {
             listo.setEnabled(false);
             finalizar.setEnabled(true);
 
         }
+        
+        
+        /*
+        *Cada que se seleccione el botón listo cambia el color y no se repite
+        */
+        
+        
 
         if (cont == 0) {
             color.setBackground(Color.red);
@@ -300,11 +411,16 @@ public class ActividadColores extends javax.swing.JFrame {
             color.setBackground(Color.magenta);
 
         }
+        
+        
+        /**
+         * Asigna el texto en cada botón y obtiene su posición
+         */
 
         if (orden < 5) {
 
             orden++;
-            String[] k = u.setRespuestaColor(orden);
+            String[] k = setRespuestaColor(orden);
 
             opcion1.setText(k[0]);
             opcion2.setText(k[1]);
@@ -312,29 +428,34 @@ public class ActividadColores extends javax.swing.JFrame {
             opcion4.setText(k[3]);
             opcion5.setText(k[4]);
 
-        } else {
-            Toolkit.getDefaultToolkit().beep();
-        }
+        } 
 
 
     }//GEN-LAST:event_listoActionPerformed
 
+    
+    /**
+     * 
+     * Botón que calcula y entrega el resultado 
+     */
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         int calificacion = 0;
         // Detiene el timer
         timer.stop();
+        
+        //for itera hasta la cantidad de opciones de respuesta
         for (int i = 0; i < 5; i++) {
-            if (selectColor[i].equals(u.getColor(i))) {
+            if (selectColor[i].equals(getColor(i))) {//Compara la respuesta obtenida con la respuesta correcta
 
-                calificacion = calificacion + 1;
+                calificacion ++;//incrementa la calificación
 
             }
-            System.out.println("" + calificacion);
+        
         }
 
-        calificacion = calificacion * 2;
+        calificacion = calificacion * 2;//Calcula la calificación
 
-        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");//Muestra la calificación en un panel
         this.setVisible(false);
 
         // SQL insertar en la base de datos

@@ -5,17 +5,249 @@ import app.logic.Fecha;
 import app.logic.ResultadoActividad;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
-import app.logic.auxiliar.Cuento;
-import app.logic.auxiliar.LogicaJuego;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import java.util.StringTokenizer;
 import javax.swing.Timer;
 
 public class ActividadComprension extends javax.swing.JFrame {
 
+    /*
+    *Atributos 
+     */
+    private int posicion = 0;
+    private int parte = 0;
+
     // Atributos del timer
     Timer timer;
     final int[] sec = {0};
+
+    /*
+    *Arreglo de cadena de tres elementos con cada pregunta
+     */
+    private final String[] preguntas = {
+        "¿Cómo duermen los lápices de colores?",
+        "¿Cuántos sentidos tienen las personas?",
+        "¿Dónde nació Mozart?",};
+    private final String[] preguntas2 = {
+        "¿Qué van a hacer con el cuaderno de clases?",
+        "¿En qué órgano está el sentido del olfato?",
+        "¿Desde qué edad Mozart demostró su don especial?",};
+    private final String[] preguntas3 = {
+        "¿Cuál es color favorito de Juan?",
+        "¿Qué nos permite distinguir el sentido del gusto?",
+        "¿A qué familiar de Mozart también le gustaba la música?",};
+    private final String[] preguntas4 = {
+        "¿Cuál es el color favorito de Rosita?",
+        "¿Con qué sentido podemos escuchar música?",
+        "¿En qué contiene Mozart viajó para tocar frente a reyes?",};
+    private final String[] preguntas5 = {
+        "¿Qué les gusta pintar a Juan y Rosita?",
+        "¿En qué órgano está el sentido del gusto?",
+        "¿Cuál es la sinfonía más importante de Mozart?",};
+
+    /*
+    * Método get para obtener string 
+    *retorna la variable pregunta con su posición
+     */
+    public String getPregunta(int posicion) {
+        return preguntas[posicion];
+    }
+
+    public String getPregunta2(int posicion) {
+        return preguntas2[posicion];
+    }
+
+    public String getPregunta3(int posicion) {
+        return preguntas3[posicion];
+    }
+
+    public String getPregunta4(int posicion) {
+        return preguntas4[posicion];
+    }
+
+    public String getPregunta5(int posicion) {
+        return preguntas5[posicion];
+    }
+
+    /*
+    *Arreglo de cadena de tres elementos con cada respuesta correcta
+     */
+    private final String[] respuestas = {
+        "Acomodados", "5", "Austria"
+    };
+
+    private final String[] respuestas2 = {
+        "Pintar los dibujos", "Nariz", "4"
+    };
+
+    private final String[] respuestas3 = {
+        "Rojo", "Sabores", "Papá"
+    };
+
+    private final String[] respuestas4 = {
+        "Amarillo", "Oído", "Europa"
+    };
+
+    private final String[] respuestas5 = {
+        "Figuras", "Boca", "Sinfonía N°40"
+    };
+
+    /*
+    *Arreglo de cadena de tres elementos con las opciones de respuesta
+     */
+    private final String[] radioR = {
+        "Acomodados,Desacomodados,Separados",//se separa por una coma cada grupo de respuestas
+        "5,6,3",
+        "España,Inglaterra,Austria",};
+
+    private final String[] radioR2 = {
+        "Pintar los dibujos,Dibujar árboles,Jugar",
+        "Ojos,Nariz,Manos",
+        "10,4,5",};
+
+    private final String[] radioR3 = {
+        "Verde,Azul,Rojo",
+        "Sabores,Sentimientos,Olores",
+        "Mamá,Papá,Hermano",};
+
+    private final String[] radioR4 = {
+        "Dorado,Amarillo,Morado",
+        "Olfato,Gusto,Oído",
+        "América,Asia,Europa"};
+
+    private final String[] radioR5 = {
+        "Paisajes,Figuras,Ropa",
+        "Ojos,Boca,Nariz",
+        "Sinfonía N°40,Sinfonía N°9,Sinfonía N°3",};
+
+    /*
+    * Métodos get que reciben la posición, para retornar la respuesta y posición
+    @param posicion
+    return respuestas[posicion]
+     */
+    private String getRespuesta(int posicion) {
+        return respuestas[posicion];
+    }
+
+    public String getRespuesta2(int posicion) {
+        return respuestas2[posicion];
+    }
+
+    public String getRespuesta3(int posicion) {
+        return respuestas3[posicion];
+    }
+
+    public String getRespuesta4(int posicion) {
+        return respuestas4[posicion];
+    }
+
+    public String getRespuesta5(int posicion) {
+        return respuestas5[posicion];
+    }
+
+    /*
+    @param posicion
+    
+    Envia la posición de respuesta que queremos separar
+     */
+    public String[] setRespuestas(int posicion) {
+        String s1 = radioR[posicion];
+        return separar(s1, ",");//se separa por medio de una coma
+    }
+
+    public String[] setRespuestas2(int posicion) {
+        String s1 = radioR2[posicion];
+        String[] s2 = separar(s1, ",");
+        return s2;
+    }
+
+    public String[] setRespuestas3(int posicion) {
+        String s1 = radioR3[posicion];
+        String[] s2 = separar(s1, ",");
+        return s2;
+    }
+
+    public String[] setRespuestas4(int posicion) {
+        String s1 = radioR4[posicion];
+        String[] s2 = separar(s1, ",");
+        return s2;
+    }
+
+    public String[] setRespuestas5(int posicion) {
+        String s1 = radioR5[posicion];
+        String[] s2 = separar(s1, ",");
+        return s2;
+    }
+
+    /**
+     *
+     * @param cadena
+     * @param separador
+     * @return Separa la cadena por parámetros
+     */
+    public String[] separar(String cadena, String separador) {
+        StringTokenizer token = new StringTokenizer(cadena, separador);
+        String[] a = new String[3];//auxiliar para obtener los valores de acuerdo al número de respuestas
+        int i = 0;//sirve para moverse en el arreglo
+        while (token.hasMoreTokens()) {
+            a[i] = token.nextToken(); // obtenemos el token
+            i++;//incremento
+        }
+        return a;
+    }
+    
+    
+    /*
+    Arrelo de cadena con los tres cuentos */
+
+    private final String cuento[] = {
+        "\n\tLos lápcies de colores"
+        + "\n\nLos lápices de colores duermen acomodados. "
+        + "Uno al lado del otro, con nombre y bien afilados. Por suerte, "
+        + "llegó la hora de empezar a trabajar, pintemos muchos dibujos y"
+        + " así el cuaderno alegrar. Juan prefiere los lápices de color "
+        + "rojo y su hermana Rosita los prefiere de color amarillo, pero "
+        + "juntos se unen para crear grandes obras de arte pintando figuras geométricas.  ",
+        "\n      Los cinco sentidos del cuerpo humano"
+        + "\n\nLos seres humanos tenemos cinco sentidos: vista, oído, olfato, gusto y tacto.\n"
+        + "Tenemos sentido de la vista gracias a los ojos, que nos permiten ver todo lo que nos rodea y "
+        + "distinguir sus formas, colores, tamaños, si están lejos o cerca…\n"
+        + "A través del oído nos llegan los sonidos del exterior, como la música, el ruido de"
+        + " los coches o el canto de los pájaros.\n"
+        + "El olfato está en nuestra nariz; por ella se cuelan olores, a veces agradables como "
+        + "el que desprende un bizcocho recién horneado, y otros olores apestosos"
+        + " que nos resultan molestos.\n"
+        + "En nuestra boca se encuentra el sentido del gusto, que nos permite distinguir si"
+        + " un sabor es dulce, ácido, amargo, picante… y también si el alimento "
+        + "nos gusta o no.\n"
+        + "Por último, el sentido del tacto sirve para saber cómo son los objetos que tocamos"
+        + " y percibir algunas de sus cualidades, como, por ejemplo, si son suaves,"
+        + " rugosos, duros o blandos.",
+        "\n\tMozart, el músico genial"
+        + "\n\nMozart fue un músico extraordinario que nació en un país europeo llamado "
+        + "Austria hace poco más de 250 años.\n"
+        + "Desde muy chiquitín demostró un don especial para la música. Con solo cuatro años"
+        + " ya era capaz de componer como si fuera un músico adulto y tocaba"
+        + " instrumentos tan complicados como el teclado o el violín ¡Un auténtico niño prodigio!\n"
+        + "Su padre, que también era músico, se esforzó por enseñarle todo lo que sabía. "
+        + "Poco tiempo después lo llevó de viaje por Europa para que tocara ante "
+        + "los reyes y gobernantes más importantes de la época. Todos se quedaron "
+        + "asombrados al comprobar la genialidad del pequeño Mozart y le dedicaron "
+        + "miles de aplausos y alabanzas.\n"
+        + "Tras una infancia repleta de éxitos, Mozart se hizo mayor y siguió dedicándose "
+        + "a su gran pasión: la música. Trabajó toda la vida sin descanso y gracias "
+        + "a su enorme talento compuso grandes obras maestras.  Una de sus sinfonías"
+        + " más importante es Sinfonía ° 40."
+    };
+
+    /*
+    Recibimos una posición y retornamos la posición del cuento
+    */
+    public String getCuento(int parte) {
+        return cuento[parte];
+    }
 
     /**
      * Creates new form actividadComprension
@@ -32,21 +264,28 @@ public class ActividadComprension extends javax.swing.JFrame {
         // Inicia el timer
         timer.start();
 
-        cuentoArea.setText(m.getCuento(parte));
-        question.setText(u.getPregunta(posicion));
+        /*
+    * Llamo a los métodos get que envían el cuento y las preguntas con las opciones de respuesta
+         */
+        /**
+         * Asignar las opciones y al incio sea visible las preguntas, respuestas
+         * y cuento
+         */
+        cuentoArea.setText(getCuento(parte));
+        question.setText(getPregunta(posicion));
 
-        question.setText(u.getPregunta(posicion));
-        question2.setText(u.getPregunta2(posicion));
-        question3.setText(u.getPregunta3(posicion));
-        question4.setText(u.getPregunta4(posicion));
+        question.setText(getPregunta(posicion));
+        question2.setText(getPregunta2(posicion));
+        question3.setText(getPregunta3(posicion));
+        question4.setText(getPregunta4(posicion));
 
-        question5.setText(u.getPregunta5(posicion));
+        question5.setText(getPregunta5(posicion));
 
-        String[] a = u.setRespuestas(posicion);
-        String[] b = u.setRespuestas2(posicion);
-        String[] c = u.setRespuestas3(posicion);
-        String[] d = u.setRespuestas4(posicion);
-        String[] e = u.setRespuestas5(posicion);
+        String[] a = setRespuestas(posicion);
+        String[] b = setRespuestas2(posicion);
+        String[] c = setRespuestas3(posicion);
+        String[] d = setRespuestas4(posicion);
+        String[] e = setRespuestas5(posicion);
 
         buttonGroup1.clearSelection();
         buttonGroup2.clearSelection();
@@ -77,11 +316,9 @@ public class ActividadComprension extends javax.swing.JFrame {
         opc1.requestFocus();
         Terminar.setEnabled(false);
     }
-    int posicion = 0;
-    int parte = 0;
-    LogicaJuego u = new LogicaJuego();
-    Cuento m = new Cuento();
 
+    /*
+    Se crean objetos y se incializan las posibles respuestas*/
     Object[] select = {"", "", "", "", ""};
     Object[] select2 = {"", "", "", "", ""};
     Object[] select3 = {"", "", "", "", ""};
@@ -338,35 +575,63 @@ public class ActividadComprension extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     *
+     * Acciones que suceden cuando selecciona el botón siguiente
+     */
+
     private void responderPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responderPreguntasActionPerformed
+
+        /*
+        Valida que el bótón terminar no esté disponible hasta la última pregunta
+         */
         if (posicion == 1) {
             responderPreguntas.setEnabled(false);
             Terminar.setEnabled(true);
         }
 
+        /*
+        Valida que se acceda a los métodos por el número de veces que se puede
+        dar siguiente.
+        
+         */
         if (posicion < 3) {
-            posicion++;
-            parte++;
-            cuentoArea.setText(m.getCuento(parte));
-            question.setText(u.getPregunta(posicion));
-            question2.setText(u.getPregunta2(posicion));
-            question3.setText(u.getPregunta3(posicion));
-            question4.setText(u.getPregunta4(posicion));
+            posicion++;//aumenta la posición de las preguntas y respuestas
+            parte++;//aumenta el valor de la varible del cuento
 
-            question5.setText(u.getPregunta5(posicion));
+            /*
+            *Invoca los métodos y recibe la posición previamente instanciada 
+            * y asigna en el JFRAME el mensaje
+             */
+            cuentoArea.setText(getCuento(parte));
+            question.setText(getPregunta(posicion));
+            question2.setText(getPregunta2(posicion));
+            question3.setText(getPregunta3(posicion));
+            question4.setText(getPregunta4(posicion));
 
-            String[] a = u.setRespuestas(posicion);
-            String[] b = u.setRespuestas2(posicion);
-            String[] c = u.setRespuestas3(posicion);
-            String[] d = u.setRespuestas4(posicion);
-            String[] e = u.setRespuestas5(posicion);
+            question5.setText(getPregunta5(posicion));
 
+            /*
+            Obtenemos las respuestas
+             */
+            String[] a = setRespuestas(posicion);//Radio 1
+            String[] b = setRespuestas2(posicion); //Radio 2
+            String[] c = setRespuestas3(posicion); //Radio 3
+            String[] d = setRespuestas4(posicion); //Radio 3
+            String[] e = setRespuestas5(posicion); //Radio 3
+
+            /*
+            *Al momento de dar siguiente se eliminan las opciones seleccionadas
+             */
             buttonGroup1.clearSelection();
             buttonGroup2.clearSelection();
             buttonGroup3.clearSelection();
             buttonGroup4.clearSelection();
             buttonGroup5.clearSelection();
 
+            /**
+             * Asignamos el texto de las respuestas en los botones
+             */
             opc1.setText(a[0]);
             opc2.setText(a[1]);
             opc3.setText(a[2]);
@@ -387,59 +652,75 @@ public class ActividadComprension extends javax.swing.JFrame {
             opc14.setText(e[1]);
             opc15.setText(e[2]);
 
-            opc1.requestFocus();
+            opc1.requestFocus();//Al avanzar la respuesta
 
-        } else {
-            Toolkit.getDefaultToolkit().beep();
         }
 
 
     }//GEN-LAST:event_responderPreguntasActionPerformed
 
     private void opc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc3ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
+
         select[posicion] = opc3.getLabel();
+
+
     }//GEN-LAST:event_opc3ActionPerformed
 
     private void opc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc1ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select[posicion] = opc1.getLabel();
     }//GEN-LAST:event_opc1ActionPerformed
 
     private void opc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc2ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select[posicion] = opc2.getLabel();
     }//GEN-LAST:event_opc2ActionPerformed
 
+    /*
+    Botón que entrega el resultado
+     */
     private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
         // Detiene el timer
         timer.stop();
         int calificacion = 0;
 
-        for (int i = 0; i < 3; i++) {
-            if (select[i].equals(u.getRespuesta(i))) {
-                calificacion = calificacion + 1;
+        for (int i = 0; i < 3; i++) { //Itera desde el inicio hasta el número de cuentos
+            if (select[i].equals(getRespuesta(i))) {//compara la respuesta seleccionada y la respuesta correcta
+
+                calificacion++;//incrementa la calificación
 
             }
-            if (select2[i].equals(u.getRespuesta2(i))) {
-                calificacion = calificacion + 1;
+            if (select2[i].equals(getRespuesta2(i))) {
+                calificacion++;
             }
 
-            if (select3[i].equals(u.getRespuesta3(i))) {
-                calificacion = calificacion + 1;
+            if (select3[i].equals(getRespuesta3(i))) {
+
+                calificacion++;
 
             }
-            if (select4[i].equals(u.getRespuesta4(i))) {
-                calificacion = calificacion + 1;
+            if (select4[i].equals(getRespuesta4(i))) {
+
+                calificacion++;
 
             }
-            if (select5[i].equals(u.getRespuesta5(i))) {
-                calificacion = calificacion + 1;
+            if (select5[i].equals(getRespuesta5(i))) {
+                calificacion++;
 
             }
-            System.out.println("" + calificacion);
+        
         }
 
-        calificacion = calificacion * 2 / 3;
+        calificacion = calificacion * 2 / 3;//Promedia la calificación
 
-        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10");
+        JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion + "/10"); //Muestra la calificación
         this.setVisible(false);
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
@@ -453,11 +734,17 @@ public class ActividadComprension extends javax.swing.JFrame {
 
     private void opc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc4ActionPerformed
         // TODO add your handling code here:
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select2[posicion] = opc4.getLabel();
     }//GEN-LAST:event_opc4ActionPerformed
 
     private void opc5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc5ActionPerformed
         // TODO add your handling code here:
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select2[posicion] = opc5.getLabel();
     }//GEN-LAST:event_opc5ActionPerformed
 
@@ -468,11 +755,17 @@ public class ActividadComprension extends javax.swing.JFrame {
 
     private void opc8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc8ActionPerformed
         // TODO add your handling code here:
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select3[posicion] = opc8.getLabel();
     }//GEN-LAST:event_opc8ActionPerformed
 
     private void opc7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc7ActionPerformed
         // TODO add your handling code here:
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select3[posicion] = opc7.getLabel();
     }//GEN-LAST:event_opc7ActionPerformed
 
@@ -481,26 +774,44 @@ public class ActividadComprension extends javax.swing.JFrame {
     }//GEN-LAST:event_opc9ActionPerformed
 
     private void opc10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc10ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select4[posicion] = opc10.getLabel();
     }//GEN-LAST:event_opc10ActionPerformed
 
     private void opc11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc11ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select4[posicion] = opc11.getLabel();
     }//GEN-LAST:event_opc11ActionPerformed
 
     private void opc12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc12ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select4[posicion] = opc12.getLabel();
     }//GEN-LAST:event_opc12ActionPerformed
 
     private void opc13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc13ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select5[posicion] = opc13.getLabel();
     }//GEN-LAST:event_opc13ActionPerformed
 
     private void opc14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc14ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtenga la respuesta
+         */
         select5[posicion] = opc14.getLabel();
     }//GEN-LAST:event_opc14ActionPerformed
 
     private void opc15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc15ActionPerformed
+        /*
+       *Cuando se selecciona el botón en la posición obtiene la respuesta
+         */
         select5[posicion] = opc15.getLabel();
     }//GEN-LAST:event_opc15ActionPerformed
 
