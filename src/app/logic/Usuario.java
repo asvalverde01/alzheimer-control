@@ -330,6 +330,29 @@ public class Usuario {
     }
 
     /**
+     * Metodo que elimina el usuario de la base de datos
+     *
+     * @return Boolean true si se elimino correctamente
+     */
+    public boolean eliminarUsuarioDataBase() {
+        try {
+            // Elimina el usuario
+            PreparedStatement st = Main.getConnect().prepareStatement("DELETE FROM usuario WHERE cedula = ?");
+            st.setString(1, cedula);
+            st.executeUpdate();
+            // Elimina las actividades del usuario
+            st = Main.getConnect().prepareStatement("DELETE FROM actividad WHERE id = ?");
+            st.setString(1, cedula);
+            st.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Regresa los valores de usuario
      *
      * @return String info usuario

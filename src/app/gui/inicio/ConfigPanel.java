@@ -51,6 +51,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         avatarLogo = new javax.swing.JLabel();
         borrarButton = new javax.swing.JButton();
+        borrarUsuarioButton = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         usuarioLabel = new javax.swing.JLabel();
         usuarioLabel1 = new javax.swing.JLabel();
@@ -58,7 +59,10 @@ public class ConfigPanel extends javax.swing.JPanel {
         modificarField = new javax.swing.JTextField();
         filtrarBOX = new javax.swing.JComboBox<>();
         modificarButton = new javax.swing.JButton();
+        edadLabel1 = new javax.swing.JLabel();
         edadLabel3 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        edadLabel2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,33 +105,43 @@ public class ConfigPanel extends javax.swing.JPanel {
         estadoSQL.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         estadoSQL.setForeground(new java.awt.Color(0, 153, 0));
         estadoSQL.setText("---");
-        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 600, -1, -1));
+        bg.add(estadoSQL, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, -1, -1));
 
         estadoLabel.setBackground(new java.awt.Color(0, 0, 0));
         estadoLabel.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         estadoLabel.setForeground(new java.awt.Color(0, 0, 0));
         estadoLabel.setText("Estado de la conexión:");
-        bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, -1, -1));
+        bg.add(estadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
 
         edadLabel.setBackground(new java.awt.Color(51, 51, 51));
         edadLabel.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(51, 51, 51));
-        edadLabel.setText("Borrar todos los datos guardados");
-        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
+        edadLabel.setText("Borrar mis datos (usuario)");
+        bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
-        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 570, 20));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 570, 20));
         bg.add(avatarLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 70, 70));
 
         borrarButton.setBackground(new java.awt.Color(102, 0, 51));
         borrarButton.setForeground(new java.awt.Color(204, 204, 204));
-        borrarButton.setText("Borrar Datos");
+        borrarButton.setText("Borrar Base de datos");
         borrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 borrarButtonActionPerformed(evt);
             }
         });
-        bg.add(borrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 210, 30));
+        bg.add(borrarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 570, 210, 30));
+
+        borrarUsuarioButton.setBackground(new java.awt.Color(102, 0, 51));
+        borrarUsuarioButton.setForeground(new java.awt.Color(204, 204, 204));
+        borrarUsuarioButton.setText("Borrar Usuario");
+        borrarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarUsuarioButtonActionPerformed(evt);
+            }
+        });
+        bg.add(borrarUsuarioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 210, 30));
 
         jSeparator2.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
@@ -161,10 +175,25 @@ public class ConfigPanel extends javax.swing.JPanel {
         });
         bg.add(modificarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 100, 30));
 
+        edadLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        edadLabel1.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
+        edadLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        edadLabel1.setText("Administrador");
+        bg.add(edadLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, -1));
+
         edadLabel3.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         edadLabel3.setForeground(new java.awt.Color(51, 51, 51));
         edadLabel3.setText("Modificar usuario");
         bg.add(edadLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, 30));
+
+        jSeparator3.setBackground(new java.awt.Color(81, 3, 23));
+        bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 570, 20));
+
+        edadLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        edadLabel2.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
+        edadLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        edadLabel2.setText("Borrar todos los datos guardados");
+        bg.add(edadLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, -1, -1));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondo.setForeground(new java.awt.Color(51, 51, 51));
@@ -175,13 +204,28 @@ public class ConfigPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void borrarButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_borrarButtonActionPerformed
-        int confirmado = JOptionPane.showConfirmDialog(null, "¿Borrar todos los datos?", "Borrar", JOptionPane.YES_NO_OPTION);
+        // Solicita que se ingrese la clave admin para continuar
+        String clave;
+        try {
+            clave = JOptionPane.showInputDialog(null, "Ingrese la clave de administrador", "Clave", JOptionPane.QUESTION_MESSAGE);
+            if (clave.equals("admin")) {
+                int confirmado = JOptionPane.showConfirmDialog(null, "¿Borrar todos los datos?", "Borrar", JOptionPane.YES_NO_OPTION);
 
-        if (JOptionPane.OK_OPTION == confirmado) {
-            Main.eliminarDataBase();
-            JOptionPane.showMessageDialog(null, "Datos borrados correctamente", "Borrar Datos", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
+                if (JOptionPane.OK_OPTION == confirmado) {
+                    Main.eliminarDataBase();
+                    JOptionPane.showMessageDialog(null, "Datos borrados correctamente", "Borrar Datos", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Clave incorrecta", "Clave", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("No se ingreso nada");
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
         }
+
+
     }//GEN-LAST:event_borrarButtonActionPerformed
 
     private void modificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarButtonActionPerformed
@@ -195,6 +239,11 @@ public class ConfigPanel extends javax.swing.JPanel {
             if (nuevoValor.matches("[a-zA-Z]+")) {
                 boolean resultado = usuario.modificarInfoUsuario(filtro, nuevoValor);
                 if (resultado) {
+                    // Si filtro es etapa entonces se termina el programa
+                    if (filtro.equals("Etapa")) {
+                        JOptionPane.showMessageDialog(null, "Etapa modificada correctamente, abra nuevamente el programa", "Etapa", JOptionPane.INFORMATION_MESSAGE);
+                        System.exit(0);
+                    }
                     resultadoLabel.setText("Guardado");
                     resultadoLabel.setForeground(new java.awt.Color(0, 102, 51));
                 } else {
@@ -212,13 +261,29 @@ public class ConfigPanel extends javax.swing.JPanel {
         usuarioLabel.setText(usuario.toString());
     }//GEN-LAST:event_modificarButtonActionPerformed
 
+    private void borrarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarUsuarioButtonActionPerformed
+        int confirmado = JOptionPane.showConfirmDialog(null, "¿Borrar todos los datos del usuario?", "Borrar", JOptionPane.YES_NO_OPTION);
+
+        if (JOptionPane.OK_OPTION == confirmado) {
+            if (usuario.eliminarUsuarioDataBase()) {
+                JOptionPane.showMessageDialog(null, "Datos borrados correctamente", "Borrar Datos", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            } else {
+                JOptionPane.showMessageDialog(null, "Ha ocurrido algún error", "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_borrarUsuarioButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avatarLogo;
     private javax.swing.JPanel bg;
     private javax.swing.JLabel bienvenidaLabel;
     private javax.swing.JButton borrarButton;
+    private javax.swing.JButton borrarUsuarioButton;
     private javax.swing.JLabel edadLabel;
+    private javax.swing.JLabel edadLabel1;
+    private javax.swing.JLabel edadLabel2;
     private javax.swing.JLabel edadLabel3;
     private javax.swing.JLabel estadoLabel;
     private javax.swing.JLabel estadoSQL;
@@ -228,6 +293,7 @@ public class ConfigPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JButton modificarButton;
     private javax.swing.JTextField modificarField;
     private javax.swing.JLabel resultadoLabel;

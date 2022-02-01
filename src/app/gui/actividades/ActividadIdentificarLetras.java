@@ -28,6 +28,7 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     /-------------------------------------------------------------*/
     Timer timer;
     final int[] sec = {0};
+
     /**
      * Constructor que inicia el timer y muestra la primera imagen
      */
@@ -124,91 +125,99 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     int cont = 0;
     int calificacion = 0;
+
     /**
      * Método que modifica las imágenes y verifica la respuesta ingresada
-     * @param evt 
+     *
+     * @param evt
      */
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
         cont++;//Incrementa para que no se repitan las imágenes.
 
         letra1 = ingreseLetra.getText();
-        //If para modificar las imágenes una vez ingresada la respuesta.
-        if (cont == 0) {
-            Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
-            imagen.setIcon(icono1);
+        // Verifica que solamente hay letras en letra1
+        if (letra1.matches("[A-Z]+") || (letra1.matches("[a-z]+"))) {
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
+            //If para modificar las imágenes una vez ingresada la respuesta.
+            if (cont == 0) {
+                Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));
+                imagen.setIcon(icono1);
 
-        }
-        if (cont == 1) {
-            Icon icono2 = new ImageIcon(getClass().getResource("/imagen/letraCine.png"));
-            imagen.setIcon(icono2);
+            }
+            if (cont == 1) {
+                Icon icono2 = new ImageIcon(getClass().getResource("/imagen/letraCine.png"));
+                imagen.setIcon(icono2);
 
-        }
+            }
 
-        if (cont == 2) {
-            Icon icono3 = new ImageIcon(getClass().getResource("/imagen/Gato.jpg"));
-            imagen.setIcon(icono3);
-        }
+            if (cont == 2) {
+                Icon icono3 = new ImageIcon(getClass().getResource("/imagen/Gato.jpg"));
+                imagen.setIcon(icono3);
+            }
 
-        if (cont == 3) {
-            Icon icono4 = new ImageIcon(getClass().getResource("/imagen/letraFlor.png"));
-            imagen.setIcon(icono4);
+            if (cont == 3) {
+                Icon icono4 = new ImageIcon(getClass().getResource("/imagen/letraFlor.png"));
+                imagen.setIcon(icono4);
 
-        }
+            }
 
-        if (cont == 4) {
-            Icon icono5 = new ImageIcon(getClass().getResource("/imagen/letraAvion.png"));
-            imagen.setIcon(icono5);
+            if (cont == 4) {
+                Icon icono5 = new ImageIcon(getClass().getResource("/imagen/letraAvion.png"));
+                imagen.setIcon(icono5);
 
-        }
-        //Verifica que el atributo de n1,n2,n3,n4 y n5 sea igual a la letra ingresada por usuario
-        if (n1.equals(letra1)||"M".equals(letra1) && (cont == 1)) {
+            }
+            //Verifica que el atributo de n1,n2,n3,n4 y n5 sea igual a la letra ingresada por usuario
+            if (n1.equals(letra1) || "M".equals(letra1) && (cont == 1)) {
 
-            ingreseLetra.setText("");
-            calificacion++;
+                ingreseLetra.setText("");
+                calificacion++;
 
+            } else {
+                ingreseLetra.setText("");
+
+            }
+
+            if (n2.equals(letra1) || "C".equals(letra1) && (cont == 2)) {
+
+                ingreseLetra.setText("");
+                calificacion++;
+
+            }
+
+            if (n3.equals(letra1) || "G".equals(letra1) && (cont == 3)) {
+
+                ingreseLetra.setText("");
+                calificacion++;
+            }
+
+            if (n4.equals(letra1) || "F".equals(letra1) && (cont == 4)) {
+
+                ingreseLetra.setText("");
+                calificacion++;
+            }
+
+            if (n5.equals(letra1) || "A".equals(letra1) && (cont == 5)) {
+
+                ingreseLetra.setText("");
+                calificacion++;
+            }
+
+            if (cont == 5) {
+                listo.setEnabled(false);//Bloquea el boton de lista una vez acaba las imágenes
+                // Detiene el timer
+                timer.stop();
+                JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion * 2 + "/10");
+                this.setVisible(false);
+                // SQL insertar en la base de datos
+                // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+                ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar Letras", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
+                // Invoca al metodo que registra los datos en la base de datos
+                registro.registrarDataBase();
+                //ResultadoActividad resultado = new ResultadoActividad(atributos);
+            }
         } else {
-            ingreseLetra.setText("");
-
-        }
-
-        if (n2.equals(letra1)||"C".equals(letra1)  && (cont == 2)) {
-
-            ingreseLetra.setText("");
-            calificacion++;
-
-        }
-
-        if (n3.equals(letra1)||"G".equals(letra1)  && (cont == 3)) {
-
-            ingreseLetra.setText("");
-            calificacion++;
-        }
-
-        if (n4.equals(letra1)||"F".equals(letra1)  && (cont == 4)) {
-
-            ingreseLetra.setText("");
-            calificacion++;
-        }
-
-        if (n5.equals(letra1)||"A".equals(letra1)  && (cont == 5)) {
-
-            ingreseLetra.setText("");
-            calificacion++;
-        }
-
-        if (cont == 5) {
-            listo.setEnabled(false);//Bloquea el boton de lista una vez acaba las imágenes
-            // Detiene el timer
-            timer.stop();
-            JOptionPane.showMessageDialog(null, "Tu calificación es " + calificacion * 2 + "/10");
-            this.setVisible(false);
-            // SQL insertar en la base de datos
-            // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar Letras", calificacion, calificacion, new Fecha(), "Moderada", sec[0]);
-            // Invoca al metodo que registra los datos en la base de datos
-            registro.registrarDataBase();
-            //ResultadoActividad resultado = new ResultadoActividad(atributos);
+            JOptionPane.showMessageDialog(null, "Solo se permiten letras");
 
         }
 

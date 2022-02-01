@@ -2,7 +2,7 @@ package app.gui.actividades;
 
 import app.logic.Usuario;
 
-public class ActividadesAvanzadasPanel extends javax.swing.JPanel {
+public class ActividadesTodasPanel extends javax.swing.JPanel {
 
     Usuario usuario;
 
@@ -11,7 +11,7 @@ public class ActividadesAvanzadasPanel extends javax.swing.JPanel {
      *
      * @param usuario
      */
-    public ActividadesAvanzadasPanel(Usuario usuario) {
+    public ActividadesTodasPanel(Usuario usuario) {
         initComponents();
         this.usuario = usuario;
     }
@@ -394,8 +394,8 @@ public class ActividadesAvanzadasPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel2.setText("Se recomiendan todas las actividades y visitar Recomendaciones");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        jLabel2.setText("Mostrando todas las actividades disponibles");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

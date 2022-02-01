@@ -41,6 +41,12 @@ public final class MainScreen extends javax.swing.JFrame {
         this.usuario = usuario;
         initComponents();
 
+        // Si la etapa es 2 entonces el boton actividadesButton y statsButton son deshabilitados
+        if (usuario.getEtapa() == 2) {
+            actividadesButton.setEnabled(false);
+            statsButton.setEnabled(false);
+        }
+
         // Inicializa los paneles
         inicializarPaneles(usuario);
 

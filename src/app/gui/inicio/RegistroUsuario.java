@@ -2,19 +2,18 @@ package app.gui.inicio;
 
 import app.logic.Fecha;
 import app.logic.Usuario;
-import java.util.List;
 
 import javax.swing.*;
+import java.util.List;
 
 public class RegistroUsuario extends javax.swing.JFrame {
 
-    Usuario usuario = new Usuario();
-    boolean avatarSeleccionado = false;
-    int avatar;
     // Atributo de lista
     private static List<Usuario> usuarios;
-
-    // Variables declaration - do not modify                     
+    boolean avatarSeleccionado = false;
+    private Usuario usuario = new Usuario();
+    private int avatar;
+    // Variables declaration - do not modify
     private javax.swing.JSpinner anioSpinner;
     private javax.swing.JSpinner diaSpinner;
     private javax.swing.JButton jButton1;
@@ -410,8 +409,17 @@ public class RegistroUsuario extends javax.swing.JFrame {
             correctoCampos = true;
         }
 
+        // Verifica que el año ingresado sea valido y la edad del usuairo sea mayor a 30
         if (anio >= 1925 || anio <= 2022) {
-            correctoCampos = true;
+            if (((new Fecha().getAnio()) - anio) > 30) {
+                correctoCampos = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encuentra en el rango de edad (30 años)");
+                correctoCampos = false;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El año ingresado se encuentra fuera del rango permitido");
+            correctoCampos = false;
         }
 
         if (anio < 1925 || anio > 2022 && correctoCampos) {
@@ -583,12 +591,52 @@ public class RegistroUsuario extends javax.swing.JFrame {
      * @return boolean true si es una cédula válida, false en caso de ser
      * inválida
      */
-    private boolean validarCedula(String cedula) {
+    private boolean validarCedula(String document) {
+        byte sum = 0;
+        try {
+            if (document.trim().length() != 10) {
+                JOptionPane.showMessageDialog(null, "Cédula debe constar de 10 dígitos");
+                return false;
+            }
+            String[] data = document.split("");
+            byte verifier = Byte.parseByte(data[0] + data[1]);
+            if (verifier < 1 || verifier > 24) {
+                JOptionPane.showMessageDialog(null, "Formato de cédula inválido");
+                return false;
+            }
+            byte[] digits = new byte[data.length];
+            for (byte i = 0; i < digits.length; i++) {
+                digits[i] = Byte.parseByte(data[i]);
+            }
+            if (digits[2] > 6) {
+                JOptionPane.showMessageDialog(null, "Formato de cédula inválido");
+                return false;
+            }
+            for (byte i = 0; i < digits.length - 1; i++) {
+                if (i % 2 == 0) {
+                    verifier = (byte) (digits[i] * 2);
+                    if (verifier > 9) {
+                        verifier = (byte) (verifier - 9);
+                    }
+                } else {
+                    verifier = (byte) (digits[i] * 1);
+                }
+                sum = (byte) (sum + verifier);
+            }
+            if ((sum - (sum % 10) + 10 - sum) == digits[9]) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(null, "Formato de cédula inválido");
+        return false;
+        /*
         // Verifica que la cedula sea valida
         // Verifica que solamente hayan digitos en el string cedula
-        if (cedula.matches("[0-9]+")) {
+        if (cedula.length() == 10) {
             // Verifica que el string tenga 10 digitos
-            if (cedula.length() == 10) {
+            if (cedula.matches("[0-9]+")) {
                 // Verifica que la suma de los 2 primeros digitos esten entre 1 y 24
                 if (Integer.parseInt(cedula.substring(0, 2)) >= 1 && Integer.parseInt(cedula.substring(0, 2)) <= 24) {
                     //Verifica que el tercer digito esten entre 0 y 6
@@ -602,13 +650,15 @@ public class RegistroUsuario extends javax.swing.JFrame {
                     return false;
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Cédula debe constar de 10 dígitos");
+                JOptionPane.showMessageDialog(null, "Cédula inválida. Ingrese solamente dígitos");
                 return false;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cédula inválida. Ingrese solamente dígitos");
+            JOptionPane.showMessageDialog(null, "Cédula debe constar de 10 dígitos");
             return false;
         }
         return false;
+    }
+         */
     }
 }

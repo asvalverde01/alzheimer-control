@@ -4,6 +4,7 @@ import app.logic.Fecha;
 import app.logic.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class InicioPanel extends javax.swing.JPanel {
 
@@ -25,6 +26,12 @@ public class InicioPanel extends javax.swing.JPanel {
         actualizarFecha(actual);
         this.usuario = usuario;
         setInformation();
+        
+        // Si la etapa es 2 entonces se muestra un mensaje
+        if (usuario.getEtapa() == 2) {
+            msg1.setText("Por ser etapa avanzada, las actividades y resultados han sido deshabilidatos");
+            msg2.setText("Puede cambiar la etapa en la selección configurar");
+        }
 
     }
 
@@ -46,6 +53,8 @@ public class InicioPanel extends javax.swing.JPanel {
         apellidoLabel = new javax.swing.JLabel();
         fechaNacLabel = new javax.swing.JLabel();
         edadLabel = new javax.swing.JLabel();
+        msg1 = new javax.swing.JLabel();
+        msg2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         avatarLogo = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
@@ -112,6 +121,14 @@ public class InicioPanel extends javax.swing.JPanel {
         edadLabel.setText("Edad");
         bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, -1));
 
+        msg1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        msg1.setForeground(new java.awt.Color(51, 0, 102));
+        bg.add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
+
+        msg2.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        msg2.setForeground(new java.awt.Color(0, 0, 102));
+        bg.add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
+
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 570, 20));
         bg.add(avatarLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 70, 70));
@@ -136,6 +153,8 @@ public class InicioPanel extends javax.swing.JPanel {
     private javax.swing.JLabel fondo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel msg1;
+    private javax.swing.JLabel msg2;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JLabel text1Label;
     // End of variables declaration//GEN-END:variables

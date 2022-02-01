@@ -6,8 +6,8 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public class ActividadesPanel extends javax.swing.JPanel {
 
-    Usuario usuario = null;
-    int mostrando = 0;
+    private Usuario usuario = null;
+    private int mostrando = 0;
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
@@ -38,11 +38,10 @@ public class ActividadesPanel extends javax.swing.JPanel {
             showPanel(acModeradas);
         } else {
             // Muestra un panel en el panel contenido
-            ActividadesAvanzadasPanel acAvanzadas = new ActividadesAvanzadasPanel(usuario);
+            ActividadesTodasPanel acAvanzadas = new ActividadesTodasPanel(usuario);
             jButton4.setText("Mostrar actividades de la etapa Avanzada");
             showPanel(acAvanzadas);
         }
-
     }
 
     /**
@@ -58,6 +57,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         txt1 = new javax.swing.JLabel();
         etapaLabel = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         contActv = new javax.swing.JPanel();
         fondoLabel = new javax.swing.JLabel();
@@ -103,6 +103,19 @@ public class ActividadesPanel extends javax.swing.JPanel {
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 700, 60));
 
+        jButton5.setBackground(new java.awt.Color(255, 153, 51));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(51, 51, 51));
+        jButton5.setText("Todas las actividades");
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        bg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, -1, 40));
+
         jButton4.setBackground(new java.awt.Color(0, 255, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(51, 51, 51));
@@ -114,7 +127,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        bg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, 40));
+        bg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, -1, 40));
 
         contActv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -158,6 +171,11 @@ public class ActividadesPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ActividadesTodasPanel acTodas = new ActividadesTodasPanel(usuario);
+        showPanel(acTodas);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
@@ -165,6 +183,7 @@ public class ActividadesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel etapaLabel;
     private javax.swing.JLabel fondoLabel;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel txt1;
     // End of variables declaration//GEN-END:variables

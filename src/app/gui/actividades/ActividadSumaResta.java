@@ -39,7 +39,7 @@ public class ActividadSumaResta extends javax.swing.JFrame {
         this.respuestaOp = respuestaOp;
     }
     /**
-     * Método que modifica RespuestaOp invocando a generarNuevaOp.
+     * Constructor  que modifica RespuestaOp invocando a generarNuevaOp.
      */
     public ActividadSumaResta() {//constructor
         initComponents();
@@ -170,27 +170,32 @@ public class ActividadSumaResta extends javax.swing.JFrame {
      */
     private void comprobar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprobar1ActionPerformed
         //Verifica si la respuesta ingresada es la misma que respuestaOp.
-        if (ingreseSuma1.getText().equals(String.valueOf(getRespuestaOp()))) {
-            mostrarMensaje.setText(String.format("Correcto :)"));
-            puntaje++;
+        if (ingreseSuma1.getText().matches("[0-9]+")){
+            if (ingreseSuma1.getText().equals(String.valueOf(getRespuestaOp()))) {
+                mostrarMensaje.setText(String.format("Correcto :)"));
+                puntaje++;
+            } else {
+                mostrarMensaje.setText(String.format("Incorrecto :("));
+            }
+            int respuesta = generarNuevaOp();
+            setRespuestaOp(respuesta);
+            contador++;
+            ingreseSuma1.setText("");
+            if (contador == 10) {
+                // Detiene el timer
+                timer.stop();
+                JOptionPane.showMessageDialog(null, "Tu calificación es " + puntaje + "/10");
+                this.setVisible(false);
+                // SQL insertar en la base de datos
+                // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
+                ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Suma Resta", puntaje, puntaje, new Fecha(), "Leve", sec[0]);
+                // Invoca al metodo que registra los datos en la base de datos
+                registro.registrarDataBase();
+            }
         } else {
-            mostrarMensaje.setText(String.format("Incorrecto :("));
+            JOptionPane.showMessageDialog(null, "Ingrese un número");
         }
-        int respuesta = generarNuevaOp();
-        setRespuestaOp(respuesta);
-        contador++;
-        ingreseSuma1.setText("");
-        if (contador == 10) {
-            // Detiene el timer
-            timer.stop();
-            JOptionPane.showMessageDialog(null, "Tu calificación es " + puntaje + "/10");
-            this.setVisible(false);
-            // SQL insertar en la base de datos
-            // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
-            ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Suma Resta", puntaje, puntaje, new Fecha(), "Leve", sec[0]);
-            // Invoca al metodo que registra los datos en la base de datos
-            registro.registrarDataBase();
-        }
+
     }//GEN-LAST:event_comprobar1ActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
