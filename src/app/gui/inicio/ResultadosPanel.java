@@ -8,9 +8,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class ResultadosPanel extends javax.swing.JPanel {
 
-    Fecha actual;
-    Usuario usuario;
-    DefaultTableModel model;
+    private final Fecha actual;
+    private Usuario usuario;
+    private DefaultTableModel model;
 
     /**
      * Creates new form inicioPanel
@@ -150,23 +150,25 @@ public class ResultadosPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
+        // Saca el objeto seleccionado del menu desplegable y lo almacena como String en filtro
         String filtro = filtrarBOX.getSelectedItem().toString();
 
-        // Limpia los contenidos de la tabla
+        // Crea la tabla y obtiene el modelo
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        // Limpia los contenidos de la tabla
         model.setRowCount(0);
 
+        // Invoca a la funcion buscarResultadoActividad en usuario enviando el filtro por el cual quiero buscar
+        // Como resultado obtiene una lista de ResultadoActividad el cual se almacena en listaResultados
         List<ResultadoActividad> listaResultados = usuario.buscarResultadoActividad(filtro);
 
-        // se recorre la lista de resultados e inserta los valores en la tabla
+        // se recorre la lista de resultados e inserta los valores en la tabla fila por fila
         listaResultados.forEach(resultadoActividad -> {
             model.addRow(new Object[]{resultadoActividad.getNombre(), resultadoActividad.getEtapa(), resultadoActividad.getAciertos(), resultadoActividad.getSegundos(), resultadoActividad.getFecha().getDia(), resultadoActividad.getFecha().getMesString()});
         });
     }//GEN-LAST:event_buscarButtonActionPerformed
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;

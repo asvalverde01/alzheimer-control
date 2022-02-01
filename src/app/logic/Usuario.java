@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
-
-    public Fecha fechaNacimiento;
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
@@ -19,7 +17,8 @@ public class Usuario {
     private String cedula;
     private int avatar;
     private int etapa;
-    // Lista de ResultadoActividad
+    private Fecha fechaNacimiento;
+    // Lista de ResultadoActividad (Almacena una lista con los resultados de las actividades realizadas por el usuario)
     private List<ResultadoActividad> listaResultado;
 
 
@@ -179,26 +178,10 @@ public class Usuario {
         }
     }
 
-    /**
-     * Regresa la lista de resultados de las actividades
-     *
-     * @return List<ResultadoActividad> listaResultado
-     */
-    public List<ResultadoActividad> getListaResultado() {
-        return listaResultado;
-    }
 
     /*-------------------------------------------------------------
     /Métodos capa de negocio
     /-------------------------------------------------------------*/
-    /**
-     * Asigna una listaResultado
-     *
-     * @param listaResultado
-     */
-    public void setListaResultado(List<ResultadoActividad> listaResultado) {
-        this.listaResultado = listaResultado;
-    }
 
     /**
      * Recibe el tipo de argumento por el cual se quieren filtrar las busquedas
@@ -211,6 +194,7 @@ public class Usuario {
         listaResultado = new ArrayList<>();
 
         try {
+            // Objeto de una orden SQL
             PreparedStatement st = null;
             // Segun el tipo seleccionado se busca en la base de datos
             try {
@@ -238,10 +222,14 @@ public class Usuario {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
 
+            // Ejecuta la orden y la guarda en modo de tabla
             ResultSet rs = st.executeQuery();
 
+            // Mientras hayan filas en la tabla rs
             while (rs.next()) {
                 String cedulaRe = rs.getString("id");
                 String nombreRe = rs.getString("nombre");
@@ -261,8 +249,10 @@ public class Usuario {
             }
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        // regresa la lista
+        // regresa la lista de resultados con los valores de la busqueda
         return listaResultado;
     }
 
@@ -271,7 +261,7 @@ public class Usuario {
      *
      * @param tipo String tipo de atributo
      * @param nuevo String nuevo valor a cambiar
-     * @return Boolean true si se modifico correctamente
+     * @return Boolean true si se modifico correctamente false si no
      */
     public boolean modificarInfoUsuario(String tipo, String nuevo) {
         // Modifica el atributo seleccionado en la base de datos
@@ -291,7 +281,7 @@ public class Usuario {
                     apellido = nuevo;
                     break;
                 case "Etapa":
-                    // Verifica que el nuevo valor sea valido "Leve" o "Moderada"
+                    // Verifica que el nuevo valor sea valido "Leve" , "Moderada" o "Avanzada"
                     if (nuevo.equals("Leve") || nuevo.equals("Moderada") || nuevo.equals("Avanzada")) {
                         int nuevoValor;
                         switch (nuevo) {
@@ -310,7 +300,7 @@ public class Usuario {
                         st.setString(2, cedula);
                         etapa = nuevoValor;
                     } else {
-                        JOptionPane.showMessageDialog(null, "Ingrese solamente \"Leve\" o \"Moderada\"");
+                        JOptionPane.showMessageDialog(null, "Ingrese solamente \"Leve\" - \"Moderada\" - \"Avanzada\"");
                         return false;
                     }
                     break;
@@ -318,6 +308,7 @@ public class Usuario {
             // Ejecuta la consulta
             try {
                 assert st != null;
+                // Ejecuta la consulta SQL
                 st.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -325,6 +316,8 @@ public class Usuario {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         return true;
     }
@@ -339,10 +332,12 @@ public class Usuario {
             // Elimina el usuario
             PreparedStatement st = Main.getConnect().prepareStatement("DELETE FROM usuario WHERE cedula = ?");
             st.setString(1, cedula);
+            // Ejecuta la consulta SQL
             st.executeUpdate();
             // Elimina las actividades del usuario
             st = Main.getConnect().prepareStatement("DELETE FROM actividad WHERE id = ?");
             st.setString(1, cedula);
+            // Ejecuta la consulta SQL
             st.executeUpdate();
 
         } catch (SQLException e) {
@@ -359,8 +354,6 @@ public class Usuario {
      */
     @Override
     public String toString() {
-        String usuarioString = cedula + "      " + nombre + "       " + apellido + "          " + getEdad() + "     " + getEtapaUsuario();
-        return usuarioString;
+        return cedula + "      " + nombre + "       " + apellido + "          " + getEdad() + "     " + getEtapaUsuario();
     }
-
 }

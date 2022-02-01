@@ -376,8 +376,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
 
     private void opci5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci5ActionPerformed
         //Si el botón es seleccionado obtiene la respuesta
-        sonido.stop();
-        sonido2.stop();
+        
         selectSonido[orden2] = opci5.getLabel();
 
         opci2.setEnabled(false);//se inhabilitan el resto de opciones de respuesta
@@ -387,7 +386,6 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     }//GEN-LAST:event_opci5ActionPerformed
     int cont1 = 0;
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
-
         play.setEnabled(true);
         cont1++;//incrementa el contador
 

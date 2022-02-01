@@ -13,9 +13,9 @@ import java.util.List;
 public class Main {
 
     // Direccion de la base de datos
-    static String url = "jdbc:sqlite:appdata.sqlite";
+    public static String url = "jdbc:sqlite:appdata.sqlite";
     // Objeto de conección con la base SQLite
-    static Connection connect;
+    public static Connection connect;
     // Indica si existe coneccion con base de datos
     public static boolean conectado = false;
 
