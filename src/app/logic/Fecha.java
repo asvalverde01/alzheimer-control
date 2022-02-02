@@ -3,6 +3,11 @@ package app.logic;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ *  Programa BrainUP
+ *  Clase Fecha 
+ * @author Valverde, Vinueza, Vintimilla
+ */
 public final class Fecha {
 
     /*-------------------------------------------------------------

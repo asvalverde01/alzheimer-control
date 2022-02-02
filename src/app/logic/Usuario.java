@@ -8,6 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Programa BrainUP
+ *  Clase Usuario
+ * @author Valverde, Vinueza, Vintimilla
+ */
 public class Usuario {
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)

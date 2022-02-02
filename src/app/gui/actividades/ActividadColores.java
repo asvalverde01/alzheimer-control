@@ -23,8 +23,7 @@ public class ActividadColores extends javax.swing.JFrame {
      Creo objetos de imagen y posición
      
      */
-    private Icon icono = new ImageIcon();
-    private Object[] selectColor = {"", "", "", "", "", ""};
+    private  Object[] selectColor = {"", "", "", "", "", ""};
 
     /*
     * Arreglo de cadena con la respuesta de los colores
@@ -47,6 +46,7 @@ public class ActividadColores extends javax.swing.JFrame {
      *
      * @param orden Método get que recibe posición y retorna la posición de la
      * respuesta
+     * @return respuesta
      */
     public String getColor(int orden) {
         return respuestaColor[orden];
@@ -56,6 +56,7 @@ public class ActividadColores extends javax.swing.JFrame {
      *
      * @param orden recibe una poisición y de acuerdo al radio de respuestas
      * separa la respuesta del arreglo cadena
+     * @return String s2
      */
     public String[] setRespuestaColor(int orden) {
         String s1 = radioRC[orden];
@@ -67,6 +68,7 @@ public class ActividadColores extends javax.swing.JFrame {
      *
      * @param cadena
      * @param separador Método que sirve para separar el arreglo de cadenas
+     * @return String a
      */
     public String[] separar2(String cadena, String separador) {
         StringTokenizer token = new StringTokenizer(cadena, separador);//auxiliar para obtener los valores de acuerdo al número de respuestas
@@ -149,9 +151,9 @@ public class ActividadColores extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 22)); // NOI18N
         jLabel3.setText("¿De qué color es la siguiente figura?");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         opcion1.setBackground(java.awt.Color.pink);
         opcion1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
@@ -220,7 +222,7 @@ public class ActividadColores extends javax.swing.JFrame {
                 listoActionPerformed(evt);
             }
         });
-        jPanel1.add(listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 70, 40));
+        jPanel1.add(listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 120, 40));
 
         javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
         color.setLayout(colorLayout);
@@ -242,7 +244,7 @@ public class ActividadColores extends javax.swing.JFrame {
                 finalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 80, 40));
+        jPanel1.add(finalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 130, 40));
 
         closeButton.setBackground(new java.awt.Color(255, 51, 51));
         closeButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

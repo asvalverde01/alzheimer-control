@@ -10,18 +10,34 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Programa BrainUP
+ *  Clase Main. Se encarga de empezar el programa verificando si existe una base de datos
+ *  Se encarga de las conexiones y administración de la base de datos
+ * @author Valverde, Vinueza, Vintimilla
+ */
 public class Main {
 
+    /*-------------------------------------------------------------
+    /Atributos de la clase Main :)
+    /-------------------------------------------------------------*/
     // Direccion de la base de datos
+    // Atributo publico pues permite a otras clases accceder a la ubicación de la base de datos
     public static String url = "jdbc:sqlite:appdata.sqlite";
     // Objeto de conección con la base SQLite
+    // Atributo público pues es usado por otras clases para realizar conexiones y peticiones SQL
     public static Connection connect;
     // Indica si existe coneccion con base de datos
-    public static boolean conectado = false;
+    // Permite a otras clases conocer si la conexión con la base de datos existe
+    private static boolean conectado = false;
 
+    /**
+     * Inicializa el programa
+     * @param args 
+     */
     public static void main(String[] args) {
         /*-------------------------------------------------------------
-        /Atributos de la clase Main
+        /Atributos 
         /-------------------------------------------------------------*/
         // Lista de usuarios registrados
         List<Usuario> usuarios = new ArrayList<>();
@@ -49,6 +65,10 @@ public class Main {
         }
     }
 
+    
+    /*-------------------------------------------------------------
+    /Métodos get y set de la clase Main
+    /-------------------------------------------------------------*/
     public static void setConectado(boolean conectado) {
         Main.conectado = conectado;
     }
@@ -61,6 +81,11 @@ public class Main {
         return conectado;
     }
 
+    /**
+     * Método que crea una base de datos.
+     * Crea la tabla usuario y actividad
+     * @return true si se ha podido crear a la base de datos
+     */
     public static boolean crearBaseDatos() {
         try {
             connect = DriverManager.getConnection(url);
@@ -100,10 +125,14 @@ public class Main {
         return true;
     }
 
+    /**
+     *  Método que conecta el programa con la base de datos 
+     * @return true si se ha podido conectar a la base de datos
+     */
     public static boolean conectarBaseDatos() {
         try {
+            // Guarda en cconnect la conexión 
             connect = DriverManager.getConnection(url);
-            System.out.println("conectando");
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
             return false;
@@ -112,15 +141,12 @@ public class Main {
         return true;
     }
 
-    public static void cerrarConexion() {
-        try {
-            connect.close();
-            JOptionPane.showMessageDialog(null, "Cerrado");
-        } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage());
-        }
-    }
 
+    /**
+     * Método que elimina toda la base de datos. 
+     * Elimina el archivo en el cual se almacena toda la información
+     * @return true si se ha eliminado la base de datos
+     */
     public static boolean eliminarDataBase() {
         try {
             // closes the database file

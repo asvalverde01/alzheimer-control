@@ -45,6 +45,7 @@ public class ResultadosPanel extends javax.swing.JPanel {
         buscarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jSeparator2 = new javax.swing.JSeparator();
         fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,10 +90,10 @@ public class ResultadosPanel extends javax.swing.JPanel {
         bg.add(edadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, 40));
 
         jSeparator1.setBackground(new java.awt.Color(81, 3, 23));
-        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 570, 20));
 
         filtrarBOX.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Leve", "Moderada", "Hoy", "Suma Resta", "Comprensión", "Memoria", "Identificar Letras", "Reconocer sonido", "Identificar colores" }));
-        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 210, 40));
+        bg.add(filtrarBOX, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 210, -1));
 
         buscarButton.setBackground(new java.awt.Color(153, 0, 204));
         buscarButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -139,7 +140,10 @@ public class ResultadosPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 570, 270));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 570, 300));
+
+        jSeparator2.setBackground(new java.awt.Color(81, 3, 23));
+        bg.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 570, 20));
 
         fondo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         fondo.setForeground(new java.awt.Color(51, 51, 51));
@@ -185,6 +189,7 @@ public class ResultadosPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 

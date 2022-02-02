@@ -12,7 +12,6 @@ public class ActividadSumaResta extends javax.swing.JFrame {
     /*-------------------------------------------------------------
     /Atributos para actividad SUMA Y RESTA
     /-------------------------------------------------------------*/
-    private String respuesta1;
     private int respuestaOp;
     private int puntaje;
     private int contador;

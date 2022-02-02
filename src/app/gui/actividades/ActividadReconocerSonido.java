@@ -139,7 +139,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
     }
 
     //Se crean objetos y se incializan posibles respuestas
-    Object[] selectSonido = {"", "", "", "", ""};
+    private Object[] selectSonido = {"", "", "", "", ""};
 
     /**
      * This method is called from within the constructor to initialize the form.

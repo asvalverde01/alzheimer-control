@@ -11,7 +11,7 @@ public class ConfigPanel extends javax.swing.JPanel {
 
     private Fecha actual;
     private Usuario usuario = null;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JSpinner anioSpinner;
     private javax.swing.JLabel avatarLogo;
     private javax.swing.JPanel bg;
@@ -310,7 +310,7 @@ public class ConfigPanel extends javax.swing.JPanel {
                     modificarField.setText("");
                 }
             } else {
-                resultadoLabel.setText("Error al guardar");
+                resultadoLabel.setText("Error");
                 resultadoLabel.setForeground(new java.awt.Color(204, 0, 51));
                 JOptionPane.showMessageDialog(null, "Solo se permiten letras", "Error", JOptionPane.ERROR_MESSAGE);
                 modificarField.setText("");
@@ -359,7 +359,7 @@ public class ConfigPanel extends javax.swing.JPanel {
                     resultadoLabel.setText("Guardado");
                     resultadoLabel.setForeground(new java.awt.Color(0, 102, 51));
                 } else {
-                    resultadoLabel.setText("Error al guardar");
+                    resultadoLabel.setText("Error");
                     resultadoLabel.setForeground(new java.awt.Color(204, 0, 51));
                 }
             } else {
@@ -370,7 +370,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_modificarButton1ActionPerformed
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 
     private void actualizarFecha(Fecha actual) {
         fechaLabel.setText("Hoy es " + actual.getDia() + " de " + actual.getMesString() + " del año " + actual.getAnio() + " ");

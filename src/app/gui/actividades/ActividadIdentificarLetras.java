@@ -16,8 +16,6 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
     /Atributos para actividad IDENTIFICAR LETRAS
     /-------------------------------------------------------------*/
     private String letra1;
-    private String letra2;
-    private String letra3;
     private final String n1 = "m";
     private final String n2 = "c";
     private final String n3 = "g";
@@ -71,23 +69,25 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("¿Con qué letra empieza la siguiente imagen?");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         listo.setBackground(new java.awt.Color(102, 0, 102));
         listo.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         listo.setForeground(new java.awt.Color(255, 255, 255));
         listo.setText("listo");
+        listo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         listo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listoActionPerformed(evt);
             }
         });
-        jPanel1.add(listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 150, -1));
+        jPanel1.add(listo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 150, 40));
 
         ingreseLetra.setBackground(new java.awt.Color(204, 204, 255));
-        ingreseLetra.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        ingreseLetra.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 20)); // NOI18N
         jPanel1.add(ingreseLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 70, 50));
         jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 190, 120));
 
@@ -132,11 +132,10 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
      */
     private void listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listoActionPerformed
 
-        cont++;//Incrementa para que no se repitan las imágenes.
-
         letra1 = ingreseLetra.getText();
         // Verifica que solamente hay letras en letra1
         if (letra1.matches("[A-Z]+") || (letra1.matches("[a-z]+"))) {
+            cont++;//Incrementa para que no se repitan las imágenes.
             //If para modificar las imágenes una vez ingresada la respuesta.
             if (cont == 0) {
                 Icon icono1 = new ImageIcon(getClass().getResource("/imagen/letraMariposa.png"));

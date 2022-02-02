@@ -5,6 +5,11 @@ import app.logic.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+/**
+ *  Programa BrainUP
+ *  InicioPanel permite entrar y registrar
+ * @author Valverde, Vinueza, Vintimilla
+ */
 public class InicioPanel extends javax.swing.JPanel {
 
     private Usuario usuario;
@@ -94,7 +99,7 @@ public class InicioPanel extends javax.swing.JPanel {
         bg.add(bienvenidaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
         text1Label.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
-        text1Label.setForeground(new java.awt.Color(51, 51, 51));
+        text1Label.setForeground(new java.awt.Color(0, 51, 204));
         text1Label.setText("Recordemos");
         text1Label.setToolTipText("");
         bg.add(text1Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
@@ -121,9 +126,10 @@ public class InicioPanel extends javax.swing.JPanel {
 
         msg1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         msg1.setForeground(new java.awt.Color(51, 0, 102));
+        msg1.setText("Ve al apartado actividades y empieza a ejercitar tu memoria");
         bg.add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, -1));
 
-        msg2.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        msg2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         msg2.setForeground(new java.awt.Color(0, 0, 102));
         bg.add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
 

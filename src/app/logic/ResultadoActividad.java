@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ *  Programa BrainUP
+ *  Clase ResultadoActividad, se encarga de almacenar los resultados de las actividades
+ *  Guarda la información de las actividades en la base de datos
+ * @author Valverde, Vinueza, Vintimilla
+ */
 public class ResultadoActividad {
 
     /*-------------------------------------------------------------
