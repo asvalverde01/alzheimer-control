@@ -27,13 +27,13 @@ public class ActividadesPanel extends javax.swing.JPanel {
         mostrando = usuario.getEtapa();
         etapaLabel.setText(etapa);
         switch (mostrando) {
-            case 1:
+            case 0:
                 // Muestra un panel en el panel contenido
                 ActividadesLevesPanel acLeves = new ActividadesLevesPanel(usuario);
                 showPanel(acLeves);
                 jButton4.setText("Mostrar actividades de la etapa Moderada");
                 break;
-            case 0:
+            case 1:
                 // Muestra un panel en el panel contenido
                 ActividadesModeradasPanel acModeradas = new ActividadesModeradasPanel(usuario);
                 jButton4.setText("Mostrar actividades de la etapa Leve");
@@ -158,20 +158,20 @@ public class ActividadesPanel extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        if (mostrando == 0) {
+        if (mostrando == 1) {
             // Muestra un panel en el panel contenido
             ActividadesLevesPanel acLeves = new ActividadesLevesPanel(usuario);
             showPanel(acLeves);
-            jButton4.setText("Mostrar actividades de la etapa Leve");
-            etapaLabel.setText("Moderada");
-            mostrando = 1;
+            jButton4.setText("Mostrar actividades de la etapa Moderada");
+            etapaLabel.setText("Leve");
+            mostrando = 0;
         } else {
             // Muestra un panel en el panel contenido
             ActividadesModeradasPanel acModeradas = new ActividadesModeradasPanel(usuario);
             showPanel(acModeradas);
-            jButton4.setText("Mostrar actividades de la etapa Moderada");
-            etapaLabel.setText("Leve");
-            mostrando = 0;
+            jButton4.setText("Mostrar actividades de la etapa Leve");
+            etapaLabel.setText("Moderada");
+            mostrando = 1;
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
