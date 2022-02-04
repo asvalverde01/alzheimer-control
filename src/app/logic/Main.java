@@ -11,9 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Programa BrainUP
- *  Clase Main. Se encarga de empezar el programa verificando si existe una base de datos
- *  Se encarga de las conexiones y administración de la base de datos
+ * Programa BrainUP SDK 17
+ *  Librería sqlite-jdbc-3.20.1.jar - Zulu 17
+ * 
+ * Clase Main. Se encarga de empezar el programa verificando si
+ * existe una base de datos Se encarga de las conexiones y administración de la
+ * base de datos
+ *
  * @author Valverde, Vinueza, Vintimilla
  */
 public class Main {
@@ -33,6 +37,7 @@ public class Main {
 
     /**
      * Inicializa el programa
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -82,8 +87,8 @@ public class Main {
     }
 
     /**
-     * Método que crea una base de datos.
-     * Crea la tabla usuario y actividad
+     * Método que crea una base de datos. Crea la tabla usuario y actividad
+     *
      * @return true si se ha podido crear a la base de datos
      */
     public static boolean crearBaseDatos() {
@@ -126,7 +131,8 @@ public class Main {
     }
 
     /**
-     *  Método que conecta el programa con la base de datos
+     * Método que conecta el programa con la base de datos
+     *
      * @return true si se ha podido conectar a la base de datos
      */
     public static boolean conectarBaseDatos() {
@@ -136,32 +142,8 @@ public class Main {
         } catch (HeadlessException | SQLException x) {
             JOptionPane.showMessageDialog(null, x.getMessage());
             return false;
-
         }
         return true;
-    }
-
-
-    /**
-     * Método que elimina toda la base de datos.
-     * Elimina el archivo en el cual se almacena toda la información
-     * @return true si se ha eliminado la base de datos
-     */
-    public static boolean eliminarDataBase() {
-        try {
-            // closes the database file
-            connect.close();
-            File myObj = new File("appdata.sqlite");
-            if (myObj.delete()) {
-                System.out.println("Deleted the file: " + myObj.getName());
-                return true;
-            } else {
-                System.out.println("Failed to delete the file.");
-            }
-        } catch (SQLException ex1) {
-            JOptionPane.showMessageDialog(null, ex1.getMessage());
-        }
-        return false;
     }
 
     /**
@@ -198,7 +180,6 @@ public class Main {
                 int segundos = rs.getInt("segundos");
                 int dia = rs.getInt("dia");
                 String mes = rs.getString("mes");
-                System.out.println("mes " + mes);
                 int anio = rs.getInt("anio");
                 //Crea un objeto de tipo Fecha
                 Fecha fecha = new Fecha(dia, 0, anio);
@@ -208,17 +189,16 @@ public class Main {
                 //Agrega el objeto a la lista
                 listaResultado.add(resultadoActividad);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         // regresa la lista de resultados con los valores de la búsqueda
         return listaResultado;
     }
-    
+
     /*-------------------------------------------------------------
     /Métodos  utsados con la clase ResultadoActividad
     /-------------------------------------------------------------*/
-
     /**
      * Registra el resultado de la actividad en la base de datos
      *
@@ -258,6 +238,53 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo que elimina el usuario de la base de datos
+     *
+     * @param cedula
+     * @return Boolean true si se elimino correctamente
+     */
+    public static boolean eliminarUsuarioDataBase(String cedula) {
+        try {
+            // Elimina el usuario
+            PreparedStatement st = Main.getConnect().prepareStatement("DELETE FROM usuario WHERE cedula = ?");
+            st.setString(1, cedula);
+            // Ejecuta la consulta SQL
+            st.executeUpdate();
+            // Elimina las actividades del usuario
+            st = Main.getConnect().prepareStatement("DELETE FROM actividad WHERE id = ?");
+            st.setString(1, cedula);
+            // Ejecuta la consulta SQL
+            st.executeUpdate();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Método que elimina toda la base de datos. Elimina el archivo en el cual
+     * se almacena toda la información
+     *
+     * @return true si se ha eliminado la base de datos
+     */
+    public static boolean eliminarDataBase() {
+        try {
+            // closes the database file
+            connect.close();
+            File myObj = new File("appdata.sqlite");
+            if (myObj.delete()) {
+                System.out.println("Deleted the file: " + myObj.getName());
+                return true;
+            } else {
+                System.out.println("Failed to delete the file.");
+            }
+        } catch (SQLException ex1) {
+            JOptionPane.showMessageDialog(null, ex1.getMessage());
+        }
+        return false;
+    }
 } // FIN CLASE  
 

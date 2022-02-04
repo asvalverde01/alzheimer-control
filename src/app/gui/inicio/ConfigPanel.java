@@ -3,13 +3,14 @@ package app.gui.inicio;
 import app.logic.Fecha;
 import app.logic.Main;
 import app.logic.Usuario;
+import java.awt.HeadlessException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class ConfigPanel extends javax.swing.JPanel {
 
-    private Fecha actual;
+    private final Fecha actual;
     private Usuario usuario = null;
     // Variables declaration - do not modify                     
     private javax.swing.JSpinner anioSpinner;
@@ -281,6 +282,8 @@ public class ConfigPanel extends javax.swing.JPanel {
             }
         } catch (NullPointerException e) {
             System.out.println("No se ingreso nada");
+        } catch (HeadlessException e) {
+            System.out.println("Error: " + e);
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
@@ -322,15 +325,30 @@ public class ConfigPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_modificarButtonActionPerformed
 
     private void borrarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarUsuarioButtonActionPerformed
-        int confirmado = JOptionPane.showConfirmDialog(null, "¿Borrar todos los datos del usuario?", "Borrar", JOptionPane.YES_NO_OPTION);
+        // Solicita que se ingrese nuevamente la cédula para continuar
+        String claveCedula;
+        try {
+            claveCedula = JOptionPane.showInputDialog(null, "Ingrese su cédula nuevamente", "Clave", JOptionPane.QUESTION_MESSAGE);
+            if (claveCedula.equals(usuario.getCedula())) {
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Borrar todos los datos personales?", "Borrar", JOptionPane.YES_NO_OPTION);
 
-        if (JOptionPane.OK_OPTION == confirmado) {
-            if (usuario.eliminarUsuarioDataBase()) {
-                JOptionPane.showMessageDialog(null, "Datos borrados correctamente", "Borrar Datos", JOptionPane.INFORMATION_MESSAGE);
-                System.exit(0);
+                if (JOptionPane.OK_OPTION == confirm) {
+                    if (Main.eliminarUsuarioDataBase(usuario.getCedula())) {
+                        JOptionPane.showMessageDialog(null, "Datos borrados correctamente", "Borrar Datos", JOptionPane.INFORMATION_MESSAGE);
+                        System.exit(0);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ha ocurrido algún error", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Ha ocurrido algún error", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Cédula incorrecta", "Cédula", JOptionPane.ERROR_MESSAGE);
             }
+        } catch (NullPointerException e) {
+            System.out.println("No se ingreso nada");
+        } catch (HeadlessException e) {
+            System.out.println("Error: " + e);
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
         }
     }//GEN-LAST:event_borrarUsuarioButtonActionPerformed
 

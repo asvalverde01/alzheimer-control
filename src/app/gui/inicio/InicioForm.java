@@ -21,7 +21,7 @@ public class InicioForm extends javax.swing.JFrame {
     }
 
     public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+        InicioForm.usuarios = usuarios;
     }
 
     /**
@@ -60,16 +60,17 @@ public class InicioForm extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mensaje1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        mensaje1.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
         mensaje1.setForeground(new java.awt.Color(0, 0, 0));
         mensaje1.setText("Iniciar Sesión");
-        jPanel1.add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 170, 40));
+        jPanel1.add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 210, 40));
 
         registrarButton.setBackground(new java.awt.Color(255, 51, 204));
-        registrarButton.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        registrarButton.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         registrarButton.setForeground(new java.awt.Color(255, 255, 255));
-        registrarButton.setText("REGISTRAR");
+        registrarButton.setText("Registrar nuevo");
         registrarButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        registrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarButtonActionPerformed(evt);
@@ -79,9 +80,10 @@ public class InicioForm extends javax.swing.JFrame {
 
         entrarButton.setBackground(new java.awt.Color(0, 204, 204));
         entrarButton.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        entrarButton.setForeground(new java.awt.Color(255, 255, 255));
+        entrarButton.setForeground(new java.awt.Color(0, 51, 153));
         entrarButton.setText("ENTRAR");
-        entrarButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        entrarButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        entrarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         entrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarButtonActionPerformed(evt);
@@ -93,15 +95,15 @@ public class InicioForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 340, 30));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Ingrese su número de cédula");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 30));
 
         cedulaTxt.setBackground(new java.awt.Color(51, 51, 51));
         cedulaTxt.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         cedulaTxt.setForeground(new java.awt.Color(255, 255, 255));
-        cedulaTxt.setBorder(null);
+        cedulaTxt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cedulaTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         cedulaTxt.setOpaque(true);
         cedulaTxt.setSelectedTextColor(new java.awt.Color(153, 153, 153));
@@ -233,6 +235,7 @@ public class InicioForm extends javax.swing.JFrame {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Cédula inválida. Ingrese solamente dígitos");
+            cedulaTxt.setText(" ");
             return false;
         }
         return false;

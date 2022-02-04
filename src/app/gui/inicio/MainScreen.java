@@ -39,7 +39,7 @@ public final class MainScreen extends javax.swing.JFrame {
      * @param usuario
      */
     public MainScreen(Usuario usuario) {
-        this.usuario = usuario;
+        MainScreen.usuario = usuario;
         initComponents();
 
         // Si la etapa es 2 entonces el boton actividadesButton y statsButton son deshabilitados

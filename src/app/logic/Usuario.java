@@ -25,6 +25,9 @@ public class Usuario {
     // Lista de ResultadoActividad (Almacena una lista con los resultados de las actividades realizadas por el usuario)
     private List<ResultadoActividad> listaResultado;
 
+    /*-------------------------------------------------------------
+    /Constructores de la clase Usuario
+    /-------------------------------------------------------------*/
     /**
      * Constructor por defecto de la clase Usuario
      */
@@ -48,18 +51,6 @@ public class Usuario {
         this.avatar = avatar;
         this.etapa = etapa;
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    /*-------------------------------------------------------------
-    /Constructor de la clase Usuario
-    /-------------------------------------------------------------*/
-    /**
-     * Método que agrega un resultado a la lista del Usuario
-     *
-     * @param listaResultado recibe una lista de los resultados de Actividades 
-     */
-    public void setListaResultado(List<ResultadoActividad> listaResultado) {
-        this.listaResultado = listaResultado;
     }
 
     /*-------------------------------------------------------------
@@ -208,6 +199,15 @@ public class Usuario {
         };
     }
 
+    /**
+     * Método que agrega un resultado a la lista del Usuario
+     *
+     * @param listaResultado recibe una lista de los resultados de Actividades
+     */
+    public void setListaResultado(List<ResultadoActividad> listaResultado) {
+        this.listaResultado = listaResultado;
+    }
+
 
     /*-------------------------------------------------------------
     /Métodos capa de negocio
@@ -264,7 +264,6 @@ public class Usuario {
                     int dia = Integer.parseInt(fecha[0]);
                     int mes = Integer.parseInt(fecha[1]);
                     int anio = Integer.parseInt(fecha[2]);
-                    System.out.println(dia + " " + mes + " " + anio);
                     // Hace los cambios en el SQL
                     st = Main.getConnect().prepareStatement("UPDATE usuario SET dianac = ?, mesnac = ?, anionac = ? WHERE cedula = ?");
                     st.setInt(1, dia);
@@ -365,32 +364,6 @@ public class Usuario {
             ex.printStackTrace();
         }
         return listaResultadoFiltro;
-    }
-
-    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Mover al Main
-    /**
-     * Metodo que elimina el usuario de la base de datos
-     *
-     * @return Boolean true si se elimino correctamente
-     */
-    public boolean eliminarUsuarioDataBase() {
-        try {
-            // Elimina el usuario
-            PreparedStatement st = Main.getConnect().prepareStatement("DELETE FROM usuario WHERE cedula = ?");
-            st.setString(1, cedula);
-            // Ejecuta la consulta SQL
-            st.executeUpdate();
-            // Elimina las actividades del usuario
-            st = Main.getConnect().prepareStatement("DELETE FROM actividad WHERE id = ?");
-            st.setString(1, cedula);
-            // Ejecuta la consulta SQL
-            st.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
     }
 
     /**

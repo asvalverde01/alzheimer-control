@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- *  Programa BrainUP
- *  Clase Fecha 
+ * Programa BrainUP Clase Fecha
+ *
  * @author Valverde, Vinueza, Vintimilla
  */
 public final class Fecha {
@@ -21,7 +21,6 @@ public final class Fecha {
     /*-------------------------------------------------------------
     /Constructores
     /-------------------------------------------------------------*/
-    
     /**
      * Constructor por defecto inicializa la fecha actual
      */
@@ -86,7 +85,6 @@ public final class Fecha {
      *
      * @return String mes
      */
-
     public String getMesString() {
         // array de meses
         String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
