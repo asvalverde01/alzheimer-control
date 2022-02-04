@@ -2,6 +2,7 @@ package app.gui.actividades;
 
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.ResultadoActividad;
 
 import java.applet.AudioClip;
@@ -44,7 +45,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
      *
      * @param orden2 Método get que obtiene una posición y retorna la respuesta
      * y posición
-     * @return 
+     * @return
      */
     public String getSonido(int orden2) {
         return respuestaSonido[orden2];
@@ -54,7 +55,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
      *
      * @param orden2 Método set que recibe una posición y separa la respuesta
      * del arreglo, retorna la respuesta
-     * @return 
+     * @return
      */
     public String[] setRespuestaSonido(int orden2) {
         String s1 = radioRS[orden2];
@@ -295,8 +296,9 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
         ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Reconocer sonido", calificacion, new Fecha(), "Moderada", sec[0]);
+        MainScreen.usuario.agregarResultadoLista(registro);
         // Invoca al metodo que registra los datos en la base de datos
-        registro.registrarDataBase();
+        Main.registrarDataBase(registro);
 
     }//GEN-LAST:event_finalizarActionPerformed
     AudioClip sonido;
@@ -377,7 +379,7 @@ public class ActividadReconocerSonido extends javax.swing.JFrame {
 
     private void opci5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opci5ActionPerformed
         //Si el botón es seleccionado obtiene la respuesta
-        
+
         selectSonido[orden2] = opci5.getLabel();
 
         opci2.setEnabled(false);//se inhabilitan el resto de opciones de respuesta

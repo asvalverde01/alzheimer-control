@@ -2,6 +2,7 @@ package app.gui.actividades;
 
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.ResultadoActividad;
 import java.awt.event.ActionEvent;
 import java.util.Random;
@@ -21,19 +22,20 @@ public class ActividadMemoria extends javax.swing.JFrame {
     private JButton[] boton = new JButton[2];
     private boolean compara = false;
     private int puntaje = 0;
-    
+
     /*-------------------------------------------------------------
     /Atributos del timer
     /-------------------------------------------------------------*/
     private Timer timer;
     private final int[] sec = {0};
+
     /**
      * Constructor que invoca al modificar cartas e inicia el timer
      */
     public ActividadMemoria() {
         initComponents();
         setCards();//Se invoca para que se ejecuta a penas comienza el programa
-        
+
         // Timer
         timer = new Timer(1000, (ActionEvent e) -> {
             sec[0]++;
@@ -41,6 +43,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
         // Inicia el timer
         timer.start();
     }
+
     /**
      * Método para ordenar aleatoriamente las cartas.
      */
@@ -59,11 +62,12 @@ public class ActividadMemoria extends javax.swing.JFrame {
         jButton8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[8] + ".jpg")));
         jButton9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/c" + numbers[9] + ".jpg")));
     }
-    
+
     /**
-     * Método para habilitar y deshabilitar botones
-     * verificar si ya se voltió una carta.
-     * @param btn 
+     * Método para habilitar y deshabilitar botones verificar si ya se voltió
+     * una carta.
+     *
+     * @param btn
      */
     private void activarBoton(JButton btn) {
 
@@ -82,6 +86,7 @@ public class ActividadMemoria extends javax.swing.JFrame {
             mostrarPuntaje();
         }
     }
+
     /**
      * Método para comparar las cartas volteadas
      */
@@ -97,10 +102,11 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
                 }
             }
-           //si son iguales las cartas, deja enfrente las imágenes.
+            //si son iguales las cartas, deja enfrente las imágenes.
             caraUp = false;
         }
     }
+
     /**
      * Método para mostrar el puntaje una vez encontrado todos los pares
      */
@@ -113,15 +119,18 @@ public class ActividadMemoria extends javax.swing.JFrame {
             // SQL insertar en la base de datos
             // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
             ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Memoria", puntaje, new Fecha(), "Leve", sec[0]);
+            MainScreen.usuario.agregarResultadoLista(registro);
             // Invoca al metodo que registra los datos en la base de datos
-            registro.registrarDataBase();
+            Main.registrarDataBase(registro);
         }
     }
+
     /**
      * Método que llena un arreglo aleatoriamente
-     * @return  
+     *
+     * @return
      */
-     private int[] getCardNumbers() {
+    private int[] getCardNumbers() {
         //Para que las cartas sean ordenadas aleatoriamente en el juego.
         //Necesitamos 5 pares, es decir, 10 cartas.
         int[] numbers = new int[10];
@@ -432,8 +441,10 @@ public class ActividadMemoria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * Eventos para verificar si ya se voltió la carta invocando a activar boton.
-     * @param evt 
+     * Eventos para verificar si ya se voltió la carta invocando a activar
+     * boton.
+     *
+     * @param evt
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         activarBoton(jButton1);
@@ -477,7 +488,8 @@ public class ActividadMemoria extends javax.swing.JFrame {
 
     /**
      * Eventos para ejecutar el metodo comparar
-     * @param evt 
+     *
+     * @param evt
      */
     private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
         compararCarta();

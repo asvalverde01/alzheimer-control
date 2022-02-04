@@ -2,10 +2,10 @@ package app.gui.actividades;
 
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.ResultadoActividad;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import app.logic.Usuario;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -44,8 +44,6 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
         imagen.setIcon(icono1);
     }
     Icon icono = new ImageIcon();
-    Usuario u = new Usuario();
-    int lol = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,9 +207,9 @@ public class ActividadIdentificarLetras extends javax.swing.JFrame {
                 // SQL insertar en la base de datos
                 // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
                 ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar Letras", calificacion, new Fecha(), "Moderada", sec[0]);
+                MainScreen.usuario.agregarResultadoLista(registro);
                 // Invoca al metodo que registra los datos en la base de datos
-                registro.registrarDataBase();
-                //ResultadoActividad resultado = new ResultadoActividad(atributos);
+                Main.registrarDataBase(registro);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Solo se permiten letras");

@@ -1,19 +1,18 @@
 package app.logic;
 
 import javax.swing.*;
-import java.awt.*;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Programa BrainUP
- *  Clase Usuario
+ * Programa BrainUP Clase Usuario
+ *
  * @author Valverde, Vinueza, Vintimilla
  */
 public class Usuario {
+
     /*-------------------------------------------------------------
     /Atributos de la clase Usuario :)
     /-------------------------------------------------------------*/
@@ -26,11 +25,6 @@ public class Usuario {
     // Lista de ResultadoActividad (Almacena una lista con los resultados de las actividades realizadas por el usuario)
     private List<ResultadoActividad> listaResultado;
 
-
-    /*-------------------------------------------------------------
-    /Constructor de la clase Usuario
-    /-------------------------------------------------------------*/
-
     /**
      * Constructor por defecto de la clase Usuario
      */
@@ -40,11 +34,11 @@ public class Usuario {
     /**
      * Constructor de la clase Usuario con parametros
      *
-     * @param cedula          String
-     * @param nombre          String
-     * @param apellido        String
-     * @param avatar          int
-     * @param etapa           int
+     * @param cedula String
+     * @param nombre String
+     * @param apellido String
+     * @param avatar int
+     * @param etapa int
      * @param fechaNacimiento Fecha
      */
     public Usuario(String cedula, String nombre, String apellido, int avatar, int etapa, Fecha fechaNacimiento) {
@@ -55,10 +49,22 @@ public class Usuario {
         this.etapa = etapa;
         this.fechaNacimiento = fechaNacimiento;
     }
-/*-------------------------------------------------------------
+
+    /*-------------------------------------------------------------
+    /Constructor de la clase Usuario
+    /-------------------------------------------------------------*/
+    /**
+     * Método que agrega un resultado a la lista del Usuario
+     *
+     * @param listaResultado recibe una lista de los resultados de Actividades 
+     */
+    public void setListaResultado(List<ResultadoActividad> listaResultado) {
+        this.listaResultado = listaResultado;
+    }
+
+    /*-------------------------------------------------------------
     /Métodos get y set de la clase Usuario
     /-------------------------------------------------------------*/
-
     /**
      * Regresa el nombre del usuario
      *
@@ -192,127 +198,24 @@ public class Usuario {
      * @return String etapa
      */
     public String getEtapaUsuario() {
-        switch (etapa) {
-            case 1:
-                return "Moderada";
-            case 2:
-                return "Avanzada";
-            default:
-                return "Leve";
-        }
+        return switch (etapa) {
+            case 1 ->
+                "Moderada";
+            case 2 ->
+                "Avanzada";
+            default ->
+                "Leve";
+        };
     }
 
 
     /*-------------------------------------------------------------
     /Métodos capa de negocio
     /-------------------------------------------------------------*/
-
-    /**
-     * Recibe el tipo de argumento por el cual se quieren filtrar las busquedas
-     * de resultados y regresa una lista con Resutados de Actividades
-     *
-     * @param tipo String tipo de actividad
-     * @return listaResultado
-     */
-    public List<ResultadoActividad> buscarResultadoActividad(String tipo) {
-        listaResultado = new ArrayList<>();
-
-        try {
-            // Objeto de una orden SQL
-            PreparedStatement st = null;
-            // Segun el tipo seleccionado se busca en la base de datos
-            try {
-                switch (tipo) {
-                    case "Todos":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ?");
-                        st.setString(1, cedula);
-                        break;
-                    case "Leve":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND etapa = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Leve");
-                        break;
-                    case "Moderada":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND etapa = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Moderada");
-                        break;
-                    case "Hoy":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND dia = ?");
-                        st.setString(1, cedula);
-                        Fecha fechaHoy = new Fecha();
-                        st.setInt(2, fechaHoy.getDia());
-                        break;
-                    case "Identificar Letras":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Identificar Letras");
-                        break;
-                    case "Reconocer sonido":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Reconocer sonido");
-                        break;
-                    case "Identificar colores":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Identificar colores");
-                        break;
-                    case "Suma Resta":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Suma Resta");
-                        break;
-                    case "Comprensión":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Comprensión");
-                        break;
-                    case "Memoria":
-                        st = Main.getConnect().prepareStatement("SELECT * FROM actividad WHERE id = ? AND nombre = ?");
-                        st.setString(1, cedula);
-                        st.setString(2, "Memoria");
-                        break;
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
-            // Ejecuta la orden y la guarda en modo de tabla
-            ResultSet rs = st.executeQuery();
-
-            // Mientras hayan filas en la tabla rs
-            while (rs.next()) {
-                String cedulaRe = rs.getString("id");
-                String nombreRe = rs.getString("nombre");
-                int aciertos = rs.getInt("aciertos");
-                String etapaRe = rs.getString("etapa");
-                int segundos = rs.getInt("segundos");
-                int dia = rs.getInt("dia");
-                int mes = rs.getInt("mes");
-                int anio = rs.getInt("anio");
-                //Crea un objeto de tipo Fecha
-                Fecha fecha = new Fecha(dia, mes, anio);
-                //Crea un objeto de tipo ResultadoActividad
-                ResultadoActividad resultadoActividad = new ResultadoActividad(cedulaRe, nombreRe, aciertos, fecha, etapaRe, segundos);
-                //Agrega el objeto a la lista
-                listaResultado.add(resultadoActividad);
-            }
-        } catch (HeadlessException | SQLException x) {
-            JOptionPane.showMessageDialog(null, x.getMessage());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        // regresa la lista de resultados con los valores de la busqueda
-        return listaResultado;
-    }
-
     /**
      * Metodo que permite modificar un atributo del usuario
      *
-     * @param tipo  String tipo de atributo
+     * @param tipo String tipo de atributo
      * @param nuevo String nuevo valor a cambiar
      * @return Boolean true si se modifico correctamente false si no
      */
@@ -321,33 +224,30 @@ public class Usuario {
         try {
             PreparedStatement st = null;
             switch (tipo) {
-                case "Nombre":
+                case "Nombre" -> {
                     st = Main.getConnect().prepareStatement("UPDATE usuario SET nombre = ? WHERE cedula = ?");
                     st.setString(1, nuevo);
                     st.setString(2, cedula);
                     nombre = nuevo;
-                    break;
-                case "Apellido":
+                }
+                case "Apellido" -> {
                     st = Main.getConnect().prepareStatement("UPDATE usuario SET apellido = ? WHERE cedula = ?");
                     st.setString(1, nuevo);
                     st.setString(2, cedula);
                     apellido = nuevo;
-                    break;
-                case "Etapa":
+                }
+                case "Etapa" -> {
                     // Verifica que el nuevo valor sea valido "Leve" , "Moderada" o "Avanzada"
                     if (nuevo.equals("Leve") || nuevo.equals("Moderada") || nuevo.equals("Avanzada")) {
                         int nuevoValor;
-                        switch (nuevo) {
-                            case "Moderada":
-                                nuevoValor = 1;
-                                break;
-                            case "Avanzada":
-                                nuevoValor = 2;
-                                break;
-                            default:
-                                nuevoValor = 0;
-                                break;
-                        }
+                        nuevoValor = switch (nuevo) {
+                            case "Moderada" ->
+                                1;
+                            case "Avanzada" ->
+                                2;
+                            default ->
+                                0;
+                        };
                         st = Main.getConnect().prepareStatement("UPDATE usuario SET etapa = ? WHERE cedula = ?");
                         st.setInt(1, nuevoValor);
                         st.setString(2, cedula);
@@ -356,8 +256,8 @@ public class Usuario {
                         JOptionPane.showMessageDialog(null, "Ingrese solamente \"Leve\" - \"Moderada\" - \"Avanzada\"");
                         return false;
                     }
-                    break;
-                case "fecha":
+                }
+                case "fecha" -> {
                     //Separa el string si encuentra "/"
                     String[] fecha = nuevo.split("/");
                     // Asigna los valores de dia, mes y anio
@@ -374,6 +274,7 @@ public class Usuario {
                     this.fechaNacimiento.setDia(dia);
                     this.fechaNacimiento.setMes(mes);
                     this.fechaNacimiento.setAnio(anio);
+                }
             }
             // Ejecuta la consulta
             try {
@@ -392,6 +293,81 @@ public class Usuario {
         return true;
     }
 
+    /**
+     * Metodo que permite agregar un resultado a la lista de resultados de
+     * actividad del Usuario
+     *
+     * @param resultado Resultado a agregar
+     */
+    public void agregarResultadoLista(ResultadoActividad resultado) {
+        // Agrega a la listaResultado el resultado de la actividad
+        listaResultado.add(resultado);
+    }
+
+    /**
+     * Recibe el tipo de argumento por el cual se quieren filtrar las búsquedas
+     * de resultados y regresa una lista con Resultados de Actividades
+     *
+     * @param filtro String filtro de actividades a buscar
+     * @return listaResultadoFiltro
+     */
+    public List<ResultadoActividad> buscarResultadoActividad(String filtro) {
+        List<ResultadoActividad> listaResultadoFiltro = new ArrayList<>();
+
+        try {
+            switch (filtro) {
+                case "Todos" -> {
+                    // Regresa la lista de resultados de actividades
+                    return listaResultado;
+                }
+
+                case "Leve", "Moderada" -> {
+                    // Recorre la lista de resultados de actividades
+                    for (ResultadoActividad resultado : listaResultado) {
+                        // Si el resultado de la actividad es del tipo filtro
+                        if (resultado.getEtapa().equals(filtro)) {
+                            // Agrega el resultado a la lista de resultados filtrados
+                            listaResultadoFiltro.add(resultado);
+                        }
+                    }
+                    // Regresa la lista de resultados filtrados
+                    return listaResultadoFiltro;
+                }
+
+                case "Hoy" -> {
+                    // Recorre la lista de resultados de actividades
+                    for (ResultadoActividad resultado : listaResultado) {
+                        // Si el resultado de la actividad es del tipo filtro
+                        if (resultado.getFecha().getDia() == (new Fecha()).getDia()) {
+                            // Agrega el resultado a la lista de resultados filtrados
+                            listaResultadoFiltro.add(resultado);
+                        }
+                    }
+                    return listaResultadoFiltro;
+                }
+
+                case "Identificar Letras", "Reconocer sonido", "Identificar colores", "Suma Resta", "Comprensión", "Memoria" -> {
+                    // Recorre la lista de resultados de actividades
+                    for (ResultadoActividad resultado : listaResultado) {
+                        // Si el resultado de la actividad es del tipo filtro
+                        if (resultado.getNombre().equals(filtro)) {
+                            // Agrega el resultado a la lista de resultados filtrados
+                            listaResultadoFiltro.add(resultado);
+                        }
+                    }
+                    // Regresa la lista de resultados filtrados
+                    return listaResultadoFiltro;
+                }
+            }
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return listaResultadoFiltro;
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Mover al Main
     /**
      * Metodo que elimina el usuario de la base de datos
      *

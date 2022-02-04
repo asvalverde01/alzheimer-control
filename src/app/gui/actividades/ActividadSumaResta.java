@@ -2,6 +2,7 @@ package app.gui.actividades;
 
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.ResultadoActividad;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
@@ -194,8 +195,9 @@ public class ActividadSumaResta extends javax.swing.JFrame {
                 // SQL insertar en la base de datos
                 // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
                 ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Suma Resta", puntaje, new Fecha(), "Leve", sec[0]);
+                MainScreen.usuario.agregarResultadoLista(registro);
                 // Invoca al metodo que registra los datos en la base de datos
-                registro.registrarDataBase();
+                Main.registrarDataBase(registro);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese un número");

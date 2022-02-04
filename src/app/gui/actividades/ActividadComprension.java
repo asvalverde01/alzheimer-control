@@ -2,6 +2,7 @@ package app.gui.actividades;
 
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.ResultadoActividad;
 import javax.swing.JOptionPane;
 
@@ -196,11 +197,9 @@ public class ActividadComprension extends javax.swing.JFrame {
         }
         return a;
     }
-    
-    
+
     /*
     Arrelo de cadena con los tres cuentos */
-
     private final String cuento[] = {
         "\n\tLos lápcies de colores"
         + "\n\nLos lápices de colores duermen acomodados. "
@@ -243,7 +242,7 @@ public class ActividadComprension extends javax.swing.JFrame {
 
     /*
     Recibimos una posición y retornamos la posición del cuento
-    */
+     */
     public String getCuento(int parte) {
         return cuento[parte];
     }
@@ -714,7 +713,7 @@ public class ActividadComprension extends javax.swing.JFrame {
                 calificacion++;
 
             }
-        
+
         }
 
         calificacion = calificacion * 2 / 3;//Promedia la calificación
@@ -724,9 +723,9 @@ public class ActividadComprension extends javax.swing.JFrame {
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, float puntuacion, Fecha fecha, String etapa, int segundos)
         ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Comprensión", calificacion, new Fecha(), "Leve", sec[0]);
+        MainScreen.usuario.agregarResultadoLista(registro);
         // Invoca al metodo que registra los datos en la base de datos
-        registro.registrarDataBase();
-        //ResultadoActividad resultado = new ResultadoActividad(atributos);
+        Main.registrarDataBase(registro);
 
     }//GEN-LAST:event_TerminarActionPerformed
 

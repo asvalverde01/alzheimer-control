@@ -1,9 +1,5 @@
 package app.logic;
 
-import javax.swing.*;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 /**
  *  Programa BrainUP
  *  Clase ResultadoActividad, se encarga de almacenar los resultados de las actividades
@@ -16,11 +12,11 @@ public class ResultadoActividad {
     /Atributos de la clase ResultadoActividad 
     /-------------------------------------------------------------*/
     private final String id;
-    private String nombre;
-    private int aciertos;
-    private Fecha fecha;
-    private String etapa;
-    private int segundos;
+    private final String nombre;
+    private final int aciertos;
+    private final Fecha fecha;
+    private final String etapa;
+    private final int segundos;
 
 
     /*-------------------------------------------------------------
@@ -49,6 +45,10 @@ public class ResultadoActividad {
     /*-------------------------------------------------------------
     /Métodos get  de la clase ResultadoActividad
     /-------------------------------------------------------------*/
+
+    public String getId() {
+        return id;
+    }
 
     /**
      * Regresa el nombre de la actividad
@@ -95,44 +95,5 @@ public class ResultadoActividad {
         return segundos;
     }
 
-    /*-------------------------------------------------------------
-    /Métodos  de la clase ResultadoActividad
-    /-------------------------------------------------------------*/
-
-    /**
-     * Registra el resultado de la actividad en la base de datos
-     *
-     */
-    public void registrarDataBase() {
-        // Guarda los atributos en la tabla actividad en la base de datos
-        boolean conectado = Main.isConectado();
-        if (conectado) {
-            // En el la tabla actividad de la base de datos registra los datos
-            try {
-                // Fecha en la cual se realiza la actividad
-                int dia = fecha.getDia();
-                String mes = fecha.getMesString();
-                int anio = fecha.getAnio();
-
-                // Orden SQL para guardar los datos
-                String SQL = "INSERT INTO actividad (id, nombre, aciertos, etapa, segundos, dia, mes, anio) VALUES ('" + id + "','" + nombre + "', '" + aciertos + "', '" + etapa + "', '" + segundos + "' , '" + dia + "', '" + mes + "', '" + anio + "')";
-                // Prepara el objeto de orden SQL
-                PreparedStatement st = Main.getConnect().prepareStatement(SQL);
-                // Ejecuta la orden SQL
-                st.executeUpdate();
-                // regresa true si se registro correctamente
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Error, intente nuevamente");
-                // Imprime el error en consola
-                ex.printStackTrace();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Error, intente nuevamente");
-                // Imprime el error en consola
-                ex.printStackTrace();
-            }
-        } else {
-            // Si no se conecta a la base de datos
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");
-        }
-    }
+    
 }

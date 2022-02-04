@@ -380,7 +380,7 @@ public class ConfigPanel extends javax.swing.JPanel {
         try {
             if (!(Main.isConectado())) {
                 estadoSQL.setText("desconectado");
-                estadoSQL.setForeground(new java.awt.Color(255, 51, 51));
+                estadoSQL.setForeground(new java.awt.Color(80, 41, 41));
             } else {
                 estadoSQL.setText("conectado");
                 estadoSQL.setForeground(new java.awt.Color(0, 153, 0));

@@ -2,6 +2,7 @@ package app.gui.inicio;
 
 import app.gui.recomendaciones.RecomendacionesPanel;
 import app.gui.actividades.ActividadesPanel;
+import app.logic.Main;
 import app.logic.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -10,15 +11,15 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public final class MainScreen extends javax.swing.JFrame {
 
-    private Usuario usuario;
+    public static Usuario usuario;
     public static String userID;
     // Paneles
-    app.gui.inicio.InicioPanel pInicio = null;
-    ActividadesPanel pActividades = null;
-    RecomendacionesPanel pRecomendaciones = null;
-    ResultadosPanel pResultados = null;
-    ConfigPanel pConfig = null;
-    AyudaPanel pAyuda = null;
+    private app.gui.inicio.InicioPanel pInicio = null;
+    private ActividadesPanel pActividades = null;
+    private RecomendacionesPanel pRecomendaciones = null;
+    private ResultadosPanel pResultados = null;
+    private ConfigPanel pConfig = null;
+    private AyudaPanel pAyuda = null;
 
     private MainScreen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -54,6 +55,9 @@ public final class MainScreen extends javax.swing.JFrame {
         this.setVisible(true);
         showPanel(pInicio);
         MainScreen.userID = usuario.getCedula();
+
+        // Obtiene la lista de Resultados de actividades y la asigna al usuario
+        usuario.setListaResultado(Main.obtenerResultadoActividadDataBase(usuario.getCedula()));
     }
 
     /**

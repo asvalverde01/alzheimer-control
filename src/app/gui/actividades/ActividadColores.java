@@ -2,6 +2,7 @@ package app.gui.actividades;
 
 import app.gui.inicio.MainScreen;
 import app.logic.Fecha;
+import app.logic.Main;
 import app.logic.ResultadoActividad;
 
 import java.awt.Color;
@@ -451,8 +452,9 @@ public class ActividadColores extends javax.swing.JFrame {
         // SQL insertar en la base de datos
         // Crea un registro enviando (String cedula, String nombre, int aciertos, Fecha fecha, String etapa, int segundos)
         ResultadoActividad registro = new ResultadoActividad(MainScreen.userID, "Identificar colores", calificacion, new Fecha(), "Moderada", sec[0]);
+        MainScreen.usuario.agregarResultadoLista(registro);
         // Invoca al metodo que registra los datos en la base de datos
-        registro.registrarDataBase();
+        Main.registrarDataBase(registro);
     }//GEN-LAST:event_finalizarActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
