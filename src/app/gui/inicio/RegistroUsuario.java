@@ -446,7 +446,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
             // Crea un usuario usando el constructor por parametros
             Usuario usuarioNuevo = new Usuario(cedula, nombre, apellido, avatar, 0, nacimiento);
             // Crea un formulario para seleccionar la Etapa de la enfermedad
-            SeleccionEtapa etapa = new SeleccionEtapa(usuarioNuevo);
+            EtapaSeleccion etapa = new EtapaSeleccion(usuarioNuevo);
             // Muestra el formulario
             etapa.setVisible(true);
             etapa.setLocationRelativeTo(null);

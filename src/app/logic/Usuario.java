@@ -208,6 +208,79 @@ public class Usuario {
         this.listaResultado = listaResultado;
     }
 
+    /**
+     * Metodo que permite agregar un resultado a la lista de resultados de
+     * actividad del Usuario
+     *
+     * @param resultado Resultado a agregar
+     */
+    public void agregarResultadoLista(ResultadoActividad resultado) {
+        // Agrega a la listaResultado el resultado de la actividad
+        listaResultado.add(resultado);
+    }
+
+    /**
+     * Recibe el tipo de argumento por el cual se quieren filtrar las búsquedas
+     * de resultados y regresa una lista con Resultados de Actividades
+     *
+     * @param filtro String filtro de actividades a buscar
+     * @return listaResultadoFiltro
+     */
+    public List<ResultadoActividad> buscarResultadoActividad(String filtro) {
+        List<ResultadoActividad> listaResultadoFiltro = new ArrayList<>();
+
+        try {
+            switch (filtro) {
+                case "Todos" -> {
+                    // Regresa la lista de resultados de actividades
+                    return listaResultado;
+                }
+
+                case "Leve", "Moderada" -> {
+                    // Recorre la lista de resultados de actividades
+                    for (ResultadoActividad resultado : listaResultado) {
+                        // Si el resultado de la actividad es del tipo filtro
+                        if (resultado.getEtapa().equals(filtro)) {
+                            // Agrega el resultado a la lista de resultados filtrados
+                            listaResultadoFiltro.add(resultado);
+                        }
+                    }
+                    // Regresa la lista de resultados filtrados
+                    return listaResultadoFiltro;
+                }
+
+                case "Hoy" -> {
+                    // Recorre la lista de resultados de actividades
+                    for (ResultadoActividad resultado : listaResultado) {
+                        // Si el resultado de la actividad es del tipo filtro
+                        if (resultado.getFecha().getDia() == (new Fecha()).getDia()) {
+                            // Agrega el resultado a la lista de resultados filtrados
+                            listaResultadoFiltro.add(resultado);
+                        }
+                    }
+                    return listaResultadoFiltro;
+                }
+
+                case "Identificar Letras", "Reconocer sonido", "Identificar colores", "Suma Resta", "Comprensión", "Memoria" -> {
+                    // Recorre la lista de resultados de actividades
+                    for (ResultadoActividad resultado : listaResultado) {
+                        // Si el resultado de la actividad es del tipo filtro
+                        if (resultado.getNombre().equals(filtro)) {
+                            // Agrega el resultado a la lista de resultados filtrados
+                            listaResultadoFiltro.add(resultado);
+                        }
+                    }
+                    // Regresa la lista de resultados filtrados
+                    return listaResultadoFiltro;
+                }
+            }
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return listaResultadoFiltro;
+    }
 
     /*-------------------------------------------------------------
     /Métodos capa de negocio
@@ -290,80 +363,6 @@ public class Usuario {
             ex.printStackTrace();
         }
         return true;
-    }
-
-    /**
-     * Metodo que permite agregar un resultado a la lista de resultados de
-     * actividad del Usuario
-     *
-     * @param resultado Resultado a agregar
-     */
-    public void agregarResultadoLista(ResultadoActividad resultado) {
-        // Agrega a la listaResultado el resultado de la actividad
-        listaResultado.add(resultado);
-    }
-
-    /**
-     * Recibe el tipo de argumento por el cual se quieren filtrar las búsquedas
-     * de resultados y regresa una lista con Resultados de Actividades
-     *
-     * @param filtro String filtro de actividades a buscar
-     * @return listaResultadoFiltro
-     */
-    public List<ResultadoActividad> buscarResultadoActividad(String filtro) {
-        List<ResultadoActividad> listaResultadoFiltro = new ArrayList<>();
-
-        try {
-            switch (filtro) {
-                case "Todos" -> {
-                    // Regresa la lista de resultados de actividades
-                    return listaResultado;
-                }
-
-                case "Leve", "Moderada" -> {
-                    // Recorre la lista de resultados de actividades
-                    for (ResultadoActividad resultado : listaResultado) {
-                        // Si el resultado de la actividad es del tipo filtro
-                        if (resultado.getEtapa().equals(filtro)) {
-                            // Agrega el resultado a la lista de resultados filtrados
-                            listaResultadoFiltro.add(resultado);
-                        }
-                    }
-                    // Regresa la lista de resultados filtrados
-                    return listaResultadoFiltro;
-                }
-
-                case "Hoy" -> {
-                    // Recorre la lista de resultados de actividades
-                    for (ResultadoActividad resultado : listaResultado) {
-                        // Si el resultado de la actividad es del tipo filtro
-                        if (resultado.getFecha().getDia() == (new Fecha()).getDia()) {
-                            // Agrega el resultado a la lista de resultados filtrados
-                            listaResultadoFiltro.add(resultado);
-                        }
-                    }
-                    return listaResultadoFiltro;
-                }
-
-                case "Identificar Letras", "Reconocer sonido", "Identificar colores", "Suma Resta", "Comprensión", "Memoria" -> {
-                    // Recorre la lista de resultados de actividades
-                    for (ResultadoActividad resultado : listaResultado) {
-                        // Si el resultado de la actividad es del tipo filtro
-                        if (resultado.getNombre().equals(filtro)) {
-                            // Agrega el resultado a la lista de resultados filtrados
-                            listaResultadoFiltro.add(resultado);
-                        }
-                    }
-                    // Regresa la lista de resultados filtrados
-                    return listaResultadoFiltro;
-                }
-            }
-        } catch (NullPointerException npe) {
-            npe.printStackTrace();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return listaResultadoFiltro;
     }
 
     /**
